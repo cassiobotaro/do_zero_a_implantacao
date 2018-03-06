@@ -1,4 +1,4 @@
-# Do zero ao deploy
+# :rocket: Do zero ao deploy
 
 <p align="center">
   <img style="float: right;" src="python_rocket.png" alt="Python in a rocket"/>
