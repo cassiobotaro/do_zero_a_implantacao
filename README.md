@@ -12,7 +12,9 @@ Curso voltado a quem está começando, para conhecer as ferramentas e técnicas 
 
 Está previsto para este curso o estudo e desenvolvimento de uma aplicação utilizando-se da técnica do tdd, que é um desenvolvimento guiado por testes(não se preocupe se não está familiarizado com o termo), assim como criação de um ambiente de desenvolvimento automatizado utilizando integração contínua e deploy contínuo.
 
-Existem alguns tópicos opcionais como docker, mas são apenas material complementar.
+Assustado com tantos termos técnicos? Não se preocupe, você vai ver que as coisas são mais simples do que se parecem.
+
+Existem alguns tópicos opcionais como docker porém são apenas material complementar.
 
 ## Requisitos
 
@@ -25,7 +27,7 @@ Serão xx vagas, preenchidas por ordem de inscrição, com prioridade para mulhe
 
 Novidades em breve!
 
-## Sumário
+## Sumário (em construção! :warning:)
 
 [Passo 0: Inicializando um projeto](passo00.md)
 
