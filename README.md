@@ -31,21 +31,33 @@ Novidades em breve!
 
 [Passo 0: Inicializando um projeto](passo00.md)
 
-[Passo 1: Primeiros passos com python](passo01.md)
+[Passo 1: Primeiros passos com python](passo01.md) 
 
-[Passo 2: Utilizando o pipenv para instalar dependências](passo02.md)
+-> instalação do python no windows
+
+[Passo 2: Utilizando o pipenv para instalar dependências](passo02.md) 
+
+-> pode complicar no windows
+
+-> explicação heroku (instalação)
+
+Nota mental: talvez fique mais fácil um capítulo sobre como chef de cozinha prepara seu ambiente.
+
+Nota mental: adicionar explicações e referências a todos os termos técnicos.
 
 [Passo 3: Desenhando a aplicação](passo03.md)
 
-[Passo 4: Definindo o modelo](passo04.md)
-
 [Passo 5: Desenvolvimento guiado por testes](passo05.md)
-
-[Passo 6: Criando uma tarefa](passo06.md)
 
 [Bonus 0: Integração contínua](bonus00.md)
 
+-> colocando a aplicação no ar
+
+[Passo 6: Criando uma tarefa](passo06.md)
+
 [Passo 7: Listando tarefas](passo07.md)
+
+-> colocar um aviso sobre opcionalidade daqui pra frente e como a pessoa deve tentar fazer os próximos passos
 
 [Passo 8: Removendo tarefas](passo08.md)
 
