@@ -27,7 +27,7 @@ Serão xx vagas, preenchidas por ordem de inscrição, com prioridade para mulhe
 
 Novidades em breve!
 
-## Sumário (em construção! :warning:)
+## Sumário (:construction: em construção!)
 
 [Passo 0: Inicializando um projeto](passo00.md)
 
