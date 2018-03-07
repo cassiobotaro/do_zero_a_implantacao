@@ -1,7 +1,7 @@
 # :rocket: Do zero ao deploy
 
 <p align="center">
-  <img style="float: right;" src="python_rocket.png" alt="Python in a rocket"/>
+  <img style="float: right;" src="/imgs/python_rocket.png" alt="Python in a rocket"/>
 </p>
 
 Da criação de uma aplicação utilizando o TDD(Test Driven Development) a uma introdução a um ambiente profissional utilizando integração contínua e deploy contínuo.
@@ -29,44 +29,74 @@ Novidades em breve!
 
 ## Sumário (:construction: em construção!)
 
-[Passo 0: Inicializando um projeto](passo00.md)
+[Passo 0: Planejando o que será desenvolvido](passo00.md)
 
-[Passo 1: Primeiros passos com python](passo01.md) 
+[Passo 1: Escolhendo as melhores ferramentas](passo01.md)
 
--> instalação do python no windows
+capítulo sobre como chef de cozinha prepara seu ambiente.
 
-[Passo 2: Utilizando o pipenv para instalar dependências](passo02.md) 
+- flask
+- pipenv
+- httpie
+- pytest
+- python
+- git
+- heroku (?)
 
 -> pode complicar no windows
 
 -> explicação heroku (instalação)
 
-Nota mental: talvez fique mais fácil um capítulo sobre como chef de cozinha prepara seu ambiente.
-
 Nota mental: adicionar explicações e referências a todos os termos técnicos.
 
-[Passo 3: Desenhando a aplicação](passo03.md)
+[Passo 3: Um pouco sobre web](passo02.md)
 
-[Passo 5: Desenvolvimento guiado por testes](passo05.md)
+-> código de status
+-> verbos http
+-> rest
+-> request, response, recursos
+
+[Passo 4: Primeiros passos com python](passo04.md)
+
+-> instalação do python no windows
+-> Algumas coisas importantes como identação
+Nota mental: foco não é ensinar python
+
+
+[Passo 5: Vamos escrever código!](passo05.md)
+
+-> iniciar projeto utilizando controle de versão git e github(explicar os dois)
+
+
+[Passo 6: Hello Flask](passo06.md)
+
+hello word guiado por teste rodando testes localmente
+- listar tarefas ??
 
 [Bonus 0: Integração contínua](bonus00.md)
 
--> colocando a aplicação no ar
+-> rodar testes automatizados com travis
 
-[Passo 6: Criando uma tarefa](passo06.md)
+[Passo 7: Mandando um foguete pro espaço](passo07.md)
 
-[Passo 7: Listando tarefas](passo07.md)
+-> colocar aplicação no ar
+
+[Passo 8: Criando uma tarefa](passo08.md)
+
+[Passo 9: Listando tarefas](passo09.md)
 
 -> colocar um aviso sobre opcionalidade daqui pra frente e como a pessoa deve tentar fazer os próximos passos
+-> pular para 13 se quiser/ não tiver tempo
 
-[Passo 8: Removendo tarefas](passo08.md)
+[Passo 10: Removendo tarefas](passo10.md)
 
-[Passo 9: Detalhando tarefas](passo09.md)
+[Passo 11: Detalhando tarefas](passo11.md)
 
-[Passo 10: Entregando tarefas](passo10.md)
+[Passo 12: Entregando tarefas](passo12.md)
 
-[Passo 11: Colocando a aplicação no ar](passo11.md)
+[Passo 13: Colocando a nova aplicação no ar](passo11.md)
 
-[Bonus 1: Containerizando sua aplicação](bonus01.md)
+[Bonus 1: Deploy contínuo](bonus01.md)
 
-[Bonus 2: Deploy contínuo](bonus02.md)
+[Bonus 2: Containerizando sua aplicação](bonus02.md)
+
