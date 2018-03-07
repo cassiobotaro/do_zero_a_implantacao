@@ -29,4 +29,4 @@ Como usuário devo ser capaz de:
 
 O sistema deve apresentar testes.
 
-:fearful: E agora, o que fazer? Por onde começo? Vamos [escolher nossas ferramentas](passo01.md).
+:fearful: E agora, o que fazer? Por onde começo? Vamos [escolher nossas ferramentas](ferramentas.md).

@@ -31,7 +31,7 @@ Novidades em breve!
 
 [:thought_balloon: Planejando o que será desenvolvido](planejando.md)
 
-[Passo 1: Escolhendo as melhores ferramentas](passo01.md)
+[:hammer: Escolhendo as melhores ferramentas](ferramentas.md)
 
 capítulo sobre como chef de cozinha prepara seu ambiente.
 
