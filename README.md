@@ -29,7 +29,7 @@ Novidades em breve!
 
 ## Sumário (:construction: em construção!)
 
-[Passo 0: :thought_balloon: Planejando o que será desenvolvido](passo00.md)
+[:thought_balloon: Planejando o que será desenvolvido](planejando.md)
 
 [Passo 1: Escolhendo as melhores ferramentas](passo01.md)
 
