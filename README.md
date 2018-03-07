@@ -1,7 +1,7 @@
 # :rocket: Do zero ao deploy
 
 <p align="center">
-  <img style="float: right;" src="/imgs/python_rocket.png" alt="Python in a rocket"/>
+  <img style="float: right;" src="/imgs/python_rocket.png" alt="cobra em um foguete"/>
 </p>
 
 Da criação de uma aplicação utilizando o TDD(Test Driven Development) a uma introdução a um ambiente profissional utilizando integração contínua e deploy contínuo.
@@ -29,7 +29,7 @@ Novidades em breve!
 
 ## Sumário (:construction: em construção!)
 
-[Passo 0: Planejando o que será desenvolvido](passo00.md)
+[Passo 0: :thought_balloon: Planejando o que será desenvolvido](passo00.md)
 
 [Passo 1: Escolhendo as melhores ferramentas](passo01.md)
 

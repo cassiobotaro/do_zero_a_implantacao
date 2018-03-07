@@ -1,6 +1,8 @@
-# Iniciando um projeto
+# :thought_balloon: Planejando o que será desenvolvido
 
-![lista de tarefas](imgs/todolist.png "Lista de tarefas")
+<p align="center">
+  <img style="float: right;" src="/imgs/todolist.png" alt="Lista de tarefas"/>
+</p>
 
 ## Definindo o que iremos desenvolver
 
