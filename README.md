@@ -25,78 +25,38 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 
 Serão xx vagas, preenchidas por ordem de inscrição, com prioridade para mulheres(pyladies :hearts:).
 
-Novidades em breve!
+Datas e como se inscrever, em breve!!
 
-## Sumário (:construction: em construção!)
+## Sumário
 
 [:thought_balloon: Planejando o que será desenvolvido](planejando.md)
 
 [:hammer: Escolhendo as melhores ferramentas](ferramentas.md)
 
-capítulo sobre como chef de cozinha prepara seu ambiente.
+[:earth_americas: Um pouco sobre a web](web.md)
 
-- flask
-- pipenv
-- httpie
-- pytest
-- python
-- git
-- heroku (?)
+[:snake: Primeiros passos com python](python.md)
 
--> pode complicar no windows
+[:computer: Vamos escrever código!](codigo.md)
 
--> explicação heroku (instalação)
+[:dog: Hello Flask](hello_flask.md)
 
-Nota mental: adicionar explicações e referências a todos os termos técnicos.
+[:heavy_check_mark: Integração contínua](integracao.md)
 
-[Passo 3: Um pouco sobre web](passo02.md)
+[:rocket: Mandando um foguete pro espaço](deploy.md)
 
--> código de status
--> verbos http
--> rest
--> request, response, recursos
+[:memo: Criando uma tarefa](criar.md)
 
-[Passo 4: Primeiros passos com python](passo04.md)
+[:book: Listando tarefas](listar.md)
 
--> instalação do python no windows
--> Algumas coisas importantes como identação
-Nota mental: foco não é ensinar python
+[:x: Removendo tarefas](remover.md)
 
+[:scroll: Detalhando tarefas](detalhar.md)
 
-[Passo 5: Vamos escrever código!](passo05.md)
+[:ballot_box_with_check: Entregando tarefas](entregar.md)
 
--> iniciar projeto utilizando controle de versão git e github(explicar os dois)
+[:cloud: Colocando a nova aplicação no ar](noar.md)
 
+[:rainbow: Deploy contínuo](cd.md)
 
-[Passo 6: Hello Flask](passo06.md)
-
-hello word guiado por teste rodando testes localmente
-- listar tarefas ??
-
-[Bonus 0: Integração contínua](bonus00.md)
-
--> rodar testes automatizados com travis
-
-[Passo 7: Mandando um foguete pro espaço](passo07.md)
-
--> colocar aplicação no ar
-
-[Passo 8: Criando uma tarefa](passo08.md)
-
-[Passo 9: Listando tarefas](passo09.md)
-
--> colocar um aviso sobre opcionalidade daqui pra frente e como a pessoa deve tentar fazer os próximos passos
--> pular para 13 se quiser/ não tiver tempo
-
-[Passo 10: Removendo tarefas](passo10.md)
-
-[Passo 11: Detalhando tarefas](passo11.md)
-
-[Passo 12: Entregando tarefas](passo12.md)
-
-[Passo 13: Colocando a nova aplicação no ar](passo11.md)
-
-[Bonus 1: Deploy contínuo](bonus01.md)
-
-[Bonus 2: Containerizando sua aplicação](bonus02.md)
-
+[:whale: Containerizando sua aplicação](docker.md)
