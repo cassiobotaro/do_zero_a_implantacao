@@ -18,22 +18,6 @@ daqui pra frente não tenhamos que parar para fazer instalação de mais uma fer
 As ferrramentas foram escolhidas pensando na didática do aluno assim como compatibilidade desistemas operacionais e também por
 serem as principais escolhas no mercado de trabalho.
 
-Aqui está uma lista com as ferramentas, a medida que for instalando, volte aqui e marque a opção corresponde até ter certeza de que tudo foi instalado.
-
-- [ ] git
-
-- [ ] Python
-
-- [ ] pipenv
-
-- [ ] httpie
-
-- [ ] pytest
-
-- [ ] flask
-
-- [ ] heroku
-
 ##  Git
 
 descrição
