@@ -30,4 +30,5 @@ avisos
 
 
 pipenv versão 11.1.0 quando for windows
+
 necessário reiniciar o terminal ao instalar git
