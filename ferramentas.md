@@ -20,13 +20,19 @@ serem as principais escolhas no mercado de trabalho.
 
 Aqui está uma lista com as ferramentas, a medida que for instalando, volte aqui e marque a opção corresponde até ter certeza de que tudo foi instalado.
 
-- [] git
-- [] Python
-- [] pipenv
-- [] httpie
-- [] pytest
-- [] flask
-- [] heroku
+- [ ] git
+
+- [ ] Python
+
+- [ ] pipenv
+
+- [ ] httpie
+
+- [ ] pytest
+
+- [ ] flask
+
+- [ ] heroku
 
 ##  Git
 
