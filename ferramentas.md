@@ -32,13 +32,13 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 **Como instalar**
 
-*windows:*
+*windows*
 
 Para usuários windows, baixe a última versão neste [site](https://git-scm.com://git-scm.com/). Deixe as opções já marcadas por padrão, exceto a mostrada abaixo que deve ser ajustada.
 
 ![opção path](imgs/gitwin.jpeg "opção path no instalador")
 
-*ubuntu:*
+*ubuntu*
 
 O pacote git se encontra na central de programas.
 
@@ -73,7 +73,7 @@ Python é uma linguagem de programação com foco em legibilidade e produtividad
 
 **Como instalar**
 
-*windows:*
+*windows*
 
 Entre em [python.org](https://www.python.org/), clique em downloads e depois selecione a versão 3.X, onde X é a versão atual mostrada no site.
 
@@ -83,7 +83,7 @@ Após baixar o instalador fique atento para selecionar a opção marcada na figu
 
 ![Adicionar python ao path](imgs/adicionaraopath.jpeg "Adicionar python ao path")
 
-*ubuntu:*
+*ubuntu*
 
 Versões mais atuais do ubuntu já vem com o python 3 instalado, e inclusive, a partir da versão 17.10, essa passa a ser a versão padrão do sistema.
 
@@ -110,19 +110,38 @@ Python 3.6.4
 
 **O que é?**
 
+Pip é o gerenciador de pacotes do python. É um cliente de linha de comandos utilizado para controle das depêndencias do projeto.
+
 **Para que serve?**
+
+Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para desenvolvimento do sistema. O pip nos permite baixar uma versão específica de uma biblioteca como por exemplo `python3 -m pip install django==2.0`.
 
 **Como instalar**
 
-*windows:*
+*windows*
 
-*ubuntu:*
+Não será necessário a instalação pois o mesmo já vem com o instalador da linguagem.
+
+*ubuntu*
+
+Esta ferramenta não vem por padrão no sistema operacional ubuntu e pode ser instalada utilizando o comando `sudo apt install python3-pip`.
 
 **Vamos verificar se deu tudo certo?**
 
 *windows*
 
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pip --version`.
+
 *ubuntu*
+
+Abra um terminal e digite `python3 -m pip --version`.
+
+A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+
+```bash
+$ python3 -m pip --version
+pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
+```
 
 ## Pipenv
 
@@ -132,17 +151,15 @@ Python 3.6.4
 
 **Como instalar**
 
-*windows:*
+*windows*
 
-*ubuntu:*
+*ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
 *windows*
 
 *ubuntu*
-
-pipenv versão 11.1.0 quando for windows
 
 ## Flask
 
@@ -152,9 +169,9 @@ pipenv versão 11.1.0 quando for windows
 
 **Como instalar**
 
-*windows:*
+*windows*
 
-*ubuntu:*
+*ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
@@ -170,9 +187,9 @@ pipenv versão 11.1.0 quando for windows
 
 **Como instalar**
 
-*windows:*
+*windows*
 
-*ubuntu:*
+*ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
@@ -188,9 +205,9 @@ pipenv versão 11.1.0 quando for windows
 
 **Como instalar**
 
-*windows:*
+*windows*
 
-*ubuntu:*
+*ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
@@ -206,9 +223,9 @@ pipenv versão 11.1.0 quando for windows
 
 **Como instalar**
 
-*windows:*
+*windows*
 
-*ubuntu:*
+*ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
