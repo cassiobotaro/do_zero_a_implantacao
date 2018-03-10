@@ -42,7 +42,7 @@ Para usuários windows, baixe a última versão neste [site](https://git-scm.com
 
 O pacote git se encontra na central de programas.
 
-`sudo apt-get install git`
+`sudo apt install git`
 
 **Vamos verificar se deu tudo certo?**
 
@@ -58,26 +58,53 @@ A saída para ambos os sistemas operacionais deverá ser:
 
 ```bash
 $ git --version
-git version 2.14.2
+git version 2.16.2
 ```
 
 ## Python
 
 **O que é?**
 
+Python é uma linguagem de programação com foco em legibilidade e produtividade, criada para escrever código bom e fácil de manter de maneira rápida.
+
 **Para que serve?**
+
+É uma linguagem bastante versátil, e hoje em dia é amplamente utilizada para escrever sistemas web, integrações entre sistemas, automatizar tarefas e muitas outras coisas.
 
 **Como instalar**
 
 *windows:*
 
+Entre em [python.org](https://www.python.org/), clique em downloads e depois selecione a versão 3.X, onde X é a versão atual mostrada no site.
+
+![botão python versão 3](imgs/botaodownload.png "botão python versão 3")
+
+Após baixar o instalador fique atento para selecionar a opção marcada na figura abaixo.
+
+![Adicionar python ao path](imgs/adicionaraopath.jpeg "Adicionar python ao path")
+
 *ubuntu:*
+
+Versões mais atuais do ubuntu já vem com o python 3 instalado, e inclusive, a partir da versão 17.10, essa passa a ser a versão padrão do sistema.
+
+Caso python 3 não esteja instalado, utilize `sudo apt install python3`.
 
 **Vamos verificar se deu tudo certo?**
 
 *windows*
 
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 --version`.
+
 *ubuntu*
+
+Abra um terminal e digite `python3 --version`.
+
+A saída para ambos os sistemas operacionais deverá ser:
+
+```bash
+$ python3 --version
+Python 3.6.4
+```
 
 ## Pip
 
