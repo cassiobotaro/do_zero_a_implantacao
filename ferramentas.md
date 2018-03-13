@@ -32,13 +32,13 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
 Para usuários windows, baixe a última versão neste [site](https://git-scm.com://git-scm.com/). Deixe as opções já marcadas por padrão, exceto a mostrada abaixo que deve ser ajustada.
 
 ![opção path](imgs/gitwin.jpeg "opção path no instalador")
 
-*ubuntu*
+:package: *ubuntu*
 
 O pacote git se encontra na central de programas.
 
@@ -46,11 +46,11 @@ O pacote git se encontra na central de programas.
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `git --version`.
 
-*ubuntu*
+:package: *ubuntu*
 
 Abra um terminal e digite `git --version`.
 
@@ -73,7 +73,7 @@ Python é uma linguagem de programação com foco em legibilidade e produtividad
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
 Entre em [python.org](https://www.python.org/), clique em downloads e depois selecione a versão 3.X, onde X é a versão atual mostrada no site.
 
@@ -83,7 +83,7 @@ Após baixar o instalador fique atento para selecionar a opção marcada na figu
 
 ![Adicionar python ao path](imgs/adicionaraopath.jpeg "Adicionar python ao path")
 
-*ubuntu*
+:package: *ubuntu*
 
 Versões mais atuais do ubuntu já vem com o python 3 instalado, e inclusive, a partir da versão 17.10, essa passa a ser a versão padrão do sistema.
 
@@ -91,11 +91,11 @@ Caso python 3 não esteja instalado, utilize `sudo apt install python3`.
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 --version`.
 
-*ubuntu*
+:package: *ubuntu*
 
 Abra um terminal e digite `python3 --version`.
 
@@ -118,21 +118,21 @@ Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para dese
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
 Não será necessário a instalação pois o mesmo já vem com o instalador da linguagem.
 
-*ubuntu*
+:package: *ubuntu*
 
 Esta ferramenta não vem por padrão no sistema operacional ubuntu e pode ser instalada utilizando o comando `sudo apt install python3-pip`.
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pip --version`.
 
-*ubuntu*
+:package: *ubuntu*
 
 Abra um terminal e digite `python3 -m pip --version`.
 
@@ -147,19 +147,40 @@ pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
 
 **O que é?**
 
+Ferramenta recente e moderna, ajuda no gerenciamento de ambientes isolados e gestão de depêndencias.
+
 **Para que serve?**
+
+Iniciamos um projeto na versão `1.4`, e de repente, uma novo projeto é iniciado na versão `2.0`. O que fazer? Será que são compatíveis? E se eu atualizo o sitema e a versão antiga para de funcionar?
+
+É onde o pipenv entra, porém ele é bem mais do que só um gerenciador de dependências, ele também serve para isolar ambientes, eu consigo ter dois projetos rodando, em dos ambientes diferentes, com versões diferentes do python e versões diferentes de biblioteca.
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pip install pipenv`.
+
+:package: *ubuntu*
+
+Simples como `python3 -m pip install pipenv` digitado em um terminal.
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pipenv --version`.
+
+:package: *ubuntu*
+
+Abra um terminal e digite `pipenv --version`.
+
+A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+
+```bash
+$ pipenv --version
+pipenv, version 11.6.1
+```
 
 ## Flask
 
@@ -169,15 +190,15 @@ pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
 
 ## Httpie
 
@@ -187,15 +208,15 @@ pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
 
 ## Pytest
 
@@ -205,15 +226,15 @@ pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
 
 ## Heroku CLI
 
@@ -223,12 +244,12 @@ pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
 
 **Como instalar**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
 
 **Vamos verificar se deu tudo certo?**
 
-*windows*
+:computer: *windows*
 
-*ubuntu*
+:package: *ubuntu*
