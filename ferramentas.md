@@ -15,7 +15,7 @@ Na programação também é assim, escolhemos as ferramentas necessárias para d
 Para este curso foram escolhidas algumas ferramentas e a partir de agora iremos ver como instala-las e configura-las para que
 daqui pra frente não tenhamos que parar para fazer instalação de mais uma ferramenta.
 
-As ferrramentas foram escolhidas pensando na didática do aluno assim como compatibilidade desistemas operacionais e também por
+As ferrramentas foram escolhidas pensando na didática do aluno assim como compatibilidade de sistemas operacionais e também por
 serem as principais escolhas no mercado de trabalho.
 
 ## :octocat: Git
