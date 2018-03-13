@@ -18,7 +18,7 @@ daqui pra frente não tenhamos que parar para fazer instalação de mais uma fer
 As ferrramentas foram escolhidas pensando na didática do aluno assim como compatibilidade desistemas operacionais e também por
 serem as principais escolhas no mercado de trabalho.
 
-##  Git
+## :octocat: Git
 
 **O que é?**
 
@@ -61,7 +61,7 @@ $ git --version
 git version 2.16.2
 ```
 
-## Python
+## :snake: Python
 
 **O que é?**
 
@@ -106,7 +106,7 @@ $ python3 --version
 Python 3.6.4
 ```
 
-## Pip
+## :truck: Pip
 
 **O que é?**
 
@@ -143,7 +143,7 @@ $ python3 -m pip --version
 pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
 ```
 
-## Pipenv
+## :space_invader: Pipenv
 
 **O que é?**
 
@@ -182,7 +182,48 @@ $ pipenv --version
 pipenv, version 11.6.1
 ```
 
-## Flask
+## :dog: Flask
+
+**O que é?**
+
+O [flask](http://flask.pocoo.org/) é uma ferramenta para desenvolvimento web bastante conhecido por sua arquitetura minimalista.
+
+**Para que serve?**
+
+Serve para escrevermos nossa aplicação web de forma rápida e customisável.
+
+Possui funções que auxiliam operações como roteamento, tratamento de requisições, renderização de conteúdo, gerenciamento de sessão e cookies, assim como várias outras que são típicas da web.
+
+**Como instalar**
+
+:warning: Preste atenção que os comandos serão executados dentro do diretório do projeto.
+
+:computer: *windows*
+
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pipenv install flask`.
+
+:package: *ubuntu*
+
+Abra um terminal, navegue até a pasta do projeto e por fim digite `pipenv install flask`.
+
+**Vamos verificar se deu tudo certo?**
+
+:computer: *windows*
+
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pipenv list`.
+
+:package: *ubuntu*
+
+Abra um terminal e digite `pipenv --version`.
+
+A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+
+```bash
+$ pipenv --version
+pipenv, version 11.6.1
+```
+
+## :link: Httpie
 
 **O que é?**
 
@@ -200,7 +241,7 @@ pipenv, version 11.6.1
 
 :package: *ubuntu*
 
-## Httpie
+## :traffic_light: Pytest
 
 **O que é?**
 
@@ -218,7 +259,7 @@ pipenv, version 11.6.1
 
 :package: *ubuntu*
 
-## Pytest
+## :cloud: Heroku CLI
 
 **O que é?**
 
@@ -236,20 +277,4 @@ pipenv, version 11.6.1
 
 :package: *ubuntu*
 
-## Heroku CLI
-
-**O que é?**
-
-**Para que serve?**
-
-**Como instalar**
-
-:computer: *windows*
-
-:package: *ubuntu*
-
-**Vamos verificar se deu tudo certo?**
-
-:computer: *windows*
-
-:package: *ubuntu*
+:sweat: Ufa! Achei que não ia acabar nunca! [Vamos logo escrever código](codigo.md)!!
