@@ -1,5 +1,9 @@
 # Iniciando o projeto
 
+<p align="center">
+  <img style="float: right;" src="/imgs/blueprint.jpg" alt="Blueprint do projeto"/>
+</p>
+
 inicia projeto e instala libs python
 
 ## :dog: Flask
