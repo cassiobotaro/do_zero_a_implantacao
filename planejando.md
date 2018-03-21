@@ -30,3 +30,7 @@ Como usuário devo ser capaz de:
 O sistema deve apresentar testes.
 
 :fearful: E agora, o que fazer? Por onde começo? Vamos [escolher nossas ferramentas](ferramentas.md).
+
+[Escolhendo as melhores ferramentas :arrow_right:](ferramentas.md)
+
+[:leftwards_arrow_with_hook: Voltar ao README ](README.md)
