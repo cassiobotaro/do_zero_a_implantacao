@@ -29,36 +29,36 @@ Datas e como se inscrever, em breve!!
 
 ## Sumário
 
-1.[:thought_balloon: Planejando o que será desenvolvido](planejando.md)
+1. [:thought_balloon: Planejando o que será desenvolvido](planejando.md)
 
-1.[:hammer: Escolhendo as melhores ferramentas](ferramentas.md)
+1. [:hammer: Escolhendo as melhores ferramentas](ferramentas.md)
 
-1.[:book: Iniciando o projeto](projeto.md)
+1. [:book: Iniciando o projeto](projeto.md)
 
-1.[:earth_americas: Um pouco sobre a web](web.md)
+1. [:earth_americas: Um pouco sobre a web](web.md)
 
-1.[:snake: Primeiros passos com python](python.md)
+1. [:snake: Primeiros passos com python](python.md)
 
-1.[:computer: Vamos escrever código!](codigo.md)
+1. [:computer: Vamos escrever código!](codigo.md)
 
-1.[:dog: Hello Flask](hello_flask.md)
+1. [:dog: Hello Flask](hello_flask.md)
 
-1.[:heavy_check_mark: Integração contínua](integracao.md)
+1. [:heavy_check_mark: Integração contínua](integracao.md)
 
-1.[:rocket: Mandando um foguete pro espaço](deploy.md)
+1. [:rocket: Mandando um foguete pro espaço](deploy.md)
 
-1.[:memo: Criando uma tarefa](criar.md)
+1. [:memo: Criando uma tarefa](criar.md)
 
-1.[:book: Listando tarefas](listar.md)
+1. [:book: Listando tarefas](listar.md)
 
-1.[:x: Removendo tarefas](remover.md)
+1. [:x: Removendo tarefas](remover.md)
 
-1.[:scroll: Detalhando tarefas](detalhar.md)
+1. [:scroll: Detalhando tarefas](detalhar.md)
 
-1.[:ballot_box_with_check: Entregando tarefas](entregar.md)
+1. [:ballot_box_with_check: Entregando tarefas](entregar.md)
 
-1.[:cloud: Colocando a nova aplicação no ar](noar.md)
+1. [:cloud: Colocando a nova aplicação no ar](noar.md)
 
-1.[:rainbow: Deploy contínuo](cd.md)
+1. [:rainbow: Deploy contínuo](cd.md)
 
-1.[:whale: Containerizando sua aplicação](docker.md)
+1. [:whale: Containerizando sua aplicação](docker.md)
