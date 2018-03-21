@@ -223,8 +223,6 @@ $ heroku --version
 heroku-cli/6.15.35-cf39a29 (linux-x64) node-v9.8.0
 ```
 
-:sweat: Ufa! Achei que não ia acabar nunca! [Vamos logo escrever código](codigo.md)!!
-
 [Escolhendo as melhores ferramentas :arrow_right:](ferramentas.md)
 
 [:leftwards_arrow_with_hook: Voltar ao README ](README.md)
