@@ -23,40 +23,42 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 
 ## Inscrições
 
-Serão xx vagas, preenchidas por ordem de inscrição, com prioridade para mulheres(pyladies :hearts:).
+Serão 30 vagas, preenchidas por ordem de inscrição, com prioridade para mulheres(pyladies :hearts:).
 
 Datas e como se inscrever, em breve!!
 
 ## Sumário
 
-[:thought_balloon: Planejando o que será desenvolvido](planejando.md)
+1.[:thought_balloon: Planejando o que será desenvolvido](planejando.md)
 
-[:hammer: Escolhendo as melhores ferramentas](ferramentas.md)
+1.[:hammer: Escolhendo as melhores ferramentas](ferramentas.md)
 
-[:earth_americas: Um pouco sobre a web](web.md)
+1.[:book: Iniciando o projeto](projeto.md)
 
-[:snake: Primeiros passos com python](python.md)
+1.[:earth_americas: Um pouco sobre a web](web.md)
 
-[:computer: Vamos escrever código!](codigo.md)
+1.[:snake: Primeiros passos com python](python.md)
 
-[:dog: Hello Flask](hello_flask.md)
+1.[:computer: Vamos escrever código!](codigo.md)
 
-[:heavy_check_mark: Integração contínua](integracao.md)
+1.[:dog: Hello Flask](hello_flask.md)
 
-[:rocket: Mandando um foguete pro espaço](deploy.md)
+1.[:heavy_check_mark: Integração contínua](integracao.md)
 
-[:memo: Criando uma tarefa](criar.md)
+1.[:rocket: Mandando um foguete pro espaço](deploy.md)
 
-[:book: Listando tarefas](listar.md)
+1.[:memo: Criando uma tarefa](criar.md)
 
-[:x: Removendo tarefas](remover.md)
+1.[:book: Listando tarefas](listar.md)
 
-[:scroll: Detalhando tarefas](detalhar.md)
+1.[:x: Removendo tarefas](remover.md)
 
-[:ballot_box_with_check: Entregando tarefas](entregar.md)
+1.[:scroll: Detalhando tarefas](detalhar.md)
 
-[:cloud: Colocando a nova aplicação no ar](noar.md)
+1.[:ballot_box_with_check: Entregando tarefas](entregar.md)
 
-[:rainbow: Deploy contínuo](cd.md)
+1.[:cloud: Colocando a nova aplicação no ar](noar.md)
 
-[:whale: Containerizando sua aplicação](docker.md)
+1.[:rainbow: Deploy contínuo](cd.md)
+
+1.[:whale: Containerizando sua aplicação](docker.md)
