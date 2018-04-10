@@ -229,4 +229,6 @@ heroku-cli/6.15.35-cf39a29 (linux-x64) node-v9.8.0
 
 [Iniciando o projeto :arrow_right:](projeto.md)
 
+[:arrow_left: Planejando o que será desenvolvido](planejando.md)
+
 [:leftwards_arrow_with_hook: Voltar ao README ](README.md)

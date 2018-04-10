@@ -16,11 +16,11 @@ Aproveitando esta escolha, como o Github é grátis e também o mais conhecido, 
 
 Aperte o botão novo_repositório.
 
-![novo repositório](novo_repositorio.png " Novo repositório")
+![novo repositório](imgs/novo_repositorio.png " Novo repositório")
 
 Preencha os campos como visto na imagem abaixo.
 
-![novo repositório](novorepo.png "Novo repositório")
+![novo repositório](imgs/novorepo.png "Novo repositório")
 
 Agora faça um "clone" do seu repositório.
 
@@ -44,7 +44,7 @@ $ git config --local user.name usernamegithub
 
 "Voilá", já temos o projeto iniciado.
 
-:white_check_mark: Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bilbiotecas de acordo com o seu sistema operacional.
+Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bilbiotecas de acordo com o seu sistema operacional.
 
 :warning: Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
 
@@ -182,5 +182,8 @@ This is pytest version 3.4.2, imported from /home/cassiobotaro/.virtualenvs/todo
 :cake: Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso, faremos um nivelamento de conhecimento sobre web e python e em breve termos nossa aplicação no ar!
 
 [Um pouco sobre a web :arrow_right:](web.md)
+
+
+[:arrow_left: Escolhendo as melhores ferramentas](planejando.md)
 
 [:leftwards_arrow_with_hook: Voltar ao README ](README.md)
