@@ -21,12 +21,6 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 - conhecimento prévio de programação(não importa a linguagem)
 - notebook próprio
 
-## Inscrições
-
-Serão 30 vagas, preenchidas por ordem de inscrição, com prioridade para mulheres(pyladies :hearts:).
-
-Datas e como se inscrever, em breve!!
-
 ## Sumário
 
 1. [:thought_balloon: Planejando o que será desenvolvido](planejando.md)

@@ -18,6 +18,8 @@ daqui pra frente não tenhamos que parar para fazer instalação de mais uma fer
 As ferrramentas foram escolhidas pensando na didática do aluno assim como compatibilidade de sistemas operacionais e também por
 serem as principais escolhas no mercado de trabalho.
 
+Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Tenha sempre certeza de que a ferramenta está instalada e funcionando.
+
 ## :octocat: Git
 
 **O que é?**
@@ -222,6 +224,8 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 $ heroku --version
 heroku-cli/6.15.35-cf39a29 (linux-x64) node-v9.8.0
 ```
+
+:tada: Parabéns! Instalamos todas as ferramentas que precisaremos para acompanhar este curso, vamos para o próximo passo!
 
 [Iniciando o projeto :arrow_right:](projeto.md)
 

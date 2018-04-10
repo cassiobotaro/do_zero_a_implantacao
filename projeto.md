@@ -4,9 +4,57 @@
   <img style="float: right;" src="/imgs/blueprint.jpg" alt="Blueprint do projeto"/>
 </p>
 
-inicia projeto e instala libs python
+Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingradientes.
 
-## :dog: Flask
+Antes de instalar as bibliotecas que utilizaremos durante o nosso projeto, precisamos inicializá-lo.
+
+## :arrow_forward: Começando a tirar do papel o projeto
+
+O primeiro passo para desenvolvimento do nosso aplicativo web é cria-lo utilizando um controle de versão. para este minicurso optei pelo controle de versão mais popular hoje em dia que se chama git.
+
+Aproveitando esta escolha, como o Github é grátis e também o mais conhecido, vamos hospedar o projeto lá(vai ajudar com algumas integrações mais tarde.)
+
+Aperte o botão novo_repositório.
+
+![novo repositório](novo_repositorio.png " Novo repositório")
+
+Preencha os campos como visto na imagem abaixo.
+
+![novo repositório](novorepo.png "Novo repositório")
+
+Agora faça um "clone" do seu repositório.
+
+```bash
+$ git clone https://github.com/cassiobotaro/todoapp.git
+Cloning into 'todoapp'...
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (5/5), done.
+
+```
+
+Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado digite os seguintes comandos.
+
+```bash
+$ git config --local user.email emailutilizado@github.com
+
+$ git config --local user.name usernamegithub
+```
+
+"Voilá", já temos o projeto iniciado.
+
+:white_check_mark: Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bilbiotecas de acordo com o seu sistema operacional.
+
+:warning: Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
+
+## :books: Bibliotecas e utilitários
+
+Chegou a hora de instalar algumas bibliotecas e utilitários que nos auxiliarão na criação do nosso sistema web, na realização de testes unitários e testes manuais.
+
+Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Tenha sempre certeza de que a ferramenta está instalada e funcionando.
+
+### :dog: Flask
 
 **O que é?**
 
@@ -49,7 +97,7 @@ Python 3.6.4 (default, Jan  5 2018, 02:35:40)
 [GCC 7.2.1 20171224]
 ```
 
-## :link: Httpie
+### :link: Httpie
 
 **O que é?**
 
@@ -92,7 +140,7 @@ $ pipenv run http --version
 0.9.9
 ```
 
-## :traffic_light: Pytest
+### :traffic_light: Pytest
 
 **O que é?**
 
@@ -130,6 +178,8 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 $ pipenv run python -m pytest --version
 This is pytest version 3.4.2, imported from /home/cassiobotaro/.virtualenvs/todo.app-AIIv-fDj/lib/python3.6/site-packages/pytest.py
 ```
+
+:cake: Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso, faremos um nivelamento de conhecimento sobre web e python e em breve termos nossa aplicação no ar!
 
 [Um pouco sobre a web :arrow_right:](web.md)
 
