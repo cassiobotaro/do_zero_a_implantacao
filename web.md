@@ -103,7 +103,7 @@ Veja um exemplo de `GET`.
 
 Substitua o verbo e veja funcionando os outros verbos http. Fique atento que os verbos após o http devem ser escritos com letra maiúscula.
 
-:smile: Bem legal não é? E agora, já vamos logo escrever código? sim e não, vamos agora dar uma passada na linguagem python.
+:smile: Bem legal não é? E agora, já vamos logo escrever código? Sim e não, vamos agora dar uma passada na linguagem Python.
 
 
 [Primeiros passos com python :arrow_right:](python.md)
