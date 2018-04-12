@@ -24,7 +24,7 @@ def is_odd(number):
 
 **teste**
 
-```
+```python
 def is_odd_returns_true_when_input_is_three():
     assert is_odd(3) == True
 
