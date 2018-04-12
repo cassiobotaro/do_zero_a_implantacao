@@ -23,7 +23,7 @@ Com os testes passando, analise se é possível alguma refatoração.
 
 **5 - Vá para o passo 1**
 
-![Círculo do TDD](tdd.png "Ciclo do tdd")
+![Círculo do TDD](imgs/tdd.png "Ciclo do tdd")
 
 [Vamos escrever código :arrow_right:](codigo.md)
 
