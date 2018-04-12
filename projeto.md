@@ -184,6 +184,6 @@ This is pytest version 3.4.2, imported from /home/cassiobotaro/.virtualenvs/todo
 [Um pouco sobre a web :arrow_right:](web.md)
 
 
-[:arrow_left: Escolhendo as melhores ferramentas](planejando.md)
+[:arrow_left: Escolhendo as melhores ferramentas](ferramentas.md)
 
 [:leftwards_arrow_with_hook: Voltar ao README ](README.md)

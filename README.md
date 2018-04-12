@@ -33,6 +33,8 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 
 1. [:snake: Primeiros passos com python](python.md)
 
+1. [:goat: Guiando o desenvolvimento com testes](testes.md)
+
 1. [:computer: Vamos escrever código!](codigo.md)
 
 1. [:dog: Hello Flask](hello_flask.md)
