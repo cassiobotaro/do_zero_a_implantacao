@@ -106,6 +106,11 @@ print (get_text("John"))
 
 ```
 
+Vimos um pouco sobre a web, demos uma passada no python, então agora já vamos começar a escrever código?
+
+Calma, ainda temos mais um conceito que é muito importante para nós. Já ouviu falar do desenvolvimento guiado por testes,
+que popularmente é conhecido pelas letras `TDD`? Vamos aprender como e porque escrever testes automatizados antes mesmo de escrever código.
+
 [Desenvolvimento guiado por testes :arrow_right:](testes.md)
 
 [:arrow_left: Um pouco sobre a web](web.md)
