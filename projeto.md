@@ -10,9 +10,9 @@ Antes de instalar as bibliotecas que utilizaremos durante o nosso projeto, preci
 
 ## :arrow_forward: Começando a tirar do papel o projeto
 
-O primeiro passo para desenvolvimento do nosso aplicativo web é cria-lo utilizando um controle de versão. para este minicurso optei pelo controle de versão mais popular hoje em dia que se chama git.
+O primeiro passo para desenvolvimento do nosso aplicativo web é criá-lo utilizando um controle de versão.Para este minicurso optei pelo controle de versão mais popular hoje em dia que se chama git.
 
-Aproveitando esta escolha, como o Github é grátis e também o mais conhecido, vamos hospedar o projeto lá(vai ajudar com algumas integrações mais tarde.)
+Aproveitando esta escolha, como o Github é gratuito e também o mais conhecido, vamos hospedar o projeto lá(que irá ajudar com algumas integrações futuramente).
 
 Aperte o botão novo_repositório.
 
@@ -42,7 +42,7 @@ $ git config --local user.email emailutilizado@github.com
 $ git config --local user.name usernamegithub
 ```
 
-"Voilá", já temos o projeto iniciado.
+"Voilà", já temos o projeto iniciado.
 
 Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bilbiotecas de acordo com o seu sistema operacional.
 
@@ -111,7 +111,7 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 **Como instalar**
 
-:warning: Muita atenção pois os comandos de instalação deste pacote terão o serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
+:warning: Muita atenção, pois os comandos de instalação deste pacote terão o serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
 
 :computer: *windows*
 
@@ -241,7 +241,7 @@ Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão qu
 
 `git commit -m "adionando dependências do projeto"`
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+:octocat: Por fim, envie ao github a versão atualizada do projeto.
 
 `git push`
 
