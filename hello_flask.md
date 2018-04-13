@@ -8,7 +8,7 @@
 
 Utilizaremos os ciclos do TDD para nos auxiliarem e assim garantiremos uma qualidade de código ao final.
 
-Estão lembrados o que é a nossa aplicação? Caso não se recorde leia as [regras de negócio]() novamente.
+Estão lembrados o que é a nossa aplicação? Caso não se recorde leia as [regras de negócio](./planejando.md) novamente.
 
 Vamos dividir algumas tarefas então, na nossa lista de funcionalidades:
 
@@ -51,7 +51,7 @@ Vamos rodar pela primeira vez os testes no nosso projeto.
 
 `pipenv run python -m pytest`
 
-:scary: Nossa! Ocorreu um erro!
+:scream: Nossa! Ocorreu um erro!
 
 Não se desespere, a primeira coisa que precisamos fazer é criar a nossa aplicação. Crie um novo arquivo `todo.py`, e neste arquivo vamos iniciar uma aplicação flask da seguinte maneira.
 
@@ -168,7 +168,7 @@ Sabemos que quando não há tarefas, nossa resposta do recurso deve ser uma list
 
 O teste automatizado para isto pode ser escrito da seguinte maneira.
 
-```
+```python
 def test_lista_de_tarefas_vazia_retorna_lista_vazia():
     with app.test_client() as client:
         response = client.get('/task')
