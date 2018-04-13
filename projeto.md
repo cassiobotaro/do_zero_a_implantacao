@@ -12,7 +12,7 @@ Antes de instalar as bibliotecas que utilizaremos durante o nosso projeto, preci
 
 O primeiro passo para desenvolvimento do nosso aplicativo web é criá-lo utilizando um controle de versão.Para este minicurso optei pelo controle de versão mais popular hoje em dia que se chama git.
 
-Aproveitando esta escolha, como o Github é gratuito e também o mais conhecido, vamos hospedar o projeto lá(que irá ajudar com aslgumas integrações futuramente).
+Aproveitando esta escolha, como o Github é gratuito e também o mais conhecido, vamos hospedar o projeto lá(que irá ajudar com algumas integrações futuramente).
 
 Aperte o botão novo_repositório.
 
