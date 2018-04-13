@@ -12,7 +12,7 @@ Abra um console(sim, a tela preta), digite python e aproveite para testar os com
 
 ## Olá mundo
 
-Olá Mundo em python é tão simples como `print('Olá mundo')` por isso um Olá mundo mais pythonico seria `import antigravity`.
+Olá Mundo em python é tão simples como `print('Olá mundo')` por isso um Olá mundo mais pythônico seria `import antigravity`.
 
 Python é conhecido por suas baterias incluídas, e até mesmo o Olá mundo pode ser importado `import __hello__`.
 
@@ -109,7 +109,7 @@ print (get_text("John"))
 Vimos um pouco sobre a web, demos uma passada no python, então agora já vamos começar a escrever código?
 
 Calma, ainda temos mais um conceito que é muito importante para nós. Já ouviu falar do desenvolvimento guiado por testes,
-que popularmente é conhecido pelas letras `TDD`? Vamos aprender como e porque escrever testes automatizados antes mesmo de escrever código.
+que popularmente é conhecido pelas letras `TDD`? Vamos aprender como e por que escrever testes automatizados antes mesmo de escrever código.
 
 [Desenvolvimento guiado por testes :arrow_right:](testes.md)
 

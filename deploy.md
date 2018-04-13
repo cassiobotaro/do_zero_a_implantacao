@@ -22,7 +22,7 @@ Acesse https://signup.heroku.com/ e preencha o formulário.
 
 ![formulário heroku](imgs/form-heroku.png)
 
-Em um terminal faça login em sua conta recem criada através do comando `heroku login`.
+Em um terminal faça login em sua conta recém criada através do comando `heroku login`.
 
 Crie uma aplicação no Heroku, preparando a heroku para receber seu código-fonte.
 

@@ -177,7 +177,7 @@ def test_lista_de_tarefas_vazia_retorna_lista_vazia():
 
 :x: Rodou os testes? Pois é, estão quebrando novamente pois o conteúdo retornado por nossa função não é uma lista.
 
-Para corrigir isto, retorne no `todo.py` e vamos acrescentar uma lista de tarefas, inicialmente vazia e retorna-la na função listar.
+Para corrigir isto, retorne no `todo.py` e vamos acrescentar uma lista de tarefas, inicialmente vazia e retorná-la na função listar.
 
 ```python
 from flask import Flask, jsonify
@@ -227,7 +227,7 @@ O arquivo .env é lido e adiciona essa variável de ambiente toda vez que execut
 
 Feito isto, o próximo passo é rodar a aplicação, com o comando `pipenv run python -m flask run`.
 
-Voilá, sua aplicação está no ar. [Clique aqui](http://localhost:5000/task) para abrir no navegador.
+Voilà, sua aplicação está no ar. [Clique aqui](http://localhost:5000/task) para abrir no navegador.
 
 O comando `pipenv run http http://localhost:5000/task` também serve para testar a aplicação.
 
@@ -262,7 +262,7 @@ Vemos três arquivos não rastreados, precisamos avisar ao controle de versão q
 
 `git push`
 
-:sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviassemos uma nova versão para o github, ele verificasse para mim se os testes estão passando? Vamos aprender a ter avaliação contínua de código!
+:sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o github, ele verificasse para mim se os testes estão passando? Vamos aprender a ter avaliação contínua de código!
 
 [Integração contínua :arrow_right:](integracao.md)
 
