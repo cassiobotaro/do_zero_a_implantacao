@@ -8,7 +8,7 @@
 
 O desenvolvedor integra o código alterado e/ou desenvolvido ao projeto principal na mesma frequência com que as funcionalidades são desenvolvidas, sendo feito muitas vezes.
 
-Todo o nosso projeto será contruído utilizando testes automatizados, e sempre rodaremos os testes localmente.
+Todo o nosso projeto será construído utilizando testes automatizados, e sempre rodaremos os testes localmente.
 
 Mas como garantir que minha alteração não impacta com o restante do projeto, ter isto de forma simples e automatizada?
 Como garantir que a qualidade do código foi mantida?
@@ -44,11 +44,11 @@ script:
   - pytest
 ```
 
-:tada: Pronto, a partir de agora, o travis irá rodar todos os testes do seu projeto de forma automatizada e indicara se a construção do mesmo está com problemas.
+:tada: Pronto, a partir de agora, o travis irá rodar todos os testes do seu projeto de forma automatizada e indicará se a construção do mesmo está com problemas.
 
-Isto será extremamente útil nos póximos passos.
+Isto será extremamente útil nos próximos passos.
 
-:floppy_disk: Para terminar a integração com travis, salve a versão atual do projeto e veja a primeira contrução sendo realizada.
+:floppy_disk: Para terminar a integração com travis, salve a versão atual do projeto e veja a primeira construção sendo realizada.
 
 `git commit -m "integração contínua"`
 
