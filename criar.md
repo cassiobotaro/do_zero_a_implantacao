@@ -3,7 +3,7 @@
 :x:
 
 ```python
-def test_criar_tarefa_aceita_somente_post():
+def test_criar_tarefa_aceita_post():
     with app.test_client() as cliente:
         resposta = cliente.post('/task')
         assert resposta.status_code != 405
@@ -21,6 +21,7 @@ def criar():
 
 ```python
 def test_criar_tarefa_retorna_tarefa_inserida():
+    tarefas.clear()
     cliente = app.test_client()
     # realiza a requisição utilizando o verbo POST
     resposta = cliente.post('/task', data=json.dumps({
@@ -29,6 +30,7 @@ def test_criar_tarefa_retorna_tarefa_inserida():
         content_type='application/json')
     # é realizada a análise e transformação para objeto python da resposta
     data = json.loads(resposta.data.decode('utf-8'))
+    assert data['id'] == 1
     assert data['titulo'] == 'titulo'
     assert data['descricao'] == 'descricao'
     # qaundo a comparação é com True, False ou None, utiliza-se o "is"
@@ -43,6 +45,7 @@ def criar():
     titulo = request.json.get('titulo')
     descricao = request.json.get('descricao')
     tarefa = {
+        'id': len(tarefas) + 1,
         'titulo': titulo,
         'descricao': descricao,
         'estado': False
@@ -70,6 +73,7 @@ def criar():
     titulo = request.json.get('titulo')
     descricao = request.json.get('descricao')
     tarefa = {
+        'id': len(tarefas) + 1,
         'titulo': titulo,
         'descricao': descricao,
         'estado': False
@@ -99,6 +103,7 @@ def criar():
     titulo = request.json.get('titulo')
     descricao = request.json.get('descricao')
     tarefa = {
+        'id': len(tarefas) + 1,
         'titulo': titulo,
         'descricao': descricao,
         'estado': False
@@ -128,6 +133,7 @@ def criar():
     if not descricao:
         abort(404)
     tarefa = {
+        'id': len(tarefas) + 1,
         'titulo': titulo,
         'descricao': descricao,
         'estado': False
@@ -158,6 +164,7 @@ def criar():
     if not descricao or not titulo:
         abort(404)
     tarefa = {
+        'id': len(tarefas) + 1,
         'titulo': titulo,
         'descricao': descricao,
         'estado': False

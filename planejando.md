@@ -15,7 +15,7 @@ Quando iniciamos um projeto, a primeira coisa que devemos conhecer são as "regr
 
 O sistema será um gerenciador de tarefas e a primeira decisão é que nosso sistema deve apresentar uma interface que possa ser consumida tanto por um website, tanto por um aplicativo.
 
-Cada tarefa(afazer) possui um titulo e uma descrição e seu estado que pode ser finalizado/não-finalizado.
+Cada tarefa(afazer) possui um identificador único, um titulo e uma descrição e seu estado que pode ser finalizado/não-finalizado.
 
 Como usuário devo ser capaz de:
 

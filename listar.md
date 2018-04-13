@@ -5,9 +5,9 @@
 ```python
 def test_listar_tarefas_deve_apresentar_tarefas_nao_finalizadas_primeiro():
     tarefas.clear()
-    tarefas.append({'titulo': 'tarefa 1', 'descricao': 'tarefa de numero 1',
+    tarefas.append({'id': 1, 'titulo': 'tarefa 1', 'descricao': 'tarefa de numero 1',
                     'estado': True})
-    tarefas.append({'titulo': 'tarefa 2', 'descricao': 'tarefa de numero 2',
+    tarefas.append({'id': 2, 'titulo': 'tarefa 2', 'descricao': 'tarefa de numero 2',
                     'estado': False})
     with app.test_client() as cliente:
         resposta = cliente.get('/task')
