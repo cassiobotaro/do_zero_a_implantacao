@@ -4,9 +4,9 @@
   <img style="float: right;" src="/imgs/montypython.jpg" alt="monty python"/>
 </p>
 
-Infelizmente esse tutorial foi pensado para ser ministrado em apenas algumas horas, o que nos deixa com pouco tempo para aprofundar na linugagem, aqui serão apresentados apenas alguns conceitos que serão necessários para o restante do tutorial.
+Infelizmente esse tutorial foi pensado para ser ministrado em apenas algumas horas, o que nos deixa com pouco tempo para aprofundar na linguagem, aqui serão apresentados apenas alguns conceitos que serão necessários para o restante do tutorial.
 
-Caso tenha chegado aqui por outros meios que não o curso presencial, e não tenha conhecimento na linguagem, recomando dar uma parada, e assistir as excelentes aulas do Professor Masanori. O [python para zumbis](https://www.youtube.com/watch?v=6La690qlH5w&list=PLUukMN0DTKCtbzhbYe2jdF4cr8MOWClXc) tem sido uma excelente porta para muitas pessoas.
+Caso tenha chegado aqui por outros meios que não o curso presencial, e não tenha conhecimento na linguagem, recomendo dar uma parada, e assistir as excelentes aulas do Professor Masanori. O [python para zumbis](https://www.youtube.com/watch?v=6La690qlH5w&list=PLUukMN0DTKCtbzhbYe2jdF4cr8MOWClXc) tem sido uma excelente porta para muitas pessoas.
 
 Abra um console(sim, a tela preta), digite python e aproveite para testar os comandos ensinados abaixo de uma forma interativa.
 
@@ -21,7 +21,7 @@ Python é conhecido por suas baterias incluídas, e até mesmo o Olá mundo pode
 Duas funções que podem ser bastante úteis durante o desenvolvimento python e que costumo dizer que são como "por favor" e "obrigado", são as funções help e dir.
 
 
-A função "help" pede ajuda sobre um determinado recurso, funcionando inclusive com palavras reservadas como 'if'. É retornado é a documentação daquele recurso.
+A função "help" pede ajuda sobre um determinado recurso, funcionando inclusive com palavras reservadas como 'if'. É retornado a documentação daquele recurso.
 ```python
 >>> help(abs)
 Help on built-in function abs in module builtins:
@@ -90,7 +90,7 @@ def soma(x, y):
 
 ## Decorador
 
-É um açucar sintático que nos permite alterar mais convenientemente funções e métodos. Pode ser definido como uma função, que ao invés de retornar algum resultado, retorna a função recebida como parametro modificada.
+É um açúcar sintático que nos permite alterar mais convenientemente funções e métodos. Pode ser definido como uma função, que ao invés de retornar algum resultado, retorna a função recebida como parâmetro modificada.
 
 ```python
 def p_decorate(func):
