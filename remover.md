@@ -108,8 +108,8 @@ Vamos adicionar as alterações nos arquivos.
 
 `git push`
 
-[Listar tarefas :arrow_right:](listar.md)
+[Detalhando tarefas :arrow_right:](detalhar.md)
 
-[:arrow_left: Detalhando tarefas](detalhar.md)
+[:arrow_left: Listando tarefas](listar.md)
 
 [:leftwards_arrow_with_hook: Voltar ao README ](README.md)
