@@ -8,7 +8,7 @@
 
 Talvez tenha chegado aqui sem conhecimento sobre testes automatizados, por isso vamos a uma breve explicação.
 
-É muito comum enquanto estamos desenvolvendo, testarmos manualmente as funcionalidades que estamos implementando, mas o que pode ocorrer se eu me esquecer de testar alguma funcionalidade? Por isso escrvemos código para testar o código das nossas funcionalidades.
+É muito comum enquanto estamos desenvolvendo, testarmos manualmente as funcionalidades que estamos implementando, mas o que pode ocorrer se eu me esquecer de testar alguma funcionalidade? Por isso escrevemos código para testar o código das nossas funcionalidades.
 
 Automatizar testes é uma maneira de agilizar nosso processo de desenvolvimento, garantindo que novas funcionalidades não impactem sobre as antigas.
 
@@ -49,7 +49,7 @@ Escrever testes antes do código ajuda no planejamento da arquitetura da aplica�
 **1 - Adicione um teste**
 
 Normalmente analisamos alguma funcionalidade que desejamos implementar ou validar e escrevemos um teste que será executado automaticamente relacionado aquela funcionalidade.
-Ainda que uma funçãoi/classe não exista, devemos escrever o comportamento esperado da mesma.
+Ainda que uma função/classe não exista, devemos escrever o comportamento esperado da mesma.
 
 **2 - Verifique se algum teste quebrou**
 
