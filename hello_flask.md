@@ -42,9 +42,9 @@ Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_to
 
 ```python
 def test_listar_tarefas_deve_retornar_status_200():
-    with app.test_client() as client:
-        response = client.get('/task')
-        assert response.status_code == 200
+    with app.test_client() as cliente:
+        resposta = cliente.get('/task')
+        assert resposta.status_code == 200
 ```
 
 Vamos rodar pela primeira vez os testes no nosso projeto.
@@ -99,9 +99,9 @@ No arquivo `test_todo.py`, adicione o seguinte teste.
 
 ```python
 def test_listar_tarefas_deve_ter_formato_json():
-    with app.test_client() as client:
-        response = client.get('/task')
-        assert response.content_type == 'application/json'
+    with app.test_client() as cliente:
+        resposta = cliente.get('/task')
+        assert resposta.content_type == 'application/json'
 ```
 
 Rode os testes novamente. Caso esqueça o comando, volte um pouco atrás e copie.
@@ -137,15 +137,15 @@ from todo import app
 
 
 def test_listar_tarefas_deve_retornar_status_200():
-    with app.test_client() as client:
-        response = client.get('/task')
-        assert response.status_code == 200
+    with app.test_client() as cliente:
+        resposta = cliente.get('/task')
+        assert resposta.status_code == 200
 
 
 def test_listar_tarefas_deve_ter_formato_json():
-    with app.test_client() as client:
-        response = client.get('/task')
-        assert response.content_type == 'application/json'
+    with app.test_client() as cliente:
+        resposta = cliente.get('/task')
+        assert resposta.content_type == 'application/json'
 ```
 
 **todo.py**
@@ -170,9 +170,9 @@ O teste automatizado para isto pode ser escrito da seguinte maneira.
 
 ```python
 def test_lista_de_tarefas_vazia_retorna_lista_vazia():
-    with app.test_client() as client:
-        response = client.get('/task')
-        assert response.data == b'[]\n'
+    with app.test_client() as cliente:
+        resposta = cliente.get('/task')
+        assert resposta.data == b'[]\n'
 ```
 
 :x: Rodou os testes? Pois é, estão quebrando novamente pois o conteúdo retornado por nossa função não é uma lista.
@@ -204,9 +204,9 @@ Volte para o `test_todo.py` e acrescente o seguinte teste.
 def test_lista_de_tarefas_nao_vazia_retorna_conteudo():
     tarefas.append({'titulo': 'tarefa 1', 'descricao': 'tarefa de numero 1',
                     'estado': False})
-    with app.test_client() as client:
-        response = client.get('/task')
-        assert response.data == (b'[\n  {\n    "descricao": '
+    with app.test_client() as cliente:
+        resposta = cliente.get('/task')
+        assert resposta.data == (b'[\n  {\n    "descricao": '
                                  b'"tarefa de numero 1", \n    '
                                  b'"estado": false, \n    '
                                  b'"titulo": "tarefa 1"\n  }\n]\n')
