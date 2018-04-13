@@ -262,7 +262,7 @@ Vemos três arquivos não rastreados, precisamos avisar ao controle de versão q
 
 `git push`
 
-:sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviassemos uma nova versão para o github, ele verificasse para mim se os testes estão passando? Vamos aprender a ter avaliação conínua de código!
+:sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviassemos uma nova versão para o github, ele verificasse para mim se os testes estão passando? Vamos aprender a ter avaliação contínua de código!
 
 [Integração contínua :arrow_right:](integracao.md)
 
