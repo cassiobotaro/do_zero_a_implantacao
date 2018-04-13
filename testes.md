@@ -67,7 +67,7 @@ Com os testes passando, analise se é possível alguma refatoração.
 
 :worried: Ainda não ficou claro o processo? Não se preocupe, daqui pra frente iremos ver este ciclo na prática.
 
-[Vamos escrever código :arrow_right:](codigo.md)
+[Hello Flask :arrow_right:](hello_flask.md)
 
 [:arrow_left: Primeiros passos com python](python.md)
 

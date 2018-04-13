@@ -179,10 +179,75 @@ $ pipenv run python -m pytest --version
 This is pytest version 3.4.2, imported from /home/cassiobotaro/.virtualenvs/todo.app-AIIv-fDj/lib/python3.6/site-packages/pytest.py
 ```
 
+Neste momento seu diretório deve estar assim:
+
+```
+.
+├── LICENSE
+├── Pipfile
+├── Pipfile.lock
+└── README.md
+```
+
+Vamos testar nossa instalção então?
+
+```bash
+$ python3
+Python 3.6.2 (default, Jul 20 2017, 03:52:27)
+[GCC 7.1.1 20170630] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import flask
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'flask'
+>>>
+```
+
+:scream: Se entramos no python e tentamos importar a biblioteca flask, um erro é retornado dizendo que o módulo não foi encontrado.
+
+Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `pipenv shell`.
+
+```bash
+$ python3
+Python 3.6.2 (default, Jul 20 2017, 03:52:27)
+[GCC 7.1.1 20170630] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import flask
+>>>
+```
+
+Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?
+
+Primeiro passo é checar o que foi feito até agora:
+```bash
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Pipfile
+	Pipfile.lock
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão que monitore estes arquivos.
+
+`$ git add Pipfile Pipfile.lock`
+
+:floppy_disk: Agora vamos marcar esta versão como salva.
+
+`git commit -m "adionando dependências do projeto"`
+
+:octocat: Por fim envie ao github a versão atualizada do projeto.
+
+`git push`
+
 :cake: Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso, faremos um nivelamento de conhecimento sobre web e python e em breve termos nossa aplicação no ar!
 
 [Um pouco sobre a web :arrow_right:](web.md)
-
 
 [:arrow_left: Escolhendo as melhores ferramentas](ferramentas.md)
 
