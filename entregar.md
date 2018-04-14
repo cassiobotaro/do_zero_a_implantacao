@@ -111,14 +111,14 @@ def atualizar(id_tarefa):
     tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
     titulo = request.json.get('titulo')
     descricao = request.json.get('descricao')
-    entregue = request.json.get('entregue')
+    estado = request.json.get('estado')
     if not tarefa:
         abort(404)
-    if not descricao or not titulo or entregue is None:
+    if not descricao or not titulo or estado is None:
         abort(400)
     tarefa_escolhida = tarefa[0]
     tarefa_escolhida['titulo'] = titulo or tarefa_escolhida['titulo']
     tarefa_escolhida['descricao'] = descricao or tarefa_escolhida['descricao']
-    tarefa_escolhida['entregue'] = entregue or tarefa_escolhida['entregue']
+    tarefa_escolhida['estado'] = estado or tarefa_escolhida['estado']
     return jsonify(tarefa_escolhida)
 ```
