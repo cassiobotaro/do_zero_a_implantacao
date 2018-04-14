@@ -204,9 +204,9 @@ Volte para o `test_todo.py` e acrescente o seguinte teste.
 def test_lista_de_tarefas_nao_vazia_retorna_conteudo():
     tarefas.append({'id': 1, 'titulo': 'tarefa 1',
                     'descricao': 'tarefa de numero 1', 'estado': False})
-    with app.test_client() as client:
-        response = client.get('/task')
-        assert response.data == (b'[\n  {\n    "descricao": '
+    with app.test_client() as cliente:
+        resposta = cliente.get('/task')
+        assert resposta.data == (b'[\n  {\n    "descricao": '
                                  b'"tarefa de numero 1", \n    '
                                  b'"estado": false, \n    '
                                  b'"id": 1, \n    '
