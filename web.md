@@ -38,7 +38,7 @@ A terceira é o mesmo `caminho` da segunda porém a presença de parametros na U
 
 ### Conceito
 
-A comunicação entre o servidor é `stateless`, o que significa que não há persistência de informações. Temos então dois instantes, que são, o momento que o pedido realizado pelo cliente chega ao servidor que referimos como requisição ou popularmente conhecido como `request` e este termo é adotado por vários frameorks e outro que é a resposta do servidor ao pedido por aquele recurso, que é conhecido como resposta ou `response`.
+A comunicação entre o servidor é `stateless`, o que significa que não há persistência de informações. Temos então dois instantes, que são, o momento que o pedido realizado pelo cliente chega ao servidor que referimos como requisição ou popularmente conhecido como `request` e este termo é adotado por vários frameworks e outro que é a resposta do servidor ao pedido por aquele recurso, que é conhecido como resposta ou `response`.
 
 A requisição contém informação sobre o pedido de um recurso, pode ser um cabeçalho indicando o tipo daquele recurso ou os tipos de retorno aceitos como resposta. Pode conter dados de um formulário ou argumentos para filtragem de um recurso.
 
