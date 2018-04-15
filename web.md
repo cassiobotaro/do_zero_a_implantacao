@@ -24,11 +24,11 @@ Nesse caso nosso recurso único acessado é um texto em formato json, com inform
 
 Experimente também as seguintes URIs:
 
-`pipenv run http://httpbin.org/anything/resource`
+`pipenv run http http://httpbin.org/anything/resource`
 
-`pipenv run http://httpbin.org/anything/resource/42`
+`pipenv run http http://httpbin.org/anything/resource/42`
 
-`pipenv run http://httpbin.org/anything/resource/42?q=teste&a=b`
+`pipenv run http http://httpbin.org/anything/resource/42?q=teste&a=b`
 
 Na primeira e segunda URI, temos a mudança do nosso recurso, que na primeira URI é `/anything/resource` e a segunda é `/anything/resource/42`. A mudança nesta parte da URI que chamamos de `caminho` ou `path` é o que caracteriza como outro recurso diferente.
 
@@ -38,7 +38,7 @@ A terceira é o mesmo `caminho` da segunda porém a presença de parametros na U
 
 ### Conceito
 
-A comunicação entre o servidor é `stateless`, o que significa que não há persistência de informações. Temos então dois instantes, que são, o momento que o pedido realizado pelo cliente chega ao servidor que referimos como requisição ou popularmente conhecido como `request` e este termo é adotado por vários frameorks e outro que é a resposta do servidor ao pedido por aquele recurso, que é conhecido como resposta ou `response`.
+A comunicação entre o servidor é `stateless`, o que significa que não há persistência de informações. Temos então dois instantes, que são, o momento que o pedido realizado pelo cliente chega ao servidor que referimos como requisição ou popularmente conhecido como `request` e este termo é adotado por vários frameworks e outro que é a resposta do servidor ao pedido por aquele recurso, que é conhecido como resposta ou `response`.
 
 A requisição contém informação sobre o pedido de um recurso, pode ser um cabeçalho indicando o tipo daquele recurso ou os tipos de retorno aceitos como resposta. Pode conter dados de um formulário ou argumentos para filtragem de um recurso.
 

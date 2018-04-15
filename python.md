@@ -106,6 +106,11 @@ print (get_text("John"))
 
 ```
 
+Saída:
+```
+<p>lorem ipsum, John dolor sit amet</p>
+```
+
 Vimos um pouco sobre a web, demos uma passada no python, então agora já vamos começar a escrever código?
 
 Calma, ainda temos mais um conceito que é muito importante para nós. Já ouviu falar do desenvolvimento guiado por testes,

@@ -39,6 +39,12 @@ def test_criar_tarefa_retorna_tarefa_inserida():
 
 :heavy_check_mark:
 
+Importar o seguinte no início de todo.py
+
+```
+from flask import request
+```
+
 ```
 @app.route('/task', methods=['POST'])
 def criar():
