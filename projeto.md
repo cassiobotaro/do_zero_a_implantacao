@@ -62,7 +62,7 @@ O [flask](http://flask.pocoo.org/) é uma ferramenta para desenvolvimento web ba
 
 **Para que serve?**
 
-Serve para escrevermos nossa aplicação web de forma rápida e customisável.
+Serve para escrevermos nossa aplicação web de forma rápida e customizável.
 
 Possui funções que auxiliam operações como roteamento, tratamento de requisições, renderização de conteúdo, gerenciamento de sessão e cookies, assim como várias outras que são típicas da web.
 
