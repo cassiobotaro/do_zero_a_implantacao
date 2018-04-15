@@ -111,7 +111,7 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 **Como instalar**
 
-:warning: Muita atenção, pois os comandos de instalação deste pacote terão o serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
+:warning: Muita atenção, pois os comandos de instalação deste pacote serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
 
 :computer: *windows*
 
@@ -152,7 +152,7 @@ Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não 
 
 **Como instalar**
 
-:warning: Muita atenção pois os comandos de instalação deste pacote terão o serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
+:warning: Muita atenção pois os comandos de instalação deste pacote serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
 
 :computer: *windows*
 
