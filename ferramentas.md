@@ -12,7 +12,7 @@ forma que não precise ficar procurando enquanto está produzindo seu prato.
 
 Na programação também é assim, escolhemos as ferramentas necessárias para desenvolver, testar e colocar no ar nosso sistema.
 
-Para este curso foram escolhidas algumas ferramentas e a partir de agora iremos ver como instala-las e configura-las para que
+Para este curso foram escolhidas algumas ferramentas e a partir de agora iremos ver como instalá-las e configurá-las para que
 daqui pra frente não tenhamos que parar para fazer instalação de mais uma ferramenta.
 
 As ferrramentas foram escolhidas pensando na didática do aluno assim como compatibilidade de sistemas operacionais e também por
@@ -30,7 +30,7 @@ Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Ten
 
 Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e salva como final. Mais tarde ou no outro dia decide fazer mais mudanças e chama de "agoravai" e quando menos percebe já tem um monte de arquivo e talvez nem se lembre mais qual a ultima versão.
 
-É para gerenciar alterações feitas no projeto durante o tempo que serve est ferramenta. Durante o curso vamos salvando cada progresso feito sem precisar de ter várias cópias do mesmo arquivo.
+É para gerenciar alterações feitas no projeto durante o tempo que serve esta ferramenta. Durante o curso vamos salvando cada progresso feito sem precisar de ter várias cópias do mesmo arquivo.
 
 **Como instalar**
 
