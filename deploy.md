@@ -10,7 +10,7 @@ Neste passo iremos colocar no ar a aplicação utilizando a plataforma [heroku](
 
 A heroku é uma plataforma de nuvem como serviço, suportando várias linguagens de programação que é utilizada como modelo de implementação de aplicativos web.
 
-Em termos simples, a plataforma recebe a sua base de código, identifica a linnguagem de programação e ferramentas utilizadas e coloca no ar sua aplicação, sem precisar se preocupar com configuração complexa de infraestrutura.
+Em termos simples, a plataforma recebe a sua base de código, identifica a linguagem de programação e ferramentas utilizadas e coloca no ar sua aplicação, sem precisar se preocupar com configuração complexa de infraestrutura.
 
 Quando utilizamos o termo `deploy`, estamos falando da implementação da nossa aplicação web, ou seja, colocar a nossa aplicação no ar.
 
