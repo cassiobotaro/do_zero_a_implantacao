@@ -56,3 +56,5 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 1. [:rainbow: Deploy contínuo](cd.md)
 
 1. [:whale: Containerizando sua aplicação](docker.md)
+
+1. [:bookmark_tabs: Referências e Dicas](referencias.md)
