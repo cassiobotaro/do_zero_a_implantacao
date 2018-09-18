@@ -4,9 +4,9 @@
   <img style="float: right;" src="/imgs/acessorios-para-cozinha.jpg" alt="Acessórios de cozinha"/>
 </p>
 
-## Um bom chef escolhe as melhores ferramentas
+## :fork_and_knife: Um bom chef escolhe as melhores ferramentas
 
-Uma analogia que sou acostumado a fazer é que programar é igual a cozinhar, você deve escolher as melhores ferramentas. Um
+Uma analogia que normalmente faço é que programar é igual a cozinhar, você deve escolher as melhores ferramentas. Um
 bom chefe gasta algumas horas escolhendo quais acessórios serão necessários para a produção do prato e já deixa na bancada de
 forma que não precise ficar procurando enquanto está produzindo seu prato.
 
@@ -28,7 +28,7 @@ Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Ten
 
 **Para que serve?**
 
-Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e salva como final. Mais tarde ou no outro dia decide fazer mais mudanças e chama de "agoravai" e quando menos percebe já tem um monte de arquivo e talvez nem se lembre mais qual a ultima versão.
+Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e salva como final. Mais tarde ou no outro dia você decide fazer mais mudanças e chama de "agoravai" e quando menos percebe já tem um monte de arquivos e talvez nem se lembre mais qual a ultima versão.
 
 É para gerenciar alterações feitas no projeto durante o tempo que serve esta ferramenta. Durante o curso vamos salvando cada progresso feito sem precisar de ter várias cópias do mesmo arquivo.
 
@@ -60,7 +60,7 @@ A saída para ambos os sistemas operacionais deverá ser:
 
 ```bash
 $ git --version
-git version 2.16.2
+git version 2.19.0
 ```
 
 ## :snake: Python
@@ -105,7 +105,7 @@ A saída para ambos os sistemas operacionais deverá ser:
 
 ```bash
 $ python3 --version
-Python 3.6.4
+Python 3.7.0
 ```
 
 ## :truck: Pip
@@ -142,7 +142,7 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ python3 -m pip --version
-pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
+pip 18.0 from /usr/lib/python3.7/site-packages (python 3.7)
 ```
 
 ## :space_invader: Pipenv
@@ -181,7 +181,7 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ pipenv --version
-pipenv, version 11.6.1
+pipenv, version 2018.7.1
 ```
 
 ## :cloud: Heroku CLI
@@ -222,7 +222,7 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ heroku --version
-heroku-cli/6.15.35-cf39a29 (linux-x64) node-v9.8.0
+heroku/7.16.0 linux-x64 node-v10.10.0
 ```
 
 :tada: Parabéns! Instalamos todas as ferramentas que precisaremos para acompanhar este curso, vamos para o próximo passo!

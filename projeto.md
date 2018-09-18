@@ -10,7 +10,7 @@ Antes de instalar as bibliotecas que utilizaremos durante o nosso projeto, preci
 
 ## :arrow_forward: Começando a tirar do papel o projeto
 
-O primeiro passo para desenvolvimento do nosso aplicativo web é criá-lo utilizando um controle de versão.Para este minicurso optei pelo controle de versão mais popular hoje em dia que se chama git.
+O primeiro passo para desenvolvimento do nosso aplicativo web é criá-lo utilizando um controle de versão. Para este minicurso optei pelo controle de versão mais popular hoje em dia que se chama git.
 
 Aproveitando esta escolha, como o Github é gratuito e também o mais conhecido, vamos hospedar o projeto lá(que irá ajudar com algumas integrações futuramente).
 
@@ -25,8 +25,8 @@ Preencha os campos como visto na imagem abaixo.
 Agora faça um "clone" do seu repositório.
 
 ```bash
-$ git clone https://github.com/cassiobotaro/todoapp.git
-Cloning into 'todoapp'...
+$ git clone https://github.com/cassiobotaro/gerenciadortarefas.git
+Cloning into 'gerenciadortarefas'...
 remote: Counting objects: 5, done.
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -92,9 +92,9 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ pipenv run python -m flask --version
-Flask 0.12.2
-Python 3.6.4 (default, Jan  5 2018, 02:35:40)
-[GCC 7.2.1 20171224]
+Flask 1.0.2
+Python 3.7.0 (default, Sep 15 2018, 19:13:07) 
+[GCC 8.2.1 20180831]
 ```
 
 ### :link: Httpie
@@ -176,7 +176,7 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ pipenv run python -m pytest --version
-This is pytest version 3.4.2, imported from /home/cassiobotaro/.virtualenvs/todo.app-AIIv-fDj/lib/python3.6/site-packages/pytest.py
+This is pytest version 3.8.0, imported from /home/cassiobotaro/.local/share/virtualenvs/gerenciadortarefas-StqQxdHi/lib/python3.7/site-packages/pytest.py
 ```
 
 Neste momento seu diretório deve estar assim:
@@ -193,8 +193,8 @@ Vamos testar nossa instalção então?
 
 ```bash
 $ python3
-Python 3.6.2 (default, Jul 20 2017, 03:52:27)
-[GCC 7.1.1 20170630] on linux
+Python 3.7.0 (default, Sep 15 2018, 19:13:07) 
+[GCC 8.2.1 20180831] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import flask
 Traceback (most recent call last):
@@ -203,14 +203,17 @@ ModuleNotFoundError: No module named 'flask'
 >>>
 ```
 
+:pushpin: Utilize `<Ctrl> + d` ou `exit()` para sair do python.
+
 :scream: Se entramos no python e tentamos importar a biblioteca flask, um erro é retornado dizendo que o módulo não foi encontrado.
 
 Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `pipenv shell`.
 
 ```bash
 $ python3
-Python 3.6.2 (default, Jul 20 2017, 03:52:27)
-[GCC 7.1.1 20170630] on linux
+n3
+Python 3.7.0 (default, Sep 15 2018, 19:13:07) 
+[GCC 8.2.1 20180831] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import flask
 >>>
@@ -219,6 +222,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?
 
 Primeiro passo é checar o que foi feito até agora:
+
 ```bash
 $ git status
 On branch master

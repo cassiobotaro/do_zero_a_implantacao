@@ -4,18 +4,18 @@
   <img style="float: right;" src="/imgs/todolist.png" alt="Lista de tarefas"/>
 </p>
 
-## Definindo o que iremos desenvolver
+## :thought_balloon: Definindo o que iremos desenvolver
 
 Quando iniciamos um projeto, a primeira coisa que devemos conhecer são as "regras de negócio" do nosso projeto. Mas o que é isso?
 
-É a descrição de como o nosso sistema deve ser e como deve se comportar diante da interação do usuário. Por exemplo, o sistema escolhido hoje é uma lista de afazeres.
+É a descrição de como o nosso sistema deve ser e como deve se comportar diante da interação do usuário. Por exemplo, o sistema escolhido hoje é para organizar uma lista de tarefas.
 
 
-## Regras de negócio
+## :pencil: Regras de negócio
 
-O sistema será um gerenciador de tarefas e a primeira decisão é que nosso sistema deve apresentar uma interface que possa ser consumida tanto por um website, tanto por um aplicativo.
+O sistema será um gerenciador de tarefas e a primeira decisão é que nosso sistema deve apresentar uma interface que possa ser consumida tanto por um website, tanto por um aplicativo para dispositivos móveis.
 
-Cada tarefa(afazer) possui um identificador único, um titulo e uma descrição e seu estado que pode ser finalizado/não-finalizado.
+Cada tarefa possui um identificador único, um titulo e uma descrição e seu estado que pode ser finalizado/não-finalizado.
 
 Como usuário devo ser capaz de:
 
