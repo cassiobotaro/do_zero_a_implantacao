@@ -203,7 +203,7 @@ ModuleNotFoundError: No module named 'flask'
 >>>
 ```
 
-:pushpin: Utilize `<Ctrl> + d` ou `exit()` para sair do python.
+:pushpin: Utilize `Ctrl + d` ou `exit()` para sair do python.
 
 :scream: Se entramos no python e tentamos importar a biblioteca flask, um erro é retornado dizendo que o módulo não foi encontrado.
 

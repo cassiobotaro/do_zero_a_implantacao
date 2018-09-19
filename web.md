@@ -24,15 +24,17 @@ Nesse caso nosso recurso único acessado é um texto em formato json, com inform
 
 Experimente também as seguintes URIs:
 
-`pipenv run http http://httpbin.org/anything/resource`
+`pipenv run http https://swapi.co/api/people/3/`
 
-`pipenv run http http://httpbin.org/anything/resource/42`
+`pipenv run http https://swapi.co/api/starships/10/`
 
-`pipenv run http http://httpbin.org/anything/resource/42?q=teste&a=b`
+`pipenv run http http://httpbin.org/anything`
 
-Na primeira e segunda URI, temos a mudança do nosso recurso, que na primeira URI é `/anything/resource` e a segunda é `/anything/resource/42`. A mudança nesta parte da URI que chamamos de `caminho` ou `path` é o que caracteriza como outro recurso diferente.
+`pipenv run http http://httpbin.org/anything?argumento=valor`
 
-A terceira é o mesmo `caminho` da segunda porém a presença de parametros na URI pode afetar o retorno daquele recurso.
+Na primeira e segunda URI, temos a mudança do nosso recurso, que na primeira URI é `/api/people/3/` e a segunda é `/api/starships/10/`. A mudança nesta parte da URI que chamamos de `caminho` ou `path` é o que caracteriza como outro recurso diferente.
+
+A terceira é o mesmo `caminho` da quarta porém a presença de parametros na URI pode afetar o retorno daquele recurso.
 
 ## Requisição (`request`) e Resposta (`response`)
 
@@ -101,10 +103,13 @@ Veja um exemplo de `GET`.
 
 `pipenv run http GET http://httpbin.org/get`
 
+Um exemplo de post.
+
+`pipenv run http POST http://httpbin.org/post data=valor`
+
 Substitua o verbo e veja funcionando os outros verbos http. Fique atento que os verbos após o http devem ser escritos com letra maiúscula.
 
 :smile: Bem legal não é? E agora, já vamos logo escrever código? Sim e não, vamos agora dar uma passada na linguagem Python.
-
 
 [Primeiros passos com python :arrow_right:](python.md)
 

@@ -4,7 +4,7 @@
   <img style="float: right;" src="/imgs/todolist.png" alt="Lista de tarefas"/>
 </p>
 
-## :thought_balloon: Definindo o que iremos desenvolver
+## :ballot_box_with_check: Definindo o que iremos desenvolver
 
 Quando iniciamos um projeto, a primeira coisa que devemos conhecer são as "regras de negócio" do nosso projeto. Mas o que é isso?
 
