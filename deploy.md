@@ -28,8 +28,8 @@ Crie uma aplicação no Heroku, preparando a heroku para receber seu código-fon
 
 ```bash
 $ heroku create
-Creating app... done, ⬢ warm-springs-22819
-https://warm-springs-22819.herokuapp.com/ | https://git.heroku.com/warm-springs-22819.git
+Creating app... done, ⬢ dry-taiga-57827
+https://dry-taiga-57827.herokuapp.com/ | https://git.heroku.com/dry-taiga-57827.git
 ```
 
 Com este comando um repositório remoto é vinculado ao seu repositório local e cada vez que quiser modificar a versão do código rodando, basta enviar seu código para este repositório remoto. Esta ação desencadeia toda uma nova implementação da sua aplicação.
@@ -38,7 +38,13 @@ Antes de enviar pela primeira vez nosso código, vamos fazer as últimas configu
 
 O Heroku utiliza um arquivo chamado `Procfile` que contém informações de como rodar sua aplicação. Crie este arquivo com o seguinte conteúdo.
 
-`web: FLASK_APP=todo.py flask run --host=0.0.0.0 --port=$PORT`
+`web: FLASK_APP=gerenciador.py flask run --host=0.0.0.0 --port=$PORT`
+
+Salve a versão atual da nossa aplicação para implantação.
+
+`$ git add Procfile`
+
+`$ git commit -m "implantação no heroku"`
 
 Agora vamos a implantação do sistema.
 
@@ -46,30 +52,35 @@ Agora vamos a implantação do sistema.
 
 ```bash
 $ git push heroku master
-Counting objects: 10, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (10/10), 3.11 KiB | 1.04 MiB/s, done.
-Total 10 (delta 1), reused 0 (delta 0)
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (22/22), 6.11 KiB | 3.05 MiB/s, done.
+Total 22 (delta 5), reused 4 (delta 0)
 remote: Compressing source files... done.
 remote: Building source:
-remote: 
+remote:
 remote: -----> Python app detected
-remote: -----> Installing python-3.6.4
+remote:  !     The latest version of Python 3.6 is python-3.6.6 (you are using python-3.7.0, which is unsupported).
+remote:  !     We recommend upgrading by specifying the latest version (python-3.6.6).
+remote:        Learn More: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> Installing python-3.7.0
 remote: -----> Installing pip
-remote: -----> Installing dependencies with Pipenv 11.8.2…
-remote:        Installing dependencies from Pipfile.lock (816422)…
+remote: -----> Installing dependencies with Pipenv 2018.5.18…
+remote:        Installing dependencies from Pipfile.lock (e24289)…
+remote: -----> Installing SQLite3
 remote: -----> Discovering process types
 remote:        Procfile declares types -> web
-remote: 
+remote:
 remote: -----> Compressing...
-remote:        Done: 53.4M
+remote:        Done: 58.2M
 remote: -----> Launching...
 remote:        Released v3
-remote:        https://warm-springs-22819.herokuapp.com/ deployed to Heroku
-remote: 
+remote:        https://dry-taiga-57827.herokuapp.com/ deployed to Heroku
+remote:
 remote: Verifying deploy... done.
-To https://git.heroku.com/warm-springs-22819.git
+To https://git.heroku.com/dry-taiga-57827.git
  * [new branch]      master -> master
 ```
 
@@ -77,7 +88,7 @@ To https://git.heroku.com/warm-springs-22819.git
 
 Para verificarmos se a implantação deu certo, digite `heroku open` e lembre-se que o recurso está em `/task` ou copie a url retornada no comando de implantação acrescentando `/task` e utilize o httpie para testar assim como foi feito localmente.
 
-No nosso exemplo seria `pipenv run http https://warm-springs-22819.herokuapp.com/task`.
+No nosso exemplo seria `pipenv run http https://dry-taiga-57827.herokuapp.com/tarefas`.
 
 Verifique se uma resposta 200 OK foi obtida.
 

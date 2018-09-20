@@ -50,11 +50,13 @@ Isto será extremamente útil nos próximos passos.
 
 :floppy_disk: Para terminar a integração com travis, salve a versão atual do projeto e veja a primeira construção sendo realizada.
 
-`git commit -m "integração contínua"`
+`$ git add .travis.yml`
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+`$ git commit -m "integração contínua"`
 
-`git push`
+:octocat: Não esqueça de enviar ao github a versão atualizada do projeto, para disparar a nossa integração contínua.
+
+`$ git push`
 
 [Mandando um foguete pro espaço :arrow_right:](deploy.md)
 
