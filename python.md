@@ -58,13 +58,13 @@ Python possui por padrão uma estrutura de dados de array associativo, que é ch
 
 >>> tarefas = {} # inicializando uma estrutura vazia
 
->>> tarefas[1] = 'tarefa 1' # definindo uma tarefa de chave 1, com contéudo 'tarefa 1'
+>>> tarefas[1] = 'tarefa 1' # definindo uma tarefa de chave 1, com conteúdo 'tarefa 1'
 
 >>> print(tarefas[1])  # exibindo a tarefa 1
 
->>> tarefas[2] = 'tarefa 2' # definindo uma tarefa de chave 2, com contéudo 'tarefa 2'
+>>> tarefas[2] = 'tarefa 2' # definindo uma tarefa de chave 2, com conteúdo 'tarefa 2'
 
->>> tarefas[3] = 'tarefa-3' # definindo uma tarefa de chave 3, com contéudo 'tarefa 3'
+>>> tarefas[3] = 'tarefa-3' # definindo uma tarefa de chave 3, com conteúdo 'tarefa 3'
 
 >>> tarefas[3] = 'tarefa 3' # editando uma tarefa
 
