@@ -68,7 +68,7 @@ A resposta de um servidor pode ser sucesso ou não, pode ser que o recurso pedid
 
 É pensando nestas respostas que o protocolo http, utiliza códigos que indicam o que ocorreu com a resposta.
 
-Os mais famos deles são o `404 - Não encontrado`, que me diz que o recurso pedido não foi encontrado. O `200 - OK` que significa que a resposta obteve sucesso e também `500 - Erro interno do servidor`.
+Os mais famosos deles são o `404 - Não encontrado`, que me diz que o recurso pedido não foi encontrado. O `200 - OK` que significa que a resposta obteve sucesso e também `500 - Erro interno do servidor`.
 
 Alguns outros não tão famosos mas também importantes são o `201 - Criado`, `204 - Nenhum conteúdo`, `301 - Movido permanentemente`, `400 - Requisição inválida`e o `401 - Não autorizado`.
 
