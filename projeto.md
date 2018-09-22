@@ -4,7 +4,7 @@
   <img style="float: right;" src="/imgs/blueprint.jpg" alt="Blueprint do projeto"/>
 </p>
 
-Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingradientes.
+Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingredientes.
 
 Antes de instalar as bibliotecas que utilizaremos durante o nosso projeto, precisamos inicializá-lo.
 
