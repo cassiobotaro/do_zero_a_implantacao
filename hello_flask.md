@@ -218,7 +218,7 @@ def test_lista_de_tarefas_nao_vazia_retorna_conteudo():
 
 :x: Testes não funcionando novamente? Vamos corrigir!
 
-Precisamos adicionar uma lista de tarefas e retorna-la na nossa função de listar.
+Precisamos adicionar uma lista de tarefas e retorná-la na nossa função de listar.
 
 ```python
 from flask import Flask, jsonify
