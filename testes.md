@@ -10,7 +10,7 @@ Talvez tenha chegado aqui sem conhecimento sobre testes automatizados, por isso 
 
 É muito comum enquanto estamos desenvolvendo, testarmos manualmente as funcionalidades que estamos implementando, mas o que pode ocorrer se eu me esquecer de testar alguma funcionalidade? Por isso escrevemos código para testar o código das nossas funcionalidades.
 
-Automatizar testes é uma maneira de agilizar nosso processo de desenvolvimento, garantindo que novas funcionalidades não impactem sobre as antigas.
+Automatizar testes é uma maneira de agilizar nosso processo de desenvolvimento, garantindo que novas funcionalidades não impactam sobre as antigas.
 
 Um exemplo de teste automatizado.
 
