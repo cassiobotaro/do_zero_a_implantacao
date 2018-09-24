@@ -100,8 +100,9 @@ No arquivo `test_gerenciador.py`, adicione o seguinte teste.
 
 ```python
 def test_listar_tarefas_deve_ter_formato_json():
+    app.config['TESTING'] = True
     with app.test_client() as cliente:
-        resposta = cliente.get('/task')
+        resposta = cliente.get('/tarefas')
         assert resposta.content_type == 'application/json'
 ```
 
@@ -214,6 +215,7 @@ def test_lista_de_tarefas_nao_vazia_retorna_conteudo():
             'titulo': 'tarefa 1',
             'descricao': 'tarefa de numero 1',
             'estado': False}]
+    tarefas.clear()
 ```
 
 :x: Testes não funcionando novamente? Vamos corrigir!
