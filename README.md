@@ -1,4 +1,4 @@
-# :rocket: Do zero ao deploy
+# :rocket: Do zero a implantação
 
 <p align="center">
   <img style="float: right;" src="/imgs/python_rocket.png" alt="cobra em um foguete"/>
