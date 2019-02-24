@@ -68,7 +68,7 @@ Python possui por padrão uma estrutura de dados de array associativo, que é ch
 
 >>> tarefas[3] = 'tarefa 3' # editando uma tarefa
 
->>> del tarefa[1] # removendo a tarefa
+>>> del tarefas[1] # removendo a tarefa
 
 ```
 
