@@ -41,11 +41,11 @@ def test_criar_tarefa_retorna_tarefa_inserida():
 
 Importar o seguinte no início de todo.py
 
-```
+```python
 from flask import request
 ```
 
-```
+```python
 @app.route('/task', methods=['POST'])
 def criar():
     titulo = request.json.get('titulo')
@@ -137,7 +137,7 @@ def criar():
     titulo = request.json.get('titulo')
     descricao = request.json.get('descricao')
     if not descricao:
-        abort(404)
+        abort(400)
     tarefa = {
         'id': len(tarefas) + 1,
         'titulo': titulo,
@@ -168,7 +168,7 @@ def criar():
     titulo = request.json.get('titulo')
     descricao = request.json.get('descricao')
     if not descricao or not titulo:
-        abort(404)
+        abort(400)
     tarefa = {
         'id': len(tarefas) + 1,
         'titulo': titulo,
