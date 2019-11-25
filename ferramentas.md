@@ -60,7 +60,7 @@ A saída para ambos os sistemas operacionais deverá ser:
 
 ```bash
 $ git --version
-git version 2.19.0
+git version 2.24.0
 ```
 
 ## :snake: Python
@@ -105,7 +105,7 @@ A saída para ambos os sistemas operacionais deverá ser:
 
 ```bash
 $ python3 --version
-Python 3.7.0
+Python 3.8.0
 ```
 
 ## :truck: Pip
@@ -116,7 +116,7 @@ Python 3.7.0
 
 **Para que serve?**
 
-Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para desenvolvimento do sistema. O pip nos permite baixar uma versão específica de uma biblioteca como por exemplo `python3 -m pip install django==2.0`.
+Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para desenvolvimento do sistema. O pip nos permite baixar uma versão específica de uma biblioteca como por exemplo `python3 -m pip install fastapi==0.43.0`.
 
 **Como instalar**
 
@@ -142,46 +142,76 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ python3 -m pip --version
-pip 18.0 from /usr/lib/python3.7/site-packages (python 3.7)
+pip 19.2.3 from /usr/lib/python3.8/site-packages (python 3.8)
 ```
 
-## :space_invader: Pipenv
+## :books: venv
 
 **O que é?**
 
-[Pipenv](https://docs.pipenv.org/) é uma ferramenta recente e moderna, ajuda no gerenciamento de ambientes isolados e gestão de depêndencias.
+Responsável por criar ambientes virtuais Python e provê um isolamento dos pacotes instalados e suas respectivas versões.
+
+É um cliente de linha de comando que auxilia na separação de ambientes para diferentes projetos.
 
 **Para que serve?**
 
-Iniciamos um projeto na versão `1.4`, e de repente, uma novo projeto é iniciado na versão `2.0`. O que fazer? Será que são compatíveis? E se eu atualizo o sitema e a versão antiga para de funcionar?
+Iniciamos um projeto que tem uma biblioteca na versão `1.4`, e de repente, uma novo projeto é iniciado na versão `2.0`. O que fazer? Será que são compatíveis? E se eu atualizo o sitema e a versão antiga para de funcionar?
 
-É onde o pipenv entra, porém ele é bem mais do que só um gerenciador de dependências, ele também serve para isolar ambientes, eu consigo ter dois projetos rodando, em dos ambientes diferentes, com versões diferentes do python e versões diferentes de biblioteca.
+É onde o venv entra, ele serve para isolar ambientes entre projetos, ou seja, eu consigo ter dois projetos rodando, em dos ambientes diferentes, com versões diferentes da mesma biblioteca.
 
 **Como instalar**
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pip install pipenv`.
+Não será necessário a instalação pois o mesmo já vem com o instalador da linguagem.
 
 :package: *ubuntu*
 
-Simples como `python3 -m pip install pipenv` digitado em um terminal.
+Versões atuais do ubuntu já vem com python 3 instalado. Para as mais antigas utilize o comando `sudo apt install python3-venv`.
 
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pipenv --version`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m venv -h`. Se nada acontecer é porque deu certo.
 
 :package: *ubuntu*
 
-Abra um terminal e digite `pipenv --version`.
+Abra um terminal e digite `python3 -m venv -h`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
-$ pipenv --version
-pipenv, version 2018.7.1
+$ python3 -m venv -h
+usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]
+            [--upgrade] [--without-pip] [--prompt PROMPT]
+            ENV_DIR [ENV_DIR ...]
+
+Creates virtual Python environments in one or more target directories.
+
+positional arguments:
+  ENV_DIR               A directory to create the environment in.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --system-site-packages
+                        Give the virtual environment access to the system
+                        site-packages dir.
+  --symlinks            Try to use symlinks rather than copies, when symlinks
+                        are not the default for the platform.
+  --copies              Try to use copies rather than symlinks, even when
+                        symlinks are the default for the platform.
+  --clear               Delete the contents of the environment directory if it
+                        already exists, before environment creation.
+  --upgrade             Upgrade the environment directory to use this version
+                        of Python, assuming Python has been upgraded in-place.
+  --without-pip         Skips installing or upgrading pip in the virtual
+                        environment (pip is bootstrapped by default)
+  --prompt PROMPT       Provides an alternative prompt prefix for this
+                        environment.
+
+Once an environment has been created, you may wish to activate it, e.g. by
+sourcing an activate script in its bin directory.
 ```
 
 ## :cloud: Heroku CLI
@@ -222,7 +252,7 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ heroku --version
-heroku/7.16.0 linux-x64 node-v10.10.0
+heroku/7.34.2 linux-x64 node-v10.16.3
 ```
 
 :tada: Parabéns! Instalamos todas as ferramentas que precisaremos para acompanhar este curso, vamos para o próximo passo!

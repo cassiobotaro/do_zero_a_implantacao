@@ -15,7 +15,9 @@ Quando iniciamos um projeto, a primeira coisa que devemos conhecer são as "regr
 
 O sistema será um gerenciador de tarefas e a primeira decisão é que nosso sistema deve apresentar uma interface que possa ser consumida tanto por um website, tanto por um aplicativo para dispositivos móveis.
 
-Cada tarefa possui um identificador único, um titulo e uma descrição e seu estado que pode ser finalizado/não-finalizado.
+Cada tarefa possui um identificador único, um titulo, uma descrição e seu estado que pode ser finalizado/não-finalizado.
+
+O título de ter até 50 caracteres e a descrição 140 caracteres.
 
 Como usuário devo ser capaz de:
 

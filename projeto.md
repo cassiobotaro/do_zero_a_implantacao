@@ -6,13 +6,23 @@
 
 Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingredientes.
 
-Antes de instalar as bibliotecas que utilizaremos durante o nosso projeto, precisamos inicializá-lo.
+Desenvolver um projeto não significa escrever tudo do zero e poderemos contar com ajuda de trechos escritos por outros programadores. estes trechos comuns de código são chamados bibliotecas e vamos acabar adicionando algumas ao nosso projeto.
+
+Mas antes de tudo, precisamos iniciar nosso projeto.
 
 ## :arrow_forward: Começando a tirar do papel o projeto
 
-O primeiro passo para desenvolvimento do nosso aplicativo web é criá-lo utilizando um controle de versão. Para este minicurso optei pelo controle de versão mais popular hoje em dia que se chama git.
+Daremos nosso primeiro passo, criando um diretório onde serão armazenados todos os arquivos do projeto.
 
-Aproveitando esta escolha, como o Github é gratuito e também o mais conhecido, vamos hospedar o projeto lá(que irá ajudar com algumas integrações futuramente).
+Faremos isto utilizando o github, que é uma plataforma gratuita, muita conhecida e que irá nos ajudar com algumas integrações no futuro.
+
+Mas por que iniciaremos criando o projeto lá e não no próprio computador?
+
+O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da em sua criação vamos salvando as alterações, evitando que os passos se percam e caso necessário podemos desfazer algum passo errado.
+
+Outro motivo é que se algo acontecer com seu computador, teremos salvo uma versão do projeto.
+
+Abra seu navegador, e acesse o seguinte endereço http://github.com. Crie uma conta se ainda não tiver.
 
 Aperte o botão novo_repositório.
 
@@ -25,8 +35,8 @@ Preencha os campos como visto na imagem abaixo.
 Agora faça um "clone" do seu repositório.
 
 ```bash
-$ git clone https://github.com/cassiobotaro/gerenciadortarefas.git
-Cloning into 'gerenciadortarefas'...
+$ git clone https://github.com/cassiobotaro/gerenciador-tarefas.git
+Cloning into 'gerenciador-tarefas'...
 remote: Counting objects: 5, done.
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -34,13 +44,17 @@ Unpacking objects: 100% (5/5), done.
 
 ```
 
+`git clone` é um comando para criar uma cópia dos arquivos e suas versões. Pode ser feito para trazer uma cópia do repositório do servidor para o computador local.
+
 Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado digite os seguintes comandos.
 
 ```bash
-$ git config --local user.email emailutilizado@github.com
+$ git config --local user.email seuemailutilizado@github.com
 
 $ git config --local user.name usernamegithub
 ```
+
+:warning: Os comandos acima devem ser modificados com seu email e nome de usuário do github.
 
 "Voilà", já temos o projeto iniciado.
 
@@ -48,17 +62,20 @@ Navegue até o diretório onde foi executado o comando de `clone` do projeto. Pr
 
 :warning: Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
 
+
+# TODO: ATIVAR O AMBIENTE VIRTUAL
+
 ## :books: Bibliotecas e utilitários
 
 Chegou a hora de instalar algumas bibliotecas e utilitários que nos auxiliarão na criação do nosso sistema web, na realização de testes unitários e testes manuais.
 
 Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Tenha sempre certeza de que a ferramenta está instalada e funcionando.
 
-### :dog: Flask
+### :zap: FastAPI
 
 **O que é?**
 
-O [flask](http://flask.pocoo.org/) é uma ferramenta para desenvolvimento web bastante conhecido por sua arquitetura minimalista.
+O [fastapi](https://fastapi.tiangolo.com) é uma ferramenta para desenvolvimento web, possui alta performance, fácil de aprender, rápida para escrever código e pronta para colocar o código no ar.
 
 **Para que serve?**
 
@@ -72,30 +89,21 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pipenv install flask`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install "fastapi[all]"`.
 
 :package: *ubuntu*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `pipenv install flask`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install "fastapi[all]"`.
 
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pipenv run python -m flask --version`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -c "import fastapi"`. nenhum erro deve ocorrer.
 
 :package: *ubuntu*
 
-Abra um terminal e digite `pipenv run python -m flask --version`.
-
-A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
-
-```bash
-$ pipenv run python -m flask --version
-Flask 1.0.2
-Python 3.7.0 (default, Sep 15 2018, 19:13:07) 
-[GCC 8.2.1 20180831]
-```
+Abra um terminal e digite `python3 -c "import fastapi"`. nenhum erro deve ocorrer.
 
 ### :link: Httpie
 
@@ -105,39 +113,37 @@ Python 3.7.0 (default, Sep 15 2018, 19:13:07)
 
 **Para que serve?**
 
-Diversos momentos do curso, teremos de testar manualmente se nosso sistema está funcionando, ainda que possua testes unitários.
+Diversos momentos do curso, teremos de testar manualmente se nosso sistema está funcionando, ainda que possua testes automatizados.
 
 Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 **Como instalar**
 
-:warning: Muita atenção, pois os comandos de instalação deste pacote serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
-
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pipenv install --dev httpie`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install httpie`.
 
 :package: *ubuntu*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `pipenv install --dev httpie`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install install httpie`.
 
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pipenv run http --version`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `http --version`.
 
 :package: *ubuntu*
 
-Abra um terminal e digite `pipenv run http --version`.
+Abra um terminal e digite `http --version`.
 
 :warning: Note que foi utilizado o comando http ao invés de httpie, este é o nome do executável do httpie depois de instalado no sistema.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
-$ pipenv run http --version
-0.9.9
+$ http --version
+1.0.3
 ```
 
 ### :traffic_light: Pytest
@@ -152,72 +158,88 @@ Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não 
 
 **Como instalar**
 
-:warning: Muita atenção pois os comandos de instalação deste pacote serão feitos com a opção `--dev` que indica que esta biblioteca é utilizada só para testar localmente, não sendo necessária para o programa rodar.
-
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pipenv install --dev pytest`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install pytest`.
 
 :package: *ubuntu*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `pipenv install --dev pytest`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install pytest`.
 
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pipenv run python -m pytest --version`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pytest --version`.
 
 :package: *ubuntu*
 
-Abra um terminal e digite `pipenv run python -m pytest --version`.
+Abra um terminal e digite `python3 -m pytest --version`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
-$ pipenv run python -m pytest --version
-This is pytest version 3.8.0, imported from /home/cassiobotaro/.local/share/virtualenvs/gerenciadortarefas-StqQxdHi/lib/python3.7/site-packages/pytest.py
+$ python3 -m pytest --version
+This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerenciador-tarefas/.venv/lib/python3.8/site-packages/pytest.py
 ```
+
+
+## :warning: Nota importante sobre ambientes virtuais
+
+Se neste momento, você digitar `cmd` no windows, ou abrir um terminal no linux e digitar `python3`, e em seguida tentar importar a bilbioteca fastapi o seguinte erro será mostrado. :scream:
+
+```bash
+$ python3
+Python 3.8.0 (default, Oct 16 2019, 11:21:38)
+[GCC 9.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import fastapi
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'fastapi'
+>>>
+```
+:pushpin: Utilize `Ctrl + d` ou `exit()` para sair do python.
+
+Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `source <venv>/bin/activate` ou `<venv>\Scripts\activate.bat`.
+
+Não esqueça de trocar o `<venv>` pelo nome do ambiente virtual criado.
+
+## Salvando o momento atual do nosso projeto
 
 Neste momento seu diretório deve estar assim:
 
 ```
 .
 ├── LICENSE
-├── Pipfile
-├── Pipfile.lock
 └── README.md
 ```
 
-Vamos testar nossa instalação então?
+E se eu te pedisse agora uma cópia do projeto, como faria para que eu soubesse de toda essa lista de coisas necessárias pro código rodar?
 
-```bash
-$ python3
-Python 3.7.0 (default, Sep 15 2018, 19:13:07) 
-[GCC 8.2.1 20180831] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import flask
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ModuleNotFoundError: No module named 'flask'
->>>
+Para evitar este problema definiremos arquivos com as dependências que instalamos no nosso projeto.
+
+O primeiro deles é o requirements.txt.
+
+```
+fastapi[all]==0.43.0
 ```
 
-:pushpin: Utilize `Ctrl + d` ou `exit()` para sair do python.
+O segundo chamaremos de `dev-requirements.txt`.
 
-:scream: Se entramos no python e tentamos importar a biblioteca flask, um erro é retornado dizendo que o módulo não foi encontrado.
-
-Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `pipenv shell`.
-
-```bash
-$ python3
-n3
-Python 3.7.0 (default, Sep 15 2018, 19:13:07) 
-[GCC 8.2.1 20180831] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import flask
->>>
 ```
+-r requirements.txt
+pytest==5.3.0
+httpie==1.0.3
+```
+
+Por que arquivos separados?
+
+No `requirements.txt`, só colocamos aquelas bibliotecas reamente necessárias para o sistema ir ao ar, já no `dev-requirements.txt`, temos as depêndencias que somente são utéis enquanto estamos esenvolvendo o sistema.
+
+Aquele `-r requirements.txt` no arquivo de desenvolvimento garante que as dependências principais serão instaladas e em seguidas as outras que somente são utéis durante o desenvolvimento.
+
+Quando formos colocar o site no ar, estes arquivos serão bem úteis.
 
 Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?
 
@@ -226,20 +248,19 @@ Primeiro passo é checar o que foi feito até agora:
 ```bash
 $ git status
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is up to date with 'origin/master'.
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-
-	Pipfile
-	Pipfile.lock
+	dev-requirements.txt
+	requirements.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão que monitore estes arquivos.
 
-`$ git add Pipfile Pipfile.lock`
+`$ git add requirements.txt dev-requirements.txt`
 
 :floppy_disk: Agora vamos marcar esta versão como salva.
 

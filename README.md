@@ -4,13 +4,13 @@
   <img style="float: right;" src="/imgs/python_rocket.png" alt="cobra em um foguete"/>
 </p>
 
-Da criação de uma aplicação utilizando o TDD(Test Driven Development) a uma introdução a um ambiente profissional utilizando integração contínua e deploy contínuo.
+Iniciaremos com um introdução a conceitos de programação web, preparação do ambiente e vamos evoluindo até escrever nossa primeira aplicação utilizando técnicas profissionais, para no fim colocarmos a aplicação no ar.
 
-Curso voltado a quem está começando, para conhecer as ferramentas e técnicas que podem lhe auxiliar na sua carreira.
+É um curso pensado para iniciantes da área da computação assim como pessoas que acabaram de iniciar na área, ou desejam expandir seu conhecimento.
 
-## Ementa
+## O que veremos?
 
-Está previsto para este curso o estudo e desenvolvimento de uma aplicação utilizando-se da técnica do tdd, que é um desenvolvimento guiado por testes(não se preocupe se não está familiarizado com o termo), assim como criação de um ambiente de desenvolvimento automatizado utilizando integração contínua e deploy contínuo.
+Está previsto para este curso o estudo e desenvolvimento de uma aplicação utilizando-se da técnica do tdd, que é um desenvolvimento guiado por testes(não se preocupe se não está familiarizado com o termo), assim como criação de um ambiente de desenvolvimento automatizado utilizando integração contínua e implantação.
 
 Assustado com tantos termos técnicos? Não se preocupe, você vai ver que as coisas são mais simples do que se parecem.
 
@@ -35,7 +35,7 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 
 1. [:goat: Desenvolvimento guiado por testes](testes.md)
 
-1. [:dog: Hello Flask](hello_flask.md)
+1. [:zap: Hello Fastapi](hello_fastapi.md)
 
 1. [:heavy_check_mark: Integração contínua](integracao.md)
 

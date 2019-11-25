@@ -26,11 +26,11 @@ def is_odd(number):
 
 ```python
 def is_odd_returns_true_when_input_is_three():
-    assert is_odd(3) == True
+    assert is_odd(3) is True
 
 
 def is_odd_returns_false_when_input_is_two():
-    assert is_odd(2) == False
+    assert is_odd(2) is False
 ```
 
 
@@ -67,7 +67,7 @@ Com os testes passando, analise se é possível alguma refatoração.
 
 :worried: Ainda não ficou claro o processo? Não se preocupe, daqui pra frente iremos ver este ciclo na prática.
 
-[Hello Flask :arrow_right:](hello_flask.md)
+[Hello Fastapi :arrow_right:](hello_fastapi.md)
 
 [:arrow_left: Primeiros passos com python](python.md)
 

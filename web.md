@@ -18,19 +18,19 @@ Em português: Identificador de Recursos Universal, como diz o próprio nome, é
 
 ### Prática
 
-Abra um terminal e navegue até dentro do nosso projeto, digite `pipenv run http http://httpbin.org/anything`.
+Abra um terminal e navegue até dentro do nosso projeto, digite `http http://httpbin.org/anything`.
 
 Nesse caso nosso recurso único acessado é um texto em formato json, com informações sobre a conexão.
 
 Experimente também as seguintes URIs:
 
-`pipenv run http https://swapi.co/api/people/3/`
+`http https://swapi.co/api/people/3/`
 
-`pipenv run http https://swapi.co/api/starships/10/`
+`http https://swapi.co/api/starships/10/`
 
-`pipenv run http http://httpbin.org/anything`
+`http http://httpbin.org/anything`
 
-`pipenv run http http://httpbin.org/anything?argumento=valor`
+`http http://httpbin.org/anything?argumento=valor`
 
 Na primeira e segunda URI, temos a mudança do nosso recurso, que na primeira URI é `/api/people/3/` e a segunda é `/api/starships/10/`. A mudança nesta parte da URI que chamamos de `caminho` ou `path` é o que caracteriza como outro recurso diferente.
 
@@ -50,11 +50,11 @@ A resposta como o próprio nome diz, é o recurso pedido pelo cliente. Não nece
 
 Experimentem estas uri's.
 
-`pipenv run http http://httpbin.org/image/png`
+`http http://httpbin.org/image/png`
 
-`pipenv run http http://httpbin.org/encoding/utf8`
+`http http://httpbin.org/encoding/utf8`
 
-`pipenv run http http://httpbin.org/xml`
+`http http://httpbin.org/xml`
 
 O primeiro recurso é uma imagem em formato png, caso queira ver esta imagem, abra um navegador e cole a url lá. Já o segundo recurso acessado é um texto em codificação utf-8. E por fim temos um texto em formato xml.
 
@@ -81,7 +81,7 @@ Uma lista com estes status pode ser encontrada [aqui](https://developer.mozilla.
 
 Rode o seguinte comando.
 
-`pipenv run http http://httpbin.org/status/418`
+`http http://httpbin.org/status/418`
 
 Experimente trocar o status na uri e veja as mensagens retornadas.
 
@@ -101,11 +101,11 @@ Veja a [lista](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods) para s
 
 Veja um exemplo de `GET`.
 
-`pipenv run http GET http://httpbin.org/get`
+`http GET http://httpbin.org/get`
 
 Um exemplo de post.
 
-`pipenv run http POST http://httpbin.org/post data=valor`
+`http POST http://httpbin.org/post data=valor`
 
 Substitua o verbo e veja funcionando os outros verbos http. Fique atento que os verbos após o http devem ser escritos com letra maiúscula.
 
