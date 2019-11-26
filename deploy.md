@@ -51,44 +51,37 @@ Agora vamos a implantação do sistema.
 É simples como `git push heroku master`.
 
 ```bash
-$ git push heroku master
-Enumerating objects: 22, done.
-Counting objects: 100% (22/22), done.
+$ gp heroku master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
 Delta compression using up to 4 threads
-Compressing objects: 100% (22/22), done.
-Writing objects: 100% (22/22), 6.11 KiB | 3.05 MiB/s, done.
-Total 22 (delta 5), reused 4 (delta 0)
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 303 bytes | 303.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
 remote: Compressing source files... done.
 remote: Building source:
 remote:
 remote: -----> Python app detected
-remote:  !     The latest version of Python 3.6 is python-3.6.6 (you are using python-3.7.0, which is unsupported).
-remote:  !     We recommend upgrading by specifying the latest version (python-3.6.6).
-remote:        Learn More: https://devcenter.heroku.com/articles/python-runtimes
-remote: -----> Installing python-3.7.0
-remote: -----> Installing pip
-remote: -----> Installing dependencies with Pipenv 2018.5.18…
-remote:        Installing dependencies from Pipfile.lock (e24289)…
-remote: -----> Installing SQLite3
-remote: -----> Discovering process types
+remote: -----> Installing requirements with pip
+...
 remote:        Procfile declares types -> web
 remote:
 remote: -----> Compressing...
-remote:        Done: 58.2M
+remote:        Done: 55.6M
 remote: -----> Launching...
-remote:        Released v3
-remote:        https://dry-taiga-57827.herokuapp.com/ deployed to Heroku
+remote:        Released v4
+remote:        https://agile-river-58363.herokuapp.com/ deployed to Heroku
 remote:
 remote: Verifying deploy... done.
-To https://git.heroku.com/dry-taiga-57827.git
- * [new branch]      master -> master
+To https://git.heroku.com/agile-river-58363.git
+   629aed8..8710ff8  master -> master
 ```
 
 # Deu certo?
 
-Para verificarmos se a implantação deu certo, digite `heroku open` e lembre-se que o recurso está em `/task` ou copie a url retornada no comando de implantação acrescentando `/task` e utilize o httpie para testar assim como foi feito localmente.
+Para verificarmos se a implantação deu certo, digite `heroku open` e lembre-se que o recurso está em `/tarefas` ou copie a url retornada no comando de implantação acrescentando `/tarefas` e utilize o httpie para testar assim como foi feito localmente.
 
-No nosso exemplo seria `pipenv run http https://dry-taiga-57827.herokuapp.com/tarefas`.
+No nosso exemplo seria `http https://agile-river-58363.herokuapp.com/tarefas`.
 
 Verifique se uma resposta 200 OK foi obtida.
 

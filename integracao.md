@@ -34,14 +34,14 @@ Escolha o projeto todoapp e habilite a integração contínua.
 No seu projeto crie um arquivo chamado `.travis.yml` com o seguinte conteúdo.
 
 ```yaml
+dist: xenial
 language: python
 python:
-    - 3.6
+    - 3.8
 install:
-  - pip install -U pipenv
-  - pipenv install --dev
+  - pip install -r dev-requirements.txt
 script:
-  - pytest
+  - python -m pytest --disable-warnings
 ```
 
 :tada: Pronto, a partir de agora, o travis irá rodar todos os testes do seu projeto de forma automatizada e indicará se a construção do mesmo está com problemas.
@@ -60,6 +60,6 @@ Isto será extremamente útil nos próximos passos.
 
 [Mandando um foguete pro espaço :arrow_right:](deploy.md)
 
-[:arrow_left: Hello Flask](hello_flask.md)
+[:arrow_left: Hello FastAPI](hello_fastapi.md)
 
 [:leftwards_arrow_with_hook: Voltar ao README ](README.md)
