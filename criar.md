@@ -16,6 +16,7 @@ def criar():
     pass
 ```
 
+TODO: mudar teste para verificar presença de titulo no corpo
 :x:
 
 ```python
@@ -60,170 +61,63 @@ def test_titulo_da_tarefa_pode_contar_entre_3_e_50_caracteres(cliente):
     resposta = cliente.post("/tarefas", {"titulo": 51 * "*"})
     assert resposta.status_code == 422
 ```
+:heavy_check_mark:
+
+TODO: solução para o teste acima
+
 
 :x:
 
-```python
-def test_criar_tarefa_retorna_tarefa_inserida():
-    tarefas.clear()
-    cliente = app.test_client()
-    # realiza a requisição utilizando o verbo POST
-    resposta = cliente.post('/task', data=json.dumps({
-        'titulo': 'titulo',
-        'descricao': 'descricao'}),
-        content_type='application/json')
-    # é realizada a análise e transformação para objeto python da resposta
-    data = json.loads(resposta.data.decode('utf-8'))
-    assert data['id'] == 1
-    assert data['titulo'] == 'titulo'
-    assert data['descricao'] == 'descricao'
-    # qaundo a comparação é com True, False ou None, utiliza-se o "is"
-    assert data['estado'] is False
-```
+TODO: teste que checa descriçao com até 140 caracteres
 
 :heavy_check_mark:
 
-Importar o seguinte no início de todo.py
+TODO: adiciona descrição ao modelo
 
-```python
-from flask import request
-```
-
-```python
-@app.route('/task', methods=['POST'])
-def criar():
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    tarefa = {
-        'id': len(tarefas) + 1,
-        'titulo': titulo,
-        'descricao': descricao,
-        'estado': False
-    }
-    return jsonify(tarefa)
-```
 
 :x:
 
-```python
-def test_criar_tarefa_codigo_de_status_retornado_deve_ser_201():
-    with app.test_client() as cliente:
-        resposta = cliente.post('/task', data=json.dumps({
-            'titulo': 'titulo',
-            'descricao': 'descricao'}),
-            content_type='application/json')
-        assert resposta.status_code == 201
-```
+TODO: deve retornar uma tarefa
 
 :heavy_check_mark:
 
-```python
-@app.route('/task', methods=['POST'])
-def criar():
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    tarefa = {
-        'id': len(tarefas) + 1,
-        'titulo': titulo,
-        'descricao': descricao,
-        'estado': False
-    }
-    return jsonify(tarefa), 201
-```
+TODO: modifica para retornar a tarefa
 
 :x:
 
-```python
-def test_criar_tarefa_insere_elemento_no_banco():
-    tarefas.clear()
-    cliente = app.test_client()
-    # realiza a requisição utilizando o verbo POST
-    cliente.post('/task', data=json.dumps({
-        'titulo': 'titulo',
-        'descricao': 'descricao'}),
-        content_type='application/json')
-    assert len(tarefas) > 0
-```
+TODO: tarefa deve ter id unico
+
 
 :heavy_check_mark:
 
-```python
-@app.route('/task', methods=['POST'])
-def criar():
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    tarefa = {
-        'id': len(tarefas) + 1,
-        'titulo': titulo,
-        'descricao': descricao,
-        'estado': False
-    }
-    tarefas.append(tarefa)
-    return jsonify(tarefa), 201
-```
+TODO: adiciona duas tarefas e os ids devem ser diferentes
 
 :x:
 
-```python
-def test_criar_tarefa_sem_descricao():
-    cliente = app.test_client()
-    # o código de status deve ser 400 indicando um erro do cliente
-    resposta = cliente.post('/task', data=json.dumps({'titulo': 'titulo'}),
-                            content_type='application/json')
-    assert resposta.status_code == 400
-```
+TODO: O estado deve ser concluido por padrão
 
 :heavy_check_mark:
 
-```python
-@app.route('/task', methods=['POST'])
-def criar():
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    if not descricao:
-        abort(400)
-    tarefa = {
-        'id': len(tarefas) + 1,
-        'titulo': titulo,
-        'descricao': descricao,
-        'estado': False
-    }
-    tarefas.append(tarefa)
-    return jsonify(tarefa), 201
-```
+TODO: adiciona estado ao modelo com valor default, deve ser um enum.
+:x:
+
+TODO: Código de estatus retornado deve ser 201
+
+:heavy_check_mark:
+
+TODO: modifica resposta da função
 
 :x:
 
-```python
-def test_criar_tarefa_sem_titulo():
-    cliente = app.test_client()
-    # o código de status deve ser 400 indicando um erro do cliente
-    resposta = cliente.post('/task', data=json.dumps(
-        {'descricao': 'descricao'}),
-        content_type='application/json')
-    assert resposta.status_code == 400
-```
+TODO: a tarefa deve ser persistida(checa se len(tarefas) foi modificado)
 
 :heavy_check_mark:
 
-```python
-@app.route('/task', methods=['POST'])
-def criar():
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    if not descricao or not titulo:
-        abort(400)
-    tarefa = {
-        'id': len(tarefas) + 1,
-        'titulo': titulo,
-        'descricao': descricao,
-        'estado': False
-    }
-    tarefas.append(tarefa)
-    return jsonify(tarefa), 201
-```
+TODO: append da tarefa em TAREFAS
 
 ## Salvando a versão atual do código
+
+TODO: reescrever esta parte
 
 Primeiro passo é checar o que foi feito até agora:
 
