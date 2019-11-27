@@ -17,7 +17,7 @@ O sistema será um gerenciador de tarefas e a primeira decisão é que nosso sis
 
 Cada tarefa possui um identificador único, um titulo, uma descrição e seu estado que pode ser finalizado/não-finalizado.
 
-O título de ter até 50 caracteres e a descrição 140 caracteres.
+O título de ter entre 3 e 50 caracteres e a descrição no máximo 140 caracteres.
 
 Como usuário devo ser capaz de:
 

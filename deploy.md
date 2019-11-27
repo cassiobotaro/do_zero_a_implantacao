@@ -28,8 +28,8 @@ Crie uma aplicação no Heroku, preparando a heroku para receber seu código-fon
 
 ```bash
 $ heroku create
-Creating app... done, ⬢ dry-taiga-57827
-https://dry-taiga-57827.herokuapp.com/ | https://git.heroku.com/dry-taiga-57827.git
+Creating app... done, ⬢ agile-river-58363
+https://agile-river-58363.herokuapp.com/ | https://git.heroku.com/agile-river-58363.git
 ```
 
 Com este comando um repositório remoto é vinculado ao seu repositório local e cada vez que quiser modificar a versão do código rodando, basta enviar seu código para este repositório remoto. Esta ação desencadeia toda uma nova implementação da sua aplicação.
@@ -38,7 +38,7 @@ Antes de enviar pela primeira vez nosso código, vamos fazer as últimas configu
 
 O Heroku utiliza um arquivo chamado `Procfile` que contém informações de como rodar sua aplicação. Crie este arquivo com o seguinte conteúdo.
 
-`web: FLASK_APP=gerenciador.py flask run --host=0.0.0.0 --port=$PORT`
+`web: uvicorn --host=0.0.0.0 --port=$PORT gerenciador_tarefas.gerenciador:app`
 
 Salve a versão atual da nossa aplicação para implantação.
 

@@ -62,14 +62,35 @@ Navegue até o diretório onde foi executado o comando de `clone` do projeto. Pr
 
 :warning: Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
 
+## :computer: O ambiente virtual
 
-# TODO: ATIVAR O AMBIENTE VIRTUAL
+Iniciei um projeto e ele utiliza a biblioteca fastapi na versão 0.2, três meses depois fui iniciar outro e a versão do fastapi já era 0.3.
+
+Será que não dá problema se eu mudar no primeiro projeto? Ou será que mudo no segundo?
+
+Para evitar este tipo de problema, vamos criar o que chamaremos de ambiente virtual.
+
+Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bilbiotecas na versão que quiser.
+
+O comando para isto é `python3 -m venv .venv`, sendo que .venv é o nome deste ambiente isolado.
+
+Este ambiente isolado será visto como um diretório criado na pasta do projeto.
+
+O ponto na frente do nome faz com que o diretório fique oculto.
+
+Depois de criado, temos de ativar este ambiente e isto é importante pois sempre que decidir trabalhar neste projeto você deverá repetir este passo.
+
+Digite o comando: `source .venv/bin/activate` em linux ou `.venv\Scripts\activate.bat` no windows.
+
+Pronto, agora estamos preparados para instalar as bibliotecas que precisaremos.
 
 ## :books: Bibliotecas e utilitários
 
 Chegou a hora de instalar algumas bibliotecas e utilitários que nos auxiliarão na criação do nosso sistema web, na realização de testes unitários e testes manuais.
 
 Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Tenha sempre certeza de que a ferramenta está instalada e funcionando.
+
+:warning: Certifique-se de que seu ambiente está ativo antes de prosseguir com as instalações.
 
 ### :zap: FastAPI
 
@@ -182,7 +203,6 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 $ python3 -m pytest --version
 This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerenciador-tarefas/.venv/lib/python3.8/site-packages/pytest.py
 ```
-
 
 ## :warning: Nota importante sobre ambientes virtuais
 

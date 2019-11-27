@@ -72,7 +72,7 @@ Vamos adicionar as alterações nos arquivos.
 
 `git push`
 
-[:ballot_box_with_check: Entregando tarefas :arrow_right:](entregar.md)
+[Entregando tarefas :arrow_right:](entregar.md)
 
 [:arrow_left: Removendo tarefas](remover.md)
 

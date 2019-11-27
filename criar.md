@@ -3,18 +3,62 @@
 :x:
 
 ```python
-def test_criar_tarefa_aceita_post():
-    with app.test_client() as cliente:
-        resposta = cliente.post('/task')
-        assert resposta.status_code != 405
+def test_recurso_tarefas_deve_aceitar_o_verbo_post(cliente):
+    resposta = cliente.post("/tarefas")
+    assert resposta.status_code != 405
 ```
 
 :heavy_check_mark:
 
 ```python
-@app.route('/task', methods=['POST'])
+@app.post('/tarefas')
 def criar():
-    return jsonify()
+    pass
+```
+
+:x:
+
+```python
+def test_quando_titulo_da_tarefa_for_invalido_retorne_codigo_de_status_422(cliente):
+    resposta = cliente.post("/tarefas", {})
+    assert resposta.status_code == 422
+```
+
+:heavy_check_mark:
+
+```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+
+app = FastAPI()
+
+
+class Tarefa(BaseModel):
+    titulo: str
+
+
+TAREFAS = []
+
+
+@app.get('/tarefas')
+def listar():
+    return TAREFAS
+
+
+@app.post('/tarefas')
+def criar(tarefa: Tarefa):
+    pass
+```
+
+:x:
+
+```python
+def test_titulo_da_tarefa_pode_contar_entre_3_e_50_caracteres(cliente):
+    resposta = cliente.post("/tarefas", {"titulo": 2 * "*"})
+    assert resposta.status_code == 422
+    resposta = cliente.post("/tarefas", {"titulo": 51 * "*"})
+    assert resposta.status_code == 422
 ```
 
 :x:

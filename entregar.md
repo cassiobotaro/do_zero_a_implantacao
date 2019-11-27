@@ -122,3 +122,10 @@ def atualizar(id_tarefa):
     tarefa_escolhida['estado'] = estado or tarefa_escolhida['estado']
     return jsonify(tarefa_escolhida)
 ```
+
+
+[Containerizando sua aplicação :arrow_right:](docker.md)
+
+[:arrow_left: Detalhando tarefas](detalhar.md)
+
+[:leftwards_arrow_with_hook: Voltar ao README ](README.md)
