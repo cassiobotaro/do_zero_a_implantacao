@@ -36,7 +36,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 :computer: *windows*
 
-Para usuários windows, baixe a última versão neste [site](https://git-scm.com://git-scm.com/). Deixe as opções já marcadas por padrão, exceto a mostrada abaixo que deve ser ajustada.
+Para usuários windows, baixe a última versão neste [site](https://git-scm.com/downloads). Deixe as opções já marcadas por padrão, exceto a mostrada abaixo que deve ser ajustada.
 
 ![opção path](imgs/gitwin.jpeg "opção path no instalador")
 
