@@ -69,6 +69,7 @@ def test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres(cliente):
     resposta = cliente.post("/tarefas", json={"titulo": 51 * "*"})
     assert resposta.status_code == 422
 ```
+
 :heavy_check_mark:
 
 ```python
@@ -124,7 +125,7 @@ def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada(cliente):
 
 :heavy_check_mark:
 
-```
+```python
 @app.post('/tarefas')
 def criar(tarefa: Tarefa):
     return tarefa
@@ -160,6 +161,7 @@ class Tarefa(TarefaEntrada):
 def criar(tarefa: TarefaEntrada):
     nova_tarefa = tarefa.dict()
     nova_tarefa.update({"id": uuid4()})
+```
 
 :x:
 
@@ -172,7 +174,7 @@ def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado(cliente):
 
 :heavy_check_mark:
 
-```
+```python
 from enum import Enum
 
 
@@ -208,7 +210,7 @@ def criar(tarefa: TarefaEntrada):
 
 :x:
 
-```
+```python
 def test_quando_criar_uma_tarefa_esta_deve_ser_persistida(cliente):
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
     cliente.post("/tarefas", json=tarefa)
@@ -272,7 +274,7 @@ Vamos adicionar as alterações nos arquivos.
 
 :tada: Estamos ficando bons nisto. Vamos então nos desafiar agora nos proximos pasos!
 
-[Listando tarefas :arrow_right:](listar.md)
+[O desafio :arrow_right:](desafio.md)
 
 [:arrow_left: Mandando um foguete pro espaço](deploy.md)
 
