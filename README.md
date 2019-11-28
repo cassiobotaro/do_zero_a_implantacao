@@ -43,13 +43,7 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 
 1. [:memo: Criando uma tarefa](criar.md)
 
-1. [:book: Listando tarefas](listar.md)
-
-1. [:x: Removendo tarefas](remover.md)
-
-1. [:scroll: Detalhando tarefas](detalhar.md)
-
-1. [:ballot_box_with_check: Entregando tarefas](entregar.md)
+1. [:trophy: O desafio](desafio.md)
 
 1. [:whale: Containerizando sua aplicação](docker.md)
 

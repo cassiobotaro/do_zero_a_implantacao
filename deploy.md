@@ -51,7 +51,7 @@ Agora vamos a implantação do sistema.
 É simples como `git push heroku master`.
 
 ```bash
-$ gp heroku master
+$ git push heroku master
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 4 threads
