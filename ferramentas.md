@@ -83,7 +83,7 @@ Entre em [python.org](https://www.python.org/), clique em downloads e depois sel
 
 Após baixar o instalador fique atento para selecionar a opção marcada na figura abaixo.
 
-![Adicionar python ao path](imgs/adicionaraopath.jpeg "Adicionar python ao path")
+![Adicionar python ao path](imgs/adicionaraopath.png "Adicionar python ao path")
 
 :package: *ubuntu*
 
