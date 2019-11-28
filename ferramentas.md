@@ -46,13 +46,19 @@ O pacote git se encontra na central de programas.
 
 `sudo apt install git`
 
+:apple: *Mac*
+
+O pacote git faz parte do kit de desenvolvimento Xcode. Para instalar, basta tentar usar o comando pela primeira vez. Opcionalmente, você pode entrar na App Store e procurar por Xcode.
+
+`git --help`
+
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `git --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* *Mac*
 
 Abra um terminal e digite `git --version`.
 
@@ -90,6 +96,7 @@ Após baixar o instalador fique atento para selecionar a opção marcada na figu
 Versões mais atuais do ubuntu já vem com o python 3 instalado, e inclusive, a partir da versão 17.10, essa passa a ser a versão padrão do sistema.
 
 Caso python 3 não esteja instalado, utilize `sudo apt install python3`.
+
 
 **Vamos verificar se deu tudo certo?**
 
