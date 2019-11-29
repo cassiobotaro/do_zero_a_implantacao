@@ -19,6 +19,8 @@ Logo em seguida deverá aparecer :heavy_check_mark: e o trecho de código que de
 
 E não se esqueça que testes vão no arquivo `test_gerenciador.py` e o código em `gerenciador.py`.
 
+## Passo a passo
+
 Se testarmos o recurso de tarefas utilizando o método POST, veremos que teremos como retorno o código de status `405 METHOD NOT ALLOWED`.
 
 Para testar utilize o comando:
@@ -29,7 +31,7 @@ Isto é porque até agora só implementamos o metodo get.
 
 Vamos partir disto para escrever nosso primeiro teste. Primeiro teste então verificaremos o recurso `tarefas` utilizando o método `POST`.
 
-O código de status deve ser diferente de 405.O teste pode ser visto abaixo.
+O código de status deve ser diferente de 405. O teste pode ser visto abaixo.
 
 :x:
 
