@@ -152,7 +152,7 @@ Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. A
 
 Abra um terminal e digite `python3 -m pip --version`.
 
-A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+A saída para todos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
 $ python3 -m pip --version
@@ -197,7 +197,7 @@ Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. A
 
 Abra um terminal e digite `python3 -m venv -h`.
 
-A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+A saída para todos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
 $ python3 -m venv -h
@@ -256,17 +256,21 @@ Vá no [site de download](https://devcenter.heroku.com/articles/heroku-cli#downl
 
 Abra um terminal e digite `wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh`.
 
+:apple: mac
+
+Abra um terminal e digite `brew tap heroku/brew && brew install heroku`.
+
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `heroku --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* *apple*
 
 Abra um terminal e digite `heroku --version`.
 
-A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+A saída para todos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
 $ heroku --version
