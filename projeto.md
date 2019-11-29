@@ -146,7 +146,7 @@ Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. N
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install install httpie`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install httpie`.
 
 **Vamos verificar se deu tudo certo?**
 
