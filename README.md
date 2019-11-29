@@ -18,8 +18,8 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 
 ## Requisitos
 
-- conhecimento prévio de programação(não importa a linguagem)
-- notebook próprio
+- Um computador com acesso a internet
+- Vontade de aprender
 
 ## Sumário
 
