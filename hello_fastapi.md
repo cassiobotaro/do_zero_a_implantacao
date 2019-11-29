@@ -12,14 +12,12 @@ Estão lembrados o que é a nossa aplicação? Caso não se recorde leia as [reg
 
 Vamos dividir algumas tarefas então, na nossa lista de funcionalidades:
 
-```
- - adicionar tarefa
- - remover tarefa
- - listar as tarefas
- - ordenar a listagem por estado
- - finalizar uma tarefa
- - exibir uma tarefa de forma detalhada
-```
+- [ ] listar as tarefas
+- [ ] adicionar tarefa
+- [ ] remover tarefa
+- [ ] ordenar a listagem por estado
+- [ ] finalizar uma tarefa
+- [ ] exibir uma tarefa de forma detlhada
 
 Acho que para iniciarmos o mais simples de escrever e testar é a funcionalidade de listagem de tarefas.
 

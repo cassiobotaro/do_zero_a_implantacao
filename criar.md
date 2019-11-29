@@ -1,6 +1,6 @@
 # :memo: Criando uma tarefa
 
-Vamos a mais uma das funcionalidades:
+Certo, temos a funcionalidade de listagem de tarefas já funcionando.
 
 - [x] listar as tarefas
 - [ ] adicionar tarefa
@@ -9,13 +9,40 @@ Vamos a mais uma das funcionalidades:
 - [ ] finalizar uma tarefa
 - [ ] exibir uma tarefa de forma detlhada
 
+Vamos seguir em frente e escrever a funcionalidade de criar uma tarefa.
+
+Continuamos o ciclo do *TDD* e a primeira coisa a se fazer é pensar em um teste que não esteja implementado.
+
+Daqui pra frente sempre que ver :x: escreva o teste mostrado e em seguida rode os testes que devem falhar.
+
+Logo em seguida deverá aparecer :heavy_check_mark: e o trecho de código que deve ser alterado. Lembre-se de rodar os testes para garantir que estão funcionando.
+
+E não se esqueça que testes vão no arquivo `test_gerenciador.py` e o código em `gerenciador.py`.
+
+Se testarmos o recurso de tarefas utilizando o método POST, veremos que teremos como retorno o código de status `405 METHOD NOT ALLOWED`.
+
+Para testar utilize o comando:
+
+`http POST localhost:8000/tarefas`
+
+Isto é porque até agora só implementamos o metodo get.
+
+Vamos partir disto para escrever nosso primeiro teste. Primeiro teste então verificaremos o recurso `tarefas` utilizando o método `POST`.
+
+O código de status deve ser diferente de 405.O teste pode ser visto abaixo.
+
 :x:
 
 ```python
-def test_recurso_tarefas_deve_aceitar_o_verbo_post(cliente):
+def test_recurso_tarefas_deve_aceitar_o_verbo_post():
+    cliente = TestClient(app)
     resposta = cliente.post("/tarefas")
     assert resposta.status_code != 405
 ```
+
+Próxima etapa do ciclo é escrevermos o código suficiente para satisfazer o nosso teste.
+
+O código é simples, vamos criar um novo método `criar` e associa-lo ao método `POST`do recurso tarefas.
 
 :heavy_check_mark:
 
@@ -24,14 +51,45 @@ def test_recurso_tarefas_deve_aceitar_o_verbo_post(cliente):
 def criar():
     pass
 ```
+Ok, o teste está passando.
+
+Vamos criar uma nova situação onde o nosso código falha.
+
+Na nossa requisição, caso o corpo não tenha um título, deveremos receber o código de status `422 Unprocessable Entity` que significa que a "entidade", que neste caso é a tarefa, foi passada com algum problema.
+
+Vamos transformar isto em um teste.
 
 :x:
 
 ```python
-def test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo(cliente):
+def test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo():
+    cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={})
     assert resposta.status_code == 422
 ```
+
+Agora vamos utilizar o [pydantic](https://pydantic-docs.helpmanual.io/) como desserializador da nossa entrada e validador.
+
+Desseria...o que?
+
+Quando recebemos uma requisição, em seu corpo temos um conteúdo que está no formato json, precisamos ler e entender esta estrutura e transformar em algo que possa manipular no python.
+
+Criaremos então uma Tarefa, que possui um titulo que é uma string. Esta tarefa é baseada em um modelo da biblioteca pydantic.
+
+```python
+class Tarefa(BaseModel):
+    titulo: str
+```
+
+Adicionamos então ao método criar uma tarefa e isto é suficiente para ele saber que ao ser acessado via post, deve conter em seu corpo uma tarefa com um título.
+
+```python
+@app.post('/tarefas')
+def criar(tarefa: Tarefa):
+    pass
+```
+
+E o resultado final que faz os testes passarem é:
 
 :heavy_check_mark:
 
@@ -60,15 +118,22 @@ def criar(tarefa: Tarefa):
     pass
 ```
 
+E o ciclo continua, temos uma restrição no titulo que é "deve possuir entre 3 e 50 caracteres", vamos testar isto.
+
 :x:
 
 ```python
-def test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres(cliente):
+def test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres():
+    cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": 2 * "*"})
     assert resposta.status_code == 422
     resposta = cliente.post("/tarefas", json={"titulo": 51 * "*"})
     assert resposta.status_code == 422
 ```
+
+Para resolver esta validação substituiremos o tipo `str` da nossa tarefa por `constr`, que em inglês quer dizer "constrained str", e em bom português "string com restrições".
+
+Definimos então `min_length`(comprimento mínimo) como 3 e `max_length`(comprimento máximo) como 50.
 
 :heavy_check_mark:
 
@@ -81,13 +146,20 @@ class Tarefa(BaseModel):
     titulo: constr(min_length=3, max_length=50)
 ```
 
+Testes passando, vamos continuar a contruir nossa tarefa.
+
+Além de titulo, nossa tarefa deve possuir uma descrição.
+
 :x:
 
 ```python
-def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao(cliente):
+def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao():
+    cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": "titulo"})
     assert resposta.status_code == 422
 ```
+
+Adicionamos a nossa tarefa o campo descricao.
 
 :heavy_check_mark:
 
@@ -97,14 +169,18 @@ class Tarefa(BaseModel):
     descricao: str
 ```
 
+Mas a descrição só pode ter 140 caracteres.
 
 :x:
 
 ```python
-def test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres(cliente):
+def test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres():
+    cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": "titulo", "descricao": "*" * 141})
     assert resposta.status_code == 422
 ```
+
+Assim como o título, vamos mudar de `str` para `constr` e adicionar a restrição no comprimento do texto.
 
 :heavy_check_mark:
 
@@ -114,14 +190,19 @@ class Tarefa(BaseModel):
     descricao: constr(max_length=140)
 ```
 
+Outra coisa é ao pedir a criação da tarefa, a mesma deve ser retornada como resposta.
+
 :x:
 
 ```python
-def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada(cliente):
+def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
+    cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
     resposta = cliente.post("/tarefas", json=tarefa)
     assert resposta.json() == tarefa
 ```
+
+:thinking: E se eu retornar a tarefa?
 
 :heavy_check_mark:
 
@@ -131,15 +212,53 @@ def criar(tarefa: Tarefa):
     return tarefa
 ```
 
+:sweat_smile: Esta foi simples.
+
+Outra coisa que precisamos verificar é que cada tarefa deve possuir um identificador único.
+
+Para checar isto vamos adicionar duas tarefas e seus `ids`retornados devem ser diferentes.
+
 :x:
 
 ```python
-def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico(cliente):
+def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico():
+    cliente = TestClient(app)
     tarefa1 = {"titulo": "titulo1", "descricao": "descricao1"}
     tarefa2 = {"titulo": "titulo2", "descricao": "descricao1"}
     resposta1 = cliente.post("/tarefas", json=tarefa1)
     resposta2 = cliente.post("/tarefas", json=tarefa2)
     assert resposta1.json()["id"] != resposta2.json["id"]
+```
+
+Como o `id` é uma coisa que só deve aparecer na resposta, vamos a algumas mudanças.
+
+A primeira é que renomearemos a nossa `Tarefa`para `TarefaEntrada`e craremos uma segunda estrutura Tarefa que é baseada na entrada, porém possui também um id.
+
+Para torna-lo único, o faremos do tipo [uuid](https://pt.wikipedia.org/wiki/Identificador_%C3%BAnico_universal), que é um identificador universalmente único.
+
+```python
+class TarefaEntrada(BaseModel):
+    titulo: constr(min_length=3, max_length=50)
+    descricao: constr(max_length=140)
+
+
+class Tarefa(TarefaEntrada):
+    id: UUID
+```
+
+Depois vamos no método criar e transformar nossa tarefa de entrada em um dicionário, em seguida, adicionamos um id único gerado pelo python.
+
+```python
+def criar(tarefa: TarefaEntrada):
+    nova_tarefa = tarefa.dict()
+    nova_tarefa.update({"id": uuid4()})
+```
+
+Outro detalhe é avisar ao nosso método post que utilize nossa nova estrutura para gerar a saída no formato json.
+
+```python
+@app.post('/tarefas', response_model=Tarefa)
+def criar(tarefa: TarefaEntrada):
 ```
 
 :heavy_check_mark:
@@ -163,14 +282,39 @@ def criar(tarefa: TarefaEntrada):
     nova_tarefa.update({"id": uuid4()})
 ```
 
+Certo, testes passando novamente. Ainda temos alguma coisa pra verificar?
+
+Sim! Nossa tarefa também deve possuir um estado que por padrão será "não finalizado".
+
 :x:
 
 ```python
-def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado(cliente):
+def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado():
+    cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
     resposta = cliente.post("/tarefas", json=tarefa)
     assert resposta.json()["estado"] ==  "não finalizado"
 ```
+
+Como temos apenas dois estados possíveis (finalizado, não finalizado) para uma tarefa, vamos utilizar uma estrutura do Python que é bastante útil para estes momentos.
+
+O Enum, é uma estrutura que define valores limitados a algo.
+
+Um exemplo poderia ser os estados do nosso país, tamanhos de roupa, cores.
+
+Mas por que?
+
+Vamos pegar como exemplo o tamanho de roupa. Inicialmente nosso sistema possuia, "Pequena", "Média", etc. De repente por uma questão de economia de espaço, estes valores modificam para "p", "m".
+
+E agora? vamos ter que ir em cada lugar do sistema que utiliza os valores e realizar a substituição. Mas e se eu esquecer e utilizar o antigo.
+
+Então ao invés de utilizarmos ``
+
+Adicionamos estado a estrutura TarefaEntrada, e seu tipo é `EstadosPossiveis`.
+
+Um valor padrão será `EstadosPossiveis.nao_finalizado`.
+
+Você deve estar se perguntando por que `EstadosPossiveis.nao_finalizado`e não a string direto. É justamente para evitar o problema citado acima de substituição.
 
 :heavy_check_mark:
 
@@ -189,29 +333,33 @@ class TarefaEntrada(BaseModel):
     estado: EstadosPossiveis = EstadosPossiveis.nao_finalizado
 ```
 
+Quase tudo certo, porém o código de status quando algo é craido deve ser `201 Created`.
+
 :x:
 
 ```python
-def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado(cliente):
+def test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201():
+    cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
     resposta = cliente.post("/tarefas", json=tarefa)
-    assert resposta.status_code == 202
+    assert resposta.status_code == 201
 ```
+
+Modifique o método para retornar 201 quando for bem sucedido.
 
 :heavy_check_mark:
 
 ```python
 @app.post('/tarefas', response_model=Tarefa, status_code=201)
-def criar(tarefa: TarefaEntrada):
-    nova_tarefa = tarefa.dict()
-    nova_tarefa.update({"id": uuid4()})
-    return nova_tarefa
 ```
+
+A última coisa é que no momento não estamos guardando a nova tarefa.
 
 :x:
 
 ```python
-def test_quando_criar_uma_tarefa_esta_deve_ser_persistida(cliente):
+def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
+    cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
     cliente.post("/tarefas", json=tarefa)
     assert resposta.status_code == 201
@@ -221,22 +369,32 @@ def test_quando_criar_uma_tarefa_esta_deve_ser_persistida(cliente):
 
 :heavy_check_mark:
 
-```python
-@app.post('/tarefas', response_model=Tarefa, status_code=201)
-def criar(tarefa: TarefaEntrada):
-    nova_tarefa = tarefa.dict()
-    nova_tarefa.update({"id": uuid4()})
-    TAREFAS.append(nova_tarefa)
-    return nova_tarefa
+```diff
+    @app.post('/tarefas', response_model=Tarefa, status_code=201)
+    def criar(tarefa: TarefaEntrada):
+        nova_tarefa = tarefa.dict()
+        nova_tarefa.update({"id": uuid4()})
++       TAREFAS.append(nova_tarefa)
+        return nova_tarefa
 ```
 
-Volte em todos os testes de sucesso acrescentando `TAREFAS.clear()`.
+:scream: Oops! O teste ainda está quebrando.
 
-## Testando manualmente
+Como agora adicionamos tarefa a `TAREFAS`, cada teste bem sucedido cria uma nova entrada. Porém testes devem ser independentes.
+
+Para corrigir isto volte em todos os testes bem sucedidos acrescentando `TAREFAS.clear()` no final.
+
+## :wrench: Testando manualmente
+
+Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.
+
+Relembrando o comando para isto é `uvicorn --reload gerenciador_tarefas.gerenciador:app`.
+
+Experimente adicionar algumas tarefas utilizando o `httpie`.
 
 `http localhost:8000 titulo="titulo" descricao="uma descrição qualquer"`
 
-ou através da nossa interface (docs)
+Lembrando que sempre temos a opção de verificar os recursos através da [documentação](http://localhost:8000/docs) gerada automaticamente.
 
 ## Salvando a versão atual do código
 
@@ -268,11 +426,11 @@ Vamos adicionar as alterações nos arquivos.
 
 `git push`
 
-:cloud: E coloque no ar a nova versão
+:cloud: E coloque no ar a nova versão.
 
 `git push heroku master`
 
-:tada: Estamos ficando bons nisto. Vamos então nos desafiar agora nos proximos pasos!
+:tada: Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!
 
 [O desafio :arrow_right:](desafio.md)
 
