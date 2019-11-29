@@ -122,7 +122,7 @@ Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m p
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -c "import fastapi"`. nenhum erro deve ocorrer.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 -c "import fastapi"`. nenhum erro deve ocorrer.
 
