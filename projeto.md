@@ -337,7 +337,8 @@ Para evitar este problema definiremos arquivos com as dependências que instalam
 O primeiro deles é o requirements.txt.
 
 ```
-fastapi[all]==0.43.0
+fastapi==0.44.0
+uvicorn==0.10.8
 ```
 
 O segundo chamaremos de `dev-requirements.txt`.
