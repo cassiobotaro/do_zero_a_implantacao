@@ -112,7 +112,7 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install "fastapi[all]"`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install "fastapi[all]"`.
 
@@ -144,7 +144,7 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install httpie`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install install httpie`.
 
@@ -154,7 +154,7 @@ Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m p
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `http --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `http --version`.
 
@@ -183,7 +183,7 @@ Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não 
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install pytest`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install pytest`.
 
@@ -193,7 +193,7 @@ Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m p
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pytest --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 -m pytest --version`.
 
