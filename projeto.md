@@ -185,7 +185,8 @@ Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. N
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `python3 -m pip install install uvicorn`.
+Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `python3 -m pip
+install uvicorn`.
 
 **Vamos verificar se deu tudo certo?**
 
