@@ -46,13 +46,19 @@ O pacote git se encontra na central de programas.
 
 `sudo apt install git`
 
+:apple: *mac*
+
+O pacote git faz parte do kit de desenvolvimento Xcode. Para instalar, basta tentar usar o comando pela primeira vez. Opcionalmente, você pode entrar na App Store e procurar por Xcode.
+
+`git --help`
+
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `git --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `git --version`.
 
@@ -91,13 +97,17 @@ Versões mais atuais do ubuntu já vem com o python 3 instalado, e inclusive, a 
 
 Caso python 3 não esteja instalado, utilize `sudo apt install python3`.
 
+:apple: *Mac*
+
+Assim como o Ubuntu (e outros sistemas Unix e "Unix-Like")o Mac OS também já vem com uma versão no Python instalada. Porém, a versão disponível por padrão no sistema está sempre muito defasada em realação a última versão estável disponível. Por exemplo, na data atual a versão 3.8 já foi lançada para o público, porém o sistema ainda utiliza a versão 2.7. Para instalar a versão mais atual, a maneira convencional é utilizar o gerenciador de pacotes [Homebrew](https://brew.sh/index_pt-br). Clique no link e veja como instalá-lo com um simples comando! Com ele instalado, basta utilizar o comando: `brew install python` no seu terminal.
+
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 --version`.
 
@@ -128,17 +138,21 @@ Não será necessário a instalação pois o mesmo já vem com o instalador da l
 
 Esta ferramenta não vem por padrão no sistema operacional ubuntu e pode ser instalada utilizando o comando `sudo apt install python3-pip`.
 
+:apple: *mac*
+
+Se você instalou o Python utilizando o Homebrew, o pip já foi instalado em seu sistema.
+
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pip --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 -m pip --version`.
 
-A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+A saída para todos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
 $ python3 -m pip --version
@@ -169,17 +183,21 @@ Não será necessário a instalação pois o mesmo já vem com o instalador da l
 
 Versões atuais do ubuntu já vem com python 3 instalado. Para as mais antigas utilize o comando `sudo apt install python3-venv`.
 
+:apple: *mac*
+
+Normalmente o venv é instalado junto com o Python e com o pip ao utilizar o Homebrew. Se o comando de verificação (logo abaixo) não funcionar, você pode instalá-lo utilizando o próprio pip com o comando `pip instal virtualenv`
+
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m venv -h`. Se nada acontecer é porque deu certo.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 -m venv -h`.
 
-A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+A saída para todos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
 $ python3 -m venv -h
@@ -238,17 +256,21 @@ Vá no [site de download](https://devcenter.heroku.com/articles/heroku-cli#downl
 
 Abra um terminal e digite `wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh`.
 
+:apple: mac
+
+Abra um terminal e digite `brew tap heroku/brew && brew install heroku`.
+
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `heroku --version`.
 
-:package: *ubuntu*
+:package: :apple: *ubuntu* ou *apple*
 
 Abra um terminal e digite `heroku --version`.
 
-A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
+A saída para todos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
 $ heroku --version
