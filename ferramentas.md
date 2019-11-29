@@ -58,7 +58,7 @@ O pacote git faz parte do kit de desenvolvimento Xcode. Para instalar, basta ten
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `git --version`.
 
-:package: :apple: *ubuntu* *mac*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `git --version`.
 
@@ -107,7 +107,7 @@ Assim como o Ubuntu (e outros sistemas Unix e "Unix-Like")o Mac OS também já v
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 --version`.
 
-:package: :apple: *ubuntu* *mac*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 --version`.
 
@@ -148,7 +148,7 @@ Se você instalou o Python utilizando o Homebrew, o pip já foi instalado em seu
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pip --version`.
 
-:package: :apple: *ubuntu* *mac*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 -m pip --version`.
 
@@ -193,7 +193,7 @@ Normalmente o venv é instalado junto com o Python e com o pip ao utilizar o Hom
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m venv -h`. Se nada acontecer é porque deu certo.
 
-:package: :apple: *ubuntu* *mac*
+:package: :apple: *ubuntu* ou *mac*
 
 Abra um terminal e digite `python3 -m venv -h`.
 
@@ -266,7 +266,7 @@ Abra um terminal e digite `brew tap heroku/brew && brew install heroku`.
 
 Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `heroku --version`.
 
-:package: :apple: *ubuntu* *apple*
+:package: :apple: *ubuntu* ou *apple*
 
 Abra um terminal e digite `heroku --version`.
 
