@@ -3,7 +3,7 @@
 Vamos a mais uma das funcionalidades:
 
 - [x] listar as tarefas
-- [x] adicionar tarefa
+- [ ] adicionar tarefa
 - [ ] remover tarefa
 - [ ] ordenar a listagem por estado
 - [ ] finalizar uma tarefa
