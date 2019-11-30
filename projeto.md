@@ -146,7 +146,7 @@ Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. N
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install install httpie`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install httpie`.
 
 **Vamos verificar se deu tudo certo?**
 
@@ -185,7 +185,8 @@ Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. N
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `python3 -m pip install install uvicorn`.
+Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `python3 -m pip
+install uvicorn`.
 
 **Vamos verificar se deu tudo certo?**
 
@@ -241,7 +242,13 @@ Options:
   --root-path TEXT                Set the ASGI 'root_path' for applications
                                   submounted below a given URL path.
   --limit-concurrency INTEGER     Maximum number of concurrent connections or
-                                  tasks to allow, before issuing HTTP 503
+                                  tasks to allow, before issuing 
+				  
+				  
+				  
+				  
+				  
+				  503
                                   responses.
   --limit-max-requests INTEGER    Maximum number of requests to service before
                                   terminating the process.
@@ -318,7 +325,7 @@ ModuleNotFoundError: No module named 'fastapi'
 
 Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `source <venv>/bin/activate` ou `<venv>\Scripts\activate.bat`.
 
-Não esqueça de trocar o `<venv>` pelo nome do ambiente virtual criado.
+Não esqueça de trocar o `<venv>` pelo nome do ambiente virtual criado. Por exemplo, se você seguiu esse tutorial, provavelmente você usou o nome `.venv`, então o comando será `source .venv/bin/activate` ou `source .venv/bin/activate.bat`.
 
 ## Salvando o momento atual do nosso projeto
 
@@ -330,7 +337,7 @@ Neste momento seu diretório deve estar assim:
 └── README.md
 ```
 
-E se eu te pedisse agora uma cópia do projeto, como faria para que eu soubesse de toda essa lista de coisas necessárias pro código rodar?
+E se eu te pedisse agora uma cópia do projeto, como eu saberia de toda essa lista de coisas necessárias pro código rodar?
 
 Para evitar este problema definiremos arquivos com as dependências que instalamos no nosso projeto.
 
@@ -358,6 +365,10 @@ Aquele `-r requirements.txt` no arquivo de desenvolvimento garante que as depend
 Quando formos colocar o site no ar, estes arquivos serão bem úteis.
 
 Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?
+
+
+:warning: Antes de continuar é importante garantir que temos o arquivo de exclusão de controle de versão `.gitignore` no diretório do projeto. Se você seguiu o passo de criação do projeto pelo github desse tutorial você já possui esse arquivo. Caso contrario, basta baixá-lo [aqui](https://github.com/github/gitignore/blob/master/Python.gitignore) e salvá-lo no diretório do projeto com o nome `.gitignore`.
+
 
 Primeiro passo é checar o que foi feito até agora:
 
