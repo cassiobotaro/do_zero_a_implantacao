@@ -178,7 +178,7 @@ Se temos um teste que falha, precisamos escrever o código necessário para este
 Vamos voltar ao nosso gerenciador.py para corrigir o nosso problema. Na função que expõe o nosso recurso, modifique o código para:
 
 ```python
-@app.route('/tarefas')
+@app.get('/tarefas')
 def listar():
     return []
 ```
