@@ -7,7 +7,7 @@ Certo, temos a funcionalidade de listagem de tarefas já funcionando.
 - [ ] remover tarefa
 - [ ] ordenar a listagem por estado
 - [ ] finalizar uma tarefa
-- [ ] exibir uma tarefa de forma detlhada
+- [ ] exibir uma tarefa de forma detalhada
 
 Vamos seguir em frente e escrever a funcionalidade de criar uma tarefa.
 

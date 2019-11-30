@@ -17,7 +17,7 @@ Vamos dividir algumas tarefas então, na nossa lista de funcionalidades:
 - [ ] remover tarefa
 - [ ] ordenar a listagem por estado
 - [ ] finalizar uma tarefa
-- [ ] exibir uma tarefa de forma detlhada
+- [ ] exibir uma tarefa de forma detalhada
 
 Acho que para iniciarmos o mais simples de escrever e testar é a funcionalidade de listagem de tarefas.
 

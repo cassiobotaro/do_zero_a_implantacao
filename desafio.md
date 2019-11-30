@@ -1,291 +1,76 @@
 # :trophy: O desafio
 
-TODO: descrever o desafio e modificar daqui pra baixo para conter somente dicas sobre cada tarefa ainda não concluida.
+À partir de agora, o seu desafio é continuar escrevendo as funcionalidades que faltam, mas vou te dar umas dicas.
 
-# :book: Listando tarefas
+Relembrando, ainda temos as seguintes tarefas a serem feitas.
 
-:x:
+- [x] listar as tarefas
+- [x] adicionar tarefa
+- [ ] remover tarefa
+- [ ] ordenar a listagem por estado
+- [ ] finalizar uma tarefa
+- [ ] exibir uma tarefa de forma detalhada
 
-```python
-def test_listar_tarefas_deve_apresentar_tarefas_nao_finalizadas_primeiro():
-    tarefas.clear()
-    tarefas.append({'id': 1, 'titulo': 'tarefa 1', 'descricao': 'tarefa de numero 1',
-                    'estado': True})
-    tarefas.append({'id': 2, 'titulo': 'tarefa 2', 'descricao': 'tarefa de numero 2',
-                    'estado': False})
-    with app.test_client() as cliente:
-        resposta = cliente.get('/task')
-        data = json.loads(resposta.data.decode('utf-8'))
-        primeira_task, segunda_task = data
-        assert primeira_task['titulo'] == 'tarefa 2'
-        assert segunda_task['titulo'] == 'tarefa 1'
-```
+## :x: Remover tarefas
 
+A remoção e tarefas consiste em buscar uma tarefa e em seguida remove-la.
 
-:heavy_check_mark:
+O método utilizado é o `DELETE`.
 
-```python
-@app.route('/task')
-def listar():
-    return jsonify(sorted(tarefas, key=itemgetter('estado')))
-```
+O código de status retornado mais comum é o `204 No Content`.
+
+Você deve especificar o id da tarefa a ser removida na url `/tarefas/86d92774-281c-4e5a-87f2-69029177bfd2`.
+
+Caso não encontra uma tarefa, o código de status `404 Not Found` deve ser retornado.
+
+## :book: Ordenar a listagem por estado
+
+Já temos a listagem pronta mas não garantimos que sua ordenação está correta.
+
+Um teste que pode ser escrito aqui é adição de duas tarefas, sendo a primeira finalizada e a segunda não finalizada.
+
+A exibição da listagem de tarefas deve apresentar a segunda primeiro. Para fazer esta checagem, verifique a resposta e a ordem das tarefas retornadas.
+
+A função sorted pode ser seu aliado para resolver este problema.
+
+Outra função bastante útil é a `itemgetter` que pode ser utilizada no parâmetro `key` da função sorted.
+
+Uma alteração que pode ser feita na listagem é utilização de `List[Tarefa]` como modelo de resposta( parâmetro response_model no decorador), esta mudança ajuda a melhorar a documentação autogerada.
 
 :warning: `itemgetter` pode ser obtido através do pacote operator.`from operator import itemgetter`
 
-# :x: Removendo tarefas
+## :ballot_box_with_check: Finalizar uma tarefa
 
-:x:
+Finalizar uma tarefa, pode ser representado através do método `PUT` ou `PATCH`, modificando o valor de estado de uma tarefa.
 
-```python
-def test_deletar_tarefa_utiliza_verbo_delete():
-    tarefas.clear()
-    with app.test_client() as cliente:
-        resposta = cliente.delete('/task/1')
-        assert resposta.status_code != 405
-```
+Devemos procurar uma tarefa e caso não seja encontrada, o código de status `404 Not Found` deve ser retornado.
 
-:heavy_check_mark:
+Os campos a serem modificados podem ser inválidos, caso isto ocorra everemos avisar ao cliente o seu erro. O código de status `422 Unprocessable Entity` pode ser utilizado aqui.
 
-```python
-@app.route('/task/<int:id_tarefa>', methods=['DELETE'])
-def remover(id_tarefa):
-    return ''
-```
-:x:
+Se bem sucedido o código de status `200 OK` deve ser retornado e o corpo da resposta deve conter a trefa com o valor já modificado.
 
-```python
-def test_remover_tarefa_existente_retorna_204():
-    tarefas.clear()
-    tarefas.append({'id': 1, 'titulo': 'titulo',
-                    'descricao': 'descricao', 'estado': False})
-    cliente = app.test_client()
-    resposta = cliente.delete('/task/1', content_type='application/json')
-    assert resposta.status_code == 204
-    assert resposta.data == b''
-```
+Você deve especificar o id da tarefa a ser removida na url `/tarefas/86d92774-281c-4e5a-87f2-69029177bfd2`.
 
-:heavy_check_mark:
+## :scroll: Detalhando tarefas
 
-```python
-@app.route('/task/<int:id_tarefa>', methods=['DELETE'])
-def remover(id_tarefa):
-    return '', 204
-```
+Detalhar uma tarefa é busca-la na lista de tarefas e exibir seu valor.
 
-:x:
+Caso a tarefa não seja encontrada o código de status `404 Not Found` deve ser retornado.
 
-```python
-def test_remover_tarefa_existente_remove_tarefa_da_lista():
-    tarefas.clear()
-    tarefas.append({'id': 1, 'titulo': 'titulo',
-                    'descricao': 'descricao', 'estado': False})
-    cliente = app.test_client()
-    cliente.delete('/task/1', content_type='application/json')
-    assert len(tarefas) == 0
-```
+Você deve especificar o id da tarefa a ser removida na url `/tarefas/86d92774-281c-4e5a-87f2-69029177bfd2`.
 
-:heavy_check_mark:
+O código de status retornado quando bem sucedido é `200 OK`.
 
-```python
-@app.route('/task/<int:id_tarefa>', methods=['DELETE'])
-def remover(id_tarefa):
-    tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
-    tarefas.remove(tarefa[0])
-    return '', 204
-```
-:x:
+## :checkered_flag: Concluindo
 
-```python
-def test_remover_tarefa_nao_existente():
-    tarefas.clear()
-    cliente = app.test_client()
-    resposta = cliente.delete('/task/1', content_type='application/json')
-    assert resposta.status_code == 404
-```
+Assim finalizamos este guia, espero que tenha curtido bastante esta jornada de aprendizado.
 
-:heavy_check_mark:
+Ainda temos várias coisas não abordadas neste guia que complementam nossa aplicação, mas que tornariam a didática pior.
 
-```python
-@app.route('/task/<int:id_tarefa>', methods=['DELETE'])
-def remover(id_tarefa):
-    tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
-    if not tarefa:
-        abort(404)
-    tarefas.remove(tarefa[0])
-    return '', 204
-```
+Caso tenha gostado, não deixe de estrelar o repositório como forma de gratidão. Isto motiva a escrever mais materiais interessantes como este em português.
 
-# :scroll: Detalhando tarefas
+Como um bônus o próximo capítulo fala sobre como colocar nossa aplicação em container e depois várias referências que serviram como base para contrução deste guia.
 
-:x:
-
-```python
-def test_detalhar_tarefa_existente():
-    tarefas.clear()
-    tarefas.append({'id': 1, 'titulo': 'titulo',
-                    'descricao': 'descricao', 'entregue': False})
-    cliente = app.test_client()
-    resposta = cliente.get('/task/1', content_type='application/json')
-    data = json.loads(resposta.data.decode('utf-8'))
-    assert resposta.status_code == 200
-    assert data['id'] == 1
-    assert data['titulo'] == 'titulo'
-    assert data['descricao'] == 'descricao'
-    assert data['entregue'] is False
-```
-:heavy_check_mark:
-
-```python
-@app.route('/task/<int:id_tarefa>', methods=['GET'])
-def detalhar(id_tarefa):
-    tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
-    return jsonify(tarefa[0])
-```
-:x:
-
-```python
-def test_detalhar_tarefa_nao_existente():
-    tarefas.clear()
-    cliente = app.test_client()
-    resposta = cliente.get('/task/1', content_type='application/json')
-    assert resposta.status_code == 404
-```
-
-:heavy_check_mark:
-
-```python
-@app.route('/task/<int:id_tarefa>', methods=['GET'])
-def detalhar(id_tarefa):
-    tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
-    if not tarefa:
-        abort(404)
-    return jsonify(tarefa[0])
-```
-
-# :ballot_box_with_check: Entregando tarefas
-
-:x:
-
-```python
-def test_atualizando_uma_tarefa_existente():
-    tarefas.clear()
-    tarefas.append({'id': 1, 'titulo': 'titulo',
-                    'descricao': 'descricao', 'estado': False})
-    cliente = app.test_client()
-    resposta = cliente.put('/task/1', data=json.dumps(
-        {'titulo': 'titulo atualizado',
-         'descricao': 'descricao atualizada', 'estado': True}
-    ),
-        content_type='application/json')
-    data = json.loads(resposta.data.decode('utf-8'))
-    assert resposta.status_code == 200
-    assert data['id'] == 1
-    assert data['titulo'] == 'titulo atualizado'
-    assert data['descricao'] == 'descricao atualizada'
-    assert data['estado'] is True
-```
-
-
-:heavy_check_mark:
-
-```python
-@app.route('/tarefa/<int:id_tarefa>', methods=['PUT'])
-def atualizar(id_tarefa):
-    tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    estado = request.json.get('estado')
-    tarefa_escolhida = tarefa[0]
-    tarefa_escolhida['titulo'] = titulo or tarefa_escolhida['titulo']
-    tarefa_escolhida['descricao'] = descricao or tarefa_escolhida['descricao']
-    tarefa_escolhida['estado'] = estado or tarefa_escolhida['estado']
-    return jsonify(tarefa_escolhida)
-```
-
-
-
-:x:
-
-```python
-def test_atualizando_uma_tarefa_nao_existente():
-    tarefas.clear()
-    cliente = app.test_client()
-    resposta = cliente.put('/tarefa/1', data=json.dumps(
-        {'titulo': 'titulo atualizado',
-         'decricao': 'descricao atualizada', 'estado': True}
-    ),
-        content_type='application/json')
-    assert resposta.status_code == 404
-```
-
-:heavy_check_mark:
-
-```python
-@app.route('/tarefa/<int:id_tarefa>', methods=['PUT'])
-def atualizar(id_tarefa):
-    tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    entregue = request.json.get('entregue')
-    if not tarefa:
-        abort(404)
-    tarefa_escolhida = tarefa[0]
-    tarefa_escolhida['titulo'] = titulo or tarefa_escolhida['titulo']
-    tarefa_escolhida['descricao'] = descricao or tarefa_escolhida['descricao']
-    tarefa_escolhida['entregue'] = entregue or tarefa_escolhida['entregue']
-    return jsonify(tarefa_escolhida)
-```
-
-:x:
-
-```python
-def test_atualizando_uma_tarefa_com_campos_invalidos():
-    tarefas.clear()
-    tarefas.append({'id': 1, 'titulo': 'titulo',
-                    'descricao': 'descricao', 'estado': False})
-    cliente = app.test_client()
-    # sem estado
-    resposta = cliente.put('/tarefa/1', data=json.dumps(
-        {'titulo': 'titulo atualizado',
-         'decricao': 'descricao atualizada'}
-    ),
-        content_type='application/json')
-    assert resposta.status_code == 400
-    # sem descrição
-    resposta = cliente.put('/tarefa/1', data=json.dumps(
-        {'titulo': 'titulo atualizado',
-         'estado': False}
-    ),
-        content_type='application/json')
-    assert resposta.status_code == 400
-    # sem titulo
-    resposta = cliente.put('/tarefa/1', data=json.dumps(
-        {'descricao': 'descricao atualizado',
-         'estado': False}
-    ),
-        content_type='application/json')
-    assert resposta.status_code == 400
-```
-
-:heavy_check_mark:
-
-```python
-@app.route('/tarefa/<int:id_tarefa>', methods=['PUT'])
-def atualizar(id_tarefa):
-    tarefa = [tarefa for tarefa in tarefas if tarefa['id'] == id_tarefa]
-    titulo = request.json.get('titulo')
-    descricao = request.json.get('descricao')
-    estado = request.json.get('estado')
-    if not tarefa:
-        abort(404)
-    if not descricao or not titulo or estado is None:
-        abort(400)
-    tarefa_escolhida = tarefa[0]
-    tarefa_escolhida['titulo'] = titulo or tarefa_escolhida['titulo']
-    tarefa_escolhida['descricao'] = descricao or tarefa_escolhida['descricao']
-    tarefa_escolhida['estado'] = estado or tarefa_escolhida['estado']
-    return jsonify(tarefa_escolhida)
-```
 [Containerizando sua aplicação :arrow_right:](docker.md)
 
 [:arrow_left: Criando uma tarefa](criar.md)
