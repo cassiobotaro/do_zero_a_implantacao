@@ -200,7 +200,7 @@ Abra um terminal e digite `uvicorn --help`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
-```
+```bash
 Usage: uvicorn [OPTIONS] APP
 
 Options:
@@ -242,13 +242,7 @@ Options:
   --root-path TEXT                Set the ASGI 'root_path' for applications
                                   submounted below a given URL path.
   --limit-concurrency INTEGER     Maximum number of concurrent connections or
-                                  tasks to allow, before issuing 
-				  
-				  
-				  
-				  
-				  
-				  503
+                                  tasks to allow, before issuing HTTP 503
                                   responses.
   --limit-max-requests INTEGER    Maximum number of requests to service before
                                   terminating the process.
@@ -267,6 +261,7 @@ Options:
   --header TEXT                   Specify custom default HTTP response headers
                                   as a Name:Value pair
   --help                          Show this message and exit.
+
 ```
 
 ### :traffic_light: Pytest
@@ -325,7 +320,7 @@ ModuleNotFoundError: No module named 'fastapi'
 
 Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `source <venv>/bin/activate` ou `<venv>\Scripts\activate.bat`.
 
-Não esqueça de trocar o `<venv>` pelo nome do ambiente virtual criado. Por exemplo, se você seguiu esse tutorial, provavelmente você usou o nome `.venv`, então o comando será `source .venv/bin/activate` ou `source .venv/bin/activate.bat`.
+Não esqueça de trocar o `<venv>` pelo nome do ambiente virtual criado. Por exemplo, se você seguiu esse tutorial, provavelmente você usou o nome `.venv`, então o comando será `source .venv/bin/activate` ou `.venv\Scripts\activate.bat`.
 
 ## Salvando o momento atual do nosso projeto
 
