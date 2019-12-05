@@ -386,7 +386,7 @@ Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão qu
 
 :floppy_disk: Agora vamos marcar esta versão como salva.
 
-`git commit -m "adionando dependências do projeto"`
+`git commit -m "adicionando dependências do projeto"`
 
 :octocat: Por fim, envie ao github a versão atualizada do projeto.
 
