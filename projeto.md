@@ -353,7 +353,7 @@ httpie==1.0.3
 
 Por que arquivos separados?
 
-No `requirements.txt`, só colocamos aquelas bibliotecas reamente necessárias para o sistema ir ao ar, já no `dev-requirements.txt`, temos as depêndencias que somente são utéis enquanto estamos esenvolvendo o sistema.
+No `requirements.txt`, só colocamos aquelas bibliotecas reamente necessárias para o sistema ir ao ar, já no `dev-requirements.txt`, temos as depêndencias que somente são utéis enquanto estamos desenvolvendo o sistema.
 
 Aquele `-r requirements.txt` no arquivo de desenvolvimento garante que as dependências principais serão instaladas e em seguidas as outras que somente são utéis durante o desenvolvimento.
 
