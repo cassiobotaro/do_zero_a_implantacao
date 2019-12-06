@@ -18,7 +18,7 @@ Faremos isto utilizando o github, que é uma plataforma gratuita, muita conhecid
 
 Mas por que iniciaremos criando o projeto lá e não no próprio computador?
 
-O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da em sua criação vamos salvando as alterações, evitando que os passos se percam e caso necessário podemos desfazer algum passo errado.
+O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da sua criação vamos salvando as alterações, evitando que os passos se percam e caso necessário podemos desfazer algum passo errado.
 
 Outro motivo é que se algo acontecer com seu computador, teremos salvo uma versão do projeto.
 
