@@ -107,7 +107,7 @@ app = FastAPI()
 
 Para que os testes enxerguem a nossa aplicação, adicione a seguinte linha no arquivo de testes.
 
-`from gerenciador import app`
+`from gerenciador_tarefas.gerenciador import app`
 
 Rode novamente os testes.
 
