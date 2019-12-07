@@ -229,7 +229,7 @@ def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico():
     tarefa2 = {"titulo": "titulo2", "descricao": "descricao1"}
     resposta1 = cliente.post("/tarefas", json=tarefa1)
     resposta2 = cliente.post("/tarefas", json=tarefa2)
-    assert resposta1.json()["id"] != resposta2.json["id"]
+    assert resposta1.json()["id"] != resposta2.json()["id"]
 ```
 
 Como o `id` é uma coisa que só deve aparecer na resposta, vamos a algumas mudanças.
