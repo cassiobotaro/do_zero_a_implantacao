@@ -234,7 +234,7 @@ def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico():
 
 Como o `id` é uma coisa que só deve aparecer na resposta, vamos a algumas mudanças.
 
-A primeira é que renomearemos a nossa `Tarefa`para `TarefaEntrada`e craremos uma segunda estrutura Tarefa que é baseada na entrada, porém possui também um id.
+A primeira é que renomearemos a nossa `Tarefa`para `TarefaEntrada`e criaremos uma segunda estrutura Tarefa que é baseada na entrada, porém possui também um id.
 
 Para torna-lo único, o faremos do tipo [uuid](https://pt.wikipedia.org/wiki/Identificador_%C3%BAnico_universal), que é um identificador universalmente único.
 
