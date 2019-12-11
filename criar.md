@@ -335,7 +335,7 @@ class TarefaEntrada(BaseModel):
     estado: EstadosPossiveis = EstadosPossiveis.nao_finalizado
 ```
 
-Quase tudo certo, porém o código de status quando algo é craido deve ser `201 Created`.
+Quase tudo certo, porém o código de status quando algo é criado deve ser `201 Created`.
 
 :x:
 
