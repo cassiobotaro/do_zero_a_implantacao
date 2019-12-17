@@ -45,6 +45,4 @@ Existem alguns tópicos opcionais como docker porém são apenas material comple
 
 1. [:trophy: O desafio](desafio.md)
 
-1. [:whale: Containerizando sua aplicação](docker.md)
-
 1. [:bookmark_tabs: Referências e Dicas](referencias.md)

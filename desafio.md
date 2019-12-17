@@ -71,7 +71,7 @@ Caso tenha gostado, não deixe de estrelar o repositório como forma de gratidã
 
 Como um bônus o próximo capítulo fala sobre como colocar nossa aplicação em container e depois várias referências que serviram como base para contrução deste guia.
 
-[Containerizando sua aplicação :arrow_right:](docker.md)
+[Referências e Dicas :arrow_right:](referencias.md)
 
 [:arrow_left: Criando uma tarefa](criar.md)
 
