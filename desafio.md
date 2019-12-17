@@ -69,8 +69,6 @@ Ainda temos várias coisas não abordadas neste guia que complementam nossa apli
 
 Caso tenha gostado, não deixe de estrelar o repositório como forma de gratidão. Isto motiva a escrever mais materiais interessantes como este em português.
 
-Como um bônus o próximo capítulo fala sobre como colocar nossa aplicação em container e depois várias referências que serviram como base para contrução deste guia.
-
 [Referências e Dicas :arrow_right:](referencias.md)
 
 [:arrow_left: Criando uma tarefa](criar.md)
