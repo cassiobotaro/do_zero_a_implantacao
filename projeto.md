@@ -30,6 +30,8 @@ Aperte o botão novo_repositório.
 
 Preencha os campos como visto na imagem abaixo.
 
+:warning: As setas indicam o que deve ser preenchido.
+
 ![novo repositório](imgs/novorepo.png "Novo repositório")
 
 Agora faça um "clone" do seu repositório.
