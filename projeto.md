@@ -74,7 +74,7 @@ Para evitar este tipo de problema, vamos criar o que chamaremos de ambiente virt
 
 Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bilbiotecas na versão que quiser.
 
-O comando para isto é `python3 -m venv .venv`, sendo que .venv é o nome deste ambiente isolado.
+O comando para isto é `python3 -m venv .venv`, ou `python -m venv` no windows, sendo que .venv é o nome deste ambiente isolado.
 
 Este ambiente isolado será visto como um diretório criado na pasta do projeto.
 
@@ -112,7 +112,7 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install fastapi`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python -m pip install fastapi`.
 
 :package: :apple: *ubuntu* ou *mac*
 
@@ -122,7 +122,7 @@ Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m p
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -c "import fastapi"`. nenhum erro deve ocorrer.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
 
 :package: :apple: *ubuntu* ou *mac*
 
@@ -144,7 +144,7 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install httpie`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python -m pip install httpie`.
 
 :package: :apple: *ubuntu* ou *mac*
 
@@ -183,7 +183,7 @@ O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto e
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite `python3 -m pip install uvicorn`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite `python -m pip install uvicorn`.
 
 :package: :apple: *ubuntu* ou *mac*
 
@@ -280,7 +280,7 @@ Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não 
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python3 -m pip install pytest`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python -m pip install pytest`.
 
 :package: :apple: *ubuntu* ou *mac*
 
@@ -290,7 +290,7 @@ Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m p
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python3 -m pytest --version`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -m pytest --version`.
 
 :package: :apple: *ubuntu* ou *mac*
 
@@ -305,7 +305,7 @@ This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerencia
 
 ## :warning: Nota importante sobre ambientes virtuais
 
-Se neste momento, você digitar `cmd` no windows, ou abrir um terminal no linux e digitar `python3`, e em seguida tentar importar a bilbioteca fastapi o seguinte erro será mostrado. :scream:
+Se neste momento, você digitar `cmd` no windows, ou abrir um terminal no linux e digitar `python3` ou `python` no windows, e em seguida tentar importar a bilbioteca fastapi o seguinte erro será mostrado. :scream:
 
 ```bash
 $ python3
