@@ -185,7 +185,7 @@ Versões atuais do ubuntu já vem com python 3 instalado. Para as mais antigas u
 
 :apple: *mac*
 
-Normalmente o venv é instalado junto com o Python e com o pip ao utilizar o Homebrew. Se o comando de verificação (logo abaixo) não funcionar, você pode instalá-lo utilizando o próprio pip com o comando `pip instal virtualenv`
+Normalmente o venv é instalado junto com o Python e com o pip ao utilizar o Homebrew. Se o comando de verificação (logo abaixo) não funcionar, você pode instalá-lo utilizando o próprio pip com o comando `pip install virtualenv`
 
 **Vamos verificar se deu tudo certo?**
 
