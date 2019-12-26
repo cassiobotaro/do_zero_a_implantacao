@@ -77,7 +77,7 @@ To https://git.heroku.com/agile-river-58363.git
    629aed8..8710ff8  master -> master
 ```
 
-:notes: No momento em que este tutorial foi escrito, por padrão, o python onde será colocado nossa aplicação no ar é a 3.6, caso queira alterar será necessário adicionar um arquivo `runtine.txt` com a versão como conteúdo, por exemplo, `python-3.8.1`. Não esqueça de versionar este novo arquivo.
+:paperclip: No momento em que este tutorial foi escrito, por padrão, o python onde será colocado nossa aplicação no ar é a 3.6, caso queira alterar será necessário adicionar um arquivo `runtine.txt` com a versão como conteúdo, por exemplo, `python-3.8.1`. Não esqueça de versionar este novo arquivo.
 
 # Deu certo?
 
