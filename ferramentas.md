@@ -118,6 +118,8 @@ $ python3 --version
 Python 3.8.0
 ```
 
+:warning: A versão necessária neste curso é acima da 3.6 devido a recursos que utilizaremos. 
+
 ## :truck: Pip
 
 **O que é?**
