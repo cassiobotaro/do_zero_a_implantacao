@@ -36,8 +36,10 @@ Preencha os campos como visto na imagem abaixo.
 
 Agora faça um "clone" do seu repositório.
 
+:warning: Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.
+
 ```bash
-$ git clone https://github.com/cassiobotaro/gerenciador-tarefas.git
+$ git clone https://github.com/USUARIO/gerenciador-tarefas.git
 Cloning into 'gerenciador-tarefas'...
 remote: Counting objects: 5, done.
 remote: Compressing objects: 100% (4/4), done.
@@ -51,12 +53,10 @@ Unpacking objects: 100% (5/5), done.
 Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado digite os seguintes comandos.
 
 ```bash
-$ git config --local user.email seuemailutilizado@github.com
+$ git config --local user.email EMAIL
 
-$ git config --local user.name usernamegithub
+$ git config --local user.name USUARIO
 ```
-
-:warning: Os comandos acima devem ser modificados com seu email e nome de usuário do github.
 
 "Voilà", já temos o projeto iniciado.
 
@@ -74,7 +74,7 @@ Para evitar este tipo de problema, vamos criar o que chamaremos de ambiente virt
 
 Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bilbiotecas na versão que quiser.
 
-O comando para isto é `python3 -m venv .venv`, ou `python -m venv` no windows, sendo que .venv é o nome deste ambiente isolado.
+O comando para isto é `python3 -m venv .venv`, ou `python -m venv .venv` no windows, sendo que .venv é o nome deste ambiente isolado.
 
 Este ambiente isolado será visto como um diretório criado na pasta do projeto.
 
@@ -112,11 +112,11 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python -m pip install fastapi`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install fastapi`.
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install fastapi`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install fastapi`.
 
 **Vamos verificar se deu tudo certo?**
 
@@ -126,7 +126,7 @@ Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. A
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal e digite `python3 -c "import fastapi"`. nenhum erro deve ocorrer.
+Abra um terminal e digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
 
 ### :link: Httpie
 
@@ -144,11 +144,11 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python -m pip install httpie`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install httpie`.
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install httpie`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install httpie`.
 
 **Vamos verificar se deu tudo certo?**
 
@@ -177,17 +177,17 @@ O uvicorn é um servidor de aplicação com suporte a frameworks assíncronos.
 
 **Para que serve?**
 
-O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto em um servidor na internet
+O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto em um servidor na internet.
 
 **Como instalar**
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite `python -m pip install uvicorn`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite `pip install uvicorn`.
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `python3 -m pip
+Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `pip
 install uvicorn`.
 
 **Vamos verificar se deu tudo certo?**
@@ -280,26 +280,26 @@ Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não 
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `python -m pip install pytest`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install pytest`.
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `python3 -m pip install pytest`.
+Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install pytest`.
 
 **Vamos verificar se deu tudo certo?**
 
 :computer: *windows*
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -m pytest --version`.
+Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pytest --version`.
 
 :package: :apple: *ubuntu* ou *mac*
 
-Abra um terminal e digite `python3 -m pytest --version`.
+Abra um terminal e digite `pytest --version`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
-$ python3 -m pytest --version
+$ pytest --version
 This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerenciador-tarefas/.venv/lib/python3.8/site-packages/pytest.py
 ```
 
@@ -336,21 +336,31 @@ Neste momento seu diretório deve estar assim:
 
 E se eu te pedisse agora uma cópia do projeto, como eu saberia de toda essa lista de coisas necessárias pro código rodar?
 
-Para evitar este problema definiremos arquivos com as dependências que instalamos no nosso projeto.
+Para evitar este problema criaremos arquivos com as dependências que instalamos no nosso projeto.
 
-O primeiro deles é o requirements.txt.
+Vamos começar criando um arquivo chamado requirements.txt com o seguinte conteúdo.
 
 ```
-fastapi==0.44.0
-uvicorn==0.10.8
+fastapi==0.45.0
+uvicorn==0.11.1
 ```
 
-O segundo chamaremos de `dev-requirements.txt`.
+Depois criaremos um segundo arquivo chamado `dev-requirements.txt` e colocaremos o seguinte conteúdo.
 
 ```
 -r requirements.txt
-pytest==5.3.0
+pytest==5.3.2
 httpie==1.0.3
+```
+
+:warning: Os arquivos devem ser criados na pasta principal do projeto. Teremos então os seguintes arquivos no nosso diretório.
+
+```
+.
+├── LICENSE
+├── README.md
+├── dev-requirements.txt
+└── requirements.txt
 ```
 
 Por que arquivos separados?
@@ -362,10 +372,6 @@ Aquele `-r requirements.txt` no arquivo de desenvolvimento garante que as depend
 Quando formos colocar o site no ar, estes arquivos serão bem úteis.
 
 Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?
-
-
-:warning: Antes de continuar é importante garantir que temos o arquivo de exclusão de controle de versão `.gitignore` no diretório do projeto. Se você seguiu o passo de criação do projeto pelo github desse tutorial você já possui esse arquivo. Caso contrario, basta baixá-lo [aqui](https://github.com/github/gitignore/blob/master/Python.gitignore) e salvá-lo no diretório do projeto com o nome `.gitignore`.
-
 
 Primeiro passo é checar o que foi feito até agora:
 

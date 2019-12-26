@@ -17,20 +17,20 @@ Um exemplo de teste automatizado.
 **código**
 
 ```python
-def is_odd(number):
-    'Verifies if a number is odd.'
-    return number % 2 != 0
+def é_impar(numero):
+    'Retorna True se um número é verdadeiro, senão False.'
+    return numero % 2 != 0
 ```
 
 **teste**
 
 ```python
-def is_odd_returns_true_when_input_is_three():
-    assert is_odd(3) is True
+def test_quando_entrada_é_três_retorna_verdadeiro():
+    assert é_impar(3) is True
 
 
-def is_odd_returns_false_when_input_is_two():
-    assert is_odd(2) is False
+def test_quando_entrada_é_dois_retorna_falso():
+    assert é_impar(2) is False
 ```
 
 
