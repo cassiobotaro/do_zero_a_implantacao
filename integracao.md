@@ -41,7 +41,7 @@ python:
 install:
   - pip install -r dev-requirements.txt
 script:
-  - python -m pytest --disable-warnings
+  - python -m pytest
 ```
 
 :tada: Pronto, a partir de agora, o travis irá rodar todos os testes do seu projeto de forma automatizada e indicará se a construção do mesmo está com problemas.
