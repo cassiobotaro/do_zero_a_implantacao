@@ -77,6 +77,8 @@ To https://git.heroku.com/agile-river-58363.git
    629aed8..8710ff8  master -> master
 ```
 
+:notes: No momento em que este tutorial foi escrito, por padrão, o python onde será colocado nossa aplicação no ar é a 3.6, caso queira alterar será necessário adicionar um arquivo `runtine.txt` com a versão como conteúdo, por exemplo, `python-3.8.1`. Não esqueça de versionar este novo arquivo.
+
 # Deu certo?
 
 Para verificarmos se a implantação deu certo, digite `heroku open` e lembre-se que o recurso está em `/tarefas` ou copie a url retornada no comando de implantação acrescentando `/tarefas` e utilize o httpie para testar assim como foi feito localmente.
