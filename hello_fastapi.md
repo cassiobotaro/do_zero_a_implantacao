@@ -45,22 +45,23 @@ Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_ge
 
 ```python
 from starlette.testclient import TestClient
+from starlette.status import HTTP_200_OK
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
-    assert resposta.status_code == 200
+    assert resposta.status_code == HTTP_200_OK
 ```
 
 Vamos rodar pela primeira vez os testes no nosso projeto.
 
-`python3 -m pytest`
+`python -m pytest`
 
 :scream: Nossa! Ocorreu um erro!
 
 ```
-$ python3 -m pytest
+$ python -m pytest
 ======================================================= test session starts =======================================================
 platform linux -- Python 3.8.0, pytest-5.3.0, py-1.8.0, pluggy-0.13.1
 rootdir: /home/cassiobotaro/projects/gerenciador-tarefas
@@ -98,6 +99,8 @@ Dentro dele criamos um novo arquivo `gerenciador.py`, e neste arquivo vamos inic
     └── test_gerenciador.py
 ```
 
+O conteúdo desse arquivo será o seguinte.
+
 ```python
 from fastapi import FastAPI
 
@@ -105,13 +108,17 @@ from fastapi import FastAPI
 app = FastAPI()
 ```
 
-Para que os testes enxerguem a nossa aplicação, adicione a seguinte linha no arquivo de testes.
+Agora vamos voltar ao arquivo `test_gerenciador.py` e adicionamos a seguinte linha.
 
 `from gerenciador_tarefas.gerenciador import app`
 
+Isto é uma maneira de fazer os testes conhecerem o código da nossa aplicação. Toda vez que precisamos de um trecho de código em outro arquivo devemos fazer a "importação" daquele trecho utilizando o comando import.
+
+Neste caso estamos requisitando a aplicação nos arquivos de testes automatizados, para escrevermos os testes necessários.
+
 Rode novamente os testes.
 
-`python -m pytest --disable-warnings`
+`python -m pytest`
 
 :x: Os testes continuam falhando!
 
@@ -120,14 +127,14 @@ Agora temos nossa aplicação, mas nosso recurso de tarefas ainda não foi criad
 No arquivo `gerenciador.py` adicione a seguinte função.
 
 ```python
-@app.get('/tarefas')
+@app.get("/tarefas")
 def listar():
-    return ''
+    return ""
 ```
 
 Rode novamente os testes.
 
-`python -m pytest --disable-warnings`
+`python -m pytest`
 
 :heavy_check_mark: Legal! Temos um teste funcionando! Nossa aplicação está retornando status 200 OK, ainda que a funcionalidade completa não esteja pronta.
 
@@ -178,7 +185,7 @@ Se temos um teste que falha, precisamos escrever o código necessário para este
 Vamos voltar ao nosso gerenciador.py para corrigir o nosso problema. Na função que expõe o nosso recurso, modifique o código para:
 
 ```python
-@app.get('/tarefas')
+@app.get("/tarefas")
 def listar():
     return []
 ```
@@ -193,18 +200,20 @@ Neste passo os arquivos devem estar da seguinte maneira.
 **test_gerenciador.py**
 ```python
 from starlette.testclient import TestClient
-from gerenciador_tarefas.gerenciador import app
+from starlette.status import HTTP_200_OK
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
-    assert resposta.status_code == 200
+    assert resposta.status_code == HTTP_200_OK
+
 
 def test_quando_listar_tarefas_formato_de_retorno_deve_ser_json():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert resposta.headers["Content-Type"] == "application/json"
+
 
 def test_quando_listar_tarefas_retorno_deve_ser_uma_lista():
     cliente = TestClient(app)
@@ -220,7 +229,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get('/tarefas')
+@app.get("/tarefas")
 def listar():
     return []
 ```
@@ -265,7 +274,7 @@ Sim, mas agora o erro é outro. O erro mostrado é `IndexError: pop from empty l
 Vamos modificar isto como abaixo:
 
 ```python
-@app.get('/tarefas')
+@app.get("/tarefas")
 def listar():
     return TAREFAS
 ```
@@ -276,23 +285,26 @@ No fim nos testes ficam:
 
 ```python
 from starlette.testclient import TestClient
-from gerenciador_tarefas.gerenciador import app, TAREFAS
+from starlette.status import HTTP_200_OK
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
-    assert resposta.status_code == 200
+    assert resposta.status_code == HTTP_200_OK
+
 
 def test_quando_listar_tarefas_formato_de_retorno_deve_ser_json():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert resposta.headers["Content-Type"] == "application/json"
 
+
 def test_quando_listar_tarefas_retorno_deve_ser_uma_lista():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert isinstance(resposta.json(), list)
+
 
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
     TAREFAS.append({"id": 1})
@@ -301,6 +313,7 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
     assert "id" in resposta.json().pop()
     TAREFAS.clear()
 
+
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo():
     TAREFAS.append({"titulo": "titulo 1"})
     cliente = TestClient(app)
@@ -308,12 +321,14 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo():
     assert "titulo" in resposta.json().pop()
     TAREFAS.clear()
 
+
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_descricao():
     TAREFAS.append({"descricao": "descricao 1"})
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert "descricao" in resposta.json().pop()
     TAREFAS.clear()
+
 
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_um_estado():
     TAREFAS.append({"estado": "finalizado"})
@@ -336,7 +351,7 @@ app = FastAPI()
 TAREFAS = []
 
 
-@app.get('/tarefas')
+@app.get("/tarefas")
 def listar():
     return TAREFAS
 ```
@@ -351,11 +366,40 @@ O comando para isto é `uvicorn --reload gerenciador_tarefas.gerenciador:app`.
 
 Voilà, sua aplicação está no ar. [Clique aqui](http://localhost:8000/tarefas) para abrir no navegador.
 
+![implementação da listagem de tarefas](/imgs/listar_tarefas_vazio.png "implementação da listagem de tarefas")
+
 Como adicionamos a opção `--reload`, cada vez que modificamos o código, o resultado é modificado também, sem precisar desligar e rodar de novo a aplicação.
 
 Experimente adicionar tarefas na lista.
 
+```python
+TAREFAS = [
+    {
+        "id": "1",
+        "titulo": "fazer compras",
+        "descrição": "comprar leite e ovos",
+        "estado": "não finalizado",
+    },
+    {
+        "id": "2",
+        "titulo": "levar o cachorro para tosar",
+        "descrição": "está muito peludo",
+        "estado": "não finalizado",
+    },
+    {
+        "id": "3",
+        "titulo": "lavar roupas",
+        "descrição": "estão sujas",
+        "estado": "não finalizado",
+    },
+]
+```
+
+![implementação da listagem de tarefas preenchido](/imgs/listar_tarefas_preenchido.png "implementação da listagem de tarefas preenchido")
+
 Uma outra opção é navegar na sua aplicação através da [documentação](http://localhost:8000/docs) que é gerada automaticamente.
+
+![documentação da listagem de tarefas](/imgs/documentacao_listar.png "documentação da listagem de tarefas")
 
 Talvez tenha chegado até aqui cedo demais, caso tenha tempo, dê uma lida em como podemos [simplificar](simplificando.md) nossos testes.
 
