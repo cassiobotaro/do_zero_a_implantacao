@@ -22,7 +22,7 @@ Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Ten
 
 [:computer: Windows](ferramentas_windows.md)
 
-[:package: Ubuntu](ferramentas_ubuntu.md)
+[:penguin: Ubuntu](ferramentas_ubuntu.md)
 
 [:apple: Mac](ferramentas_mac.md)
 

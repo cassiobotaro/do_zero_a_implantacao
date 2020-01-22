@@ -1,4 +1,4 @@
-# :package: *ubuntu*
+# :penguin: *ubuntu*
 
 ## :octocat: Git
 
