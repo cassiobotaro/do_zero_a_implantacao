@@ -6,7 +6,7 @@
 
 Iniciaremos com um introdução a conceitos de programação web, preparação do ambiente e vamos evoluindo até escrever nossa primeira aplicação utilizando técnicas profissionais, para no fim colocarmos a aplicação no ar.
 
-É um curso pensado para iniciantes da área da computação assim como pessoas que acabaram de iniciar na área, ou desejam expandir seu conhecimento.
+É um curso pensado para iniciantes na área de computação, curiosos, entusiastas e todo mundo que queira entender todo o processo de criação de uma aplicação até sua implantação.
 
 ## O que veremos?
 
