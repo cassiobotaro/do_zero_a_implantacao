@@ -60,7 +60,7 @@ $ git config --local user.name USUARIO
 
 "Voilà", já temos o projeto iniciado.
 
-Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bilbiotecas de acordo com o seu sistema operacional.
+Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bibliotecas de acordo com o seu sistema operacional.
 
 :warning: Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
 
@@ -72,7 +72,7 @@ Será que não dá problema se eu mudar no primeiro projeto? Ou será que mudo n
 
 Para evitar este tipo de problema, vamos criar o que chamaremos de ambiente virtual.
 
-Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bilbiotecas na versão que quiser.
+Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bibliotecas na versão que quiser.
 
 O comando para isto é `python3 -m venv .venv`, ou `python -m venv .venv` no windows, sendo que .venv é o nome deste ambiente isolado.
 
@@ -365,9 +365,9 @@ httpie==1.0.3
 
 Por que arquivos separados?
 
-No `requirements.txt`, só colocamos aquelas bibliotecas reamente necessárias para o sistema ir ao ar, já no `dev-requirements.txt`, temos as depêndencias que somente são utéis enquanto estamos desenvolvendo o sistema.
+No `requirements.txt`, só colocamos aquelas bibliotecas realmente necessárias para o sistema ir ao ar, já no `dev-requirements.txt`, temos as depêndencias que somente são úteis enquanto estamos desenvolvendo o sistema.
 
-Aquele `-r requirements.txt` no arquivo de desenvolvimento garante que as dependências principais serão instaladas e em seguidas as outras que somente são utéis durante o desenvolvimento.
+Aquele `-r requirements.txt` no arquivo de desenvolvimento garante que as dependências principais serão instaladas e em seguidas as outras que somente são úteis durante o desenvolvimento.
 
 Quando formos colocar o site no ar, estes arquivos serão bem úteis.
 
