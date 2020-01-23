@@ -4,7 +4,7 @@
   <img style="float: right;" src="/imgs/web.jpg" alt="códigos html"/>
 </p>
 
-Antes de avançarmos com a criação da nossa aplicação, para nivelarmos a turma, vamos dar uma espiada em alguns conceitos de desenvolvimento web. Eles serão necessários o compreendimento dos tópicos a seguir.
+Antes de avançarmos com a criação da nossa aplicação, para nivelarmos a turma, vamos dar uma espiada em alguns conceitos de desenvolvimento web. Eles serão necessários para o compreendimento dos tópicos a seguir.
 
 Caso não seja novidade para você, tudo bem, pode pular este passo, mas se não se sentir confiante, dê uma olhada.
 
@@ -14,7 +14,7 @@ Aprenderemos um novo vocabulário com os tópicos a seguir, que são amplamente 
 
 ### Conceito
 
-Em português: Identificador de Recursos Universal, como diz o próprio nome, é o identificador do recurso. Pode ser uma imagem, uma página, etc, pois tudo o que está disponível na internet precisa de um identificador único para que não seja confundido.
+Em português: Identificador de Recursos Universal, como diz o próprio nome, é o identificador do recurso. Pode ser uma imagem, uma página etc., pois tudo o que está disponível na internet precisa de um identificador único para que não seja confundido.
 
 ### Prática
 
