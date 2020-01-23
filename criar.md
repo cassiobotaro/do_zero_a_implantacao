@@ -394,9 +394,13 @@ Relembrando o comando para isto é `uvicorn --reload gerenciador_tarefas.gerenci
 
 Experimente adicionar algumas tarefas utilizando o `httpie`.
 
+![implementação da criação de tarefas](/imgs/criar.png "implementação da criação de tarefas")
+
 `http localhost:8000 titulo="titulo" descricao="uma descrição qualquer"`
 
 Lembrando que sempre temos a opção de verificar os recursos através da [documentação](http://localhost:8000/docs) gerada automaticamente.
+
+![documentação com métodos implementados](/imgs/get-e-post.png "documentação com métodos implementados")
 
 ## Salvando a versão atual do código
 
