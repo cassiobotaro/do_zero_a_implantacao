@@ -14,7 +14,7 @@ Está previsto para este curso o estudo e desenvolvimento de uma aplicação uti
 
 Assustado com tantos termos técnicos? Não se preocupe, você vai ver que as coisas são mais simples do que se parecem.
 
-Ao final deste curso você deverá ter no ar uma aplicação como esta apresentada [aqui](https://pure-beyond-49143.herokuapp.com/docs).
+Ao final deste curso você deverá ter no ar uma aplicação como esta apresentada [aqui](http://dozeroaimplantacao.herokuapp.com/docs).
 
 ## Requisitos
 
