@@ -27,7 +27,7 @@ Para testar utilize o comando:
 
 `http POST localhost:8000/tarefas`
 
-Isto é porque até agora só implementamos o metodo get.
+Isto é porque até agora só implementamos o método get.
 
 Vamos partir disto para escrever nosso primeiro teste. Primeiro teste então verificaremos o recurso `tarefas` utilizando o método `POST`.
 
@@ -39,12 +39,12 @@ O código de status deve ser diferente de 405. O teste pode ser visto abaixo.
 def test_recurso_tarefas_deve_aceitar_o_verbo_post():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas")
-    assert resposta.status_code != 405
+    assert resposta.status_code != status.HTTP_405_METHOD_NOT_ALLOWED
 ```
 
 Próxima etapa do ciclo é escrevermos o código suficiente para satisfazer o nosso teste.
 
-O código é simples, vamos criar um novo método `criar` e associa-lo ao método `POST`do recurso tarefas.
+O código é simples, vamos criar um novo método `criar` e associá-los ao método `POST`do recurso tarefas.
 
 :heavy_check_mark:
 
@@ -67,7 +67,7 @@ Vamos transformar isto em um teste.
 def test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={})
-    assert resposta.status_code == 422
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 ```
 
 Agora vamos utilizar o [pydantic](https://pydantic-docs.helpmanual.io/) como desserializador da nossa entrada e validador.
@@ -128,12 +128,12 @@ E o ciclo continua, temos uma restrição no titulo que é "deve possuir entre 3
 def test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": 2 * "*"})
-    assert resposta.status_code == 422
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
     resposta = cliente.post("/tarefas", json={"titulo": 51 * "*"})
-    assert resposta.status_code == 422
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 ```
 
-Para resolver esta validação substituiremos o tipo `str` da nossa tarefa por `constr`, que em inglês quer dizer "constrained str", e em bom português "string com restrições".
+Para resolver esta validação substituiremos o tipo `str` da nossa tarefa por `constr`, que em inglês quer dizer "_constrained str_", e em bom português "string com restrições".
 
 Definimos então `min_length`(comprimento mínimo) como 3 e `max_length`(comprimento máximo) como 50.
 
@@ -148,7 +148,7 @@ class Tarefa(BaseModel):
     titulo: constr(min_length=3, max_length=50)
 ```
 
-Testes passando, vamos continuar a contruir nossa tarefa.
+Testes passando, vamos continuar a construir nossa tarefa.
 
 Além de titulo, nossa tarefa deve possuir uma descrição.
 
@@ -158,10 +158,10 @@ Além de titulo, nossa tarefa deve possuir uma descrição.
 def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": "titulo"})
-    assert resposta.status_code == 422
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 ```
 
-Adicionamos a nossa tarefa o campo descricao.
+Adicionamos a nossa tarefa o campo descrição.
 
 :heavy_check_mark:
 
@@ -179,7 +179,7 @@ Mas a descrição só pode ter 140 caracteres.
 def test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": "titulo", "descricao": "*" * 141})
-    assert resposta.status_code == 422
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 ```
 
 Assim como o título, vamos mudar de `str` para `constr` e adicionar a restrição no comprimento do texto.
