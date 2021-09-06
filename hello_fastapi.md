@@ -45,13 +45,13 @@ Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_ge
 
 ```python
 from fastapi.testclient import TestClient
-from fastapi.status import HTTP_200_OK
+from fastapi import status
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
-    assert resposta.status_code == HTTP_200_OK
+    assert resposta.status_code == status.HTTP_200_OK
 ```
 
 Vamos rodar pela primeira vez os testes no nosso projeto.
@@ -200,13 +200,13 @@ Neste passo os arquivos devem estar da seguinte maneira.
 **test_gerenciador.py**
 ```python
 from fastapi.testclient import TestClient
-from fastapi.status import HTTP_200_OK
+from fastapi import status
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
-    assert resposta.status_code == HTTP_200_OK
+    assert resposta.status_code == status.HTTP_200_OK
 
 
 def test_quando_listar_tarefas_formato_de_retorno_deve_ser_json():
@@ -285,13 +285,13 @@ No fim nos testes ficam:
 
 ```python
 from fastapi.testclient import TestClient
-from fastapi.status import HTTP_200_OK
+from fastapi import status
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
-    assert resposta.status_code == HTTP_200_OK
+    assert resposta.status_code == status.HTTP_200_OK
 
 
 def test_quando_listar_tarefas_formato_de_retorno_deve_ser_json():
