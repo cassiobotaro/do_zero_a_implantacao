@@ -1,8 +1,10 @@
 # :thought_balloon: Planejando o que será desenvolvido
 
-<p align="center">
-  <img style="float: right;" src="/imgs/todolist.png" alt="Lista de tarefas"/>
-</p>
+<figure markdown>
+  ![Lista de tarefas](imgs/todolist.png)
+  <figcaption></figcaption>
+</figure>
+
 
 ## :ballot_box_with_check: Definindo o que iremos desenvolver
 
@@ -32,7 +34,3 @@ Como usuário devo ser capaz de:
 O sistema deve apresentar testes.
 
 :fearful: E agora, o que fazer? Por onde começo? Vamos escolher nossas ferramentas!
-
-[Escolhendo as melhores ferramentas :arrow_right:](ferramentas.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

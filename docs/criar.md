@@ -1,4 +1,4 @@
-# :memo: Criando uma tarefa
+# 📝 Criando uma tarefa
 
 Certo, temos a funcionalidade de listagem de tarefas já funcionando.
 
@@ -13,9 +13,9 @@ Vamos seguir em frente e escrever a funcionalidade de criar uma tarefa.
 
 Continuamos o ciclo do *TDD* e a primeira coisa a se fazer é pensar em um teste que não esteja implementado.
 
-Daqui pra frente sempre que ver :x: escreva o teste mostrado e em seguida rode os testes que devem falhar.
+Daqui pra frente sempre que ver ❌ escreva o teste mostrado e em seguida rode os testes que devem falhar.
 
-Logo em seguida deverá aparecer :heavy_check_mark: e o trecho de código que deve ser alterado. Lembre-se de rodar os testes para garantir que estão funcionando.
+Logo em seguida deverá aparecer ✅ e o trecho de código que deve ser alterado. Lembre-se de rodar os testes para garantir que estão funcionando.
 
 E não se esqueça que testes vão no arquivo `test_gerenciador.py` e o código em `gerenciador.py`.
 
@@ -33,7 +33,7 @@ Vamos partir disto para escrever nosso primeiro teste. Primeiro teste então ver
 
 O código de status deve ser diferente de 405. O teste pode ser visto abaixo.
 
-:x:
+❌
 
 ```python
 def test_recurso_tarefas_deve_aceitar_o_verbo_post():
@@ -46,7 +46,7 @@ Próxima etapa do ciclo é escrevermos o código suficiente para satisfazer o no
 
 O código é simples, vamos criar um novo método `criar` e associá-los ao método `POST`do recurso tarefas.
 
-:heavy_check_mark:
+✅
 
 ```python
 @app.post('/tarefas')
@@ -61,7 +61,7 @@ Na nossa requisição, caso o corpo não tenha um título, deveremos receber o c
 
 Vamos transformar isto em um teste.
 
-:x:
+❌
 
 ```python
 def test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo():
@@ -93,7 +93,7 @@ def criar(tarefa: Tarefa):
 
 E o resultado final que faz os testes passarem é:
 
-:heavy_check_mark:
+✅
 
 ```python
 from fastapi import FastAPI
@@ -122,7 +122,7 @@ def criar(tarefa: Tarefa):
 
 E o ciclo continua, temos uma restrição no titulo que é "deve possuir entre 3 e 50 caracteres", vamos testar isto.
 
-:x:
+❌
 
 ```python
 def test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres():
@@ -137,7 +137,7 @@ Para resolver esta validação substituiremos o tipo `str` da nossa tarefa por `
 
 Definimos então `min_length`(comprimento mínimo) como 3 e `max_length`(comprimento máximo) como 50.
 
-:heavy_check_mark:
+✅
 
 ```python
 from pydantic import BaseModel, constr
@@ -152,7 +152,7 @@ Testes passando, vamos continuar a construir nossa tarefa.
 
 Além de titulo, nossa tarefa deve possuir uma descrição.
 
-:x:
+❌
 
 ```python
 def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao():
@@ -163,7 +163,7 @@ def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao():
 
 Adicionamos a nossa tarefa o campo descrição.
 
-:heavy_check_mark:
+✅
 
 ```python
 class Tarefa(BaseModel):
@@ -173,7 +173,7 @@ class Tarefa(BaseModel):
 
 Mas a descrição só pode ter 140 caracteres.
 
-:x:
+❌
 
 ```python
 def test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres():
@@ -184,7 +184,7 @@ def test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres():
 
 Assim como o título, vamos mudar de `str` para `constr` e adicionar a restrição no comprimento do texto.
 
-:heavy_check_mark:
+✅
 
 ```python
 class Tarefa(BaseModel):
@@ -194,7 +194,7 @@ class Tarefa(BaseModel):
 
 Outra coisa é ao pedir a criação da tarefa, a mesma deve ser retornada como resposta.
 
-:x:
+❌
 
 ```python
 def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
@@ -206,7 +206,7 @@ def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
 
 :thinking: E se eu retornar a tarefa?
 
-:heavy_check_mark:
+✅
 
 ```python
 @app.post('/tarefas')
@@ -220,7 +220,7 @@ Outra coisa que precisamos verificar é que cada tarefa deve possuir um identifi
 
 Para checar isto vamos adicionar duas tarefas e seus `ids`retornados devem ser diferentes.
 
-:x:
+❌
 
 ```python
 def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico():
@@ -263,7 +263,7 @@ Outro detalhe é avisar ao nosso método post que utilize nossa nova estrutura p
 def criar(tarefa: TarefaEntrada):
 ```
 
-:heavy_check_mark:
+✅
 
 ```python
 from uuid import UUID, uuid4
@@ -288,7 +288,7 @@ Certo, testes passando novamente. Ainda temos alguma coisa pra verificar?
 
 Sim! Nossa tarefa também deve possuir um estado que por padrão será "não finalizado".
 
-:x:
+❌
 
 ```python
 def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado():
@@ -318,7 +318,7 @@ Um valor padrão será `EstadosPossiveis.nao_finalizado`.
 
 Você deve estar se perguntando por que `EstadosPossiveis.nao_finalizado`e não a string direto. É justamente para evitar o problema citado acima de substituição.
 
-:heavy_check_mark:
+✅
 
 ```python
 from enum import Enum
@@ -337,7 +337,7 @@ class TarefaEntrada(BaseModel):
 
 Quase tudo certo, porém o código de status quando algo é criado deve ser `201 Created`.
 
-:x:
+❌
 
 ```python
 def test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201():
@@ -349,7 +349,7 @@ def test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201():
 
 Modifique o método para retornar 201 quando for bem sucedido.
 
-:heavy_check_mark:
+✅
 
 ```python
 @app.post('/tarefas', response_model=Tarefa, status_code=201)
@@ -357,7 +357,7 @@ Modifique o método para retornar 201 quando for bem sucedido.
 
 A última coisa é que no momento não estamos guardando a nova tarefa.
 
-:x:
+❌
 
 ```python
 def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
@@ -369,14 +369,14 @@ def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
     TAREFAS.clear()
 ```
 
-:heavy_check_mark:
+✅
 
-```diff
+```{.py3 hl_lines="5" title="gerenciador.py"}
     @app.post('/tarefas', response_model=Tarefa, status_code=201)
     def criar(tarefa: TarefaEntrada):
         nova_tarefa = tarefa.dict()
         nova_tarefa.update({"id": uuid4()})
-+       TAREFAS.append(nova_tarefa)
+        TAREFAS.append(nova_tarefa)
         return nova_tarefa
 ```
 
@@ -424,11 +424,11 @@ Vamos adicionar as alterações nos arquivos.
 
 `$ git add gerenciador_tarefas/gerenciador.py tests/test_gerenciador.py`
 
-:floppy_disk: Agora vamos marcar esta versão como salva.
+💾 Agora vamos marcar esta versão como salva.
 
 `git commit -m "adicionando funcionalidade de criar tarefas"`
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+🔧 Por fim envie ao github a versão atualizada do projeto.
 
 `git push`
 
@@ -437,9 +437,3 @@ Vamos adicionar as alterações nos arquivos.
 `git push heroku master`
 
 :tada: Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!
-
-[O desafio :arrow_right:](desafio.md)
-
-[:arrow_left: Mandando um foguete pro espaço](deploy.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

@@ -1,8 +1,9 @@
 # :earth_americas: Um pouco sobre a web
 
-<p align="center">
-  <img style="float: right;" src="/imgs/web.jpg" alt="códigos html"/>
-</p>
+<figure markdown>
+  ![Códigos HTML](imgs/web.jpg)
+  <figcaption></figcaption>
+</figure>
 
 Antes de avançarmos com a criação da nossa aplicação, para nivelarmos a turma, vamos dar uma espiada em alguns conceitos de desenvolvimento web. Eles serão necessários para o compreendimento dos tópicos a seguir.
 
@@ -110,9 +111,3 @@ Um exemplo de post.
 Substitua o verbo e veja funcionando os outros verbos http. Fique atento que os verbos após o http devem ser escritos com letra maiúscula.
 
 :smile: Bem legal não é? E agora, já vamos logo escrever código? Sim e não, vamos agora dar uma passada na linguagem Python.
-
-[Primeiros passos com python :arrow_right:](python.md)
-
-[:arrow_left: Iniciando o projeto](projeto.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

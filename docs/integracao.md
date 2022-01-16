@@ -1,8 +1,9 @@
-# :heavy_check_mark: Integração contínua
+# ✅ Integração contínua
 
-<p align="center">
-  <img style="float: right;" src="/imgs/ci.jpg" alt="continous integration"/>
-</p>
+<figure markdown>
+  ![Integração Contínua](imgs/ci.jpg)
+  <figcaption></figcaption>
+</figure>
 
 ## Conceito
 
@@ -48,18 +49,12 @@ script:
 
 Isto será extremamente útil nos próximos passos.
 
-:floppy_disk: Para terminar a integração com travis, salve a versão atual do projeto e veja a primeira construção sendo realizada.
+💾 Para terminar a integração com travis, salve a versão atual do projeto e veja a primeira construção sendo realizada.
 
 `$ git add .travis.yml`
 
 `$ git commit -m "integração contínua"`
 
-:octocat: Não esqueça de enviar ao github a versão atualizada do projeto, para disparar a nossa integração contínua.
+🔧 Não esqueça de enviar ao github a versão atualizada do projeto, para disparar a nossa integração contínua.
 
 `$ git push`
-
-[Mandando um foguete pro espaço :arrow_right:](deploy.md)
-
-[:arrow_left: Hello FastAPI](hello_fastapi.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

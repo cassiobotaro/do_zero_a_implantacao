@@ -11,7 +11,7 @@ Relembrando, ainda temos as seguintes tarefas a serem feitas.
 - [ ] finalizar uma tarefa
 - [ ] exibir uma tarefa de forma detalhada
 
-## :x: Remover tarefas
+## ❌ Remover tarefas
 
 A remoção e tarefas consiste em buscar uma tarefa e em seguida remove-la.
 
@@ -68,9 +68,3 @@ Assim finalizamos este guia, espero que tenha curtido bastante esta jornada de a
 Ainda temos várias coisas não abordadas neste guia que complementam nossa aplicação, mas que tornariam a didática pior.
 
 Caso tenha gostado, não deixe de estrelar o repositório como forma de gratidão. Isto motiva a escrever mais materiais interessantes como este em português.
-
-[Referências e Dicas :arrow_right:](referencias.md)
-
-[:arrow_left: Criando uma tarefa](criar.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

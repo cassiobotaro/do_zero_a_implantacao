@@ -1,8 +1,9 @@
 # :snake: Primeiros passos com python
 
-<p align="center">
-  <img style="float: right;" src="/imgs/montypython.jpg" alt="monty python"/>
-</p>
+<figure markdown>
+  ![Monty Python](imgs/montypython.jpg)
+  <figcaption></figcaption>
+</figure>
 
 Infelizmente esse tutorial foi pensado para ser ministrado em apenas algumas horas, o que nos deixa com pouco tempo para aprofundar na linguagem, aqui serão apresentados apenas alguns conceitos que serão necessários para o restante do tutorial.
 
@@ -117,9 +118,3 @@ Vimos um pouco sobre a web, demos uma passada no python, então agora já vamos 
 
 Calma, ainda temos mais um conceito que é muito importante para nós. Já ouviu falar do desenvolvimento guiado por testes,
 que popularmente é conhecido pelas letras `TDD`? Vamos aprender como e por que escrever testes automatizados antes mesmo de escrever código.
-
-[Desenvolvimento guiado por testes :arrow_right:](testes.md)
-
-[:arrow_left: Um pouco sobre a web](web.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

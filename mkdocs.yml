@@ -1,0 +1,45 @@
+site_name: Do zero a implantação
+theme:
+  name: material
+  language: pt
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to dark mode
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github-alt
+  logo: imgs/python_rocket.png
+  favicon: imgs/favicon.ico
+  features:
+  - content.tabs.link
+markdown_extensions:
+  - pymdownx.emoji
+  - pymdownx.tasklist
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.tabbed:
+      alternate_style: true
+  - md_in_html
+repo_name: cassiobotaro/do_zero_a_implantacao
+repo_url: https://github.com/cassiobotaro/do_zero_a_implantacao
+
+nav:
+  - ▶️ Introdução: index.md
+  - 💭 Planejando o que será desenvolvido: planejando.md
+  - 🔨 Escolhendo as melhores ferramentas: ferramentas.md
+  - 📖 Iniciando o projeto: projeto.md
+  - 🌎 Um pouco sobre a web: web.md
+  - 🐍 Primeiros passos com python: python.md
+  - 🐐 Desenvolvimento guiado por testes: testes.md
+  - ⚡️ Hello Fastapi: hello_fastapi.md
+  - ✔️ Integração contínua: integracao.md
+  - 🚀 Mandando um foguete pro espaço: deploy.md
+  - 📝 Criando uma tarefa: criar.md
+  - 🏆 O desafio: desafio.md
+  - 📑 Referências e Dicas: referencias.md
+

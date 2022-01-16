@@ -1,9 +1,10 @@
 # 🚀 Do zero a implantação
 
 <figure markdown>
-  ![Cobra em um foguete](imgs/python_rocket.png)
+  ![cobra em um foguete](imgs/python_rocket.png)
   <figcaption></figcaption>
 </figure>
+
 
 Iniciaremos com um introdução a conceitos de programação web, preparação do ambiente e vamos evoluindo até escrever nossa primeira aplicação utilizando técnicas profissionais, para no fim colocarmos a aplicação no ar.
 
@@ -21,29 +22,3 @@ Ao final deste curso você deverá ter no ar uma aplicação como esta apresenta
 
 - Um computador com acesso a internet
 - Vontade de aprender
-
-## Sumário
-
-1. [:thought_balloon: Planejando o que será desenvolvido](planejando.md)
-
-1. [:hammer: Escolhendo as melhores ferramentas](ferramentas.md)
-
-1. [:book: Iniciando o projeto](projeto.md)
-
-1. [:earth_americas: Um pouco sobre a web](web.md)
-
-1. [:snake: Primeiros passos com python](python.md)
-
-1. [:goat: Desenvolvimento guiado por testes](testes.md)
-
-1. [:zap: Hello Fastapi](hello_fastapi.md)
-
-1. [✅ Integração contínua](integracao.md)
-
-1. [🚀 Mandando um foguete pro espaço](deploy.md)
-
-1. [📝 Criando uma tarefa](criar.md)
-
-1. [:trophy: O desafio](desafio.md)
-
-1. [:bookmark_tabs: Referências e Dicas](referencias.md)

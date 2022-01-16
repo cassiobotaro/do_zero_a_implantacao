@@ -1,8 +1,9 @@
 # :zap: Hello FastAPI
 
-<p align="center">
-  <img style="float: right;" src="/imgs/fastapi.png" alt="logo fastapi"/>
-</p>
+<figure markdown>
+  ![logo FastAPI](imgs/fastapi.png)
+  <figcaption></figcaption>
+</figure>
 
 É chegada a tão esperada hora de escrevermos código, porém, como aprendemos que podemos ser guiados por testes para ajudar a concepção da arquitetura do nosso programa, faremos as coisas um pouco diferente.
 
@@ -91,7 +92,7 @@ Dentro dele criamos um novo arquivo `gerenciador.py`, e neste arquivo vamos inic
 .
 ├── dev-requirements.txt
 ├── gerenciador_tarefas
-│   └── gerenciador.py
+│   └── gerenciador.py
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
@@ -120,7 +121,7 @@ Rode novamente os testes.
 
 `python -m pytest`
 
-:x: Os testes continuam falhando!
+❌ Os testes continuam falhando!
 
 Agora temos nossa aplicação, mas nosso recurso de tarefas ainda não foi criado.
 
@@ -136,7 +137,7 @@ Rode novamente os testes.
 
 `python -m pytest`
 
-:heavy_check_mark: Legal! Temos um teste funcionando! Nossa aplicação está retornando status 200 OK, ainda que a funcionalidade completa não esteja pronta.
+✅ Legal! Temos um teste funcionando! Nossa aplicação está retornando status 200 OK, ainda que a funcionalidade completa não esteja pronta.
 
 :baby: Damos o nome de `baby step`, esta maneira de construir uma aplicação dando pequenos passos de cada vez.
 
@@ -176,7 +177,7 @@ def test_quando_listar_tarefas_retorno_deve_ser_uma_lista():
 
 E vamos continuar o nosso ciclo e rodar os testes.
 
-:x: O teste falha e isto é bom!
+❌ O teste falha e isto é bom!
 
 Acontece que nosso retorno não é uma lista. Mas como corrigir isto?
 
@@ -192,7 +193,7 @@ def listar():
 
 Corrigido o código, rode novamente os testes.
 
-:heavy_check_mark: Aew! Testes estão passando novamente!
+✅ Aew! Testes estão passando novamente!
 
 
 Neste passo os arquivos devem estar da seguinte maneira.
@@ -259,7 +260,7 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
     TAREFAS.clear()
 ```
 
-:x: Rodou os testes? Pois é, estão quebrando novamente pois TAREFAS não foi definido.
+❌ Rodou os testes? Pois é, estão quebrando novamente pois TAREFAS não foi definido.
 
 Vamos lá no arquivo `gerenciador.py` e defini-lo.
 
@@ -267,7 +268,7 @@ Vamos lá no arquivo `gerenciador.py` e defini-lo.
 
 `from gerenciador_tarefas.gerenciador import app, TAREFAS`
 
-:x: Os testes ainda estão quebrando?
+❌ Os testes ainda estão quebrando?
 
 Sim, mas agora o erro é outro. O erro mostrado é `IndexError: pop from empty list`, e isto ocorre porque lá no gerenciador ainda estamos retornando uma lista vazia e não a lista de tarefas.
 
@@ -356,7 +357,7 @@ def listar():
     return TAREFAS
 ```
 
-:heavy_check_mark: Os testes estão funcionando? Parabéns! :clap: :clap:
+✅ Os testes estão funcionando? Parabéns! :clap: :clap:
 
 ## :wrench: Testando manualmente
 
@@ -401,8 +402,6 @@ Uma outra opção é navegar na sua aplicação através da [documentação](htt
 
 ![documentação da listagem de tarefas](/imgs/documentacao_listar.png "documentação da listagem de tarefas")
 
-Talvez tenha chegado até aqui cedo demais, caso tenha tempo, dê uma lida em como podemos [simplificar](simplificando.md) nossos testes.
-
 ## Salvando a versão atual do código
 
 Com tudo terminado, vamos salvar a versão atual do código.
@@ -426,18 +425,12 @@ Vemos dois diretórios não rastreados e precisamos avisar ao controle de versã
 
 `$ git add gerenciador_tarefas tests `
 
-:floppy_disk: Agora vamos marcar esta versão como salva.
+💾 Agora vamos marcar esta versão como salva.
 
 `git commit -m "adicionando recurso de listar tarefas"`
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+🔧 Por fim envie ao github a versão atualizada do projeto.
 
 `git push`
 
 :sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o github, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?
-
-[Integração contínua :arrow_right:](integracao.md)
-
-[:arrow_left: Desenvolvimento guiado por testes](testes.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

@@ -1,8 +1,9 @@
 # :goat: Desenvolvimento guiado por testes (TDD)
 
-<p align="center">
-  <img style="float: right;" src="/imgs/tdd.png" alt="ciclos do tdd"/>
-</p>
+<figure markdown>
+  ![ciclos do tdd](imgs/tdd.png)
+  <figcaption></figcaption>
+</figure>
 
 ## Testes automatizados
 
@@ -66,9 +67,3 @@ Com os testes passando, analise se é possível alguma refatoração.
 **5 - Volte para o passo 1**
 
 :worried: Ainda não ficou claro o processo? Não se preocupe, daqui pra frente iremos ver este ciclo na prática.
-
-[Hello Fastapi :arrow_right:](hello_fastapi.md)
-
-[:arrow_left: Primeiros passos com python](python.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

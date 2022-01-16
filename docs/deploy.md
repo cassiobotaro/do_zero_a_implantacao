@@ -1,8 +1,9 @@
-# :rocket: Mandando um foguete para o espaço
+# 🚀 Mandando um foguete para o espaço
 
-<p align="center">
-  <img style="float: right;" src="/imgs/python_rocket.png" alt="snake in a rocket"/>
-</p>
+<figure markdown>
+  ![Cobra em um foguete](imgs/python_rocket.png)
+  <figcaption></figcaption>
+</figure>
 
 # Hora do deploy
 
@@ -90,9 +91,3 @@ Verifique se uma resposta 200 OK foi obtida.
 :trollface: Acabou, é isso pessoal! Já temos uma aplicação no ar e podemos ir embora.
 
 Brincadeira, foi legal ter a nossa primeira versão da aplicação no ar, mas agora precisamos evoluí-la.
-
-[Criando uma tarefa :arrow_right:](criar.md)
-
-[:arrow_left: Integração contínua](integracao.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)

@@ -1,8 +1,9 @@
 # Iniciando o projeto
 
-<p align="center">
-  <img style="float: right;" src="/imgs/blueprint.jpg" alt="Blueprint do projeto"/>
-</p>
+<figure markdown>
+  ![Blueprint do projeto](imgs/blueprint.jpg)
+  <figcaption></figcaption>
+</figure>
 
 Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingredientes.
 
@@ -10,7 +11,7 @@ Desenvolver um projeto não significa escrever tudo do zero e poderemos contar c
 
 Mas antes de tudo, precisamos iniciar nosso projeto.
 
-## :arrow_forward: Começando a tirar do papel o projeto
+## ▶️ Começando a tirar do papel o projeto
 
 Daremos nosso primeiro passo, criando um diretório onde serão armazenados todos os arquivos do projeto.
 
@@ -30,13 +31,17 @@ Aperte o botão novo_repositório.
 
 Preencha os campos como visto na imagem abaixo.
 
-:warning: As setas indicam o que deve ser preenchido.
+!!! warning
+    
+    As setas indicam o que deve ser preenchido.
 
 ![novo repositório](imgs/novorepo.png "Novo repositório")
 
 Agora faça um "clone" do seu repositório.
 
-:warning: Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.
+!!! warning
+    
+    Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.
 
 ```bash
 $ git clone https://github.com/USUARIO/gerenciador-tarefas.git
@@ -62,9 +67,11 @@ $ git config --local user.name USUARIO
 
 Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bibliotecas de acordo com o seu sistema operacional.
 
-:warning: Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
+!!! warning
+    
+    Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
 
-## :computer: O ambiente virtual
+## 🖥️ O ambiente virtual
 
 Iniciei um projeto e ele utiliza a biblioteca fastapi na versão 0.2, três meses depois fui iniciar outro e a versão do fastapi já era 0.3.
 
@@ -86,15 +93,17 @@ Digite o comando: `source .venv/bin/activate` em linux ou `.venv\Scripts\activat
 
 Pronto, agora estamos preparados para instalar as bibliotecas que precisaremos.
 
-## :books: Bibliotecas e utilitários
+# 📚 Bibliotecas e utilitários
 
 Chegou a hora de instalar algumas bibliotecas e utilitários que nos auxiliarão na criação do nosso sistema web, na realização de testes unitários e testes manuais.
 
 Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Tenha sempre certeza de que a ferramenta está instalada e funcionando.
 
-:warning: Certifique-se de que seu ambiente está ativo antes de prosseguir com as instalações.
+!!! warning
+    
+    Certifique-se de que seu ambiente está ativo antes de prosseguir com as instalações.
 
-### :zap: FastAPI
+### ⚡ FastAPI
 
 **O que é?**
 
@@ -108,27 +117,29 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 
 **Como instalar**
 
-:warning: Preste atenção que os comandos serão executados dentro do diretório do projeto.
+!!! warning
+    
+    Preste atenção que os comandos serão executados dentro do diretório do projeto.
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install fastapi`.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install fastapi`.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install fastapi`.
+    Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install fastapi`.
 
 **Vamos verificar se deu tudo certo?**
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal e digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
+    Abra um terminal e digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
 
-### :link: Httpie
+### 🔗 Httpie
 
 **O que é?**
 
@@ -142,25 +153,27 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 **Como instalar**
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install httpie`.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install httpie`.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install httpie`.
+    Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install httpie`.
 
 **Vamos verificar se deu tudo certo?**
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `http --version`.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `http --version`.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal e digite `http --version`.
+    Abra um terminal e digite `http --version`.
 
-:warning: Note que foi utilizado o comando http ao invés de httpie, este é o nome do executável do httpie depois de instalado no sistema.
+!!! warning
+    
+    Note que foi utilizado o comando http ao invés de httpie, este é o nome do executável do httpie depois de instalado no sistema.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
@@ -169,7 +182,7 @@ $ http --version
 1.0.3
 ```
 
-### :unicorn: Uvicorn
+### 🦄 Uvicorn
 
 **O que é?**
 
@@ -181,24 +194,24 @@ O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto e
 
 **Como instalar**
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite `pip install uvicorn`.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite `pip install uvicorn`.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `pip
+    Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `pip
 install uvicorn`.
 
 **Vamos verificar se deu tudo certo?**
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Ative o ambiente virtual, Agora digite `uvicorn --help`.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Ative o ambiente virtual, Agora digite `uvicorn --help`.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal e digite `uvicorn --help`.
+    Abra um terminal e digite `uvicorn --help`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
@@ -266,7 +279,7 @@ Options:
 
 ```
 
-### :traffic_light: Pytest
+### 🚦 Pytest
 
 **O que é?**
 
@@ -278,23 +291,23 @@ Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não 
 
 **Como instalar**
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install pytest`.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install pytest`.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install pytest`.
+    Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install pytest`.
 
 **Vamos verificar se deu tudo certo?**
 
-:computer: *windows*
+=== "🖥️ Windows"
 
-Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pytest --version`.
+    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pytest --version`.
 
-:package: :apple: *ubuntu* ou *mac*
+=== "🐧🍎 Ubuntu/Mac"
 
-Abra um terminal e digite `pytest --version`.
+    Abra um terminal e digite `pytest --version`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
@@ -303,9 +316,9 @@ $ pytest --version
 This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerenciador-tarefas/.venv/lib/python3.8/site-packages/pytest.py
 ```
 
-## :warning: Nota importante sobre ambientes virtuais
+## ⚠️ Nota importante sobre ambientes virtuais
 
-Se neste momento, você digitar `cmd` no windows, ou abrir um terminal no linux e digitar `python3` ou `python` no windows, e em seguida tentar importar a bilbioteca fastapi o seguinte erro será mostrado. :scream:
+Se neste momento, você digitar `cmd` no windows, ou abrir um terminal no linux e digitar `python3` ou `python` no windows, e em seguida tentar importar a bilbioteca fastapi o seguinte erro será mostrado. 😱
 
 ```bash
 $ python3
@@ -318,7 +331,9 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'fastapi'
 >>>
 ```
-:pushpin: Utilize `Ctrl + d` ou `exit()` para sair do python.
+!!! tip
+
+    Utilize `Ctrl + d` ou `exit()` para sair do python.
 
 Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `source <venv>/bin/activate` ou `<venv>\Scripts\activate.bat`.
 
@@ -353,7 +368,9 @@ pytest==5.3.2
 httpie==1.0.3
 ```
 
-:warning: Os arquivos devem ser criados na pasta principal do projeto. Teremos então os seguintes arquivos no nosso diretório.
+!!! warning
+    
+    Os arquivos devem ser criados na pasta principal do projeto. Teremos então os seguintes arquivos no nosso diretório.
 
 ```
 .
@@ -392,18 +409,12 @@ Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão qu
 
 `$ git add requirements.txt dev-requirements.txt`
 
-:floppy_disk: Agora vamos marcar esta versão como salva.
+💾 Agora vamos marcar esta versão como salva.
 
 `git commit -m "adicionando dependências do projeto"`
 
-:octocat: Por fim, envie ao github a versão atualizada do projeto.
+🔧 Por fim, envie ao github a versão atualizada do projeto.
 
 `git push`
 
-:cake: Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso, faremos um nivelamento de conhecimento sobre web e python e em breve termos nossa aplicação no ar!
-
-[Um pouco sobre a web :arrow_right:](web.md)
-
-[:arrow_left: Escolhendo as melhores ferramentas](ferramentas.md)
-
-[:leftwards_arrow_with_hook: Voltar ao README ](README.md)
+🍰 Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso, faremos um nivelamento de conhecimento sobre web e python e em breve termos nossa aplicação no ar!
