@@ -1,0 +1,864 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>📖 Iniciando o projeto - Do zero a implantação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iniciando-o-projeto" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Do zero a implantação" class="md-header__button md-logo" aria-label="Do zero a implantação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Do zero a implantação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📖 Iniciando o projeto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Do zero a implantação" class="md-nav__button md-logo" aria-label="Do zero a implantação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Do zero a implantação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        ▶️ Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planejando/" class="md-nav__link">
+        💭 Planejando o que será desenvolvido
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ferramentas/" class="md-nav__link">
+        🔨 Escolhendo as melhores ferramentas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          📖 Iniciando o projeto
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        📖 Iniciando o projeto
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comecando-a-tirar-do-papel-o-projeto" class="md-nav__link">
+    ▶️ Começando a tirar do papel o projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-ambiente-virtual" class="md-nav__link">
+    🖥️ O ambiente virtual
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/" class="md-nav__link">
+        🌎 Um pouco sobre a web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        🐍 Primeiros passos com python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes/" class="md-nav__link">
+        🐐 Desenvolvimento guiado por testes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello_fastapi/" class="md-nav__link">
+        ⚡️ Hello Fastapi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integracao/" class="md-nav__link">
+        ✔️ Integração contínua
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        🚀 Mandando um foguete pro espaço
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criar/" class="md-nav__link">
+        📝 Criando uma tarefa
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../desafio/" class="md-nav__link">
+        🏆 O desafio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../referencias/" class="md-nav__link">
+        📑 Referências e Dicas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comecando-a-tirar-do-papel-o-projeto" class="md-nav__link">
+    ▶️ Começando a tirar do papel o projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-ambiente-virtual" class="md-nav__link">
+    🖥️ O ambiente virtual
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="iniciando-o-projeto">Iniciando o projeto</h1>
+<figure>
+<p><img alt="Blueprint do projeto" src="../imgs/blueprint.jpg" />
+  </p>
+<figcaption></figcaption>
+</figure>
+<p>Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingredientes.</p>
+<p>Desenvolver um projeto não significa escrever tudo do zero e poderemos contar com ajuda de trechos escritos por outros programadores. estes trechos comuns de código são chamados bibliotecas e vamos acabar adicionando algumas ao nosso projeto.</p>
+<p>Mas antes de tudo, precisamos iniciar nosso projeto.</p>
+<h2 id="comecando-a-tirar-do-papel-o-projeto">▶️ Começando a tirar do papel o projeto</h2>
+<p>Daremos nosso primeiro passo, criando um diretório onde serão armazenados todos os arquivos do projeto.</p>
+<p>Faremos isto utilizando o github, que é uma plataforma gratuita, muita conhecida e que irá nos ajudar com algumas integrações no futuro.</p>
+<p>Mas por que iniciaremos criando o projeto lá e não no próprio computador?</p>
+<p>O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da sua criação vamos salvando as alterações, evitando que os passos se percam e caso necessário podemos desfazer algum passo errado.</p>
+<p>Outro motivo é que se algo acontecer com seu computador, teremos salvo uma versão do projeto.</p>
+<p>Abra seu navegador, e acesse o seguinte endereço http://github.com. Crie uma conta se ainda não tiver.</p>
+<p>Aperte o botão novo_repositório.</p>
+<p><img alt="novo repositório" src="../imgs/novo_repositorio.png" title="Novo repositório" /></p>
+<p>Preencha os campos como visto na imagem abaixo.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As setas indicam o que deve ser preenchido.</p>
+</div>
+<p><img alt="novo repositório" src="../imgs/novorepo.png" title="Novo repositório" /></p>
+<p>Agora faça um "clone" do seu repositório.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.</p>
+</div>
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/USUARIO/gerenciador-tarefas.git
+Cloning into <span class="s1">&#39;gerenciador-tarefas&#39;</span>...
+remote: Counting objects: <span class="m">5</span>, <span class="k">done</span>.
+remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">5</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
+Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
+</code></pre></div>
+<p><code>git clone</code> é um comando para criar uma cópia dos arquivos e suas versões. Pode ser feito para trazer uma cópia do repositório do servidor para o computador local.</p>
+<p>Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado digite os seguintes comandos.</p>
+<div class="highlight"><pre><span></span><code>$ git config --local user.email EMAIL
+
+$ git config --local user.name USUARIO
+</code></pre></div>
+<p>"Voilà", já temos o projeto iniciado.</p>
+<p>Navegue até o diretório onde foi executado o comando de <code>clone</code> do projeto. Prossiga com a instalação das bibliotecas de acordo com o seu sistema operacional.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.</p>
+</div>
+<h2 id="o-ambiente-virtual">🖥️ O ambiente virtual</h2>
+<p>Iniciei um projeto e ele utiliza a biblioteca fastapi na versão 0.2, três meses depois fui iniciar outro e a versão do fastapi já era 0.3.</p>
+<p>Será que não dá problema se eu mudar no primeiro projeto? Ou será que mudo no segundo?</p>
+<p>Para evitar este tipo de problema, vamos criar o que chamaremos de ambiente virtual.</p>
+<p>Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bibliotecas na versão que quiser.</p>
+<p>O comando para isto é <code>python3 -m venv .venv</code>, ou <code>python -m venv .venv</code> no windows, sendo que .venv é o nome deste ambiente isolado.</p>
+<p>Este ambiente isolado será visto como um diretório criado na pasta do projeto.</p>
+<p>O ponto na frente do nome faz com que o diretório fique oculto.</p>
+<p>Depois de criado, temos de ativar este ambiente e isto é importante pois sempre que decidir trabalhar neste projeto você deverá repetir este passo.</p>
+<p>Digite o comando: <code>source .venv/bin/activate</code> em linux ou <code>.venv\Scripts\activate.bat</code> no windows.</p>
+<p>Pronto, agora estamos preparados para instalar as bibliotecas que precisaremos.</p>
+<h1 id="bibliotecas-e-utilitarios">📚 Bibliotecas e utilitários</h1>
+<p>Chegou a hora de instalar algumas bibliotecas e utilitários que nos auxiliarão na criação do nosso sistema web, na realização de testes unitários e testes manuais.</p>
+<p>Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Tenha sempre certeza de que a ferramenta está instalada e funcionando.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Certifique-se de que seu ambiente está ativo antes de prosseguir com as instalações.</p>
+</div>
+<h3 id="fastapi">⚡ FastAPI</h3>
+<p><strong>O que é?</strong></p>
+<p>O <a href="https://fastapi.tiangolo.com">fastapi</a> é uma ferramenta para desenvolvimento web, possui alta performance, fácil de aprender, rápida para escrever código e pronta para colocar o código no ar.</p>
+<p><strong>Para que serve?</strong></p>
+<p>Serve para escrevermos nossa aplicação web de forma rápida e customizável.</p>
+<p>Possui funções que auxiliam operações como roteamento, tratamento de requisições, renderização de conteúdo, gerenciamento de sessão e cookies, assim como várias outras que são típicas da web.</p>
+<p><strong>Como instalar</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Preste atenção que os comandos serão executados dentro do diretório do projeto.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">🖥️ Windows</label><label for="__tabbed_1_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto e agora digite <code>pip install fastapi</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal, navegue até a pasta do projeto e por fim digite <code>pip install fastapi</code>.</p>
+</div>
+</div>
+</div>
+<p><strong>Vamos verificar se deu tudo certo?</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">🖥️ Windows</label><label for="__tabbed_2_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Agora digite <code>python -c "import fastapi"</code>. nenhum erro deve ocorrer.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal e digite <code>python -c "import fastapi"</code>. nenhum erro deve ocorrer.</p>
+</div>
+</div>
+</div>
+<h3 id="httpie">🔗 Httpie</h3>
+<p><strong>O que é?</strong></p>
+<p><a href="https://github.com/jakubroztocil/httpie">HTTPie</a> é um cliente HTTP por linha de comando. Seu objetivo é transformar a interação com serviços web o mais humano possível.</p>
+<p><strong>Para que serve?</strong></p>
+<p>Diversos momentos do curso, teremos de testar manualmente se nosso sistema está funcionando, ainda que possua testes automatizados.</p>
+<p>Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.</p>
+<p><strong>Como instalar</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">🖥️ Windows</label><label for="__tabbed_3_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto e agora digite <code>pip install httpie</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal, navegue até a pasta do projeto e por fim digite <code>pip install httpie</code>.</p>
+</div>
+</div>
+</div>
+<p><strong>Vamos verificar se deu tudo certo?</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">🖥️ Windows</label><label for="__tabbed_4_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Agora digite <code>http --version</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal e digite <code>http --version</code>.</p>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note que foi utilizado o comando http ao invés de httpie, este é o nome do executável do httpie depois de instalado no sistema.</p>
+</div>
+<p>A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:</p>
+<div class="highlight"><pre><span></span><code>$ http --version
+<span class="m">1</span>.0.3
+</code></pre></div>
+<h3 id="uvicorn">🦄 Uvicorn</h3>
+<p><strong>O que é?</strong></p>
+<p>O uvicorn é um servidor de aplicação com suporte a frameworks assíncronos.</p>
+<p><strong>Para que serve?</strong></p>
+<p>O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto em um servidor na internet.</p>
+<p><strong>Como instalar</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">🖥️ Windows</label><label for="__tabbed_5_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite <code>pip install uvicorn</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `pip</p>
+</div>
+</div>
+</div>
+<p>install uvicorn`.</p>
+<p><strong>Vamos verificar se deu tudo certo?</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">🖥️ Windows</label><label for="__tabbed_6_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Ative o ambiente virtual, Agora digite <code>uvicorn --help</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal e digite <code>uvicorn --help</code>.</p>
+</div>
+</div>
+</div>
+<p>A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:</p>
+<div class="highlight"><pre><span></span><code>Usage: uvicorn <span class="o">[</span>OPTIONS<span class="o">]</span> APP
+
+Options:
+  --host TEXT                     Bind socket to this host.  <span class="o">[</span>default:
+                                  <span class="m">127</span>.0.0.1<span class="o">]</span>
+  --port INTEGER                  Bind socket to this port.  <span class="o">[</span>default: <span class="m">8000</span><span class="o">]</span>
+  --uds TEXT                      Bind to a UNIX domain socket.
+  --fd INTEGER                    Bind to socket from this file descriptor.
+  --reload                        Enable auto-reload.
+  --reload-dir TEXT               Set reload directories explicitly, instead
+                                  of using the current working directory.
+  --workers INTEGER               Number of worker processes. Defaults to the
+                                  <span class="nv">$WEB_CONCURRENCY</span> environment variable <span class="k">if</span>
+                                  available. Not valid with --reload.
+  --loop <span class="o">[</span>auto<span class="p">|</span>asyncio<span class="p">|</span>uvloop<span class="p">|</span>iocp<span class="o">]</span>
+                                  Event loop implementation.  <span class="o">[</span>default: auto<span class="o">]</span>
+  --http <span class="o">[</span>auto<span class="p">|</span>h11<span class="p">|</span>httptools<span class="o">]</span>     HTTP protocol implementation.  <span class="o">[</span>default:
+                                  auto<span class="o">]</span>
+  --ws <span class="o">[</span>auto<span class="p">|</span>none<span class="p">|</span>websockets<span class="p">|</span>wsproto<span class="o">]</span>
+                                  WebSocket protocol implementation.
+                                  <span class="o">[</span>default: auto<span class="o">]</span>
+  --lifespan <span class="o">[</span>auto<span class="p">|</span>on<span class="p">|</span>off<span class="o">]</span>        Lifespan implementation.  <span class="o">[</span>default: auto<span class="o">]</span>
+  --interface <span class="o">[</span>auto<span class="p">|</span>asgi3<span class="p">|</span>asgi2<span class="p">|</span>wsgi<span class="o">]</span>
+                                  Select ASGI3, ASGI2, or WSGI as the
+                                  application interface.  <span class="o">[</span>default: auto<span class="o">]</span>
+  --env-file PATH                 Environment configuration file.
+  --log-config PATH               Logging configuration file.
+  --log-level <span class="o">[</span>critical<span class="p">|</span>error<span class="p">|</span>warning<span class="p">|</span>info<span class="p">|</span>debug<span class="p">|</span>trace<span class="o">]</span>
+                                  Log level. <span class="o">[</span>default: info<span class="o">]</span>
+  --access-log / --no-access-log  Enable/Disable access log.
+  --proxy-headers / --no-proxy-headers
+                                  Enable/Disable X-Forwarded-Proto,
+                                  X-Forwarded-For, X-Forwarded-Port to
+                                  populate remote address info.
+  --forwarded-allow-ips TEXT      Comma seperated list of IPs to trust with
+                                  proxy headers. Defaults to the
+                                  <span class="nv">$FORWARDED_ALLOW_IPS</span> environment variable <span class="k">if</span>
+                                  available, or <span class="s1">&#39;127.0.0.1&#39;</span>.
+  --root-path TEXT                Set the ASGI <span class="s1">&#39;root_path&#39;</span> <span class="k">for</span> applications
+                                  submounted below a given URL path.
+  --limit-concurrency INTEGER     Maximum number of concurrent connections or
+                                  tasks to allow, before issuing HTTP <span class="m">503</span>
+                                  responses.
+  --limit-max-requests INTEGER    Maximum number of requests to service before
+                                  terminating the process.
+  --timeout-keep-alive INTEGER    Close Keep-Alive connections <span class="k">if</span> no new data
+                                  is received within this timeout.  <span class="o">[</span>default:
+                                  <span class="m">5</span><span class="o">]</span>
+  --ssl-keyfile TEXT              SSL key file
+  --ssl-certfile TEXT             SSL certificate file
+  --ssl-version INTEGER           SSL version to use <span class="o">(</span>see stdlib ssl module<span class="s1">&#39;s)</span>
+<span class="s1">                                  [default: 2]</span>
+<span class="s1">  --ssl-cert-reqs INTEGER         Whether client certificate is required (see</span>
+<span class="s1">                                  stdlib ssl module&#39;</span>s<span class="o">)</span>  <span class="o">[</span>default: <span class="m">0</span><span class="o">]</span>
+  --ssl-ca-certs TEXT             CA certificates file
+  --ssl-ciphers TEXT              Ciphers to use <span class="o">(</span>see stdlib ssl module<span class="err">&#39;</span>s<span class="o">)</span>
+                                  <span class="o">[</span>default: TLSv1<span class="o">]</span>
+  --header TEXT                   Specify custom default HTTP response headers
+                                  as a Name:Value pair
+  --help                          Show this message and exit.
+</code></pre></div>
+<h3 id="pytest">🚦 Pytest</h3>
+<p><strong>O que é?</strong></p>
+<p>O framework <a href="https://docs.pytest.org/en/latest/">pytest</a> é fácil para escrever teste simples, ainda escala para suportar testes funcionais complexos para aplicações e bibliotecas.</p>
+<p><strong>Para que serve?</strong></p>
+<p>Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não importa quão bem ele foi escrito".  Vamos então instalar o pytest, que é uma ferramenta que auxilia na execução de testes.</p>
+<p><strong>Como instalar</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">🖥️ Windows</label><label for="__tabbed_7_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto e agora digite <code>pip install pytest</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal, navegue até a pasta do projeto e por fim digite <code>pip install pytest</code>.</p>
+</div>
+</div>
+</div>
+<p><strong>Vamos verificar se deu tudo certo?</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">🖥️ Windows</label><label for="__tabbed_8_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Agora digite <code>pytest --version</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Abra um terminal e digite <code>pytest --version</code>.</p>
+</div>
+</div>
+</div>
+<p>A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:</p>
+<div class="highlight"><pre><span></span><code>$ pytest --version
+This is pytest version <span class="m">5</span>.3.0, imported from /home/cassiobotaro/projects/gerenciador-tarefas/.venv/lib/python3.8/site-packages/pytest.py
+</code></pre></div>
+<h2 id="nota-importante-sobre-ambientes-virtuais">⚠️ Nota importante sobre ambientes virtuais</h2>
+<p>Se neste momento, você digitar <code>cmd</code> no windows, ou abrir um terminal no linux e digitar <code>python3</code> ou <code>python</code> no windows, e em seguida tentar importar a bilbioteca fastapi o seguinte erro será mostrado. 😱</p>
+<div class="highlight"><pre><span></span><code>$ python3
+Python <span class="m">3</span>.8.0 <span class="o">(</span>default, Oct <span class="m">16</span> <span class="m">2019</span>, <span class="m">11</span>:21:38<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">9</span>.2.0<span class="o">]</span> on linux
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import fastapi
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, <span class="k">in</span> &lt;module&gt;
+ModuleNotFoundError: No module named <span class="s1">&#39;fastapi&#39;</span>
+&gt;&gt;&gt;
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Utilize <code>Ctrl + d</code> ou <code>exit()</code> para sair do python.</p>
+</div>
+<p>Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite <code>source &lt;venv&gt;/bin/activate</code> ou <code>&lt;venv&gt;\Scripts\activate.bat</code>.</p>
+<p>Não esqueça de trocar o <code>&lt;venv&gt;</code> pelo nome do ambiente virtual criado. Por exemplo, se você seguiu esse tutorial, provavelmente você usou o nome <code>.venv</code>, então o comando será <code>source .venv/bin/activate</code> ou <code>.venv\Scripts\activate.bat</code>.</p>
+<h2 id="salvando-o-momento-atual-do-nosso-projeto">Salvando o momento atual do nosso projeto</h2>
+<p>Neste momento seu diretório deve estar assim:</p>
+<div class="highlight"><pre><span></span><code>.
+├── LICENSE
+└── README.md
+</code></pre></div>
+<p>E se eu te pedisse agora uma cópia do projeto, como eu saberia de toda essa lista de coisas necessárias pro código rodar?</p>
+<p>Para evitar este problema criaremos arquivos com as dependências que instalamos no nosso projeto.</p>
+<p>Vamos começar criando um arquivo chamado requirements.txt com o seguinte conteúdo.</p>
+<div class="highlight"><pre><span></span><code>fastapi==0.45.0
+uvicorn==0.11.1
+</code></pre></div>
+<p>Depois criaremos um segundo arquivo chamado <code>dev-requirements.txt</code> e colocaremos o seguinte conteúdo.</p>
+<div class="highlight"><pre><span></span><code>-r requirements.txt
+pytest==5.3.2
+httpie==1.0.3
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Os arquivos devem ser criados na pasta principal do projeto. Teremos então os seguintes arquivos no nosso diretório.</p>
+</div>
+<div class="highlight"><pre><span></span><code>.
+├── LICENSE
+├── README.md
+├── dev-requirements.txt
+└── requirements.txt
+</code></pre></div>
+<p>Por que arquivos separados?</p>
+<p>No <code>requirements.txt</code>, só colocamos aquelas bibliotecas realmente necessárias para o sistema ir ao ar, já no <code>dev-requirements.txt</code>, temos as depêndencias que somente são úteis enquanto estamos desenvolvendo o sistema.</p>
+<p>Aquele <code>-r requirements.txt</code> no arquivo de desenvolvimento garante que as dependências principais serão instaladas e em seguidas as outras que somente são úteis durante o desenvolvimento.</p>
+<p>Quando formos colocar o site no ar, estes arquivos serão bem úteis.</p>
+<p>Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?</p>
+<p>Primeiro passo é checar o que foi feito até agora:</p>
+<div class="highlight"><pre><span></span><code>$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+Untracked files:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+    dev-requirements.txt
+    requirements.txt
+
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+</code></pre></div>
+<p>Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão que monitore estes arquivos.</p>
+<p><code>$ git add requirements.txt dev-requirements.txt</code></p>
+<p>💾 Agora vamos marcar esta versão como salva.</p>
+<p><code>git commit -m "adicionando dependências do projeto"</code></p>
+<p>🔧 Por fim, envie ao github a versão atualizada do projeto.</p>
+<p><code>git push</code></p>
+<p>🍰 Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso, faremos um nivelamento de conhecimento sobre web e python e em breve termos nossa aplicação no ar!</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+      
+        
+        <a href="../ferramentas/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 🔨 Escolhendo as melhores ferramentas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              🔨 Escolhendo as melhores ferramentas
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../web/" class="md-footer__link md-footer__link--next" aria-label="Próximo: 🌎 Um pouco sobre a web" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              🌎 Um pouco sobre a web
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+    
+  </body>
+</html>

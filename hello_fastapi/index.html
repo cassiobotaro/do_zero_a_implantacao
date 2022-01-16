@@ -1,0 +1,852 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>⚡️ Hello Fastapi - Do zero a implantação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hello-fastapi" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Do zero a implantação" class="md-header__button md-logo" aria-label="Do zero a implantação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Do zero a implantação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⚡️ Hello Fastapi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Do zero a implantação" class="md-nav__button md-logo" aria-label="Do zero a implantação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Do zero a implantação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        ▶️ Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planejando/" class="md-nav__link">
+        💭 Planejando o que será desenvolvido
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ferramentas/" class="md-nav__link">
+        🔨 Escolhendo as melhores ferramentas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projeto/" class="md-nav__link">
+        📖 Iniciando o projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/" class="md-nav__link">
+        🌎 Um pouco sobre a web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        🐍 Primeiros passos com python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes/" class="md-nav__link">
+        🐐 Desenvolvimento guiado por testes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ⚡️ Hello Fastapi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ⚡️ Hello Fastapi
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#testando-manualmente" class="md-nav__link">
+    Testando manualmente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integracao/" class="md-nav__link">
+        ✔️ Integração contínua
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        🚀 Mandando um foguete pro espaço
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criar/" class="md-nav__link">
+        📝 Criando uma tarefa
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../desafio/" class="md-nav__link">
+        🏆 O desafio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../referencias/" class="md-nav__link">
+        📑 Referências e Dicas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#testando-manualmente" class="md-nav__link">
+    Testando manualmente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="hello-fastapi"><img alt="⚡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a1.png" title=":zap:" /> Hello FastAPI</h1>
+<figure>
+<p><img alt="logo FastAPI" src="../imgs/fastapi.png" />
+  </p>
+<figcaption></figcaption>
+</figure>
+<p>É chegada a tão esperada hora de escrevermos código, porém, como aprendemos que podemos ser guiados por testes para ajudar a concepção da arquitetura do nosso programa, faremos as coisas um pouco diferente.</p>
+<p>Utilizaremos os ciclos do TDD para nos auxiliarem e assim garantiremos uma qualidade de código ao final.</p>
+<p>Estão lembrados o que é a nossa aplicação? Caso não se recorde leia as <a href="../planejando/">regras de negócio</a> novamente.</p>
+<p>Vamos dividir algumas tarefas então, na nossa lista de funcionalidades:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> listar as tarefas</li>
+<li class="task-list-item"><input type="checkbox" disabled/> adicionar tarefa</li>
+<li class="task-list-item"><input type="checkbox" disabled/> remover tarefa</li>
+<li class="task-list-item"><input type="checkbox" disabled/> ordenar a listagem por estado</li>
+<li class="task-list-item"><input type="checkbox" disabled/> finalizar uma tarefa</li>
+<li class="task-list-item"><input type="checkbox" disabled/> exibir uma tarefa de forma detalhada</li>
+</ul>
+<p>Acho que para iniciarmos o mais simples de escrever e testar é a funcionalidade de listagem de tarefas.</p>
+<p>Mas como fazer isto se não temos tarefas, nem mesmo uma aplicação ainda? Por onde começo?</p>
+<p>Inicie criando um diretório com o nome <code>tests</code>, onde colocaremos os testes do nosso programa.</p>
+<p>Lá dentro, crie um arquivo com nome <code>test_gerenciador.py</code> que deve ficar da seguinte maneira.</p>
+<div class="highlight"><pre><span></span><code>.
+├── dev-requirements.txt
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── tests
+    └── test_gerenciador.py
+</code></pre></div>
+<p>Agora vamos escrever nosso primeiro teste!</p>
+<p>Nossa listagem de tarefas, se bem sucedida, deve retornar o código de status <code>200 OK</code> e este será nosso primeiro teste.</p>
+<p>Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_gerenciador.py.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+</code></pre></div>
+<p>Vamos rodar pela primeira vez os testes no nosso projeto.</p>
+<p><code>python -m pytest</code></p>
+<p><img alt="😱" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f631.png" title=":scream:" /> Nossa! Ocorreu um erro!</p>
+<div class="highlight"><pre><span></span><code>$ python -m pytest
+======================================================= test session starts =======================================================
+platform linux -- Python 3.8.0, pytest-5.3.0, py-1.8.0, pluggy-0.13.1
+rootdir: /home/cassiobotaro/projects/gerenciador-tarefas
+collected 1 item
+
+tests/test_gerenciador.py F                                                                                                 [100%]
+
+============================================================ FAILURES =============================================================
+______________________________ test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200 ______________________________
+
+    def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
+&gt;       cliente = TestClient(app)
+E       NameError: name &#39;app&#39; is not defined
+
+tests/test_gerenciador.py:5: NameError
+======================================================== 1 failed in 0.18s ========================================================
+</code></pre></div>
+<p>Não se desespere, é que temos um teste, mas ainda não começamos a escrever código da nossa aplicação.</p>
+<p>A primeira coisa que precisamos fazer é criar um  diretório onde colocaremos nossos códigos. vamos chama-lo de <code>gerenciador_tarefas</code>.</p>
+<p>Dentro dele criamos um novo arquivo <code>gerenciador.py</code>, e neste arquivo vamos iniciar uma aplicação da seguinte maneira.</p>
+<div class="highlight"><pre><span></span><code>.
+├── dev-requirements.txt
+├── gerenciador_tarefas
+│   └── gerenciador.py
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── tests
+    └── test_gerenciador.py
+</code></pre></div>
+<p>O conteúdo desse arquivo será o seguinte.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+</code></pre></div>
+<p>Agora vamos voltar ao arquivo <code>test_gerenciador.py</code> e adicionamos a seguinte linha.</p>
+<p><code>from gerenciador_tarefas.gerenciador import app</code></p>
+<p>Isto é uma maneira de fazer os testes conhecerem o código da nossa aplicação. Toda vez que precisamos de um trecho de código em outro arquivo devemos fazer a "importação" daquele trecho utilizando o comando import.</p>
+<p>Neste caso estamos requisitando a aplicação nos arquivos de testes automatizados, para escrevermos os testes necessários.</p>
+<p>Rode novamente os testes.</p>
+<p><code>python -m pytest</code></p>
+<p>❌ Os testes continuam falhando!</p>
+<p>Agora temos nossa aplicação, mas nosso recurso de tarefas ainda não foi criado.</p>
+<p>No arquivo <code>gerenciador.py</code> adicione a seguinte função.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+</code></pre></div>
+<p>Rode novamente os testes.</p>
+<p><code>python -m pytest</code></p>
+<p>✅ Legal! Temos um teste funcionando! Nossa aplicação está retornando status 200 OK, ainda que a funcionalidade completa não esteja pronta.</p>
+<p><img alt="👶" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f476.png" title=":baby:" /> Damos o nome de <code>baby step</code>, esta maneira de construir uma aplicação dando pequenos passos de cada vez.</p>
+<p>Nosso recurso deve ter o formato <a href="http://json.org/">json</a>, que é um formato textual estruturado, bem simples e leve para troca de informações.</p>
+<p>Mas como checamos isto?</p>
+<p>Vamos escrever um novo teste!</p>
+<p>No arquivo <code>test_gerenciador.py</code>, adicione o seguinte teste.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_formato_de_retorno_deve_ser_json</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span>
+</code></pre></div>
+<p>Rode os testes novamente. Caso esqueça o comando, volte um pouco atrás e copie.</p>
+<p>Uai? O novo teste está passando ?!?!</p>
+<p>Acontece que por padrão, o fastapi já define que o formato será "json".</p>
+<p>Normalmente, queremos que testes falhem, porém este teste pode ser útil como documentação do seu recurso.</p>
+<p>Vamos deixa-lo e vamos seguir em frente, mas agora tentando escrever um teste que realmente falhe.</p>
+<p>Quando listar tarefas o retorno deve possuir o formato de lista. Transformando isto em código temos:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_retorno_deve_ser_uma_lista</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="nb">list</span><span class="p">)</span>
+</code></pre></div>
+<p>E vamos continuar o nosso ciclo e rodar os testes.</p>
+<p>❌ O teste falha e isto é bom!</p>
+<p>Acontece que nosso retorno não é uma lista. Mas como corrigir isto?</p>
+<p>Se temos um teste que falha, precisamos escrever o código necessário para este teste passar.</p>
+<p>Vamos voltar ao nosso gerenciador.py para corrigir o nosso problema. Na função que expõe o nosso recurso, modifique o código para:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[]</span>
+</code></pre></div>
+<p>Corrigido o código, rode novamente os testes.</p>
+<p>✅ Aew! Testes estão passando novamente!</p>
+<p>Neste passo os arquivos devem estar da seguinte maneira.</p>
+<p><strong>test_gerenciador.py</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_formato_de_retorno_deve_ser_json</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_retorno_deve_ser_uma_lista</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="nb">list</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>gerenciador.py</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[]</span>
+</code></pre></div></p>
+<p>Repare que pouco a pouco nossa aplicação vai tomando forma a partir dos testes.</p>
+<p>Parece chato ter de ficar rodando os testes a cada vez, mas além de garatir a qualidade do código, cada vez que os testes são rodados, todas as funcionalidades testadas anteriormente são verificadas novamente. Assim você evita ter de lembrar todas as possibilidades a serem testadas em um teste manual.</p>
+<p><img alt="🚦" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f6a6.png" title=":vertical_traffic_light:" /> Perceberam que estamos guiando o nosso desenvolvimento a partir dos testes? Pouco a pouco temos a funcionalidade de listagem sendo desenhada.</p>
+<p>Vamos continuar então. Sabemos que quando não há tarefas, nossa resposta do recurso deve ser uma lista vazia.</p>
+<p>Mas e quando a lista de tarefas possuir conteúdo? Qual o retorno esperado?</p>
+<p>Vamos criar uma lista de tarefas, adicionaremos conteúdo a ela e este conteúdo deve ser retornado.</p>
+<p>Para fazermos esta checagem, vamos pegar uma tarefa da lista e verificar os seus campos.</p>
+<p>O teste automatizado para isto pode ser escrito da seguinte maneira.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<p>❌ Rodou os testes? Pois é, estão quebrando novamente pois TAREFAS não foi definido.</p>
+<p>Vamos lá no arquivo <code>gerenciador.py</code> e defini-lo.</p>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador</p>
+<p><code>from gerenciador_tarefas.gerenciador import app, TAREFAS</code></p>
+<p>❌ Os testes ainda estão quebrando?</p>
+<p>Sim, mas agora o erro é outro. O erro mostrado é <code>IndexError: pop from empty list</code>, e isto ocorre porque lá no gerenciador ainda estamos retornando uma lista vazia e não a lista de tarefas.</p>
+<p>Vamos modificar isto como abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">TAREFAS</span>
+</code></pre></div>
+<p>Repita este processo para cada um dos campos de uma tarefa, então teremos que verificar titulo, descrição e o estado da tarefa.</p>
+<p>No fim nos testes ficam:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_formato_de_retorno_deve_ser_json</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_retorno_deve_ser_uma_lista</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="nb">list</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo 1&quot;</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;titulo&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_descricao</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao 1&quot;</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;descricao&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_um_estado</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizado&quot;</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;estado&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<p>E nosso código:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="n">TAREFAS</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">TAREFAS</span>
+</code></pre></div>
+<p>✅ Os testes estão funcionando? Parabéns! <img alt="👏" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f44f.png" title=":clap:" /> <img alt="👏" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f44f.png" title=":clap:" /></p>
+<h2 id="testando-manualmente"><img alt="🔧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f527.png" title=":wrench:" /> Testando manualmente</h2>
+<p>Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.</p>
+<p>O comando para isto é <code>uvicorn --reload gerenciador_tarefas.gerenciador:app</code>.</p>
+<p>Voilà, sua aplicação está no ar. <a href="http://localhost:8000/tarefas">Clique aqui</a> para abrir no navegador.</p>
+<p><img alt="implementação da listagem de tarefas" src="/imgs/listar_tarefas_vazio.png" title="implementação da listagem de tarefas" /></p>
+<p>Como adicionamos a opção <code>--reload</code>, cada vez que modificamos o código, o resultado é modificado também, sem precisar desligar e rodar de novo a aplicação.</p>
+<p>Experimente adicionar tarefas na lista.</p>
+<div class="highlight"><pre><span></span><code><span class="n">TAREFAS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;fazer compras&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;descrição&quot;</span><span class="p">:</span> <span class="s2">&quot;comprar leite e ovos&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;não finalizado&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;levar o cachorro para tosar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;descrição&quot;</span><span class="p">:</span> <span class="s2">&quot;está muito peludo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;não finalizado&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;lavar roupas&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;descrição&quot;</span><span class="p">:</span> <span class="s2">&quot;estão sujas&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;não finalizado&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+<p><img alt="implementação da listagem de tarefas preenchido" src="/imgs/listar_tarefas_preenchido.png" title="implementação da listagem de tarefas preenchido" /></p>
+<p>Uma outra opção é navegar na sua aplicação através da <a href="http://localhost:8000/docs">documentação</a> que é gerada automaticamente.</p>
+<p><img alt="documentação da listagem de tarefas" src="/imgs/documentacao_listar.png" title="documentação da listagem de tarefas" /></p>
+<h2 id="salvando-a-versao-atual-do-codigo">Salvando a versão atual do código</h2>
+<p>Com tudo terminado, vamos salvar a versão atual do código.</p>
+<p>Primeiro passo é checar o que foi feito até agora:</p>
+<div class="highlight"><pre><span></span><code>$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+Untracked files:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+    gerenciador_tarefas/
+    tests/
+
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+</code></pre></div>
+<p>Vemos dois diretórios não rastreados e precisamos avisar ao controle de versão para monitora-los.</p>
+<p><code>$ git add gerenciador_tarefas tests</code></p>
+<p>💾 Agora vamos marcar esta versão como salva.</p>
+<p><code>git commit -m "adicionando recurso de listar tarefas"</code></p>
+<p>🔧 Por fim envie ao github a versão atualizada do projeto.</p>
+<p><code>git push</code></p>
+<p><img alt="😎" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f60e.png" title=":sunglasses:" /> Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o github, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+      
+        
+        <a href="../testes/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 🐐 Desenvolvimento guiado por testes" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              🐐 Desenvolvimento guiado por testes
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../integracao/" class="md-footer__link md-footer__link--next" aria-label="Próximo: ✔️ Integração contínua" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              ✔️ Integração contínua
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+    
+  </body>
+</html>

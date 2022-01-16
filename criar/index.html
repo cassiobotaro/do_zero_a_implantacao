@@ -1,0 +1,843 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>📝 Criando uma tarefa - Do zero a implantação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#criando-uma-tarefa" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Do zero a implantação" class="md-header__button md-logo" aria-label="Do zero a implantação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Do zero a implantação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📝 Criando uma tarefa
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Do zero a implantação" class="md-nav__button md-logo" aria-label="Do zero a implantação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Do zero a implantação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        ▶️ Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planejando/" class="md-nav__link">
+        💭 Planejando o que será desenvolvido
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ferramentas/" class="md-nav__link">
+        🔨 Escolhendo as melhores ferramentas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projeto/" class="md-nav__link">
+        📖 Iniciando o projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/" class="md-nav__link">
+        🌎 Um pouco sobre a web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        🐍 Primeiros passos com python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes/" class="md-nav__link">
+        🐐 Desenvolvimento guiado por testes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello_fastapi/" class="md-nav__link">
+        ⚡️ Hello Fastapi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integracao/" class="md-nav__link">
+        ✔️ Integração contínua
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        🚀 Mandando um foguete pro espaço
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          📝 Criando uma tarefa
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        📝 Criando uma tarefa
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#passo-a-passo" class="md-nav__link">
+    Passo a passo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testando-manualmente" class="md-nav__link">
+    Testando manualmente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../desafio/" class="md-nav__link">
+        🏆 O desafio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../referencias/" class="md-nav__link">
+        📑 Referências e Dicas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#passo-a-passo" class="md-nav__link">
+    Passo a passo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testando-manualmente" class="md-nav__link">
+    Testando manualmente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="criando-uma-tarefa">📝 Criando uma tarefa</h1>
+<p>Certo, temos a funcionalidade de listagem de tarefas já funcionando.</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> listar as tarefas</li>
+<li class="task-list-item"><input type="checkbox" disabled/> adicionar tarefa</li>
+<li class="task-list-item"><input type="checkbox" disabled/> remover tarefa</li>
+<li class="task-list-item"><input type="checkbox" disabled/> ordenar a listagem por estado</li>
+<li class="task-list-item"><input type="checkbox" disabled/> finalizar uma tarefa</li>
+<li class="task-list-item"><input type="checkbox" disabled/> exibir uma tarefa de forma detalhada</li>
+</ul>
+<p>Vamos seguir em frente e escrever a funcionalidade de criar uma tarefa.</p>
+<p>Continuamos o ciclo do <em>TDD</em> e a primeira coisa a se fazer é pensar em um teste que não esteja implementado.</p>
+<p>Daqui pra frente sempre que ver ❌ escreva o teste mostrado e em seguida rode os testes que devem falhar.</p>
+<p>Logo em seguida deverá aparecer ✅ e o trecho de código que deve ser alterado. Lembre-se de rodar os testes para garantir que estão funcionando.</p>
+<p>E não se esqueça que testes vão no arquivo <code>test_gerenciador.py</code> e o código em <code>gerenciador.py</code>.</p>
+<h2 id="passo-a-passo">Passo a passo</h2>
+<p>Se testarmos o recurso de tarefas utilizando o método POST, veremos que teremos como retorno o código de status <code>405 METHOD NOT ALLOWED</code>.</p>
+<p>Para testar utilize o comando:</p>
+<p><code>http POST localhost:8000/tarefas</code></p>
+<p>Isto é porque até agora só implementamos o método get.</p>
+<p>Vamos partir disto para escrever nosso primeiro teste. Primeiro teste então verificaremos o recurso <code>tarefas</code> utilizando o método <code>POST</code>.</p>
+<p>O código de status deve ser diferente de 405. O teste pode ser visto abaixo.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_recurso_tarefas_deve_aceitar_o_verbo_post</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_405_METHOD_NOT_ALLOWED</span>
+</code></pre></div>
+<p>Próxima etapa do ciclo é escrevermos o código suficiente para satisfazer o nosso teste.</p>
+<p>O código é simples, vamos criar um novo método <code>criar</code> e associá-los ao método <code>POST</code>do recurso tarefas.</p>
+<p>✅</p>
+<p><div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">():</span>
+    <span class="k">pass</span>
+</code></pre></div>
+Ok, o teste está passando.</p>
+<p>Vamos criar uma nova situação onde o nosso código falha.</p>
+<p>Na nossa requisição, caso o corpo não tenha um título, deveremos receber o código de status <code>422 Unprocessable Entity</code> que significa que a "entidade", que neste caso é a tarefa, foi passada com algum problema.</p>
+<p>Vamos transformar isto em um teste.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+</code></pre></div>
+<p>Agora vamos utilizar o <a href="https://pydantic-docs.helpmanual.io/">pydantic</a> como desserializador da nossa entrada e validador.</p>
+<p>Desseria...o que?</p>
+<p>Quando recebemos uma requisição, em seu corpo temos um conteúdo que está no formato json, precisamos ler e entender esta estrutura e transformar em algo que possa manipular no python.</p>
+<p>Criaremos então uma Tarefa, que possui um titulo que é uma string. Esta tarefa é baseada em um modelo da biblioteca pydantic.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<p>Adicionamos então ao método criar uma tarefa e isto é suficiente para ele saber que ao ser acessado via post, deve conter em seu corpo uma tarefa com um título.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">Tarefa</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<p>E o resultado final que faz os testes passarem é:</p>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">TAREFAS</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">TAREFAS</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">Tarefa</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<p>E o ciclo continua, temos uma restrição no titulo que é "deve possuir entre 3 e 50 caracteres", vamos testar isto.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="s2">&quot;*&quot;</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="mi">51</span> <span class="o">*</span> <span class="s2">&quot;*&quot;</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+</code></pre></div>
+<p>Para resolver esta validação substituiremos o tipo <code>str</code> da nossa tarefa por <code>constr</code>, que em inglês quer dizer "<em>constrained str</em>", e em bom português "string com restrições".</p>
+<p>Definimos então <code>min_length</code>(comprimento mínimo) como 3 e <code>max_length</code>(comprimento máximo) como 50.</p>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">constr</span>
+
+
+
+<span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</code></pre></div>
+<p>Testes passando, vamos continuar a construir nossa tarefa.</p>
+<p>Além de titulo, nossa tarefa deve possuir uma descrição.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+</code></pre></div>
+<p>Adicionamos a nossa tarefa o campo descrição.</p>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">descricao</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<p>Mas a descrição só pode ter 140 caracteres.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">141</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+</code></pre></div>
+<p>Assim como o título, vamos mudar de <code>str</code> para <code>constr</code> e adicionar a restrição no comprimento do texto.</p>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">descricao</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+</code></pre></div>
+<p>Outra coisa é ao pedir a criação da tarefa, a mesma deve ser retornada como resposta.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="n">tarefa</span>
+</code></pre></div>
+<p><img alt="🤔" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f914.png" title=":thinking:" /> E se eu retornar a tarefa?</p>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">Tarefa</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tarefa</span>
+</code></pre></div>
+<p><img alt="😅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f605.png" title=":sweat_smile:" /> Esta foi simples.</p>
+<p>Outra coisa que precisamos verificar é que cada tarefa deve possuir um identificador único.</p>
+<p>Para checar isto vamos adicionar duas tarefas e seus <code>ids</code>retornados devem ser diferentes.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_id_deve_ser_unico</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo1&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao1&quot;</span><span class="p">}</span>
+    <span class="n">tarefa2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo2&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao1&quot;</span><span class="p">}</span>
+    <span class="n">resposta1</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa1</span><span class="p">)</span>
+    <span class="n">resposta2</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa2</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta1</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">resposta2</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Como o <code>id</code> é uma coisa que só deve aparecer na resposta, vamos a algumas mudanças.</p>
+<p>A primeira é que renomearemos a nossa <code>Tarefa</code>para <code>TarefaEntrada</code>e criaremos uma segunda estrutura Tarefa que é baseada na entrada, porém possui também um id.</p>
+<p>Para torna-lo único, o faremos do tipo <a href="https://pt.wikipedia.org/wiki/Identificador_%C3%BAnico_universal">uuid</a>, que é um identificador universalmente único.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TarefaEntrada</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">descricao</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">TarefaEntrada</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">UUID</span>
+</code></pre></div>
+<p>Depois vamos no método criar e transformar nossa tarefa de entrada em um dicionário, em seguida, adicionamos um id único gerado pelo python.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
+    <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+    <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
+</code></pre></div>
+<p>Outro detalhe é avisar ao nosso método post que utilize nossa nova estrutura para gerar a saída no formato json.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
+</code></pre></div>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
+
+
+<span class="k">class</span> <span class="nc">TarefaEntrada</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">descricao</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">TarefaEntrada</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">UUID</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
+    <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+    <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
+</code></pre></div>
+<p>Certo, testes passando novamente. Ainda temos alguma coisa pra verificar?</p>
+<p>Sim! Nossa tarefa também deve possuir um estado que por padrão será "não finalizado".</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;estado&quot;</span><span class="p">]</span> <span class="o">==</span>  <span class="s2">&quot;não finalizado&quot;</span>
+</code></pre></div>
+<p>Como temos apenas dois estados possíveis (finalizado, não finalizado) para uma tarefa, vamos utilizar uma estrutura do Python que é bastante útil para estes momentos.</p>
+<p>O Enum, é uma estrutura que define valores limitados a algo.</p>
+<p>Um exemplo poderia ser os estados do nosso país, tamanhos de roupa, cores.</p>
+<p>Mas por que?</p>
+<p>Vamos pegar como exemplo o tamanho de roupa. Inicialmente nosso sistema possuia, "Pequena", "Média", etc. De repente por uma questão de economia de espaço, estes valores modificam para "p", "m".</p>
+<p>E agora? vamos ter que ir em cada lugar do sistema que utiliza os valores e realizar a substituição. Mas e se eu esquecer e utilizar o antigo.</p>
+<p>Então ao invés de utilizarmos ``</p>
+<p>Adicionamos estado a estrutura TarefaEntrada, e seu tipo é <code>EstadosPossiveis</code>.</p>
+<p>Um valor padrão será <code>EstadosPossiveis.nao_finalizado</code>.</p>
+<p>Você deve estar se perguntando por que <code>EstadosPossiveis.nao_finalizado</code>e não a string direto. É justamente para evitar o problema citado acima de substituição.</p>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+
+<span class="k">class</span> <span class="nc">EstadosPossiveis</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">finalizado</span> <span class="o">=</span> <span class="s2">&quot;finalizado&quot;</span>
+    <span class="n">nao_finalizado</span> <span class="o">=</span> <span class="s2">&quot;não finalizado&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">TarefaEntrada</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">descricao</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+    <span class="n">estado</span><span class="p">:</span> <span class="n">EstadosPossiveis</span> <span class="o">=</span> <span class="n">EstadosPossiveis</span><span class="o">.</span><span class="n">nao_finalizado</span>
+</code></pre></div>
+<p>Quase tudo certo, porém o código de status quando algo é criado deve ser <code>201 Created</code>.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+</code></pre></div>
+<p>Modifique o método para retornar 201 quando for bem sucedido.</p>
+<p>✅</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+</code></pre></div>
+<p>A última coisa é que no momento não estamos guardando a nova tarefa.</p>
+<p>❌</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_esta_deve_ser_persistida</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAREFAS</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<p>✅</p>
+<div class="highlight"><span class="filename">gerenciador.py</span><pre><span></span><code>    <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
+        <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+        <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
+<span class="hll">        <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nova_tarefa</span><span class="p">)</span>
+</span>        <span class="k">return</span> <span class="n">nova_tarefa</span>
+</code></pre></div>
+<p><img alt="😱" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f631.png" title=":scream:" /> Oops! O teste ainda está quebrando.</p>
+<p>Como agora adicionamos tarefa a <code>TAREFAS</code>, cada teste bem sucedido cria uma nova entrada. Porém testes devem ser independentes.</p>
+<p>Para corrigir isto volte em todos os testes bem sucedidos acrescentando <code>TAREFAS.clear()</code> no final.</p>
+<h2 id="testando-manualmente"><img alt="🔧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f527.png" title=":wrench:" /> Testando manualmente</h2>
+<p>Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.</p>
+<p>Relembrando o comando para isto é <code>uvicorn --reload gerenciador_tarefas.gerenciador:app</code>.</p>
+<p>Experimente adicionar algumas tarefas utilizando o <code>httpie</code>.</p>
+<p><img alt="implementação da criação de tarefas" src="/imgs/criar.png" title="implementação da criação de tarefas" /></p>
+<p><code>http localhost:8000 titulo="titulo" descricao="uma descrição qualquer"</code></p>
+<p>Lembrando que sempre temos a opção de verificar os recursos através da <a href="http://localhost:8000/docs">documentação</a> gerada automaticamente.</p>
+<p><img alt="documentação com métodos implementados" src="/imgs/get-e-post.png" title="documentação com métodos implementados" /></p>
+<h2 id="salvando-a-versao-atual-do-codigo">Salvando a versão atual do código</h2>
+<p>Primeiro passo é checar o que foi feito até agora:</p>
+<div class="highlight"><pre><span></span><code>$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+Changes not staged <span class="k">for</span> commit:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes <span class="k">in</span> working directory<span class="o">)</span>
+        modified:   gerenciador_tarefas/gerenciador.py
+        modified:   tests/test_gerenciador.py
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+</code></pre></div>
+<p>Vamos adicionar as alterações nos arquivos.</p>
+<p><code>$ git add gerenciador_tarefas/gerenciador.py tests/test_gerenciador.py</code></p>
+<p>💾 Agora vamos marcar esta versão como salva.</p>
+<p><code>git commit -m "adicionando funcionalidade de criar tarefas"</code></p>
+<p>🔧 Por fim envie ao github a versão atualizada do projeto.</p>
+<p><code>git push</code></p>
+<p><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" /> E coloque no ar a nova versão.</p>
+<p><code>git push heroku master</code></p>
+<p><img alt="🎉" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f389.png" title=":tada:" /> Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+      
+        
+        <a href="../deploy/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 🚀 Mandando um foguete pro espaço" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              🚀 Mandando um foguete pro espaço
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../desafio/" class="md-footer__link md-footer__link--next" aria-label="Próximo: 🏆 O desafio" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              🏆 O desafio
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+    
+  </body>
+</html>
