@@ -335,7 +335,7 @@ ModuleNotFoundError: No module named 'fastapi'
 
     Utilize `Ctrl + d` ou `exit()` para sair do python.
 
-Acontece que instalamos o flask somente no ambiente virtual. Para entrarmos no ambiente virtual digite `source <venv>/bin/activate` ou `<venv>\Scripts\activate.bat`.
+Acontece que instalamos o FastAPI somente no ambiente virtual. Para entrarmos no ambiente virtual digite `source <venv>/bin/activate` ou `<venv>\Scripts\activate.bat`.
 
 Não esqueça de trocar o `<venv>` pelo nome do ambiente virtual criado. Por exemplo, se você seguiu esse tutorial, provavelmente você usou o nome `.venv`, então o comando será `source .venv/bin/activate` ou `.venv\Scripts\activate.bat`.
 
