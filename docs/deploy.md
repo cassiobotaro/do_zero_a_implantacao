@@ -49,10 +49,10 @@ Salve a versão atual da nossa aplicação para implantação.
 
 Agora vamos a implantação do sistema.
 
-É simples como `git push heroku master`.
+É simples como `git push heroku main`.
 
 ```bash
-$ git push heroku master
+$ git push heroku main
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 4 threads
@@ -75,10 +75,8 @@ remote:        https://agile-river-58363.herokuapp.com/ deployed to Heroku
 remote:
 remote: Verifying deploy... done.
 To https://git.heroku.com/agile-river-58363.git
-   629aed8..8710ff8  master -> master
+   629aed8..8710ff8  main -> main
 ```
-
-:paperclip: No momento em que este tutorial foi escrito, por padrão, o python onde será colocado nossa aplicação no ar é a 3.6, caso queira alterar será necessário adicionar um arquivo `runtine.txt` com a versão como conteúdo, por exemplo, `python-3.8.1`. Não esqueça de versionar este novo arquivo.
 
 # Deu certo?
 

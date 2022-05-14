@@ -47,6 +47,7 @@ Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_ge
 ```python
 from fastapi.testclient import TestClient
 from fastapi import status
+from gerenciador_tarefas import app
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
@@ -63,22 +64,26 @@ Vamos rodar pela primeira vez os testes no nosso projeto.
 
 ```
 $ python -m pytest
-======================================================= test session starts =======================================================
-platform linux -- Python 3.8.0, pytest-5.3.0, py-1.8.0, pluggy-0.13.1
-rootdir: /home/cassiobotaro/projects/gerenciador-tarefas
-collected 1 item
+========================================================= test session starts =========================================================
+platform linux -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
+rootdir: /home/cassiobotaro/Projects/gerenciador-tarefas
+plugins: anyio-3.6.1
+collected 0 items / 1 error
 
-tests/test_gerenciador.py F                                                                                                 [100%]
-
-============================================================ FAILURES =============================================================
-______________________________ test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200 ______________________________
-
-    def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
->       cliente = TestClient(app)
-E       NameError: name 'app' is not defined
-
-tests/test_gerenciador.py:5: NameError
-======================================================== 1 failed in 0.18s ========================================================
+=============================================================== ERRORS ================================================================
+_____________________________________________ ERROR collecting tests/test_gerenciador.py ______________________________________________
+ImportError while importing test module '/home/cassiobotaro/Projects/gerenciador-tarefas/tests/test_gerenciador.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../.asdf/installs/python/3.10.4/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_gerenciador.py:3: in <module>
+    from gerenciador_tarefas.gerenciador import app
+E   ModuleNotFoundError: No module named 'gerenciador_tarefas.gerenciador'
+======================================================= short test summary info =======================================================
+ERROR tests/test_gerenciador.py
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+========================================================== 1 error in 0.30s ===========================================================
 
 ```
 
@@ -109,10 +114,6 @@ from fastapi import FastAPI
 app = FastAPI()
 ```
 
-Agora vamos voltar ao arquivo `test_gerenciador.py` e adicionamos a seguinte linha.
-
-`from gerenciador_tarefas.gerenciador import app`
-
 Isto é uma maneira de fazer os testes conhecerem o código da nossa aplicação. Toda vez que precisamos de um trecho de código em outro arquivo devemos fazer a "importação" daquele trecho utilizando o comando import.
 
 Neste caso estamos requisitando a aplicação nos arquivos de testes automatizados, para escrevermos os testes necessários.
@@ -122,6 +123,17 @@ Rode novamente os testes.
 `python -m pytest`
 
 ❌ Os testes continuam falhando!
+
+```python
+# ...
+>       assert resposta.status_code == status.HTTP_200_OK
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+E        +  and   200 = status.HTTP_200_OK
+# ...
+```
+
+O teste está dizendo que esperámos um código de status de sucesso, porém o recurso (`tarefas`) não foi encontrado, por isso o código 404.
 
 Agora temos nossa aplicação, mas nosso recurso de tarefas ainda não foi criado.
 
@@ -136,6 +148,19 @@ def listar():
 Rode novamente os testes.
 
 `python -m pytest`
+
+```python
+$ python -m pytest
+========================================================= test session starts =========================================================
+platform linux -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
+rootdir: /home/cassiobotaro/Projects/gerenciador-tarefas
+plugins: anyio-3.6.1
+collected 1 item
+
+tests/test_gerenciador.py .                                                                                                     [100%]
+
+========================================================== 1 passed in 0.23s ==========================================================
+```
 
 ✅ Legal! Temos um teste funcionando! Nossa aplicação está retornando status 200 OK, ainda que a funcionalidade completa não esteja pronta.
 
@@ -202,6 +227,7 @@ Neste passo os arquivos devem estar da seguinte maneira.
 ```python
 from fastapi.testclient import TestClient
 from fastapi import status
+from gerenciador_tarefas.gerenciador import app
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
@@ -264,6 +290,12 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
 
 Vamos lá no arquivo `gerenciador.py` e defini-lo.
 
+```python
+# ...
+TAREFAS = {}
+# ...
+```
+
 :warning: Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador
 
 `from gerenciador_tarefas.gerenciador import app, TAREFAS`
@@ -287,6 +319,7 @@ No fim nos testes ficam:
 ```python
 from fastapi.testclient import TestClient
 from fastapi import status
+from gerenciador_tarefas.gerenciador import app, TAREFAS
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
@@ -347,7 +380,6 @@ from fastapi import FastAPI
 
 
 app = FastAPI()
-
 
 TAREFAS = []
 
@@ -410,8 +442,8 @@ Primeiro passo é checar o que foi feito até agora:
 
 ```bash
 $ git status
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -429,8 +461,8 @@ Vemos dois diretórios não rastreados e precisamos avisar ao controle de versã
 
 `git commit -m "adicionando recurso de listar tarefas"`
 
-🔧 Por fim envie ao github a versão atualizada do projeto.
+🔧 Por fim envie ao GitHub a versão atualizada do projeto.
 
 `git push`
 
-:sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o github, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?
+:sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o GitHub, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?

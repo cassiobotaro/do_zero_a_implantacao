@@ -25,9 +25,9 @@ Nesse caso nosso recurso único acessado é um texto em formato json, com inform
 
 Experimente também as seguintes URIs:
 
-`http https://swapi.co/api/people/3/`
+`http https://swapi.dev/api/people/3/`
 
-`http https://swapi.co/api/starships/10/`
+`http https://swapi.dev/api/starships/10/`
 
 `http http://httpbin.org/anything`
 

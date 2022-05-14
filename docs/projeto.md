@@ -32,7 +32,7 @@ Aperte o botão novo_repositório.
 Preencha os campos como visto na imagem abaixo.
 
 !!! warning
-    
+
     As setas indicam o que deve ser preenchido.
 
 ![novo repositório](imgs/novorepo.png "Novo repositório")
@@ -40,7 +40,7 @@ Preencha os campos como visto na imagem abaixo.
 Agora faça um "clone" do seu repositório.
 
 !!! warning
-    
+
     Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.
 
 ```bash
@@ -68,7 +68,7 @@ $ git config --local user.name USUARIO
 Navegue até o diretório onde foi executado o comando de `clone` do projeto. Prossiga com a instalação das bibliotecas de acordo com o seu sistema operacional.
 
 !!! warning
-    
+
     Não se esqueça de entrar no diretório do projeto antes de continuar a instalação das bibliotecas.
 
 ## 🖥️ O ambiente virtual
@@ -100,7 +100,7 @@ Chegou a hora de instalar algumas bibliotecas e utilitários que nos auxiliarão
 Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Tenha sempre certeza de que a ferramenta está instalada e funcionando.
 
 !!! warning
-    
+
     Certifique-se de que seu ambiente está ativo antes de prosseguir com as instalações.
 
 ### ⚡ FastAPI
@@ -118,7 +118,7 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 **Como instalar**
 
 !!! warning
-    
+
     Preste atenção que os comandos serão executados dentro do diretório do projeto.
 
 === "🖥️ Windows"
@@ -172,14 +172,14 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
     Abra um terminal e digite `http --version`.
 
 !!! warning
-    
+
     Note que foi utilizado o comando http ao invés de httpie, este é o nome do executável do httpie depois de instalado no sistema.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
 ```bash
 $ http --version
-1.0.3
+3.2.1
 ```
 
 ### 🦄 Uvicorn
@@ -200,12 +200,11 @@ O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto e
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `pip
-install uvicorn`.
+    Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `pip install uvicorn`.
 
 **Vamos verificar se deu tudo certo?**
 
-=== "🖥️ Windows"
+=== "🖥️ Wnndows"
 
     Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Ative o ambiente virtual, Agora digite `uvicorn --help`.
 
@@ -313,7 +312,7 @@ A saída para ambos os sistemas operacionais deverá ser similar a apresentada a
 
 ```bash
 $ pytest --version
-This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerenciador-tarefas/.venv/lib/python3.8/site-packages/pytest.py
+pytest 7.1.2
 ```
 
 ## ⚠️ Nota importante sobre ambientes virtuais
@@ -321,9 +320,8 @@ This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerencia
 Se neste momento, você digitar `cmd` no windows, ou abrir um terminal no linux e digitar `python3` ou `python` no windows, e em seguida tentar importar a bilbioteca fastapi o seguinte erro será mostrado. 😱
 
 ```bash
-$ python3
-Python 3.8.0 (default, Oct 16 2019, 11:21:38)
-[GCC 9.2.0] on linux
+$ python
+Python 3.10.4 (main, Apr 20 2022, 22:30:21) [GCC 11.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import fastapi
 Traceback (most recent call last):
@@ -356,20 +354,20 @@ Para evitar este problema criaremos arquivos com as dependências que instalamos
 Vamos começar criando um arquivo chamado requirements.txt com o seguinte conteúdo.
 
 ```
-fastapi==0.45.0
-uvicorn==0.11.1
+fastapi==0.77.1
+uvicorn==0.17.6
 ```
 
 Depois criaremos um segundo arquivo chamado `dev-requirements.txt` e colocaremos o seguinte conteúdo.
 
 ```
 -r requirements.txt
-pytest==5.3.2
-httpie==1.0.3
+pytest==7.1.2
+httpie==3.2.1
 ```
 
 !!! warning
-    
+
     Os arquivos devem ser criados na pasta principal do projeto. Teremos então os seguintes arquivos no nosso diretório.
 
 ```
@@ -394,8 +392,8 @@ Primeiro passo é checar o que foi feito até agora:
 
 ```bash
 $ git status
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -413,7 +411,7 @@ Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão qu
 
 `git commit -m "adicionando dependências do projeto"`
 
-🔧 Por fim, envie ao github a versão atualizada do projeto.
+🔧 Por fim, envie ao GitHub a versão atualizada do projeto.
 
 `git push`
 
