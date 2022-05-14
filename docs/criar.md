@@ -428,7 +428,7 @@ Vamos adicionar as alterações nos arquivos.
 
 `git commit -m "adicionando funcionalidade de criar tarefas"`
 
-🔧 Por fim envie ao github a versão atualizada do projeto.
+🔧 Por fim envie ao GitHub a versão atualizada do projeto.
 
 `git push`
 

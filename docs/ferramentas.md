@@ -42,7 +42,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
     `sudo apt install git`
 
 === "🖥️ Windows"
-  
+
     Baixe a última versão neste [site](https://git-scm.com/downloads). Deixe as opções já marcadas por padrão, exceto a mostrada abaixo que deve ser ajustada.
 
     ![opção path](imgs/gitwin.jpeg "opção path no instalador")
@@ -63,18 +63,18 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
     ```bash
     $ git --version
-    git version 2.24.0
+    git version 2.36.1
     ```
 
 === "🖥️ Windows"
-    
+
     Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `git --version`.
 
     A saída deverá ser similar a apresentada abaixo:
 
     ```bash
     $ git --version
-    git version 2.24.0
+    git version 2.36.1
     ```
 
 === "🍎 Mac"
@@ -85,7 +85,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
     ```bash
     $ git --version
-    git version 2.24.0
+    git version 2.36.1
     ```
 
 ## 🐍 Python
@@ -130,7 +130,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
     ```bash
     $ python --version
-    Python 3.8.1
+    Python 3.10.4
     ```
 
 === "🖥️ Windows"
@@ -141,7 +141,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
     ```bash
     $ python --version
-    Python 3.8.0
+    Python 3.10.4
     ```
 
 === "🍎 Mac"
@@ -152,11 +152,11 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
     ```bash
     $ python3 --version
-    Python 3.8.0
-    ```  
+    Python 3.10.4
+    ```
 
 !!! warning
-    A versão necessária neste curso é acima da 3.6 devido a recursos que utilizaremos.
+    A versão necessária neste curso é acima da 3.7 devido a recursos que utilizaremos.
 
 ## 🚚 Pip
 
@@ -192,7 +192,7 @@ Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para dese
 
     ```bash
     $ python3 -m pip --version
-    pip 19.2.3 from /usr/lib/python3.8/site-packages (python 3.8)
+    pip 22.0.4 from /usr/lib/python3.10/site-packages (python 3.10)
     ```
 
 === "🖥️ Windows"
@@ -203,7 +203,7 @@ Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para dese
 
     ```bash
     $ python3 -m pip --version
-    pip 19.2.3 from /usr/lib/python3.8/site-packages (python 3.8)
+    pip 22.0.4 from /usr/lib/python3.10/site-packages (python 3.10)
     ```
 
 === "🍎 Mac"
@@ -214,7 +214,7 @@ Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para dese
 
     ```bash
     $ python3 -m pip --version
-    pip 19.2.3 from /usr/lib/python3.8/site-packages (python 3.8)
+    pip 22.0.4 from /usr/lib/python3.10/site-packages (python 3.10)
     ```
 
 ## 📚 venv
@@ -242,17 +242,17 @@ Iniciamos um projeto que tem uma biblioteca na versão `1.4`, e de repente, um n
     Não será necessário a instalação pois o mesmo já vem com o instalador da linguagem.
 
 === "🍎 Mac"
-    
+
     Normalmente o venv é instalado junto com o Python e com o pip ao utilizar o Homebrew. Se o comando de verificação (logo abaixo) não funcionar, você pode instalá-lo utilizando o próprio pip com o comando `pip install virtualenv`
 
 **Vamos verificar se deu tudo certo?**
 
 === "🐧 Ubuntu"
-    
+
     Abra um terminal e digite `python3 -m venv -h`.
 
 === "🖥️ Windows"
-    
+
     Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -m venv -h`.
 
 === "🍎 Mac"
@@ -317,7 +317,7 @@ Vamos utilizar o heroku para colocar nossa aplicação no ar e se tudo der certo
     Vá no [site de download](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) do heroku e baixe o instalador.
 
     ![heroku cli](./imgs/install-heroku-cli.jpeg "heroku cli")
-  
+
 === "🍎 Mac"
 
     Abra um terminal e digite `brew tap heroku/brew && brew install heroku`.
@@ -329,7 +329,7 @@ Vamos utilizar o heroku para colocar nossa aplicação no ar e se tudo der certo
     Abra um terminal e digite `heroku --version`.
 
 === "🖥️ Windows"
-  
+
       Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `heroku --version`.
 
 === "🍎 Mac"
@@ -340,9 +340,9 @@ A saída deverá ser similar a apresentada abaixo:
 
 ```bash
 $ heroku --version
-heroku/7.34.2 linux-x64 node-v10.16.3
+heroku/7.60.2 linux-x64 node-v18.0.0
 ```
 
-## 🎉 Parabéns! 
+## 🎉 Parabéns!
 
 Instalamos todas as ferramentas que precisaremos para acompanhar este curso, vamos para o próximo passo!
