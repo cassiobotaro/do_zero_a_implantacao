@@ -125,7 +125,7 @@ python -m flake8 gerenciador_tarefas tests
 
 Existem ferramentas que podem executar algum comando antes de um commit, com o objetivo de identificar possíveis problemas no seu programa antes do envio do código para o repositório remoto. Os comandos listados acima são bons exemplos de execuções que podem ocorrer neste momento. Uma das ferramentas que provê essa funcionalidade é o pre-commit. Para saber mais, [clique aqui](https://pre-commit.com/).
 
-## :octocat: Configurando o GitHub Actions
+## 🐱 Configurando o GitHub Actions
 
 - Crie a pasta `.github/workflows` dentro do seu repositório. Essa é a pasta padrão para as configurações do GitHub Actions.
 
@@ -239,7 +239,7 @@ Vamos adicionar também as novas dependências instaladas e os arquivos que poss
 git commit -m "Adiciona integração contínua"
 ```
 
-:octocat: Por fim, envie ao GitHub a versão atualizada do projeto.
+🐱 Por fim, envie ao GitHub a versão atualizada do projeto.
 ```
 git push
 ```

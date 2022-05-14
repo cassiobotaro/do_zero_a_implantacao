@@ -86,6 +86,6 @@ No nosso exemplo seria `http https://agile-river-58363.herokuapp.com/tarefas`.
 
 Verifique se uma resposta 200 OK foi obtida.
 
-:trollface: Acabou, é isso pessoal! Já temos uma aplicação no ar e podemos ir embora.
+ 😅 Acabou, é isso pessoal! Já temos uma aplicação no ar e podemos ir embora.
 
 Brincadeira, foi legal ter a nossa primeira versão da aplicação no ar, mas agora precisamos evoluí-la.
