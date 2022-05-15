@@ -13,7 +13,7 @@ Relembrando, ainda temos as seguintes tarefas a serem feitas.
 
 ## ❌ Remover tarefas
 
-A remoção e tarefas consiste em buscar uma tarefa e em seguida remove-la.
+A remoção de tarefas consiste em buscar uma tarefa e em seguida remove-la.
 
 O método utilizado é o `DELETE`.
 
@@ -23,6 +23,10 @@ Você deve especificar o id da tarefa a ser removida na url `/tarefas/86d92774-2
 
 Caso não encontra uma tarefa, o código de status `404 Not Found` deve ser retornado.
 
+!!! tip
+
+    Para não retornar conteúdo no corpo da resposta, utilize `Response(status_code=status.HTTP_204_NO_CONTENT).
+
 ## :book: Ordenar a listagem por estado
 
 Já temos a listagem pronta mas não garantimos que sua ordenação está correta.
@@ -31,11 +35,11 @@ Um teste que pode ser escrito aqui é adição de duas tarefas, sendo a primeira
 
 A exibição da listagem de tarefas deve apresentar a segunda primeiro. Para fazer esta checagem, verifique a resposta e a ordem das tarefas retornadas.
 
-A função sorted pode ser seu aliado para resolver este problema.
+A função [`sorted`](https://docs.python.org/pt-br/3.10/howto/sorting.html) pode ser seu aliado para resolver este problema.
 
-Outra função bastante útil é a `itemgetter` que pode ser utilizada no parâmetro `key` da função sorted.
+Outra função bastante útil é a [`itemgetter`](https://docs.python.org/pt-br/3.10/howto/sorting.html) que pode ser utilizada no parâmetro `key` da função sorted.
 
-Uma alteração que pode ser feita na listagem é utilização de `List[Tarefa]` como modelo de resposta( parâmetro response_model no decorador), esta mudança ajuda a melhorar a documentação autogerada.
+Uma alteração que pode ser feita na listagem é utilização de `list[Tarefa]` como modelo de resposta( parâmetro response_model no decorador), esta mudança ajuda a melhorar a documentação autogerada.
 
 :warning: `itemgetter` pode ser obtido através do pacote operator.`from operator import itemgetter`
 
@@ -47,7 +51,7 @@ Devemos procurar uma tarefa e caso não seja encontrada, o código de status `40
 
 Os campos a serem modificados podem ser inválidos, caso isto ocorra everemos avisar ao cliente o seu erro. O código de status `422 Unprocessable Entity` pode ser utilizado aqui.
 
-Se bem sucedido o código de status `200 OK` deve ser retornado e o corpo da resposta deve conter a trefa com o valor já modificado.
+Se bem sucedido o código de status `200 OK` deve ser retornado e o corpo da resposta deve conter a tarefa com o valor já modificado.
 
 Você deve especificar o id da tarefa a ser removida na url `/tarefas/86d92774-281c-4e5a-87f2-69029177bfd2`.
 

@@ -384,10 +384,10 @@ A última coisa é que no momento não estamos guardando a nova tarefa.
 def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
-    resposta = cliente.post("/tarefas", json=tarefa)
-    assert resposta.status_code == 201
+    cliente.post("/tarefas", json=tarefa)
     assert len(TAREFAS) == 1
     TAREFAS.clear()
+
 ```
 
 ✅
@@ -412,7 +412,7 @@ No fim os testes ficam similar a:
 from fastapi import status
 from fastapi.testclient import TestClient
 
-from gerenciador_tarefas.gerenciador import TAREFAS, app
+from gerencia´dor_tarefas.gerenciador import TAREFAS, app
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
@@ -538,8 +538,7 @@ def test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201():
 def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
-    resposta = cliente.post("/tarefas", json=tarefa)
-    assert resposta.status_code == 201
+    cliente.post("/tarefas", json=tarefa)
     assert len(TAREFAS) == 1
     TAREFAS.clear()
 
