@@ -39,7 +39,9 @@ Antes de enviar pela primeira vez nosso código, vamos fazer as últimas configu
 
 O Heroku utiliza um arquivo chamado `Procfile` que contém informações de como rodar sua aplicação. Crie este arquivo com o seguinte conteúdo.
 
-`web: uvicorn --host=0.0.0.0 --port=$PORT gerenciador_tarefas.gerenciador:app`
+```{.txt title="Procfile"}
+web: uvicorn --host=0.0.0.0 --port=$PORT gerenciador_tarefas.gerenciador:app
+```
 
 Salve a versão atual da nossa aplicação para implantação.
 

@@ -103,7 +103,7 @@ def p_decorate(func):
 
 @p_decorate
 def get_text(name):
-   return "lorem ipsum, {} dolor sit amet".format(name)
+   return f"lorem ipsum, {name} dolor sit amet"
 
 print (get_text("John"))
 
