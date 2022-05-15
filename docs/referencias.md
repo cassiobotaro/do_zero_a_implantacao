@@ -9,6 +9,12 @@
  - [Lista de ferramentas adicionais para o FastAPI](https://github.com/mjhea0/awesome-fastapi/)
  - [Test Driven Development by Example - Kent Beck (en)](https://www.amazon.com.br/Test-Driven-Development-Kent-Beck/dp/0321146530)
  - [Learning Test-Driven Development - Saleem Siddiqui (en)](https://www.amazon.com.br/Learning-Test-Driven-Development-Polyglot-Uncluttered/dp/1098106474)
- - [Canal do Dunossauro](https://www.youtube.com/c/Dunossauro)
+ - [Canal do Dunossauro 🦖](https://www.youtube.com/c/Dunossauro)
+ - [Canal do Régis do Python](https://www.youtube.com/c/RegisdoPython)
+ - [Canal do Bruno Rocha](https://www.youtube.com/c/CodeShowbr)
  - [Canal sobre Entrega Contínua (en)](https://www.youtube.com/c/ContinuousDelivery)
+ - [Construindo APIs robustas](https://github.com/cassiobotaro/construindo-apis-robustas)
+ - [Python MG no telegram](https://t.me/pythonmg)
+ - [Live de Python no telegram](https://t.me/livepython)
+ - [Tutorial Django Girls](https://tutorial.djangogirls.org/pt/)
 
