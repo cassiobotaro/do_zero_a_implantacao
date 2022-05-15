@@ -1,4 +1,4 @@
-# :earth_americas: Um pouco sobre a web
+# 🌎 Um pouco sobre a web
 
 <figure markdown>
   ![Códigos HTML](imgs/web.jpg)
@@ -92,7 +92,7 @@ Experimente trocar o status na uri e veja as mensagens retornadas.
 
 Os verbos indicam a ação executada sobre algum recurso. Os mais famosos são o `GET` e o `POST`, que são responsáveis respectivamente por solicitar uma representação de um recurso e submeter uma entidade a um recurso específico, às vezes causando uma mudança no estado do recurso.
 
-:confused: Uma curiosidade, você sabe a diferença entre o verbo `PUT` e o `PATCH`?
+😕 Uma curiosidade, você sabe a diferença entre o verbo `PUT` e o `PATCH`?
 
 O verbo PUT substitui todas as atuais representações de seu recurso alvo pela carga de dados da requisição, já o PATCH somente modifica parcialmente o recurso.
 
@@ -110,4 +110,4 @@ Um exemplo de post.
 
 Substitua o verbo e veja funcionando os outros verbos http. Fique atento que os verbos após o http devem ser escritos com letra maiúscula.
 
-:smile: Bem legal não é? E agora, já vamos logo escrever código? Sim e não, vamos agora dar uma passada na linguagem Python.
+😊 Bem legal não é? E agora, já vamos logo escrever código? Sim e não, vamos agora dar uma passada na linguagem Python.

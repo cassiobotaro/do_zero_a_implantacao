@@ -1,4 +1,4 @@
-# :snake: Primeiros passos com python
+# 🐍 Primeiros passos com python
 
 <figure markdown>
   ![Monty Python](imgs/montypython.jpg)

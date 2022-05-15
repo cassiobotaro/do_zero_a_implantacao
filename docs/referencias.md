@@ -1,4 +1,4 @@
-# :bookmark_tabs: Referências e Dicas
+# 📑 Referências e Dicas
 
  - [Grupo brasileiro de FastAPI no telegram](https://t.me/fastapibr)
  - [Integração contínua e o processo agile](http://blog.caelum.com.br/integracao-continua/)

@@ -1,4 +1,4 @@
-# :trophy: O desafio
+# 🏆 O desafio
 
 À partir de agora, o seu desafio é continuar escrevendo as funcionalidades que faltam, mas vou te dar umas dicas.
 
@@ -27,7 +27,7 @@ Caso não encontra uma tarefa, o código de status `404 Not Found` deve ser reto
 
     Para não retornar conteúdo no corpo da resposta, utilize `Response(status_code=status.HTTP_204_NO_CONTENT).
 
-## :book: Ordenar a listagem por estado
+## 📗 Ordenar a listagem por estado
 
 Já temos a listagem pronta mas não garantimos que sua ordenação está correta.
 
@@ -41,9 +41,10 @@ Outra função bastante útil é a [`itemgetter`](https://docs.python.org/pt-br/
 
 Uma alteração que pode ser feita na listagem é utilização de `list[Tarefa]` como modelo de resposta( parâmetro response_model no decorador), esta mudança ajuda a melhorar a documentação autogerada.
 
-:warning: `itemgetter` pode ser obtido através do pacote operator.`from operator import itemgetter`
+!!! warning
+    `itemgetter` pode ser obtido através do pacote operator.`from operator import itemgetter`
 
-## :ballot_box_with_check: Finalizar uma tarefa
+## ☑️ Finalizar uma tarefa
 
 Finalizar uma tarefa, pode ser representado através do método `PUT` ou `PATCH`, modificando o valor de estado de uma tarefa.
 
@@ -55,7 +56,7 @@ Se bem sucedido o código de status `200 OK` deve ser retornado e o corpo da res
 
 Você deve especificar o id da tarefa a ser removida na url `/tarefas/86d92774-281c-4e5a-87f2-69029177bfd2`.
 
-## :scroll: Detalhando tarefas
+## 📜 Detalhando tarefas
 
 Detalhar uma tarefa é busca-la na lista de tarefas e exibir seu valor.
 
@@ -65,7 +66,7 @@ Você deve especificar o id da tarefa a ser removida na url `/tarefas/86d92774-2
 
 O código de status retornado quando bem sucedido é `200 OK`.
 
-## :checkered_flag: Concluindo
+## 🏁 Concluindo
 
 Assim finalizamos este guia, espero que tenha curtido bastante esta jornada de aprendizado.
 

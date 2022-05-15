@@ -1,4 +1,4 @@
-# :thought_balloon: Planejando o que será desenvolvido
+# 💭 Planejando o que será desenvolvido
 
 <figure markdown>
   ![Lista de tarefas](imgs/todolist.png)
@@ -6,14 +6,14 @@
 </figure>
 
 
-## :ballot_box_with_check: Definindo o que iremos desenvolver
+## 💡 Definindo o que iremos desenvolver
 
 Quando iniciamos um projeto, a primeira coisa que devemos conhecer são as "regras de negócio" do nosso projeto. Mas o que é isso?
 
 É a descrição de como o nosso sistema deve ser e como deve se comportar diante da interação do usuário. Por exemplo, o sistema escolhido hoje é para organizar uma lista de tarefas.
 
 
-## :pencil: Regras de negócio
+## ✏️ Regras de negócio
 
 O sistema será um gerenciador de tarefas e a primeira decisão é que nosso sistema deve apresentar uma interface que possa ser consumida tanto por um website, tanto por um aplicativo para dispositivos móveis.
 
@@ -33,4 +33,4 @@ Como usuário devo ser capaz de:
 
 O sistema deve apresentar testes.
 
-:fearful: E agora, o que fazer? Por onde começo? Vamos escolher nossas ferramentas!
+😨 E agora, o que fazer? Por onde começo? Vamos escolher nossas ferramentas!

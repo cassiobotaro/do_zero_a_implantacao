@@ -211,7 +211,7 @@ def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
     TAREFAS.clear()
 ```
 
-:thinking: E se eu retornar a tarefa?
+🤔 E se eu retornar a tarefa?
 
 ✅
 
@@ -221,7 +221,7 @@ def criar(tarefa: Tarefa):
     return tarefa
 ```
 
-:sweat_smile: Esta foi simples.
+😅 Esta foi simples.
 
 Outra coisa que precisamos verificar é que cada tarefa deve possuir um identificador único.
 
@@ -401,7 +401,7 @@ def criar(tarefa: TarefaEntrada):
     return nova_tarefa
 ```
 
-:tada: Nossos testes passaram! Agora temos as funcionalidades de criação e listagem de tarefas.
+🎉  Nossos testes passaram! Agora temos as funcionalidades de criação e listagem de tarefas.
 
 - [x] listar as tarefas
 - [x] adicionar tarefa
@@ -590,7 +590,7 @@ def criar(tarefa: TarefaEntrada):
 
 ```
 
-## :wrench: Testando manualmente
+## 🔧 Testando manualmente
 
 Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.
 
@@ -646,8 +646,8 @@ Vamos adicionar as alterações nos arquivos.
 
 `git push`
 
-:cloud: E coloque no ar a nova versão.
+☁️ E coloque no ar a nova versão.
 
 `git push heroku main`
 
-:tada: Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!
+🎉  Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!

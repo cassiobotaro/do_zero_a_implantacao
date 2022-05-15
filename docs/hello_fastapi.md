@@ -1,4 +1,4 @@
-# :zap: Hello FastAPI
+# ⚡ Hello FastAPI
 
 <figure markdown>
   ![logo FastAPI](imgs/fastapi.png)
@@ -60,7 +60,7 @@ Vamos rodar pela primeira vez os testes no nosso projeto.
 
 `python -m pytest`
 
-:scream: Nossa! Ocorreu um erro!
+😱 Nossa! Ocorreu um erro!
 
 ```
 $ python -m pytest
@@ -164,7 +164,7 @@ tests/test_gerenciador.py .                                                     
 
 ✅ Legal! Temos um teste funcionando! Nossa aplicação está retornando status 200 OK, ainda que a funcionalidade completa não esteja pronta.
 
-:baby: Damos o nome de `baby step`, esta maneira de construir uma aplicação dando pequenos passos de cada vez.
+👶 Damos o nome de `baby step`, esta maneira de construir uma aplicação dando pequenos passos de cada vez.
 
 Nosso recurso deve ter o formato [json](http://json.org/), que é um formato textual estruturado, bem simples e leve para troca de informações.
 
@@ -265,7 +265,7 @@ Repare que pouco a pouco nossa aplicação vai tomando forma a partir dos testes
 
 Parece chato ter de ficar rodando os testes a cada vez, mas além de garatir a qualidade do código, cada vez que os testes são rodados, todas as funcionalidades testadas anteriormente são verificadas novamente. Assim você evita ter de lembrar todas as possibilidades a serem testadas em um teste manual.
 
-:vertical_traffic_light: Perceberam que estamos guiando o nosso desenvolvimento a partir dos testes? Pouco a pouco temos a funcionalidade de listagem sendo desenhada.
+🚦 Perceberam que estamos guiando o nosso desenvolvimento a partir dos testes? Pouco a pouco temos a funcionalidade de listagem sendo desenhada.
 
 Vamos continuar então. Sabemos que quando não há tarefas, nossa resposta do recurso deve ser uma lista vazia.
 
@@ -296,7 +296,8 @@ TAREFAS = {}
 # ...
 ```
 
-:warning: Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador
+!!! info
+    Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador
 
 `from gerenciador_tarefas.gerenciador import app, TAREFAS`
 
@@ -389,9 +390,9 @@ def listar():
     return TAREFAS
 ```
 
-✅ Os testes estão funcionando? Parabéns! :clap: :clap:
+✅ Os testes estão funcionando? Parabéns! 👏 👏 👏
 
-## :wrench: Testando manualmente
+## 🔧 Testando manualmente
 
 Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.
 
@@ -465,4 +466,4 @@ Vemos dois diretórios não rastreados e precisamos avisar ao controle de versã
 
 `git push`
 
-:sunglasses: Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o GitHub, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?
+😎 Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o GitHub, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?

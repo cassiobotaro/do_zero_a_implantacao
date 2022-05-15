@@ -1,4 +1,4 @@
-# :goat: Desenvolvimento guiado por testes (TDD)
+# 🐐 Desenvolvimento guiado por testes (TDD)
 
 <figure markdown>
   ![ciclos do tdd](imgs/tdd.png)
@@ -66,4 +66,4 @@ Com os testes passando, analise se é possível alguma refatoração.
 
 **5 - Volte para o passo 1**
 
-:worried: Ainda não ficou claro o processo? Não se preocupe, daqui pra frente iremos ver este ciclo na prática.
+😟 Ainda não ficou claro o processo? Não se preocupe, daqui pra frente iremos ver este ciclo na prática.
