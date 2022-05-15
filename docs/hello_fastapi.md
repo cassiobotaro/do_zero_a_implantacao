@@ -400,7 +400,7 @@ O comando para isto é `uvicorn --reload gerenciador_tarefas.gerenciador:app`.
 
 Voilà, sua aplicação está no ar. [Clique aqui](http://localhost:8000/tarefas) para abrir no navegador.
 
-![implementação da listagem de tarefas](/imgs/listar_tarefas_vazio.png "implementação da listagem de tarefas")
+![implementação da listagem de tarefas](imgs/listar_tarefas_vazio.png "implementação da listagem de tarefas")
 
 Como adicionamos a opção `--reload`, cada vez que modificamos o código, o resultado é modificado também, sem precisar desligar e rodar de novo a aplicação.
 
@@ -429,11 +429,11 @@ TAREFAS = [
 ]
 ```
 
-![implementação da listagem de tarefas preenchido](/imgs/listar_tarefas_preenchido.png "implementação da listagem de tarefas preenchido")
+![implementação da listagem de tarefas preenchido](imgs/listar_tarefas_preenchido.png "implementação da listagem de tarefas preenchido")
 
 Uma outra opção é navegar na sua aplicação através da [documentação](http://localhost:8000/docs) que é gerada automaticamente.
 
-![documentação da listagem de tarefas](/imgs/documentacao_listar.png "documentação da listagem de tarefas")
+![documentação da listagem de tarefas](imgs/documentacao_listar.png "documentação da listagem de tarefas")
 
 ## Salvando a versão atual do código
 

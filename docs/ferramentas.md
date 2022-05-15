@@ -316,7 +316,7 @@ Vamos utilizar o heroku para colocar nossa aplicação no ar e se tudo der certo
 
     Vá no [site de download](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) do heroku e baixe o instalador.
 
-    ![heroku cli](./imgs/install-heroku-cli.jpeg "heroku cli")
+    ![heroku cli](imgs/install-heroku-cli.jpeg "heroku cli")
 
 === "🍎 Mac"
 
