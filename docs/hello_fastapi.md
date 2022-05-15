@@ -491,14 +491,20 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Vemos dois diretórios não rastreados e precisamos avisar ao controle de versão para monitora-los.
 
-`$ git add gerenciador_tarefas tests `
+```
+git add gerenciador_tarefas tests
+```
 
 💾 Agora vamos marcar esta versão como salva.
 
-`git commit -m "Adiciona recurso de listar tarefas"`
+```
+git commit -m "Adiciona recurso de listar tarefas"`
+```
 
 🔧 Por fim envie ao GitHub a versão atualizada do projeto.
 
-`git push`
+```
+git push
+```
 
 😎 Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o GitHub, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?

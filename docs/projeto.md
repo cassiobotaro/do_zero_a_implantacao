@@ -405,14 +405,20 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão que monitore estes arquivos.
 
-`$ git add requirements.txt dev-requirements.txt`
+```
+git add requirements.txt dev-requirements.txt
+```
 
 💾 Agora vamos marcar esta versão como salva.
 
-`git commit -m "Adiciona dependências do projeto"`
+```
+git commit -m "Adiciona dependências do projeto"
+```
 
 🔧 Por fim, envie ao GitHub a versão atualizada do projeto.
 
-`git push`
+```
+git push
+```
 
 🍰 Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso, faremos um nivelamento de conhecimento sobre web e python e em breve termos nossa aplicação no ar!

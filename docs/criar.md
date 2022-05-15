@@ -664,18 +664,26 @@ Caso algum erro seja encontrado, será necessário manualmente corrigí-lo.
 
 Vamos adicionar as alterações nos arquivos.
 
-`$ git add gerenciador_tarefas/gerenciador.py tests/test_gerenciador.py`
+```
+git add gerenciador_tarefas/gerenciador.py tests/test_gerenciador.py
+```
 
 💾 Agora vamos marcar esta versão como salva.
 
-`git commit -m "Adiciona funcionalidade de criar tarefas"`
+```
+git commit -m "Adiciona funcionalidade de criar tarefas"
+```
 
 🔧 Por fim envie ao GitHub a versão atualizada do projeto.
 
-`git push`
+```
+git push
+```
 
 ☁️ E coloque no ar a nova versão.
 
-`git push heroku main`
+```
+git push heroku main
+```
 
 🎉  Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!

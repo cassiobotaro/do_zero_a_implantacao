@@ -45,13 +45,27 @@ web: uvicorn --host=0.0.0.0 --port=$PORT gerenciador_tarefas.gerenciador:app
 
 Salve a versão atual da nossa aplicação para implantação.
 
-`$ git add Procfile`
+Vamos conosolidar uma versão do nosso código com instruções de implantação (deploy).
 
-`$ git commit -m "Adiciona arquivos para implantação no heroku"`
+```
+git add Procfile
+```
+
+Salvamos a versão atual com os arquivos de deploy.
+
+```
+git commit -m "Adiciona arquivos para implantação no heroku"`
+```
 
 Agora vamos a implantação do sistema.
 
-É simples como `git push heroku main`.
+É simples como:
+
+```
+git push heroku main
+```
+
+A saída abaixo será exibida.
 
 ```bash
 $ git push heroku main
