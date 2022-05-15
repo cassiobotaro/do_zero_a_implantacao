@@ -799,11 +799,11 @@ ModuleNotFoundError: No module named <span class="s1">&#39;fastapi&#39;</span>
 <p>E se eu te pedisse agora uma cópia do projeto, como eu saberia de toda essa lista de coisas necessárias pro código rodar?</p>
 <p>Para evitar este problema criaremos arquivos com as dependências que instalamos no nosso projeto.</p>
 <p>Vamos começar criando um arquivo chamado requirements.txt com o seguinte conteúdo.</p>
-<div class="highlight"><pre><span></span><code>fastapi==0.77.1
+<div class="highlight"><span class="filename">requirements.txt</span><pre><span></span><code>fastapi==0.77.1
 uvicorn==0.17.6
 </code></pre></div>
 <p>Depois criaremos um segundo arquivo chamado <code>dev-requirements.txt</code> e colocaremos o seguinte conteúdo.</p>
-<div class="highlight"><pre><span></span><code>-r requirements.txt
+<div class="highlight"><span class="filename">dev-requirements.txt</span><pre><span></span><code>-r requirements.txt
 pytest==7.1.2
 httpie==3.2.1
 </code></pre></div>

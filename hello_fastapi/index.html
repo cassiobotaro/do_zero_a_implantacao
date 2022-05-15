@@ -552,7 +552,7 @@
 <p>Agora vamos escrever nosso primeiro teste!</p>
 <p>Nossa listagem de tarefas, se bem sucedida, deve retornar o código de status <code>200 OK</code> e este será nosso primeiro teste.</p>
 <p>Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_gerenciador.py.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
 <span class="kn">from</span> <span class="nn">gerenciador_tarefas</span> <span class="kn">import</span> <span class="n">app</span>
 
@@ -601,7 +601,7 @@ ERROR tests/test_gerenciador.py
     └── test_gerenciador.py
 </code></pre></div>
 <p>O conteúdo desse arquivo será o seguinte.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -621,7 +621,7 @@ ERROR tests/test_gerenciador.py
 <p>O teste está dizendo que esperámos um código de status de sucesso, porém o recurso (<code>tarefas</code>) não foi encontrado, por isso o código 404.</p>
 <p>Agora temos nossa aplicação, mas nosso recurso de tarefas ainda não foi criado.</p>
 <p>No arquivo <code>gerenciador.py</code> adicione a seguinte função.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
     <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 </code></pre></div>
@@ -644,7 +644,7 @@ ERROR tests/test_gerenciador.py
 <p>Mas como checamos isto?</p>
 <p>Vamos escrever um novo teste!</p>
 <p>No arquivo <code>test_gerenciador.py</code>, adicione o seguinte teste.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_formato_de_retorno_deve_ser_json</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_formato_de_retorno_deve_ser_json</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span>
@@ -655,7 +655,7 @@ ERROR tests/test_gerenciador.py
 <p>Normalmente, queremos que testes falhem, porém este teste pode ser útil como documentação do seu recurso.</p>
 <p>Vamos deixa-lo e vamos seguir em frente, mas agora tentando escrever um teste que realmente falhe.</p>
 <p>Quando listar tarefas o retorno deve possuir o formato de lista. Transformando isto em código temos:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_retorno_deve_ser_uma_lista</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_retorno_deve_ser_uma_lista</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="nb">list</span><span class="p">)</span>
@@ -665,15 +665,14 @@ ERROR tests/test_gerenciador.py
 <p>Acontece que nosso retorno não é uma lista. Mas como corrigir isto?</p>
 <p>Se temos um teste que falha, precisamos escrever o código necessário para este teste passar.</p>
 <p>Vamos voltar ao nosso gerenciador.py para corrigir o nosso problema. Na função que expõe o nosso recurso, modifique o código para:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[]</span>
 </code></pre></div>
 <p>Corrigido o código, rode novamente os testes.</p>
 <p>✅ Aew! Testes estão passando novamente!</p>
 <p>Neste passo os arquivos devem estar da seguinte maneira.</p>
-<p><strong>test_gerenciador.py</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
 <span class="kn">from</span> <span class="nn">gerenciador_tarefas.gerenciador</span> <span class="kn">import</span> <span class="n">app</span>
 
@@ -694,9 +693,8 @@ ERROR tests/test_gerenciador.py
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="nb">list</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>gerenciador.py</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -705,7 +703,7 @@ ERROR tests/test_gerenciador.py
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[]</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>Repare que pouco a pouco nossa aplicação vai tomando forma a partir dos testes.</p>
 <p>Parece chato ter de ficar rodando os testes a cada vez, mas além de garatir a qualidade do código, cada vez que os testes são rodados, todas as funcionalidades testadas anteriormente são verificadas novamente. Assim você evita ter de lembrar todas as possibilidades a serem testadas em um teste manual.</p>
 <p>🚦 Perceberam que estamos guiando o nosso desenvolvimento a partir dos testes? Pouco a pouco temos a funcionalidade de listagem sendo desenhada.</p>
@@ -714,7 +712,7 @@ ERROR tests/test_gerenciador.py
 <p>Vamos criar uma lista de tarefas, adicionaremos conteúdo a ela e este conteúdo deve ser retornado.</p>
 <p>Para fazermos esta checagem, vamos pegar uma tarefa da lista e verificar os seus campos.</p>
 <p>O teste automatizado para isto pode ser escrito da seguinte maneira.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id</span><span class="p">():</span>
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
@@ -723,25 +721,25 @@ ERROR tests/test_gerenciador.py
 </code></pre></div>
 <p>❌ Rodou os testes? Pois é, estão quebrando novamente pois TAREFAS não foi definido.</p>
 <p>Vamos lá no arquivo <code>gerenciador.py</code> e defini-lo.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="c1"># ...</span>
 <span class="n">TAREFAS</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="c1"># ...</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador</p>
-</div>
 <p><code>from gerenciador_tarefas.gerenciador import app, TAREFAS</code></p>
+</div>
 <p>❌ Os testes ainda estão quebrando?</p>
 <p>Sim, mas agora o erro é outro. O erro mostrado é <code>IndexError: pop from empty list</code>, e isto ocorre porque lá no gerenciador ainda estamos retornando uma lista vazia e não a lista de tarefas.</p>
 <p>Vamos modificar isto como abaixo:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">TAREFAS</span>
 </code></pre></div>
 <p>Repita este processo para cada um dos campos de uma tarefa, então teremos que verificar titulo, descrição e o estado da tarefa.</p>
 <p>No fim nos testes ficam:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
 <span class="kn">from</span> <span class="nn">gerenciador_tarefas.gerenciador</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span> <span class="n">TAREFAS</span>
 
@@ -796,7 +794,7 @@ ERROR tests/test_gerenciador.py
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>E nosso código:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>

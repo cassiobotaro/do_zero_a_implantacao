@@ -556,7 +556,7 @@
 <p>Vamos partir disto para escrever nosso primeiro teste. Primeiro teste então verificaremos o recurso <code>tarefas</code> utilizando o método <code>POST</code>.</p>
 <p>O código de status deve ser diferente de 405. O teste pode ser visto abaixo.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_recurso_tarefas_deve_aceitar_o_verbo_post</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_recurso_tarefas_deve_aceitar_o_verbo_post</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_405_METHOD_NOT_ALLOWED</span>
@@ -564,7 +564,7 @@
 <p>Próxima etapa do ciclo é escrevermos o código suficiente para satisfazer o nosso teste.</p>
 <p>O código é simples, vamos criar um novo método <code>criar</code> e associá-los ao método <code>POST</code>do recurso tarefas.</p>
 <p>✅</p>
-<p><div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<p><div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">criar</span><span class="p">():</span>
     <span class="k">pass</span>
 </code></pre></div>
@@ -573,7 +573,7 @@ Ok, o teste está passando.</p>
 <p>Na nossa requisição, caso o corpo não tenha um título, deveremos receber o código de status <code>422 Unprocessable Entity</code> que significa que a "entidade", que neste caso é a tarefa, foi passada com algum problema.</p>
 <p>Vamos transformar isto em um teste.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{})</span>
     <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
@@ -582,7 +582,7 @@ Ok, o teste está passando.</p>
 <p>Desseria...o que?</p>
 <p>Quando recebemos uma requisição, em seu corpo temos um conteúdo que está no formato json, precisamos ler e entender esta estrutura e transformar em algo que possa manipular no python.</p>
 <p>Criaremos então uma Tarefa, que possui um titulo que é uma string. Esta tarefa é baseada em um modelo da biblioteca pydantic.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 <span class="c1"># ...</span>
 
@@ -590,13 +590,13 @@ Ok, o teste está passando.</p>
     <span class="n">titulo</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <p>Adicionamos então ao método criar uma tarefa e isto é suficiente para ele saber que ao ser acessado via post, deve conter em seu corpo uma tarefa com um título.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">Tarefa</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div>
 <p>E o resultado final que faz os testes passarem é:</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 
@@ -621,7 +621,7 @@ Ok, o teste está passando.</p>
 </code></pre></div>
 <p>E o ciclo continua, temos uma restrição no titulo que é "deve possuir entre 3 e 50 caracteres", vamos testar isto.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="s2">&quot;*&quot;</span><span class="p">})</span>
     <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
@@ -631,7 +631,7 @@ Ok, o teste está passando.</p>
 <p>Para resolver esta validação substituiremos o tipo <code>str</code> da nossa tarefa por <code>constr</code>, que em inglês quer dizer "<em>constrained str</em>", e em bom português "string com restrições".</p>
 <p>Definimos então <code>min_length</code>(comprimento mínimo) como 3 e <code>max_length</code>(comprimento máximo) como 50.</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">constr</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">constr</span>
 
 
 
@@ -641,33 +641,33 @@ Ok, o teste está passando.</p>
 <p>Testes passando, vamos continuar a construir nossa tarefa.</p>
 <p>Além de titulo, nossa tarefa deve possuir uma descrição.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">})</span>
     <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
 </code></pre></div>
 <p>Adicionamos a nossa tarefa o campo descrição.</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">descricao</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <p>Mas a descrição só pode ter 140 caracteres.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">141</span><span class="p">})</span>
     <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
 </code></pre></div>
 <p>Assim como o título, vamos mudar de <code>str</code> para <code>constr</code> e adicionar a restrição no comprimento do texto.</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">descricao</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
 </code></pre></div>
 <p>Outra coisa é ao pedir a criação da tarefa, a mesma deve ser retornada como resposta.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa_esperada</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa_esperada</span><span class="p">)</span>
@@ -678,7 +678,7 @@ Ok, o teste está passando.</p>
 </code></pre></div>
 <p>🤔 E se eu retornar a tarefa?</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">Tarefa</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">tarefa</span>
 </code></pre></div>
@@ -686,7 +686,7 @@ Ok, o teste está passando.</p>
 <p>Outra coisa que precisamos verificar é que cada tarefa deve possuir um identificador único.</p>
 <p>Para checar isto vamos adicionar duas tarefas e seus <code>ids</code>retornados devem ser diferentes.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_id_deve_ser_unico</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_id_deve_ser_unico</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo1&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao1&quot;</span><span class="p">}</span>
     <span class="n">tarefa2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo2&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao1&quot;</span><span class="p">}</span>
@@ -698,7 +698,7 @@ Ok, o teste está passando.</p>
 <p>Como o <code>id</code> é uma coisa que só deve aparecer na resposta, vamos a algumas mudanças.</p>
 <p>A primeira é que renomearemos a nossa <code>Tarefa</code>para <code>TarefaEntrada</code>e criaremos uma segunda estrutura Tarefa que é baseada na entrada, porém possui também um id.</p>
 <p>Para torna-lo único, o faremos do tipo <a href="https://pt.wikipedia.org/wiki/Identificador_%C3%BAnico_universal">uuid</a>, que é um identificador universalmente único.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
 
 <span class="c1"># ...</span>
 
@@ -711,18 +711,18 @@ Ok, o teste está passando.</p>
     <span class="nb">id</span><span class="p">:</span> <span class="n">UUID</span>
 </code></pre></div>
 <p>Depois vamos no método criar e transformar nossa tarefa de entrada em um dicionário, em seguida, adicionamos um id único gerado pelo python.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
     <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
     <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
     <span class="k">return</span> <span class="n">nova_tarefa</span>
 </code></pre></div>
 <p>Outro detalhe é avisar ao nosso método post que utilize nossa nova estrutura para gerar a saída no formato json.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">)</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
 </code></pre></div>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
 
 
 <span class="k">class</span> <span class="nc">TarefaEntrada</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
@@ -743,7 +743,7 @@ Ok, o teste está passando.</p>
 <p>Certo, testes passando novamente. Ainda temos alguma coisa pra verificar?</p>
 <p>Sim! Nossa tarefa também deve possuir um estado que por padrão será "não finalizado".</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
@@ -761,7 +761,7 @@ Ok, o teste está passando.</p>
 <p>Um valor padrão será <code>EstadosPossiveis.nao_finalizado</code>.</p>
 <p>Você deve estar se perguntando por que <code>EstadosPossiveis.nao_finalizado</code>e não a string direto. É justamente para evitar o problema citado acima de substituição.</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 
 
 <span class="k">class</span> <span class="nc">EstadosPossiveis</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
@@ -776,7 +776,7 @@ Ok, o teste está passando.</p>
 </code></pre></div>
 <p>Quase tudo certo, porém o código de status quando algo é criado deve ser <code>201 Created</code>.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
@@ -785,7 +785,7 @@ Ok, o teste está passando.</p>
 </code></pre></div>
 <p>Modifique o método para retornar 201 quando for bem sucedido.</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>
 
 <span class="c1"># ...</span>
 
@@ -793,7 +793,7 @@ Ok, o teste está passando.</p>
 </code></pre></div>
 <p>A última coisa é que no momento não estamos guardando a nova tarefa.</p>
 <p>❌</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_esta_deve_ser_persistida</span><span class="p">():</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_esta_deve_ser_persistida</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
     <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
@@ -814,7 +814,7 @@ Ok, o teste está passando.</p>
 <li class="task-list-item"><input type="checkbox" disabled checked/> adicionar tarefa</li>
 </ul>
 <p>No fim os testes ficam similar a:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
+<div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
 <span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 
 <span class="kn">from</span> <span class="nn">gerencia</span><span class="err">´</span><span class="n">dor_tarefas</span><span class="o">.</span><span class="n">gerenciador</span> <span class="kn">import</span> <span class="nn">TAREFAS</span><span class="o">,</span> <span class="nn">app</span>
@@ -948,7 +948,7 @@ Ok, o teste está passando.</p>
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>E o código:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>

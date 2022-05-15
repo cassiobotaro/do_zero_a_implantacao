@@ -545,12 +545,12 @@
 <p>Automatizar testes é uma maneira de agilizar nosso processo de desenvolvimento, garantindo que novas funcionalidades não impactam sobre as antigas.</p>
 <p>Um exemplo de teste automatizado.</p>
 <p><strong>código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">é_impar</span><span class="p">(</span><span class="n">numero</span><span class="p">):</span>
+<div class="highlight"><span class="filename">impar.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">é_impar</span><span class="p">(</span><span class="n">numero</span><span class="p">):</span>
     <span class="s1">&#39;Retorna True se um número é verdadeiro, senão False.&#39;</span>
     <span class="k">return</span> <span class="n">numero</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span>
 </code></pre></div>
 <p><strong>teste</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_entrada_é_três_retorna_verdadeiro</span><span class="p">():</span>
+<div class="highlight"><span class="filename">test_impar.py</span><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_entrada_é_três_retorna_verdadeiro</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">é_impar</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
 
 

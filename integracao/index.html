@@ -873,9 +873,9 @@ Como garantir que a qualidade do código foi mantida?</p>
 </code></pre></div>
 <h4 id="configuracao">Configuração</h4>
 <p>Precisamos adicionar no arquivo <code>pyproject.toml</code> (você deve cria-lo) a seguinte configuração</p>
-<p><div class="highlight"><pre><span></span><code>[tool.isort]
-profile = &quot;black&quot;
-line_length = 79
+<p><div class="highlight"><span class="filename">pyproject.toml</span><pre><span></span><code><span class="k">[tool.isort]</span><span class="w"></span>
+<span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="w"></span>
+<span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span><span class="w"></span>
 </code></pre></div>
 Assim evitamos um conflito com a ferramenta <code>black</code> e <code>isort</code>.</p>
 <h4 id="como-executar">Como executar</h4>
@@ -892,8 +892,8 @@ Assim evitamos um conflito com a ferramenta <code>black</code> e <code>isort</co
 </code></pre></div>
 <h4 id="configuracao_1">Configuração</h4>
 <p>Precisamos adicionar no arquivo <code>pyproject.toml</code> a seguinte configuração</p>
-<div class="highlight"><pre><span></span><code>[tool.black]
-line-length = 79
+<div class="highlight"><span class="filename">pyproject.toml</span><pre><span></span><code><span class="k">[tool.black]</span><span class="w"></span>
+<span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span><span class="w"></span>
 </code></pre></div>
 <h4 id="como-executar_1">Como executar</h4>
 <div class="highlight"><pre><span></span><code>python -m black .
@@ -927,7 +927,7 @@ Esta ferramenta será integrada ao editor, dessa maneira, ao salvar o arquivo, t
 <ul>
 <li>Dentro da pasta crie um arquivo chamado <code>main.yml</code>. Esse arquivo será utilizado para determinar quais passos serão executados na integração. O arquivo deve possuir o seguinte conteúdo:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>name: main
+<div class="highlight"><span class="filename">.github/workflows/main.yml</span><pre><span></span><code>name: main
 
 on:
   push:
@@ -971,7 +971,7 @@ jobs:
 <p>Como instalamos várias bibliotecas, precisamos atualizar nosso arquivo de requisitos.</p>
 <p>Como as bibliotecas que instalamos são para garantir a qualidade do código e não são necessárias na execução da aplicação adicionaremos elas ao arquivo <code>dev-requirements.txt</code>.</p>
 <p>O arquivo ficará assim:</p>
-<div class="highlight"><pre><span></span><code>-r requirements.txt
+<div class="highlight"><span class="filename">dev-requirements.txt</span><pre><span></span><code>-r requirements.txt
 pytest==7.1.2
 httpie==3.2.1
 isort==5.10.1
