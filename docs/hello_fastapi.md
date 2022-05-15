@@ -340,7 +340,14 @@ def test_quando_listar_tarefas_retorno_deve_ser_uma_lista():
 
 
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
-    TAREFAS.append({"id": 1})
+    TAREFAS.append(
+        {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "titulo": "titulo 1",
+            "descricao": "descricao 1",
+            "estado": "finalizado",
+        }
+    )
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert "id" in resposta.json().pop()
@@ -348,7 +355,14 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
 
 
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo():
-    TAREFAS.append({"titulo": "titulo 1"})
+    TAREFAS.append(
+        {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "titulo": "titulo 1",
+            "descricao": "descricao 1",
+            "estado": "finalizado",
+        }
+    )
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert "titulo" in resposta.json().pop()
@@ -356,7 +370,14 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo():
 
 
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_descricao():
-    TAREFAS.append({"descricao": "descricao 1"})
+    TAREFAS.append(
+        {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "titulo": "titulo 1",
+            "descricao": "descricao 1",
+            "estado": "finalizado",
+        }
+    )
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert "descricao" in resposta.json().pop()
@@ -364,7 +385,14 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_descricao():
 
 
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_um_estado():
-    TAREFAS.append({"estado": "finalizado"})
+    TAREFAS.append(
+        {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "titulo": "titulo 1",
+            "descricao": "descricao 1",
+            "estado": "finalizado",
+        }
+    )
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert "estado" in resposta.json().pop()
