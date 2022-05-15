@@ -763,7 +763,14 @@ ERROR tests/test_gerenciador.py
 
 
 <span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id</span><span class="p">():</span>
-    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizado&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
@@ -771,7 +778,14 @@ ERROR tests/test_gerenciador.py
 
 
 <span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo</span><span class="p">():</span>
-    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo 1&quot;</span><span class="p">})</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizado&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="s2">&quot;titulo&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
@@ -779,7 +793,14 @@ ERROR tests/test_gerenciador.py
 
 
 <span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_descricao</span><span class="p">():</span>
-    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao 1&quot;</span><span class="p">})</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizado&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="s2">&quot;descricao&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
@@ -787,7 +808,14 @@ ERROR tests/test_gerenciador.py
 
 
 <span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_um_estado</span><span class="p">():</span>
-    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizado&quot;</span><span class="p">})</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizado&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="s2">&quot;estado&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
