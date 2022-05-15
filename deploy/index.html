@@ -486,10 +486,17 @@ https://agile-river-58363.herokuapp.com/ <span class="p">|</span> https://git.he
 <div class="highlight"><span class="filename">Procfile</span><pre><span></span><code>web: uvicorn --host=0.0.0.0 --port=$PORT gerenciador_tarefas.gerenciador:app
 </code></pre></div>
 <p>Salve a versão atual da nossa aplicação para implantação.</p>
-<p><code>$ git add Procfile</code></p>
-<p><code>$ git commit -m "Adiciona arquivos para implantação no heroku"</code></p>
+<p>Vamos conosolidar uma versão do nosso código com instruções de implantação (deploy).</p>
+<div class="highlight"><pre><span></span><code>git add Procfile
+</code></pre></div>
+<p>Salvamos a versão atual com os arquivos de deploy.</p>
+<div class="highlight"><pre><span></span><code>git commit -m &quot;Adiciona arquivos para implantação no heroku&quot;`
+</code></pre></div>
 <p>Agora vamos a implantação do sistema.</p>
-<p>É simples como <code>git push heroku main</code>.</p>
+<p>É simples como:</p>
+<div class="highlight"><pre><span></span><code>git push heroku main
+</code></pre></div>
+<p>A saída abaixo será exibida.</p>
 <div class="highlight"><pre><span></span><code>$ git push heroku main
 Enumerating objects: <span class="m">5</span>, <span class="k">done</span>.
 Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
