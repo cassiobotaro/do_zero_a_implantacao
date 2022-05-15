@@ -582,7 +582,11 @@ Ok, o teste está passando.</p>
 <p>Desseria...o que?</p>
 <p>Quando recebemos uma requisição, em seu corpo temos um conteúdo que está no formato json, precisamos ler e entender esta estrutura e transformar em algo que possa manipular no python.</p>
 <p>Criaremos então uma Tarefa, que possui um titulo que é uma string. Esta tarefa é baseada em um modelo da biblioteca pydantic.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="c1"># ...</span>
+
+<span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">titulo</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <p>Adicionamos então ao método criar uma tarefa e isto é suficiente para ele saber que ao ser acessado via post, deve conter em seu corpo uma tarefa com um título.</p>
@@ -665,9 +669,12 @@ Ok, o teste está passando.</p>
 <p>❌</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
-    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="n">tarefa</span>
+    <span class="n">tarefa_esperada</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa_esperada</span><span class="p">)</span>
+    <span class="n">tarefa_criada</span> <span class="o">=</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">tarefa_criada</span><span class="p">[</span><span class="s2">&quot;titulo&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tarefa_esperada</span><span class="p">[</span><span class="s2">&quot;titulo&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">tarefa_criada</span><span class="p">[</span><span class="s2">&quot;descricao&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tarefa_esperada</span><span class="p">[</span><span class="s2">&quot;descricao&quot;</span><span class="p">]</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="🤔" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f914.png" title=":thinking:" /> E se eu retornar a tarefa?</p>
 <p>✅</p>
@@ -686,11 +693,16 @@ Ok, o teste está passando.</p>
     <span class="n">resposta1</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa1</span><span class="p">)</span>
     <span class="n">resposta2</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa2</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">resposta1</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">resposta2</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>Como o <code>id</code> é uma coisa que só deve aparecer na resposta, vamos a algumas mudanças.</p>
 <p>A primeira é que renomearemos a nossa <code>Tarefa</code>para <code>TarefaEntrada</code>e criaremos uma segunda estrutura Tarefa que é baseada na entrada, porém possui também um id.</p>
 <p>Para torna-lo único, o faremos do tipo <a href="https://pt.wikipedia.org/wiki/Identificador_%C3%BAnico_universal">uuid</a>, que é um identificador universalmente único.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TarefaEntrada</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
+
+<span class="c1"># ...</span>
+
+<span class="k">class</span> <span class="nc">TarefaEntrada</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">descricao</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
 
@@ -699,9 +711,11 @@ Ok, o teste está passando.</p>
     <span class="nb">id</span><span class="p">:</span> <span class="n">UUID</span>
 </code></pre></div>
 <p>Depois vamos no método criar e transformar nossa tarefa de entrada em um dicionário, em seguida, adicionamos um id único gerado pelo python.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
     <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
     <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
+    <span class="k">return</span> <span class="n">nova_tarefa</span>
 </code></pre></div>
 <p>Outro detalhe é avisar ao nosso método post que utilize nossa nova estrutura para gerar a saída no formato json.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">)</span>
@@ -724,6 +738,7 @@ Ok, o teste está passando.</p>
 <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
     <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
     <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
+    <span class="k">return</span> <span class="n">nova_tarefa</span>
 </code></pre></div>
 <p>Certo, testes passando novamente. Ainda temos alguma coisa pra verificar?</p>
 <p>Sim! Nossa tarefa também deve possuir um estado que por padrão será "não finalizado".</p>
@@ -732,7 +747,8 @@ Ok, o teste está passando.</p>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;estado&quot;</span><span class="p">]</span> <span class="o">==</span>  <span class="s2">&quot;não finalizado&quot;</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;estado&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;não finalizado&quot;</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>Como temos apenas dois estados possíveis (finalizado, não finalizado) para uma tarefa, vamos utilizar uma estrutura do Python que é bastante útil para estes momentos.</p>
 <p>O Enum, é uma estrutura que define valores limitados a algo.</p>
@@ -764,33 +780,217 @@ Ok, o teste está passando.</p>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
     <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>Modifique o método para retornar 201 quando for bem sucedido.</p>
 <p>✅</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>
+
+<span class="c1"># ...</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
 </code></pre></div>
 <p>A última coisa é que no momento não estamos guardando a nova tarefa.</p>
 <p>❌</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_esta_deve_ser_persistida</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
-    <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAREFAS</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>✅</p>
-<div class="highlight"><span class="filename">gerenciador.py</span><pre><span></span><code>    <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
-        <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
-        <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
-<span class="hll">        <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nova_tarefa</span><span class="p">)</span>
-</span>        <span class="k">return</span> <span class="n">nova_tarefa</span>
+<div class="highlight"><span class="filename">gerenciador.py</span><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
+    <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+    <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
+<span class="hll">    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nova_tarefa</span><span class="p">)</span>
+</span>    <span class="k">return</span> <span class="n">nova_tarefa</span>
 </code></pre></div>
-<p><img alt="😱" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f631.png" title=":scream:" /> Oops! O teste ainda está quebrando.</p>
-<p>Como agora adicionamos tarefa a <code>TAREFAS</code>, cada teste bem sucedido cria uma nova entrada. Porém testes devem ser independentes.</p>
-<p>Para corrigir isto volte em todos os testes bem sucedidos acrescentando <code>TAREFAS.clear()</code> no final.</p>
+<p><img alt="🎉" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f389.png" title=":tada:" /> Nossos testes passaram! Agora temos as funcionalidades de criação e listagem de tarefas.</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> listar as tarefas</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> adicionar tarefa</li>
+</ul>
+<p>No fim os testes ficam similar a:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+
+<span class="kn">from</span> <span class="nn">gerenciador_tarefas.gerenciador</span> <span class="kn">import</span> <span class="n">TAREFAS</span><span class="p">,</span> <span class="n">app</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_formato_de_retorno_deve_ser_json</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_retorno_deve_ser_uma_lista</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="nb">list</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo 1&quot;</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;titulo&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_descricao</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao 1&quot;</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;descricao&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_um_estado</span><span class="p">():</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizado&quot;</span><span class="p">})</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;estado&quot;</span> <span class="ow">in</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_recurso_tarefas_deve_aceitar_o_verbo_post</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_405_METHOD_NOT_ALLOWED</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+
+
+<span class="k">def</span> <span class="nf">test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="s2">&quot;*&quot;</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="mi">51</span> <span class="o">*</span> <span class="s2">&quot;*&quot;</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+
+
+<span class="k">def</span> <span class="nf">test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">141</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa_esperada</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa_esperada</span><span class="p">)</span>
+    <span class="n">tarefa_criada</span> <span class="o">=</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">tarefa_criada</span><span class="p">[</span><span class="s2">&quot;titulo&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tarefa_esperada</span><span class="p">[</span><span class="s2">&quot;titulo&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">tarefa_criada</span><span class="p">[</span><span class="s2">&quot;descricao&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tarefa_esperada</span><span class="p">[</span><span class="s2">&quot;descricao&quot;</span><span class="p">]</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_id_deve_ser_unico</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo1&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao1&quot;</span><span class="p">}</span>
+    <span class="n">tarefa2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo2&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao1&quot;</span><span class="p">}</span>
+    <span class="n">resposta1</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa1</span><span class="p">)</span>
+    <span class="n">resposta2</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa2</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta1</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">resposta2</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;estado&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;não finalizado&quot;</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_esta_deve_ser_persistida</span><span class="p">():</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAREFAS</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<p>E o código:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">uuid4</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">constr</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">EstadosPossiveis</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">finalizado</span> <span class="o">=</span> <span class="s2">&quot;finalizado&quot;</span>
+    <span class="n">nao_finalizado</span> <span class="o">=</span> <span class="s2">&quot;não finalizado&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">TarefaEntrada</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">titulo</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">descricao</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+    <span class="n">estado</span><span class="p">:</span> <span class="n">EstadosPossiveis</span> <span class="o">=</span> <span class="n">EstadosPossiveis</span><span class="o">.</span><span class="n">nao_finalizado</span>
+
+
+<span class="k">class</span> <span class="nc">Tarefa</span><span class="p">(</span><span class="n">TarefaEntrada</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">UUID</span>
+
+
+<span class="n">TAREFAS</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">TAREFAS</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tarefa</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">TarefaEntrada</span><span class="p">):</span>
+    <span class="n">nova_tarefa</span> <span class="o">=</span> <span class="n">tarefa</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+    <span class="n">nova_tarefa</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid4</span><span class="p">()})</span>
+    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nova_tarefa</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nova_tarefa</span>
+</code></pre></div>
 <h2 id="testando-manualmente"><img alt="🔧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f527.png" title=":wrench:" /> Testando manualmente</h2>
 <p>Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.</p>
 <p>Relembrando o comando para isto é <code>uvicorn --reload gerenciador_tarefas.gerenciador:app</code>.</p>
@@ -802,8 +1002,8 @@ Ok, o teste está passando.</p>
 <h2 id="salvando-a-versao-atual-do-codigo">Salvando a versão atual do código</h2>
 <p>Primeiro passo é checar o que foi feito até agora:</p>
 <div class="highlight"><pre><span></span><code>$ git status
-On branch master
-Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+On branch main
+Your branch is up to date with <span class="s1">&#39;origin/main&#39;</span>.
 
 Changes not staged <span class="k">for</span> commit:
   <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
@@ -813,6 +1013,12 @@ Changes not staged <span class="k">for</span> commit:
 
 no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
 </code></pre></div>
+<p>🎨 Para garantir consistência no estilo do nosso  código, vamos rodar os nossos linters.</p>
+<div class="highlight"><pre><span></span><code>$ python -m isort .
+$ python -m black .
+$ python -m flake8 --exclude<span class="o">=</span>.venv
+</code></pre></div>
+<p>Caso algum erro seja encontrado, será necessário manualmente corrigí-lo.</p>
 <p>Vamos adicionar as alterações nos arquivos.</p>
 <p><code>$ git add gerenciador_tarefas/gerenciador.py tests/test_gerenciador.py</code></p>
 <p>💾 Agora vamos marcar esta versão como salva.</p>
@@ -820,7 +1026,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
 <p>🔧 Por fim envie ao GitHub a versão atualizada do projeto.</p>
 <p><code>git push</code></p>
 <p><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" /> E coloque no ar a nova versão.</p>
-<p><code>git push heroku master</code></p>
+<p><code>git push heroku main</code></p>
 <p><img alt="🎉" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f389.png" title=":tada:" /> Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!</p>
 
               

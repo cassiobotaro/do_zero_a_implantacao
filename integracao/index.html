@@ -912,7 +912,7 @@ Esta ferramenta será integrada ao editor, dessa maneira, ao salvar o arquivo, t
 <div class="highlight"><pre><span></span><code>python -m pip install flake8
 </code></pre></div>
 <h4 id="como-executar_2">Como executar</h4>
-<div class="highlight"><pre><span></span><code>python -m flake8 gerenciador_tarefas tests
+<div class="highlight"><pre><span></span><code>python -m flake8 --exclude=.venv
 </code></pre></div>
 <blockquote>
 <p>ℹ️  Pode ser necessário a intervenções manuais para que o código seja corrigido.</p>
@@ -995,6 +995,7 @@ Changes not staged <span class="k">for</span> commit:
 Untracked files:
   <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
     .github/
+  pyproject.toml
 
 no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
 </code></pre></div>
@@ -1002,7 +1003,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
 <div class="highlight"><pre><span></span><code>git add .github/
 </code></pre></div>
 <p>Vamos adicionar também as novas dependências instaladas e os arquivos que possivelmente foram modificados por nossas ferramentas de qualidade.</p>
-<p><code>git add dev-requirements tests gerenciador_tarefas</code></p>
+<p><code>git add dev-requirements tests gerenciador_tarefas pyproject.toml</code></p>
 <p>💾 Agora vamos marcar esta versão como consolidada.</p>
 <div class="highlight"><pre><span></span><code>git commit -m &quot;Adiciona integração contínua&quot;
 </code></pre></div>
