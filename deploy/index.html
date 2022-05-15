@@ -483,7 +483,8 @@ https://agile-river-58363.herokuapp.com/ <span class="p">|</span> https://git.he
 <p>Com este comando um repositório remoto é vinculado ao seu repositório local e cada vez que quiser modificar a versão do código rodando, basta enviar seu código para este repositório remoto. Esta ação desencadeia toda uma nova implementação da sua aplicação.</p>
 <p>Antes de enviar pela primeira vez nosso código, vamos fazer as últimas configurações necessárias.</p>
 <p>O Heroku utiliza um arquivo chamado <code>Procfile</code> que contém informações de como rodar sua aplicação. Crie este arquivo com o seguinte conteúdo.</p>
-<p><code>web: uvicorn --host=0.0.0.0 --port=$PORT gerenciador_tarefas.gerenciador:app</code></p>
+<div class="highlight"><span class="filename">Procfile</span><pre><span></span><code>web: uvicorn --host=0.0.0.0 --port=$PORT gerenciador_tarefas.gerenciador:app
+</code></pre></div>
 <p>Salve a versão atual da nossa aplicação para implantação.</p>
 <p><code>$ git add Procfile</code></p>
 <p><code>$ git commit -m "Adiciona arquivos para implantação no heroku"</code></p>

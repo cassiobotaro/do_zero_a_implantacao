@@ -540,14 +540,17 @@
 <p>Acho que para iniciarmos o mais simples de escrever e testar é a funcionalidade de listagem de tarefas.</p>
 <p>Mas como fazer isto se não temos tarefas, nem mesmo uma aplicação ainda? Por onde começo?</p>
 <p>Inicie criando um diretório com o nome <code>tests</code>, onde colocaremos os testes do nosso programa.</p>
-<p>Lá dentro, crie um arquivo com nome <code>test_gerenciador.py</code> que deve ficar da seguinte maneira.</p>
+<p>Lá dentro, crie um arquivo com nome <code>test_gerenciador.py</code> e também um arquivo <code>__init__.py</code>.</p>
+<p>O segundo arquivo, <code>__init__.py</code>, faz com que o Python trate o diretório como um <a href="https://docs.python.org/pt-br/3/tutorial/modules.html#packages">pacote</a>. Em casos simples, como o nosso, ele estará vazio.</p>
+<p>No final, teremos algo bem parecido com o seguinte:</p>
 <div class="highlight"><pre><span></span><code>.
 ├── dev-requirements.txt
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
 └── tests
-    └── test_gerenciador.py
+    ├── test_gerenciador.py
+    └── __init__.py
 </code></pre></div>
 <p>Agora vamos escrever nosso primeiro teste!</p>
 <p>Nossa listagem de tarefas, se bem sucedida, deve retornar o código de status <code>200 OK</code> e este será nosso primeiro teste.</p>
@@ -589,16 +592,19 @@ ERROR tests/test_gerenciador.py
 </code></pre></div>
 <p>Não se desespere, é que temos um teste, mas ainda não começamos a escrever código da nossa aplicação.</p>
 <p>A primeira coisa que precisamos fazer é criar um  diretório onde colocaremos nossos códigos. vamos chama-lo de <code>gerenciador_tarefas</code>.</p>
-<p>Dentro dele criamos um novo arquivo <code>gerenciador.py</code>, e neste arquivo vamos iniciar uma aplicação da seguinte maneira.</p>
+<p>Dentro dele criamos dois novos arquivos: <code>gerenciador.py</code> e <code>__init__.py</code>. O primeiro, <code>gerenciador.py</code>, é o nosso arquivo principal, onde iremos escrever o código da nossa aplicação.</p>
+<p>O segundo, assim como no diretório de teste, é para garantir que este diretório é um pacote e permanecerá vazio.</p>
 <div class="highlight"><pre><span></span><code>.
 ├── dev-requirements.txt
 ├── gerenciador_tarefas
-│   └── gerenciador.py
+│   ├── gerenciador.py
+│   └── __init__.py
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
 └── tests
-    └── test_gerenciador.py
+    ├── test_gerenciador.py
+    └── __init__.py
 </code></pre></div>
 <p>O conteúdo desse arquivo será o seguinte.</p>
 <div class="highlight"><span class="filename">gerenciador_tarefas/gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
