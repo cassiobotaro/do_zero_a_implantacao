@@ -35,7 +35,7 @@ O código de status deve ser diferente de 405. O teste pode ser visto abaixo.
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_recurso_tarefas_deve_aceitar_o_verbo_post():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas")
@@ -48,7 +48,7 @@ O código é simples, vamos criar um novo método `criar` e associá-los ao mét
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.post('/tarefas')
 def criar():
     pass
@@ -63,7 +63,7 @@ Vamos transformar isto em um teste.
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={})
@@ -78,7 +78,7 @@ Quando recebemos uma requisição, em seu corpo temos um conteúdo que está no 
 
 Criaremos então uma Tarefa, que possui um titulo que é uma string. Esta tarefa é baseada em um modelo da biblioteca pydantic.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from pydantic import BaseModel
 
 # ...
@@ -89,7 +89,7 @@ class Tarefa(BaseModel):
 
 Adicionamos então ao método criar uma tarefa e isto é suficiente para ele saber que ao ser acessado via post, deve conter em seu corpo uma tarefa com um título.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.post('/tarefas')
 def criar(tarefa: Tarefa):
     pass
@@ -99,7 +99,7 @@ E o resultado final que faz os testes passarem é:
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -128,7 +128,7 @@ E o ciclo continua, temos uma restrição no titulo que é "deve possuir entre 3
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": 2 * "*"})
@@ -143,7 +143,7 @@ Definimos então `min_length`(comprimento mínimo) como 3 e `max_length`(comprim
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from pydantic import BaseModel, constr
 
 
@@ -158,7 +158,7 @@ Além de titulo, nossa tarefa deve possuir uma descrição.
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": "titulo"})
@@ -169,7 +169,7 @@ Adicionamos a nossa tarefa o campo descrição.
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 class Tarefa(BaseModel):
     titulo: constr(min_length=3, max_length=50)
     descricao: str
@@ -179,7 +179,7 @@ Mas a descrição só pode ter 140 caracteres.
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres():
     cliente = TestClient(app)
     resposta = cliente.post("/tarefas", json={"titulo": "titulo", "descricao": "*" * 141})
@@ -190,7 +190,7 @@ Assim como o título, vamos mudar de `str` para `constr` e adicionar a restriç�
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 class Tarefa(BaseModel):
     titulo: constr(min_length=3, max_length=50)
     descricao: constr(max_length=140)
@@ -200,7 +200,7 @@ Outra coisa é ao pedir a criação da tarefa, a mesma deve ser retornada como r
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
     cliente = TestClient(app)
     tarefa_esperada = {"titulo": "titulo", "descricao": "descricao"}
@@ -215,7 +215,7 @@ def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.post('/tarefas')
 def criar(tarefa: Tarefa):
     return tarefa
@@ -229,7 +229,7 @@ Para checar isto vamos adicionar duas tarefas e seus `ids`retornados devem ser d
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico():
     cliente = TestClient(app)
     tarefa1 = {"titulo": "titulo1", "descricao": "descricao1"}
@@ -246,7 +246,7 @@ A primeira é que renomearemos a nossa `Tarefa`para `TarefaEntrada`e criaremos u
 
 Para torna-lo único, o faremos do tipo [uuid](https://pt.wikipedia.org/wiki/Identificador_%C3%BAnico_universal), que é um identificador universalmente único.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from uuid import UUID, uuid4
 
 # ...
@@ -262,7 +262,7 @@ class Tarefa(TarefaEntrada):
 
 Depois vamos no método criar e transformar nossa tarefa de entrada em um dicionário, em seguida, adicionamos um id único gerado pelo python.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.post('/tarefas')
 def criar(tarefa: TarefaEntrada):
     nova_tarefa = tarefa.dict()
@@ -272,14 +272,14 @@ def criar(tarefa: TarefaEntrada):
 
 Outro detalhe é avisar ao nosso método post que utilize nossa nova estrutura para gerar a saída no formato json.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.post('/tarefas', response_model=Tarefa)
 def criar(tarefa: TarefaEntrada):
 ```
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from uuid import UUID, uuid4
 
 
@@ -305,7 +305,7 @@ Sim! Nossa tarefa também deve possuir um estado que por padrão será "não fin
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
@@ -336,7 +336,7 @@ Você deve estar se perguntando por que `EstadosPossiveis.nao_finalizado`e não 
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from enum import Enum
 
 
@@ -355,7 +355,7 @@ Quase tudo certo, porém o código de status quando algo é criado deve ser `201
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
@@ -368,7 +368,7 @@ Modifique o método para retornar 201 quando for bem sucedido.
 
 ✅
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from fastapi import FastAPI, status
 
 # ...
@@ -380,7 +380,7 @@ A última coisa é que no momento não estamos guardando a nova tarefa.
 
 ❌
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
@@ -408,7 +408,7 @@ def criar(tarefa: TarefaEntrada):
 
 No fim os testes ficam similar a:
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 from fastapi import status
 from fastapi.testclient import TestClient
 
@@ -546,7 +546,7 @@ def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
 
 E o código:
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from enum import Enum
 from uuid import UUID, uuid4
 

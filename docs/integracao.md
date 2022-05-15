@@ -44,7 +44,7 @@ python -m pip install isort
 
 Precisamos adicionar no arquivo `pyproject.toml` (você deve cria-lo) a seguinte configuração
 
-```
+```{.toml title="pyproject.toml"}
 [tool.isort]
 profile = "black"
 line_length = 79
@@ -79,7 +79,7 @@ python -m pip install black
 
 Precisamos adicionar no arquivo `pyproject.toml` a seguinte configuração
 
-```
+```{.toml title="pyproject.toml"}
 [tool.black]
 line-length = 79
 ```
@@ -133,7 +133,7 @@ Existem ferramentas que podem executar algum comando antes de um commit, com o o
 
 - Dentro da pasta crie um arquivo chamado `main.yml`. Esse arquivo será utilizado para determinar quais passos serão executados na integração. O arquivo deve possuir o seguinte conteúdo:
 
-```yml
+```{.yml title=".github/workflows/main.yml"}
 name: main
 
 on:
@@ -188,7 +188,7 @@ Como as bibliotecas que instalamos são para garantir a qualidade do código e n
 
 O arquivo ficará assim:
 
-```
+```{.txt title="dev-requirements.txt"}
 -r requirements.txt
 pytest==7.1.2
 httpie==3.2.1

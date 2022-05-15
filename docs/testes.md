@@ -17,7 +17,7 @@ Um exemplo de teste automatizado.
 
 **código**
 
-```python
+```{.py3 title="impar.py"}
 def é_impar(numero):
     'Retorna True se um número é verdadeiro, senão False.'
     return numero % 2 != 0
@@ -25,7 +25,7 @@ def é_impar(numero):
 
 **teste**
 
-```python
+```{.py3 title="test_impar.py"}
 def test_quando_entrada_é_três_retorna_verdadeiro():
     assert é_impar(3) is True
 

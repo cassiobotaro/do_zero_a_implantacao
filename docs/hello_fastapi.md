@@ -44,7 +44,7 @@ Nossa listagem de tarefas, se bem sucedida, deve retornar o código de status `2
 
 Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_gerenciador.py.
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 from fastapi.testclient import TestClient
 from fastapi import status
 from gerenciador_tarefas import app
@@ -107,7 +107,7 @@ Dentro dele criamos um novo arquivo `gerenciador.py`, e neste arquivo vamos inic
 
 O conteúdo desse arquivo será o seguinte.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from fastapi import FastAPI
 
 
@@ -139,7 +139,7 @@ Agora temos nossa aplicação, mas nosso recurso de tarefas ainda não foi criad
 
 No arquivo `gerenciador.py` adicione a seguinte função.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.get("/tarefas")
 def listar():
     return ""
@@ -174,7 +174,7 @@ Vamos escrever um novo teste!
 
 No arquivo `test_gerenciador.py`, adicione o seguinte teste.
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_listar_tarefas_formato_de_retorno_deve_ser_json():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
@@ -193,7 +193,7 @@ Vamos deixa-lo e vamos seguir em frente, mas agora tentando escrever um teste qu
 
 Quando listar tarefas o retorno deve possuir o formato de lista. Transformando isto em código temos:
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_listar_tarefas_retorno_deve_ser_uma_lista():
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
@@ -210,7 +210,7 @@ Se temos um teste que falha, precisamos escrever o código necessário para este
 
 Vamos voltar ao nosso gerenciador.py para corrigir o nosso problema. Na função que expõe o nosso recurso, modifique o código para:
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.get("/tarefas")
 def listar():
     return []
@@ -223,8 +223,7 @@ Corrigido o código, rode novamente os testes.
 
 Neste passo os arquivos devem estar da seguinte maneira.
 
-**test_gerenciador.py**
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 from fastapi.testclient import TestClient
 from fastapi import status
 from gerenciador_tarefas.gerenciador import app
@@ -248,8 +247,7 @@ def test_quando_listar_tarefas_retorno_deve_ser_uma_lista():
     assert isinstance(resposta.json(), list)
 ```
 
-**gerenciador.py**
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from fastapi import FastAPI
 
 
@@ -277,7 +275,7 @@ Para fazermos esta checagem, vamos pegar uma tarefa da lista e verificar os seus
 
 O teste automatizado para isto pode ser escrito da seguinte maneira.
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
     TAREFAS.append({"id": 1})
     cliente = TestClient(app)
@@ -290,7 +288,7 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
 
 Vamos lá no arquivo `gerenciador.py` e defini-lo.
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 # ...
 TAREFAS = {}
 # ...
@@ -299,7 +297,7 @@ TAREFAS = {}
 !!! info
     Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador
 
-`from gerenciador_tarefas.gerenciador import app, TAREFAS`
+    `from gerenciador_tarefas.gerenciador import app, TAREFAS`
 
 ❌ Os testes ainda estão quebrando?
 
@@ -307,7 +305,7 @@ Sim, mas agora o erro é outro. O erro mostrado é `IndexError: pop from empty l
 
 Vamos modificar isto como abaixo:
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 @app.get("/tarefas")
 def listar():
     return TAREFAS
@@ -317,7 +315,7 @@ Repita este processo para cada um dos campos de uma tarefa, então teremos que v
 
 No fim nos testes ficam:
 
-```python
+```{.py3 title="tests/test_gerenciador.py"}
 from fastapi.testclient import TestClient
 from fastapi import status
 from gerenciador_tarefas.gerenciador import app, TAREFAS
@@ -376,7 +374,7 @@ def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_um_estado():
 
 E nosso código:
 
-```python
+```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 from fastapi import FastAPI
 
 

@@ -353,14 +353,14 @@ Para evitar este problema criaremos arquivos com as dependências que instalamos
 
 Vamos começar criando um arquivo chamado requirements.txt com o seguinte conteúdo.
 
-```
+```{.txt title="requirements.txt"}
 fastapi==0.77.1
 uvicorn==0.17.6
 ```
 
 Depois criaremos um segundo arquivo chamado `dev-requirements.txt` e colocaremos o seguinte conteúdo.
 
-```
+```{.txt title="dev-requirements.txt"}
 -r requirements.txt
 pytest==7.1.2
 httpie==3.2.1
