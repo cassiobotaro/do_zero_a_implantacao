@@ -796,8 +796,7 @@ Ok, o teste está passando.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_esta_deve_ser_persistida</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
-    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+    <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAREFAS</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
@@ -818,7 +817,7 @@ Ok, o teste está passando.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
 <span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 
-<span class="kn">from</span> <span class="nn">gerenciador_tarefas.gerenciador</span> <span class="kn">import</span> <span class="n">TAREFAS</span><span class="p">,</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">gerencia</span><span class="err">´</span><span class="n">dor_tarefas</span><span class="o">.</span><span class="n">gerenciador</span> <span class="kn">import</span> <span class="nn">TAREFAS</span><span class="o">,</span> <span class="nn">app</span>
 
 
 <span class="k">def</span> <span class="nf">test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200</span><span class="p">():</span>
@@ -944,8 +943,7 @@ Ok, o teste está passando.</p>
 <span class="k">def</span> <span class="nf">test_quando_criar_uma_tarefa_esta_deve_ser_persistida</span><span class="p">():</span>
     <span class="n">cliente</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">tarefa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;titulo&quot;</span><span class="p">:</span> <span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;descricao&quot;</span><span class="p">:</span> <span class="s2">&quot;descricao&quot;</span><span class="p">}</span>
-    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+    <span class="n">cliente</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/tarefas&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">tarefa</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAREFAS</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>

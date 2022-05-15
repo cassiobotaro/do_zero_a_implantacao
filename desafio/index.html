@@ -573,24 +573,28 @@
 <li class="task-list-item"><input type="checkbox" disabled/> exibir uma tarefa de forma detalhada</li>
 </ul>
 <h2 id="remover-tarefas">❌ Remover tarefas</h2>
-<p>A remoção e tarefas consiste em buscar uma tarefa e em seguida remove-la.</p>
+<p>A remoção de tarefas consiste em buscar uma tarefa e em seguida remove-la.</p>
 <p>O método utilizado é o <code>DELETE</code>.</p>
 <p>O código de status retornado mais comum é o <code>204 No Content</code>.</p>
 <p>Você deve especificar o id da tarefa a ser removida na url <code>/tarefas/86d92774-281c-4e5a-87f2-69029177bfd2</code>.</p>
 <p>Caso não encontra uma tarefa, o código de status <code>404 Not Found</code> deve ser retornado.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para não retornar conteúdo no corpo da resposta, utilize `Response(status_code=status.HTTP_204_NO_CONTENT).</p>
+</div>
 <h2 id="ordenar-a-listagem-por-estado"><img alt="📖" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4d6.png" title=":book:" /> Ordenar a listagem por estado</h2>
 <p>Já temos a listagem pronta mas não garantimos que sua ordenação está correta.</p>
 <p>Um teste que pode ser escrito aqui é adição de duas tarefas, sendo a primeira finalizada e a segunda não finalizada.</p>
 <p>A exibição da listagem de tarefas deve apresentar a segunda primeiro. Para fazer esta checagem, verifique a resposta e a ordem das tarefas retornadas.</p>
-<p>A função sorted pode ser seu aliado para resolver este problema.</p>
-<p>Outra função bastante útil é a <code>itemgetter</code> que pode ser utilizada no parâmetro <code>key</code> da função sorted.</p>
-<p>Uma alteração que pode ser feita na listagem é utilização de <code>List[Tarefa]</code> como modelo de resposta( parâmetro response_model no decorador), esta mudança ajuda a melhorar a documentação autogerada.</p>
+<p>A função <a href="https://docs.python.org/pt-br/3.10/howto/sorting.html"><code>sorted</code></a> pode ser seu aliado para resolver este problema.</p>
+<p>Outra função bastante útil é a <a href="https://docs.python.org/pt-br/3.10/howto/sorting.html"><code>itemgetter</code></a> que pode ser utilizada no parâmetro <code>key</code> da função sorted.</p>
+<p>Uma alteração que pode ser feita na listagem é utilização de <code>list[Tarefa]</code> como modelo de resposta( parâmetro response_model no decorador), esta mudança ajuda a melhorar a documentação autogerada.</p>
 <p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> <code>itemgetter</code> pode ser obtido através do pacote operator.<code>from operator import itemgetter</code></p>
 <h2 id="finalizar-uma-tarefa"><img alt="☑️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2611.png" title=":ballot_box_with_check:" /> Finalizar uma tarefa</h2>
 <p>Finalizar uma tarefa, pode ser representado através do método <code>PUT</code> ou <code>PATCH</code>, modificando o valor de estado de uma tarefa.</p>
 <p>Devemos procurar uma tarefa e caso não seja encontrada, o código de status <code>404 Not Found</code> deve ser retornado.</p>
 <p>Os campos a serem modificados podem ser inválidos, caso isto ocorra everemos avisar ao cliente o seu erro. O código de status <code>422 Unprocessable Entity</code> pode ser utilizado aqui.</p>
-<p>Se bem sucedido o código de status <code>200 OK</code> deve ser retornado e o corpo da resposta deve conter a trefa com o valor já modificado.</p>
+<p>Se bem sucedido o código de status <code>200 OK</code> deve ser retornado e o corpo da resposta deve conter a tarefa com o valor já modificado.</p>
 <p>Você deve especificar o id da tarefa a ser removida na url <code>/tarefas/86d92774-281c-4e5a-87f2-69029177bfd2</code>.</p>
 <h2 id="detalhando-tarefas"><img alt="📜" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4dc.png" title=":scroll:" /> Detalhando tarefas</h2>
 <p>Detalhar uma tarefa é busca-la na lista de tarefas e exibir seu valor.</p>
