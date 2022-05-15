@@ -116,7 +116,7 @@ python -m pip install flake8
 #### Como executar
 
 ```
-python -m flake8 gerenciador_tarefas tests
+python -m flake8 --exclude=.venv
 ```
 
 > ℹ️  Pode ser necessário a intervenções manuais para que o código seja corrigido.
@@ -218,6 +218,7 @@ Changes not staged for commit:
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 	.github/
+  pyproject.toml
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
@@ -231,7 +232,7 @@ git add .github/
 
 Vamos adicionar também as novas dependências instaladas e os arquivos que possivelmente foram modificados por nossas ferramentas de qualidade.
 
-`git add dev-requirements tests gerenciador_tarefas`
+`git add dev-requirements tests gerenciador_tarefas pyproject.toml`
 
 💾 Agora vamos marcar esta versão como consolidada.
 

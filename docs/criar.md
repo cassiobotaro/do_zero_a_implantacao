@@ -79,6 +79,10 @@ Quando recebemos uma requisição, em seu corpo temos um conteúdo que está no 
 Criaremos então uma Tarefa, que possui um titulo que é uma string. Esta tarefa é baseada em um modelo da biblioteca pydantic.
 
 ```python
+from pydantic import BaseModel
+
+# ...
+
 class Tarefa(BaseModel):
     titulo: str
 ```
@@ -199,9 +203,12 @@ Outra coisa é ao pedir a criação da tarefa, a mesma deve ser retornada como r
 ```python
 def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
     cliente = TestClient(app)
-    tarefa = {"titulo": "titulo", "descricao": "descricao"}
-    resposta = cliente.post("/tarefas", json=tarefa)
-    assert resposta.json() == tarefa
+    tarefa_esperada = {"titulo": "titulo", "descricao": "descricao"}
+    resposta = cliente.post("/tarefas", json=tarefa_esperada)
+    tarefa_criada = resposta.json()
+    assert tarefa_criada["titulo"] == tarefa_esperada["titulo"]
+    assert tarefa_criada["descricao"] == tarefa_esperada["descricao"]
+    TAREFAS.clear()
 ```
 
 :thinking: E se eu retornar a tarefa?
@@ -230,6 +237,7 @@ def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico():
     resposta1 = cliente.post("/tarefas", json=tarefa1)
     resposta2 = cliente.post("/tarefas", json=tarefa2)
     assert resposta1.json()["id"] != resposta2.json()["id"]
+    TAREFAS.clear()
 ```
 
 Como o `id` é uma coisa que só deve aparecer na resposta, vamos a algumas mudanças.
@@ -239,6 +247,10 @@ A primeira é que renomearemos a nossa `Tarefa`para `TarefaEntrada`e criaremos u
 Para torna-lo único, o faremos do tipo [uuid](https://pt.wikipedia.org/wiki/Identificador_%C3%BAnico_universal), que é um identificador universalmente único.
 
 ```python
+from uuid import UUID, uuid4
+
+# ...
+
 class TarefaEntrada(BaseModel):
     titulo: constr(min_length=3, max_length=50)
     descricao: constr(max_length=140)
@@ -251,9 +263,11 @@ class Tarefa(TarefaEntrada):
 Depois vamos no método criar e transformar nossa tarefa de entrada em um dicionário, em seguida, adicionamos um id único gerado pelo python.
 
 ```python
+@app.post('/tarefas')
 def criar(tarefa: TarefaEntrada):
     nova_tarefa = tarefa.dict()
     nova_tarefa.update({"id": uuid4()})
+    return nova_tarefa
 ```
 
 Outro detalhe é avisar ao nosso método post que utilize nossa nova estrutura para gerar a saída no formato json.
@@ -282,6 +296,7 @@ class Tarefa(TarefaEntrada):
 def criar(tarefa: TarefaEntrada):
     nova_tarefa = tarefa.dict()
     nova_tarefa.update({"id": uuid4()})
+    return nova_tarefa
 ```
 
 Certo, testes passando novamente. Ainda temos alguma coisa pra verificar?
@@ -295,7 +310,8 @@ def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
     resposta = cliente.post("/tarefas", json=tarefa)
-    assert resposta.json()["estado"] ==  "não finalizado"
+    assert resposta.json()["estado"] == "não finalizado"
+    TAREFAS.clear()
 ```
 
 Como temos apenas dois estados possíveis (finalizado, não finalizado) para uma tarefa, vamos utilizar uma estrutura do Python que é bastante útil para estes momentos.
@@ -344,7 +360,8 @@ def test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
     resposta = cliente.post("/tarefas", json=tarefa)
-    assert resposta.status_code == 201
+    assert resposta.status_code == status.HTTP_201_CREATED
+    TAREFAS.clear()
 ```
 
 Modifique o método para retornar 201 quando for bem sucedido.
@@ -352,7 +369,11 @@ Modifique o método para retornar 201 quando for bem sucedido.
 ✅
 
 ```python
-@app.post('/tarefas', response_model=Tarefa, status_code=201)
+from fastapi import FastAPI, status
+
+# ...
+
+@app.post('/tarefas', response_model=Tarefa, status_code=status.HTTP_201_CREATED)
 ```
 
 A última coisa é que no momento não estamos guardando a nova tarefa.
@@ -363,7 +384,7 @@ A última coisa é que no momento não estamos guardando a nova tarefa.
 def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
     cliente = TestClient(app)
     tarefa = {"titulo": "titulo", "descricao": "descricao"}
-    cliente.post("/tarefas", json=tarefa)
+    resposta = cliente.post("/tarefas", json=tarefa)
     assert resposta.status_code == 201
     assert len(TAREFAS) == 1
     TAREFAS.clear()
@@ -372,19 +393,203 @@ def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
 ✅
 
 ```{.py3 hl_lines="5" title="gerenciador.py"}
-    @app.post('/tarefas', response_model=Tarefa, status_code=201)
-    def criar(tarefa: TarefaEntrada):
-        nova_tarefa = tarefa.dict()
-        nova_tarefa.update({"id": uuid4()})
-        TAREFAS.append(nova_tarefa)
-        return nova_tarefa
+@app.post('/tarefas', response_model=Tarefa, status_code=status.HTTP_201_CREATED)
+def criar(tarefa: TarefaEntrada):
+    nova_tarefa = tarefa.dict()
+    nova_tarefa.update({"id": uuid4()})
+    TAREFAS.append(nova_tarefa)
+    return nova_tarefa
 ```
 
-:scream: Oops! O teste ainda está quebrando.
+:tada: Nossos testes passaram! Agora temos as funcionalidades de criação e listagem de tarefas.
 
-Como agora adicionamos tarefa a `TAREFAS`, cada teste bem sucedido cria uma nova entrada. Porém testes devem ser independentes.
+- [x] listar as tarefas
+- [x] adicionar tarefa
 
-Para corrigir isto volte em todos os testes bem sucedidos acrescentando `TAREFAS.clear()` no final.
+No fim os testes ficam similar a:
+
+```python
+from fastapi import status
+from fastapi.testclient import TestClient
+
+from gerenciador_tarefas.gerenciador import TAREFAS, app
+
+
+def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
+    cliente = TestClient(app)
+    resposta = cliente.get("/tarefas")
+    assert resposta.status_code == status.HTTP_200_OK
+
+
+def test_quando_listar_tarefas_formato_de_retorno_deve_ser_json():
+    cliente = TestClient(app)
+    resposta = cliente.get("/tarefas")
+    assert resposta.headers["Content-Type"] == "application/json"
+
+
+def test_quando_listar_tarefas_retorno_deve_ser_uma_lista():
+    cliente = TestClient(app)
+    resposta = cliente.get("/tarefas")
+    assert isinstance(resposta.json(), list)
+
+
+def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
+    TAREFAS.append({"id": 1})
+    cliente = TestClient(app)
+    resposta = cliente.get("/tarefas")
+    assert "id" in resposta.json().pop()
+    TAREFAS.clear()
+
+
+def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_titulo():
+    TAREFAS.append({"titulo": "titulo 1"})
+    cliente = TestClient(app)
+    resposta = cliente.get("/tarefas")
+    assert "titulo" in resposta.json().pop()
+    TAREFAS.clear()
+
+
+def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_descricao():
+    TAREFAS.append({"descricao": "descricao 1"})
+    cliente = TestClient(app)
+    resposta = cliente.get("/tarefas")
+    assert "descricao" in resposta.json().pop()
+    TAREFAS.clear()
+
+
+def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_um_estado():
+    TAREFAS.append({"estado": "finalizado"})
+    cliente = TestClient(app)
+    resposta = cliente.get("/tarefas")
+    assert "estado" in resposta.json().pop()
+    TAREFAS.clear()
+
+
+def test_recurso_tarefas_deve_aceitar_o_verbo_post():
+    cliente = TestClient(app)
+    resposta = cliente.post("/tarefas")
+    assert resposta.status_code != status.HTTP_405_METHOD_NOT_ALLOWED
+
+
+def test_quando_uma_tarefa_e_submetida_deve_possuir_um_titulo():
+    cliente = TestClient(app)
+    resposta = cliente.post("/tarefas", json={})
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+
+
+def test_titulo_da_tarefa_deve_conter_entre_3_e_50_caracteres():
+    cliente = TestClient(app)
+    resposta = cliente.post("/tarefas", json={"titulo": 2 * "*"})
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+    resposta = cliente.post("/tarefas", json={"titulo": 51 * "*"})
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+
+
+def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao():
+    cliente = TestClient(app)
+    resposta = cliente.post("/tarefas", json={"titulo": "titulo"})
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+
+
+def test_descricao_da_tarefa_pode_conter_no_maximo_140_caracteres():
+    cliente = TestClient(app)
+    resposta = cliente.post(
+        "/tarefas", json={"titulo": "titulo", "descricao": "*" * 141}
+    )
+    assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+
+
+def test_quando_criar_uma_tarefa_a_mesma_deve_ser_retornada():
+    cliente = TestClient(app)
+    tarefa_esperada = {"titulo": "titulo", "descricao": "descricao"}
+    resposta = cliente.post("/tarefas", json=tarefa_esperada)
+    tarefa_criada = resposta.json()
+    assert tarefa_criada["titulo"] == tarefa_esperada["titulo"]
+    assert tarefa_criada["descricao"] == tarefa_esperada["descricao"]
+    TAREFAS.clear()
+
+
+def test_quando_criar_uma_tarefa_seu_id_deve_ser_unico():
+    cliente = TestClient(app)
+    tarefa1 = {"titulo": "titulo1", "descricao": "descricao1"}
+    tarefa2 = {"titulo": "titulo2", "descricao": "descricao1"}
+    resposta1 = cliente.post("/tarefas", json=tarefa1)
+    resposta2 = cliente.post("/tarefas", json=tarefa2)
+    assert resposta1.json()["id"] != resposta2.json()["id"]
+    TAREFAS.clear()
+
+
+def test_quando_criar_uma_tarefa_seu_estado_padrao_e_nao_finalizado():
+    cliente = TestClient(app)
+    tarefa = {"titulo": "titulo", "descricao": "descricao"}
+    resposta = cliente.post("/tarefas", json=tarefa)
+    assert resposta.json()["estado"] == "não finalizado"
+    TAREFAS.clear()
+
+
+def test_quando_criar_uma_tarefa_codigo_de_status_retornado_deve_ser_201():
+    cliente = TestClient(app)
+    tarefa = {"titulo": "titulo", "descricao": "descricao"}
+    resposta = cliente.post("/tarefas", json=tarefa)
+    assert resposta.status_code == status.HTTP_201_CREATED
+    TAREFAS.clear()
+
+
+def test_quando_criar_uma_tarefa_esta_deve_ser_persistida():
+    cliente = TestClient(app)
+    tarefa = {"titulo": "titulo", "descricao": "descricao"}
+    resposta = cliente.post("/tarefas", json=tarefa)
+    assert resposta.status_code == 201
+    assert len(TAREFAS) == 1
+    TAREFAS.clear()
+
+```
+
+E o código:
+
+```python
+from enum import Enum
+from uuid import UUID, uuid4
+
+from fastapi import FastAPI, status
+from pydantic import BaseModel, constr
+
+app = FastAPI()
+
+
+class EstadosPossiveis(str, Enum):
+    finalizado = "finalizado"
+    nao_finalizado = "não finalizado"
+
+
+class TarefaEntrada(BaseModel):
+    titulo: constr(min_length=3, max_length=50)
+    descricao: constr(max_length=140)
+    estado: EstadosPossiveis = EstadosPossiveis.nao_finalizado
+
+
+class Tarefa(TarefaEntrada):
+    id: UUID
+
+
+TAREFAS = []
+
+
+@app.get("/tarefas")
+def listar():
+    return TAREFAS
+
+
+@app.post(
+    "/tarefas", response_model=Tarefa, status_code=status.HTTP_201_CREATED
+)
+def criar(tarefa: TarefaEntrada):
+    nova_tarefa = tarefa.dict()
+    nova_tarefa.update({"id": uuid4()})
+    TAREFAS.append(nova_tarefa)
+    return nova_tarefa
+
+```
 
 ## :wrench: Testando manualmente
 
@@ -408,8 +613,8 @@ Primeiro passo é checar o que foi feito até agora:
 
 ```bash
 $ git status
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -419,6 +624,16 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
+
+🎨 Para garantir consistência no estilo do nosso  código, vamos rodar os nossos linters.
+
+```bash
+$ python -m isort .
+$ python -m black .
+$ python -m flake8 --exclude=.venv
+```
+
+Caso algum erro seja encontrado, será necessário manualmente corrigí-lo.
 
 Vamos adicionar as alterações nos arquivos.
 
@@ -434,6 +649,6 @@ Vamos adicionar as alterações nos arquivos.
 
 :cloud: E coloque no ar a nova versão.
 
-`git push heroku master`
+`git push heroku main`
 
 :tada: Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!
