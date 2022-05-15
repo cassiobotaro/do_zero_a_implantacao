@@ -366,7 +366,7 @@
       
         <li class="md-nav__item">
   <a href="#testando-manualmente" class="md-nav__link">
-    Testando manualmente
+    🔧 Testando manualmente
   </a>
   
 </li>
@@ -489,7 +489,7 @@
       
         <li class="md-nav__item">
   <a href="#testando-manualmente" class="md-nav__link">
-    Testando manualmente
+    🔧 Testando manualmente
   </a>
   
 </li>
@@ -519,7 +519,7 @@
 
 
 
-<h1 id="hello-fastapi"><img alt="⚡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a1.png" title=":zap:" /> Hello FastAPI</h1>
+<h1 id="hello-fastapi">⚡ Hello FastAPI</h1>
 <figure>
 <p><img alt="logo FastAPI" src="../imgs/fastapi.png" />
   </p>
@@ -564,7 +564,7 @@
 </code></pre></div>
 <p>Vamos rodar pela primeira vez os testes no nosso projeto.</p>
 <p><code>python -m pytest</code></p>
-<p><img alt="😱" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f631.png" title=":scream:" /> Nossa! Ocorreu um erro!</p>
+<p>😱 Nossa! Ocorreu um erro!</p>
 <div class="highlight"><pre><span></span><code>$ python -m pytest
 ========================================================= test session starts =========================================================
 platform linux -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
@@ -639,7 +639,7 @@ ERROR tests/test_gerenciador.py
 <span class="o">==========================================================</span> <span class="mi">1</span> <span class="n">passed</span> <span class="ow">in</span> <span class="mf">0.23</span><span class="n">s</span> <span class="o">==========================================================</span>
 </code></pre></div>
 <p>✅ Legal! Temos um teste funcionando! Nossa aplicação está retornando status 200 OK, ainda que a funcionalidade completa não esteja pronta.</p>
-<p><img alt="👶" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f476.png" title=":baby:" /> Damos o nome de <code>baby step</code>, esta maneira de construir uma aplicação dando pequenos passos de cada vez.</p>
+<p>👶 Damos o nome de <code>baby step</code>, esta maneira de construir uma aplicação dando pequenos passos de cada vez.</p>
 <p>Nosso recurso deve ter o formato <a href="http://json.org/">json</a>, que é um formato textual estruturado, bem simples e leve para troca de informações.</p>
 <p>Mas como checamos isto?</p>
 <p>Vamos escrever um novo teste!</p>
@@ -708,7 +708,7 @@ ERROR tests/test_gerenciador.py
 </code></pre></div></p>
 <p>Repare que pouco a pouco nossa aplicação vai tomando forma a partir dos testes.</p>
 <p>Parece chato ter de ficar rodando os testes a cada vez, mas além de garatir a qualidade do código, cada vez que os testes são rodados, todas as funcionalidades testadas anteriormente são verificadas novamente. Assim você evita ter de lembrar todas as possibilidades a serem testadas em um teste manual.</p>
-<p><img alt="🚦" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f6a6.png" title=":vertical_traffic_light:" /> Perceberam que estamos guiando o nosso desenvolvimento a partir dos testes? Pouco a pouco temos a funcionalidade de listagem sendo desenhada.</p>
+<p>🚦 Perceberam que estamos guiando o nosso desenvolvimento a partir dos testes? Pouco a pouco temos a funcionalidade de listagem sendo desenhada.</p>
 <p>Vamos continuar então. Sabemos que quando não há tarefas, nossa resposta do recurso deve ser uma lista vazia.</p>
 <p>Mas e quando a lista de tarefas possuir conteúdo? Qual o retorno esperado?</p>
 <p>Vamos criar uma lista de tarefas, adicionaremos conteúdo a ela e este conteúdo deve ser retornado.</p>
@@ -727,7 +727,10 @@ ERROR tests/test_gerenciador.py
 <span class="n">TAREFAS</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="c1"># ...</span>
 </code></pre></div>
-<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Não esqueça de ir no arquivo de testes e importar TAREFAS do gerenciador</p>
+</div>
 <p><code>from gerenciador_tarefas.gerenciador import app, TAREFAS</code></p>
 <p>❌ Os testes ainda estão quebrando?</p>
 <p>Sim, mas agora o erro é outro. O erro mostrado é <code>IndexError: pop from empty list</code>, e isto ocorre porque lá no gerenciador ainda estamos retornando uma lista vazia e não a lista de tarefas.</p>
@@ -805,8 +808,8 @@ ERROR tests/test_gerenciador.py
 <span class="k">def</span> <span class="nf">listar</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">TAREFAS</span>
 </code></pre></div>
-<p>✅ Os testes estão funcionando? Parabéns! <img alt="👏" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f44f.png" title=":clap:" /> <img alt="👏" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f44f.png" title=":clap:" /></p>
-<h2 id="testando-manualmente"><img alt="🔧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f527.png" title=":wrench:" /> Testando manualmente</h2>
+<p>✅ Os testes estão funcionando? Parabéns! 👏 👏 👏</p>
+<h2 id="testando-manualmente">🔧 Testando manualmente</h2>
 <p>Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.</p>
 <p>O comando para isto é <code>uvicorn --reload gerenciador_tarefas.gerenciador:app</code>.</p>
 <p>Voilà, sua aplicação está no ar. <a href="http://localhost:8000/tarefas">Clique aqui</a> para abrir no navegador.</p>
@@ -857,7 +860,7 @@ nothing added to commit but untracked files present <span class="o">(</span>use 
 <p><code>git commit -m "adicionando recurso de listar tarefas"</code></p>
 <p>🔧 Por fim envie ao GitHub a versão atualizada do projeto.</p>
 <p><code>git push</code></p>
-<p><img alt="😎" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f60e.png" title=":sunglasses:" /> Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o GitHub, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?</p>
+<p>😎 Parabéns! Sua aplicação está tomando forma! Já pensou se toda vez que enviássemos uma nova versão para o GitHub, ele verificasse para mim se os testes estão passando? Vamos aprender a ter integração contínua de código!?</p>
 
               
             </article>

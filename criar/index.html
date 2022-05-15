@@ -418,7 +418,7 @@
       
         <li class="md-nav__item">
   <a href="#testando-manualmente" class="md-nav__link">
-    Testando manualmente
+    🔧 Testando manualmente
   </a>
   
 </li>
@@ -503,7 +503,7 @@
       
         <li class="md-nav__item">
   <a href="#testando-manualmente" class="md-nav__link">
-    Testando manualmente
+    🔧 Testando manualmente
   </a>
   
 </li>
@@ -676,13 +676,13 @@ Ok, o teste está passando.</p>
     <span class="k">assert</span> <span class="n">tarefa_criada</span><span class="p">[</span><span class="s2">&quot;descricao&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tarefa_esperada</span><span class="p">[</span><span class="s2">&quot;descricao&quot;</span><span class="p">]</span>
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="🤔" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f914.png" title=":thinking:" /> E se eu retornar a tarefa?</p>
+<p>🤔 E se eu retornar a tarefa?</p>
 <p>✅</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/tarefas&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">criar</span><span class="p">(</span><span class="n">tarefa</span><span class="p">:</span> <span class="n">Tarefa</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">tarefa</span>
 </code></pre></div>
-<p><img alt="😅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f605.png" title=":sweat_smile:" /> Esta foi simples.</p>
+<p>😅 Esta foi simples.</p>
 <p>Outra coisa que precisamos verificar é que cada tarefa deve possuir um identificador único.</p>
 <p>Para checar isto vamos adicionar duas tarefas e seus <code>ids</code>retornados devem ser diferentes.</p>
 <p>❌</p>
@@ -808,7 +808,7 @@ Ok, o teste está passando.</p>
 <span class="hll">    <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nova_tarefa</span><span class="p">)</span>
 </span>    <span class="k">return</span> <span class="n">nova_tarefa</span>
 </code></pre></div>
-<p><img alt="🎉" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f389.png" title=":tada:" /> Nossos testes passaram! Agora temos as funcionalidades de criação e listagem de tarefas.</p>
+<p>🎉  Nossos testes passaram! Agora temos as funcionalidades de criação e listagem de tarefas.</p>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled checked/> listar as tarefas</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> adicionar tarefa</li>
@@ -989,7 +989,7 @@ Ok, o teste está passando.</p>
     <span class="n">TAREFAS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nova_tarefa</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">nova_tarefa</span>
 </code></pre></div>
-<h2 id="testando-manualmente"><img alt="🔧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f527.png" title=":wrench:" /> Testando manualmente</h2>
+<h2 id="testando-manualmente">🔧 Testando manualmente</h2>
 <p>Para testar nossa aplicação manualmente, precisamos colocar nossa aplicação no ar.</p>
 <p>Relembrando o comando para isto é <code>uvicorn --reload gerenciador_tarefas.gerenciador:app</code>.</p>
 <p>Experimente adicionar algumas tarefas utilizando o <code>httpie</code>.</p>
@@ -1023,9 +1023,9 @@ $ python -m flake8 --exclude<span class="o">=</span>.venv
 <p><code>git commit -m "adicionando funcionalidade de criar tarefas"</code></p>
 <p>🔧 Por fim envie ao GitHub a versão atualizada do projeto.</p>
 <p><code>git push</code></p>
-<p><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" /> E coloque no ar a nova versão.</p>
+<p>☁️ E coloque no ar a nova versão.</p>
 <p><code>git push heroku main</code></p>
-<p><img alt="🎉" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f389.png" title=":tada:" /> Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!</p>
+<p>🎉  Bom trabalho! Vamos então nos desafiar agora nos proximos pasos!</p>
 
               
             </article>
