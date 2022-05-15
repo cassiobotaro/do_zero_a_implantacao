@@ -343,6 +343,33 @@ $ heroku --version
 heroku/7.60.2 linux-x64 node-v18.0.0
 ```
 
+## ⌨️ VS Code
+
+**O que é?**
+
+O [VSCode](https://code.visualstudio.com) é um editor de texto e possui uma excelente extensão para Python que pode ser instalada através da [marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+
+**Para que serve?**
+
+O _plugin_ de Python para VSCode fornece _auto-complete_ , integração com os _linters_ mais conhecidos, também é uma ferramenta para depuração de código.
+
+**Como instalar**
+
+O VS Code pode ser baixado no site oficial [aqui](https://code.visualstudio.com/download).
+
+A instalação do _ plugin_ de Python pode ser feita através da marketplace ou através dos comandos abaixo:
+
+Abra o VS Code Quick Open (Ctrl+P) , cole o comando a seguir e pressione enter .
+
+```
+ext install ms-python.python
+```
+
+**Vamos verificar se deu tudo certo?**
+
+Você pode abrir o VS Code e verificar se o plugin foi instalado com sucesso.
+
+
 ## 🎉 Parabéns!
 
 Instalamos todas as ferramentas que precisaremos para acompanhar este curso, vamos para o próximo passo!

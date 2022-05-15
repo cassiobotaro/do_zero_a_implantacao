@@ -26,7 +26,11 @@ Mas como fazer isto se não temos tarefas, nem mesmo uma aplicação ainda? Por 
 
 Inicie criando um diretório com o nome `tests`, onde colocaremos os testes do nosso programa.
 
-Lá dentro, crie um arquivo com nome `test_gerenciador.py` que deve ficar da seguinte maneira.
+Lá dentro, crie um arquivo com nome `test_gerenciador.py` e também um arquivo `__init__.py`.
+
+O segundo arquivo, `__init__.py`, faz com que o Python trate o diretório como um [pacote](https://docs.python.org/pt-br/3/tutorial/modules.html#packages). Em casos simples, como o nosso, ele estará vazio.
+
+No final, teremos algo bem parecido com o seguinte:
 
 ```
 .
@@ -35,7 +39,8 @@ Lá dentro, crie um arquivo com nome `test_gerenciador.py` que deve ficar da seg
 ├── README.md
 ├── requirements.txt
 └── tests
-    └── test_gerenciador.py
+    ├── test_gerenciador.py
+    └── __init__.py
 ```
 
 Agora vamos escrever nosso primeiro teste!
@@ -91,18 +96,22 @@ Não se desespere, é que temos um teste, mas ainda não começamos a escrever c
 
 A primeira coisa que precisamos fazer é criar um  diretório onde colocaremos nossos códigos. vamos chama-lo de `gerenciador_tarefas`.
 
-Dentro dele criamos um novo arquivo `gerenciador.py`, e neste arquivo vamos iniciar uma aplicação da seguinte maneira.
+Dentro dele criamos dois novos arquivos: `gerenciador.py` e `__init__.py`. O primeiro, `gerenciador.py`, é o nosso arquivo principal, onde iremos escrever o código da nossa aplicação.
+
+O segundo, assim como no diretório de teste, é para garantir que este diretório é um pacote e permanecerá vazio.
 
 ```
 .
 ├── dev-requirements.txt
 ├── gerenciador_tarefas
-│   └── gerenciador.py
+│   ├── gerenciador.py
+│   └── __init__.py
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
 └── tests
-    └── test_gerenciador.py
+    ├── test_gerenciador.py
+    └── __init__.py
 ```
 
 O conteúdo desse arquivo será o seguinte.
