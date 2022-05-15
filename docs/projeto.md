@@ -409,7 +409,7 @@ Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão qu
 
 💾 Agora vamos marcar esta versão como salva.
 
-`git commit -m "adicionando dependências do projeto"`
+`git commit -m "Adiciona dependências do projeto"`
 
 🔧 Por fim, envie ao GitHub a versão atualizada do projeto.
 

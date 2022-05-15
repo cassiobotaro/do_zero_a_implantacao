@@ -45,7 +45,7 @@ Salve a versão atual da nossa aplicação para implantação.
 
 `$ git add Procfile`
 
-`$ git commit -m "implantação no heroku"`
+`$ git commit -m "Adiciona arquivos para implantação no heroku"`
 
 Agora vamos a implantação do sistema.
 

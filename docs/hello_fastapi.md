@@ -460,7 +460,7 @@ Vemos dois diretórios não rastreados e precisamos avisar ao controle de versã
 
 💾 Agora vamos marcar esta versão como salva.
 
-`git commit -m "adicionando recurso de listar tarefas"`
+`git commit -m "Adiciona recurso de listar tarefas"`
 
 🔧 Por fim envie ao GitHub a versão atualizada do projeto.
 

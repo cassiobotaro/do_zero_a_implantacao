@@ -640,7 +640,7 @@ Vamos adicionar as alterações nos arquivos.
 
 💾 Agora vamos marcar esta versão como salva.
 
-`git commit -m "adicionando funcionalidade de criar tarefas"`
+`git commit -m "Adiciona funcionalidade de criar tarefas"`
 
 🔧 Por fim envie ao GitHub a versão atualizada do projeto.
 
