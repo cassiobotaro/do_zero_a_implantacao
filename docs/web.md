@@ -11,6 +11,62 @@ Caso não seja novidade para você, tudo bem, pode pular este passo, mas se não
 
 Aprenderemos um novo vocabulário com os tópicos a seguir, que são amplamente utilizados no desenvolvimento web, independente da linguagem. Iremos aprende-los de forma teórica e prática.
 
+## Cliente
+
+### Conceito
+
+Aquele que solicita algum serviço/recurso ao servidor.
+
+### Prática
+
+O seu navegador é um cliente de recursos. Quando acessamos um site, tipicamente o navegador recupera páginas no formato html, folhas de estilo que serão responsáveis por dar cores e estilos aos elementos da página. Também recupera javascripts que serão responsáveis por executar algumas funções e imagens, vídeos, aúdios, etc.
+
+Mas cliente não se limita ao navegador, por exemplo, utilizaremos o httpie para fazer requisições http e solicitar recursos ao servidor.
+
+Execute o comando abaixo e veja o cliente de linha de comando em ação.
+
+```
+http https://cassiobotaro.dev/do_zero_a_implantacao
+```
+
+## Servidor
+
+### Conceito
+
+Provê um serviço/recurso para o cliente conforme solicitado.
+
+### Prática
+
+O servidor é um processo que executa alguma tarefa, como um banco de dados, um servidor de arquivos, um servidor de e-mail, um servidor de aplicações, etc.
+
+Utilizaremos o `uvicorn` como nosso servidor da aplicação.
+
+Execute o comando abaixo e veja um servidor simples, que responde a requisições com o conteúdo do diretório atual.
+
+```
+python -m http.server
+```
+
+## Recurso
+
+### Conceito
+
+Um recurso é um mapeamento de alguma coisa do mundo real para um recurso da web.
+
+### Prática
+
+Um exemplo de recurso é o wttr.in que retorna uma previsão do tempo para um determinado local.
+
+```
+http wttr.in
+```
+
+Outro exemplo de recurso é o github.com que retorna o repositório do Cassio Botaro.
+
+```
+http https://api.github.com/users/cassiobotaro
+```
+
 ## URIs
 
 ### Conceito
@@ -109,5 +165,7 @@ Um exemplo de post.
 `http POST http://httpbin.org/post data=valor`
 
 Substitua o verbo e veja funcionando os outros verbos http. Fique atento que os verbos após o http devem ser escritos com letra maiúscula.
+
+Existem outros conceitos como sessões, cookies, cabeçalhos, etc. Recomendo a leitura do [documento de referência](https://developer.mozilla.org/pt-BR/docs/Web/HTTP) para saber mais sobre esses conceitos.
 
 😊 Bem legal não é? E agora, já vamos logo escrever código? Sim e não, vamos agora dar uma passada na linguagem Python.
