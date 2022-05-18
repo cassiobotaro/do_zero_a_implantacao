@@ -642,7 +642,7 @@
 <p>É um açúcar sintático que nos permite alterar mais convenientemente funções e métodos. Pode ser definido como uma função, que ao invés de retornar algum resultado, retorna a função recebida como parâmetro modificada.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">p_decorate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
    <span class="k">def</span> <span class="nf">func_wrapper</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-       <span class="k">return</span> <span class="s2">&quot;&lt;p&gt;</span><span class="si">{}</span><span class="s2">&lt;/p&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+       <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;p&gt;</span><span class="si">{</span><span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/p&gt;&quot;</span>
    <span class="k">return</span> <span class="n">func_wrapper</span>
 
 <span class="nd">@p_decorate</span>
