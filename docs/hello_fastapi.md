@@ -52,7 +52,7 @@ Traduzindo em um teste automatizado que deve ser acrescentado ao arquivo test_ge
 ```{.py3 title="tests/test_gerenciador.py"}
 from fastapi.testclient import TestClient
 from fastapi import status
-from gerenciador_tarefas import app
+from gerenciador_tarefas.gerenciador import app
 
 
 def test_quando_listar_tarefas_devo_ter_como_retorno_codigo_de_status_200():
@@ -286,7 +286,14 @@ O teste automatizado para isto pode ser escrito da seguinte maneira.
 
 ```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_listar_tarefas_a_tarefa_retornada_deve_possuir_id():
-    TAREFAS.append({"id": 1})
+    TAREFAS.append(
+        {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "titulo": "titulo 1",
+            "descricao": "descricao 1",
+            "estado": "finalizado",
+        }
+    )
     cliente = TestClient(app)
     resposta = cliente.get("/tarefas")
     assert "id" in resposta.json().pop()
@@ -299,7 +306,7 @@ Vamos lá no arquivo `gerenciador.py` e defini-lo.
 
 ```{.py3 title="gerenciador_tarefas/gerenciador.py"}
 # ...
-TAREFAS = {}
+TAREFAS = []
 # ...
 ```
 

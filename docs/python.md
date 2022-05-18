@@ -98,7 +98,7 @@ def soma(x, y):
 ```python
 def p_decorate(func):
    def func_wrapper(name):
-       return "<p>{}</p>".format(func(name))
+       return f"<p>{func(name)}</p>"
    return func_wrapper
 
 @p_decorate
