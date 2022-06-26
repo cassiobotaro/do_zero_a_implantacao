@@ -19,7 +19,8 @@ theme:
   - content.tabs.link
 markdown_extensions:
   - pymdownx.emoji
-  - pymdownx.tasklist
+  - pymdownx.tasklist:
+     custom_checkbox: true
   - pymdownx.superfences
   - admonition
   - pymdownx.tabbed:
