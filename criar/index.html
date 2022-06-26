@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../imgs/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3de6f41f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -536,12 +537,12 @@
 <h1 id="criando-uma-tarefa">📝 Criando uma tarefa</h1>
 <p>Certo, temos a funcionalidade de listagem de tarefas já funcionando.</p>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled checked/> listar as tarefas</li>
-<li class="task-list-item"><input type="checkbox" disabled/> adicionar tarefa</li>
-<li class="task-list-item"><input type="checkbox" disabled/> remover tarefa</li>
-<li class="task-list-item"><input type="checkbox" disabled/> ordenar a listagem por estado</li>
-<li class="task-list-item"><input type="checkbox" disabled/> finalizar uma tarefa</li>
-<li class="task-list-item"><input type="checkbox" disabled/> exibir uma tarefa de forma detalhada</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> listar as tarefas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> adicionar tarefa</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> remover tarefa</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ordenar a listagem por estado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> finalizar uma tarefa</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> exibir uma tarefa de forma detalhada</li>
 </ul>
 <p>Vamos seguir em frente e escrever a funcionalidade de criar uma tarefa.</p>
 <p>Continuamos o ciclo do <em>TDD</em> e a primeira coisa a se fazer é pensar em um teste que não esteja implementado.</p>
@@ -810,8 +811,8 @@ Ok, o teste está passando.</p>
 </code></pre></div>
 <p>🎉  Nossos testes passaram! Agora temos as funcionalidades de criação e listagem de tarefas.</p>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled checked/> listar as tarefas</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> adicionar tarefa</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> listar as tarefas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> adicionar tarefa</li>
 </ul>
 <p>No fim os testes ficam similar a:</p>
 <div class="highlight"><span class="filename">tests/test_gerenciador.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
@@ -1061,6 +1062,9 @@ $ python -m flake8 --exclude<span class="o">=</span>.venv
 
               
             </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
           </div>
         </div>
         
@@ -1068,7 +1072,8 @@ $ python -m flake8 --exclude<span class="o">=</span>.venv
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
       
         
         <a href="../deploy/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 🚀 Mandando um foguete pro espaço" rel="prev">
@@ -1123,10 +1128,10 @@ $ python -m flake8 --exclude<span class="o">=</span>.venv
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      <script src="../assets/javascripts/bundle.0238f547.min.js"></script>
       
     
   </body>
