@@ -16,7 +16,7 @@ theme:
   logo: imgs/python_rocket.png
   favicon: imgs/favicon.ico
   features:
-  - content.tabs.link
+    - content.tabs.link
 markdown_extensions:
   - pymdownx.emoji
   - pymdownx.tasklist:
