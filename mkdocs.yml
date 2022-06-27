@@ -4,16 +4,17 @@ theme:
   language: pt
   palette: 
     - scheme: default
+      primary: teal
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate 
+      primary: teal
       toggle:
-        icon: material/toggle-switch
+        icon: material/weather-sunny
         name: Switch to light mode
   icon:
-    repo: fontawesome/brands/github-alt
-  logo: imgs/python_rocket.png
+    logo: material/rocket
   favicon: imgs/favicon.ico
   features:
     - content.tabs.link
