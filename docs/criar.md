@@ -161,7 +161,7 @@ Além de titulo, nossa tarefa deve possuir uma descrição.
 ```{.py3 title="tests/test_gerenciador.py"}
 def test_quando_uma_tarefa_e_submetida_deve_possuir_uma_descricao():
     cliente = TestClient(app)
-    resposta = cliente.post("/tarefas", json={"titulo": "titulo"})
+    resposta = cliente.post("/tarefas", json={"descricao": "descricao"})
     assert resposta.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 ```
 
