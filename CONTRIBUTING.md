@@ -40,9 +40,18 @@ Faça as alterações necessárias e e depois siga até o fim da página.
 
 ![image](https://user-images.githubusercontent.com/3127847/183786229-1581af1b-f74d-4a0a-a73f-3fdbc8ad9146.png)
 
-Por fim faça a proposta de melhoria e aguarde.
+Por fim, inicie a proposta de mudança.
 
 ![image](https://user-images.githubusercontent.com/3127847/183786943-cb3bdafb-b3d8-4db2-9af5-11f7f90c96e9.png)
+
+Confira as alterações realizadas e através do botão `Create pull request`.
+
+![image](https://user-images.githubusercontent.com/3127847/183790666-52b99bce-d777-4d26-a5a9-cfa9b4e726da.png)
+
+Seu pedido de melhoria deve estar prenchido com o que preencheu anteriormente, mas caso precise, complemente com maiores detalhes.
+Clique no botão `Create pull request` para finalizar a contribuição e aguarde.
+
+![image](https://user-images.githubusercontent.com/3127847/183790791-3daefe6b-e4e7-4378-b645-fa5e29dd71c4.png)
 
 Assim que a pessoa responsável analisar sua contribuição, suas alteraçês serão mescladas ao conteúdo.
 
