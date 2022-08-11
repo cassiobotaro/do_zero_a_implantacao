@@ -22,9 +22,7 @@ Você pode ajudar o projeto das seguintes maneiras:
 
 ## Sua primeira contribuição?
 
-Caso queira apenas sugerir alguma modificação no conteúdo, vá em [issues](/issues), certifique-se que alguém já não tenha feito a sugestão que você pretendia e tente descrver com maior riqueza de detalhes possíveis. Quando necessário adicione imagens (principalmente quando for um erro).
-
-Exemplos podem ser encontrados [aqui](https://github.com/cassiobotaro/do_zero_a_implantacao/issues/77) e [aqui](https://github.com/cassiobotaro/do_zero_a_implantacao/issues/90).
+Caso queira apenas sugerir alguma modificação no conteúdo, vá em [issues](../../issues), certifique-se que alguém já não tenha feito a sugestão que você pretendia e tente descrver com maior riqueza de detalhes possíveis. Quando necessário adicione imagens (principalmente quando for um erro).
 
 Uma outra maneira de contribuir, é editando você mesmo os arquivos através do github.
 
