@@ -25,11 +25,11 @@ Siga os passos de acordo com o seu sistema operacional para cada ferramenta. Ten
 
 **O que é?**
 
-[Git](https://git-scm.com/) é um controle de versão livre e de código aberto, construido para lidar com projetos pequenos e grandes de maneira rápida e eficiente.
+[Git](https://git-scm.com/) é uma ferramenta para controle de versão livre e de código aberto, construído para lidar com projetos pequenos e grandes de maneira rápida e eficiente.
 
 **Para que serve?**
 
-Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e salva como final. Mais tarde ou no outro dia você decide fazer mais mudanças e chama de "agoravai" e quando menos percebe já tem um monte de arquivos e talvez nem se lembre mais qual a ultima versão.
+Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e salva como final. Mais tarde ou no outro dia você decide fazer mais mudanças e chama de "agoravai" e quando menos percebe já tem um monte de arquivos e talvez nem se lembre mais qual a última versão.
 
 É para gerenciar alterações feitas no projeto durante o tempo que serve esta ferramenta. Durante o curso vamos salvando cada progresso feito sem precisar de ter várias cópias do mesmo arquivo.
 
@@ -43,7 +43,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 === "🖥️ Windows"
 
-    Baixe a última versão neste [site](https://git-scm.com/downloads). Deixe as opções já marcadas por padrão, exceto a mostrada abaixo que deve ser ajustada.
+    Baixe a última versão neste [site](https://git-scm.com/download/win). Deixe as opções já marcadas por padrão, exceto a mostrada abaixo que deve ser ajustada.
 
     ![opção path](imgs/gitwin.jpeg "opção path no instalador")
 
@@ -68,13 +68,13 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `git --version`.
+    Clique no botão iniciar, busque por `powershell` e abra o programa `Windows PowerShell`. Agora digite `git --version`.
 
     A saída deverá ser similar a apresentada abaixo:
 
     ```bash
     $ git --version
-    git version 2.36.1
+    git version 2.38.0.windows.1
     ```
 
 === "🍎 Mac"
@@ -108,7 +108,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 === "🖥️ Windows"
 
-    Baixe o instalador de acordo com o seu computador caso seja [64 bits](https://www.python.org/ftp/python/3.8.1/python-3.8.1-amd64.exe) ou [32 bits](https://www.python.org/ftp/python/3.8.1/python-3.8.1.exe).
+    Baixe o instalador de acordo com o seu computador caso seja [64 bits](https://www.python.org/ftp/python/3.10.7/python-3.10.7-amd64.exe) ou [32 bits](https://www.python.org/ftp/python/3.10.7/python-3.10.7.exe).
 
     Após baixar o instalador fique atento para selecionar a opção marcada na figura abaixo.
 
@@ -135,13 +135,13 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python --version`.
+    Clique no botão iniciar, busque por `powershell` e abra o programa `Windows PowerShell`. Agora digite `python --version`.
 
     A saída deverá ser similar a apresentada abaixo:
 
     ```bash
     $ python --version
-    Python 3.10.4
+    Python 3.10.7
     ```
 
 === "🍎 Mac"
@@ -156,7 +156,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
     ```
 
 !!! warning
-    A versão necessária neste curso é acima da 3.7 devido a recursos que utilizaremos.
+    A versão necessária neste curso é superior a 3.7 devido aos recursos que utilizaremos.
 
 ## 🚚 Pip
 
@@ -166,7 +166,7 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 **Para que serve?**
 
-Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para desenvolvimento do sistema. O pip nos permite baixar uma versão específica de uma biblioteca como por exemplo `python3 -m pip install fastapi==0.43.0`.
+Utilizaremos o pip para controlar as versões das bibliotecas utilizadas para desenvolvimento do sistema. O pip nos permite baixar uma versão específica de uma biblioteca como por exemplo `python3 -m pip install fastapi==0.43.0`.
 
 **Como instalar**
 
@@ -197,13 +197,13 @@ Utilizaremos o pip para controlar a versão das bibliotecas utilizadas para dese
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -m pip --version`.
+    Clique no botão iniciar, busque por `powershell` e abra o programa `Windows PowerShell`. Agora digite `python -m pip --version`.
 
     A saída deverá ser similar a apresentada abaixo:
 
     ```bash
-    $ python3 -m pip --version
-    pip 22.0.4 from /usr/lib/python3.10/site-packages (python 3.10)
+    $ python -m pip --version
+    pip 22.2.2 from C:\Users\User\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)
     ```
 
 === "🍎 Mac"
@@ -227,7 +227,7 @@ Responsável por criar ambientes virtuais Python e provê um isolamento dos paco
 
 **Para que serve?**
 
-Iniciamos um projeto que tem uma biblioteca na versão `1.4`, e de repente, um novo projeto é iniciado na versão `2.0`. O que fazer? Será que são compatíveis? E se eu atualizo o sitema e a versão antiga para de funcionar?
+Iniciamos um projeto que tem uma biblioteca na versão `1.4`, e de repente, um novo projeto é iniciado na versão `2.0`. O que fazer? Será que são compatíveis? E se eu atualizo o sistema e a versão antiga para de funcionar?
 
 É onde o venv entra, ele serve para isolar ambientes entre projetos, ou seja, eu consigo ter dois projetos rodando, em dois ambientes diferentes, com versões diferentes da mesma biblioteca.
 
@@ -253,7 +253,7 @@ Iniciamos um projeto que tem uma biblioteca na versão `1.4`, e de repente, um n
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -m venv -h`.
+    Clique no botão iniciar, busque por `powershell` e abra o programa `Windows PowerShell`. Agora digite `python -m venv -h`.
 
 === "🍎 Mac"
 
@@ -262,9 +262,9 @@ Iniciamos um projeto que tem uma biblioteca na versão `1.4`, e de repente, um n
 A saída deverá ser similar a apresentada abaixo:
 
 ```bash
-$ python3 -m venv -h
-usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]
-            [--upgrade] [--without-pip] [--prompt PROMPT]
+$ python -m venv -h
+usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear] [--upgrade] [--without-pip]
+            [--prompt PROMPT] [--upgrade-deps]
             ENV_DIR [ENV_DIR ...]
 
 Creates virtual Python environments in one or more target directories.
@@ -272,26 +272,22 @@ Creates virtual Python environments in one or more target directories.
 positional arguments:
   ENV_DIR               A directory to create the environment in.
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   --system-site-packages
-                        Give the virtual environment access to the system
-                        site-packages dir.
-  --symlinks            Try to use symlinks rather than copies, when symlinks
-                        are not the default for the platform.
-  --copies              Try to use copies rather than symlinks, even when
-                        symlinks are the default for the platform.
-  --clear               Delete the contents of the environment directory if it
-                        already exists, before environment creation.
-  --upgrade             Upgrade the environment directory to use this version
-                        of Python, assuming Python has been upgraded in-place.
-  --without-pip         Skips installing or upgrading pip in the virtual
-                        environment (pip is bootstrapped by default)
-  --prompt PROMPT       Provides an alternative prompt prefix for this
-                        environment.
+                        Give the virtual environment access to the system site-packages dir.
+  --symlinks            Try to use symlinks rather than copies, when symlinks are not the default for the platform.
+  --copies              Try to use copies rather than symlinks, even when symlinks are the default for the platform.
+  --clear               Delete the contents of the environment directory if it already exists, before environment
+                        creation.
+  --upgrade             Upgrade the environment directory to use this version of Python, assuming Python has been
+                        upgraded in-place.
+  --without-pip         Skips installing or upgrading pip in the virtual environment (pip is bootstrapped by default)
+  --prompt PROMPT       Provides an alternative prompt prefix for this environment.
+  --upgrade-deps        Upgrade core dependencies: pip setuptools to the latest version in PyPI
 
-Once an environment has been created, you may wish to activate it, e.g. by
-sourcing an activate script in its bin directory.
+Once an environment has been created, you may wish to activate it, e.g. by sourcing an activate script in its bin
+directory.
 ```
 
 ## ☁️ Heroku CLI
@@ -330,7 +326,7 @@ Vamos utilizar o heroku para colocar nossa aplicação no ar e se tudo der certo
 
 === "🖥️ Windows"
 
-      Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `heroku --version`.
+      Clique no botão iniciar, busque por `powershell` e abra o programa `Windows PowerShell`. Agora digite `heroku --version`.
 
 === "🍎 Mac"
 
@@ -368,6 +364,8 @@ ext install ms-python.python
 **Vamos verificar se deu tudo certo?**
 
 Você pode abrir o VS Code e verificar se o plugin foi instalado com sucesso.
+
+Basta clicar no _ribbon_ "Extensions" ao lado esquerdo da tela, e verificar se a extensão consta listada.
 
 
 ## 🎉 Parabéns!
