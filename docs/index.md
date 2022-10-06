@@ -6,13 +6,13 @@
 </figure>
 
 
-Iniciaremos com um introdução a conceitos de programação web, preparação do ambiente e vamos evoluindo até escrever nossa primeira aplicação utilizando técnicas profissionais, para no fim colocarmos a aplicação no ar.
+Iniciaremos com uma introdução a conceitos de programação web, preparação do ambiente e vamos evoluindo até escrever nossa primeira aplicação utilizando técnicas profissionais, para no fim colocarmos a aplicação no ar.
 
 É um curso pensado para iniciantes na área de computação, curiosos, entusiastas e todo mundo que queira entender todo o processo de criação de uma aplicação até sua implantação.
 
 ## O que veremos?
 
-Está previsto para este curso o estudo e desenvolvimento de uma aplicação utilizando-se da técnica do tdd, que é um desenvolvimento guiado por testes(não se preocupe se não está familiarizado com o termo), assim como criação de um ambiente de desenvolvimento automatizado utilizando integração contínua e implantação.
+Está previsto para este curso o estudo e desenvolvimento de uma aplicação utilizando-se da técnica do tdd, que é um desenvolvimento guiado por testes (não se preocupe se não está familiarizado com o termo), assim como criação de um ambiente de desenvolvimento automatizado utilizando integração contínua e implantação.
 
 Assustado com tantos termos técnicos? Não se preocupe, você vai ver que as coisas são mais simples do que se parecem.
 
