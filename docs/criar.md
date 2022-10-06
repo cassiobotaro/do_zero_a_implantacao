@@ -628,7 +628,7 @@ Experimente adicionar algumas tarefas utilizando o `httpie`.
 
 ![implementação da criação de tarefas](imgs/criar.png "implementação da criação de tarefas")
 
-`http localhost:8000 titulo="titulo" descricao="uma descrição qualquer"`
+`http localhost:8000/tarefas titulo="titulo" descricao="uma descrição qualquer"`
 
 Lembrando que sempre temos a opção de verificar os recursos através da [documentação](http://localhost:8000/docs) gerada automaticamente.
 
