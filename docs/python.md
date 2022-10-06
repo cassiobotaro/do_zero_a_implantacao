@@ -7,7 +7,7 @@
 
 Infelizmente esse tutorial foi pensado para ser ministrado em apenas algumas horas, o que nos deixa com pouco tempo para aprofundar na linguagem, aqui serão apresentados apenas alguns conceitos que serão necessários para o restante do tutorial.
 
-Caso tenha chegado aqui por outros meios que não o curso presencial, e não tenha conhecimento na linguagem, recomendo dar uma parada, e assistir as excelentes aulas do Professor Masanori. O [python para zumbis](https://www.youtube.com/watch?v=YO58tXerKDc&list=PLUukMN0DTKCtbzhbYe2jdF4cr8MOWClXc&ab_channel=PythonparaZumbis) tem sido uma excelente porta para muitas pessoas.
+Caso tenha chegado aqui por outros meios que não o curso presencial, e não tenha conhecimento na linguagem, recomendo dar uma parada, e assistir as excelentes aulas do Professor Masanori. O [python para zumbis](https://www.youtube.com/watch?v=YO58tXerKDc&list=PLUukMN0DTKCtbzhbYe2jdF4cr8MOWClXc&ab_channel=PythonparaZumbis) tem sido uma excelente porta para muitas pessoas, assim como o [Curso em Vídeo - Python](https://youtu.be/S9uPNppGsGo) do professor Guanabara.
 
 Uma outra dica é a [Live de Python](https://www.youtube.com/c/Dunossauro) que ocorre às segundas, sempre às 22h.
 
