@@ -124,12 +124,12 @@ Com certeza você já escreveu um arquivo, mais tarde troca algumas coisas e sal
 
 === "🐧 Ubuntu"
 
-    Abra um terminal e digite `python --version`.
+    Abra um terminal e digite `python3 --version`.
 
     A saída deverá ser similar a apresentada abaixo:
 
     ```bash
-    $ python --version
+    $ python3 --version
     Python 3.10.4
     ```
 
