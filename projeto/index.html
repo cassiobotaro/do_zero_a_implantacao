@@ -310,8 +310,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comecando-a-tirar-do-papel-o-projeto" class="md-nav__link">
-    ▶️ Começando a tirar do papel o projeto
+  <a href="#comecando-a-tirar-o-projeto-do-papel" class="md-nav__link">
+    ▶️ Começando a tirar o projeto do papel
   </a>
   
 </li>
@@ -493,8 +493,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comecando-a-tirar-do-papel-o-projeto" class="md-nav__link">
-    ▶️ Começando a tirar do papel o projeto
+  <a href="#comecando-a-tirar-o-projeto-do-papel" class="md-nav__link">
+    ▶️ Começando a tirar o projeto do papel
   </a>
   
 </li>
@@ -532,16 +532,16 @@
   </p>
 <figcaption></figcaption>
 </figure>
-<p>Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingredientes.</p>
-<p>Desenvolver um projeto não significa escrever tudo do zero e poderemos contar com ajuda de trechos escritos por outros programadores. estes trechos comuns de código são chamados bibliotecas e vamos acabar adicionando algumas ao nosso projeto.</p>
+<p>Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas, para prosseguirmos, precisamos escolher os melhores ingredientes.</p>
+<p>Desenvolver um projeto não significa escrever tudo do zero e poderemos contar com ajuda de trechos escritos por outros programadores. Estes trechos comuns de código são chamados bibliotecas e vamos acabar adicionando algumas ao nosso projeto.</p>
 <p>Mas antes de tudo, precisamos iniciar nosso projeto.</p>
-<h2 id="comecando-a-tirar-do-papel-o-projeto">▶️ Começando a tirar do papel o projeto</h2>
+<h2 id="comecando-a-tirar-o-projeto-do-papel">▶️ Começando a tirar o projeto do papel</h2>
 <p>Daremos nosso primeiro passo, criando um diretório onde serão armazenados todos os arquivos do projeto.</p>
-<p>Faremos isto utilizando o github, que é uma plataforma gratuita, muita conhecida e que irá nos ajudar com algumas integrações no futuro.</p>
+<p>Faremos isto utilizando o github, que é uma plataforma gratuita, muito conhecida e que irá nos ajudar com algumas integrações no futuro.</p>
 <p>Mas por que iniciaremos criando o projeto lá e não no próprio computador?</p>
-<p>O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da sua criação vamos salvando as alterações, evitando que os passos se percam e caso necessário podemos desfazer algum passo errado.</p>
+<p>O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da sua criação vamos salvando as alterações, evitando que os passos se percam e, caso necessário poderemos desfazer algum passo errado.</p>
 <p>Outro motivo é que se algo acontecer com seu computador, teremos salvo uma versão do projeto.</p>
-<p>Abra seu navegador, e acesse o seguinte endereço http://github.com. Crie uma conta se ainda não tiver.</p>
+<p>Abra seu navegador e acesse o seguinte endereço: http://github.com. Crie uma conta se ainda não tiver.</p>
 <p>Aperte o botão novo_repositório.</p>
 <p><img alt="novo repositório" src="../imgs/novo_repositorio.png" title="Novo repositório" /></p>
 <p>Preencha os campos como visto na imagem abaixo.</p>
@@ -550,23 +550,40 @@
 <p>As setas indicam o que deve ser preenchido.</p>
 </div>
 <p><img alt="novo repositório" src="../imgs/novorepo.png" title="Novo repositório" /></p>
-<p>Agora faça um "clone" do seu repositório.</p>
+<p>Volte para o terminal que você usou anteriormente e navegue até o diretório onde você deseja salvar o seu projeto. Observe os exemplos abaixo e adapte para o diretório que desejar:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">🖥️ Windows</label><label for="__tabbed_1_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Caso o terminal não esteja aberto, clique no botão iniciar, busque por <code>powershell</code> e abra o programa <code>Windows PowerShell</code>. Agora digite <code>cd C:\</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Caso o terminal não esteja aberto, abra um terminal e digite <code>cd ~/</code>.</p>
+</div>
+</div>
+</div>
+<p>Até agora nós iniciamos o nosso projeto apenas na web, em nossa conta do github, mas, agora iremos trazer uma cópia do que está no github para a nossa máquina local. Para isso, utilizaremos um comando de nossa ferramenta de controle de versão git chamada "clone".</p>
+<p><code>git clone</code> é um comando para criar uma cópia dos arquivos e suas versões. Pode ser feito para trazer uma cópia do repositório do servidor para o computador local.</p>
+<p>Para isso, iremos copiar a URL do repositório do github conforme a imagem abaixo:</p>
+<p><img alt="URL github" src="../imgs/urlgithub.jpeg" title="URL github" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.</p>
+<p>O comando abaixo deve ser modificado com a URL que você acabou de copiar.</p>
 </div>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/USUARIO/gerenciador-tarefas.git
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/cassiobotaro/gerenciador-tarefas.git
 Cloning into <span class="s1">&#39;gerenciador-tarefas&#39;</span>...
 remote: Counting objects: <span class="m">5</span>, <span class="k">done</span>.
 remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
 remote: Total <span class="m">5</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
 Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
 </code></pre></div>
-<p><code>git clone</code> é um comando para criar uma cópia dos arquivos e suas versões. Pode ser feito para trazer uma cópia do repositório do servidor para o computador local.</p>
-<p>Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado digite os seguintes comandos.</p>
-<div class="highlight"><pre><span></span><code>$ git config --local user.email EMAIL
+<p>Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado e digite os seguintes comandos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Os comandos abaixo devem ser modificados com seu email e nome de usuário do github.</p>
+</div>
+<div class="highlight"><pre><span></span><code>$ git config --local user.email cassiobotaro@github.com
 
-$ git config --local user.name USUARIO
+$ git config --local user.name cassiobotaro
 </code></pre></div>
 <p>"Voilà", já temos o projeto iniciado.</p>
 <p>Navegue até o diretório onde foi executado o comando de <code>clone</code> do projeto. Prossiga com a instalação das bibliotecas de acordo com o seu sistema operacional.</p>
@@ -579,11 +596,32 @@ $ git config --local user.name USUARIO
 <p>Será que não dá problema se eu mudar no primeiro projeto? Ou será que mudo no segundo?</p>
 <p>Para evitar este tipo de problema, vamos criar o que chamaremos de ambiente virtual.</p>
 <p>Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bibliotecas na versão que quiser.</p>
-<p>O comando para isto é <code>python3 -m venv .venv</code>, ou <code>python -m venv .venv</code> no windows, sendo que .venv é o nome deste ambiente isolado.</p>
+<p>O comando para isto é: </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">🖥️ Windows</label><label for="__tabbed_2_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Volte ao <code>Windows PowerShell</code>. Agora digite <code>python -m venv .venv</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Volte ao terminal e digite <code>python3 -m venv .venv</code>.</p>
+</div>
+</div>
+</div>
+<p>Sendo que .venv é o nome deste ambiente isolado.</p>
 <p>Este ambiente isolado será visto como um diretório criado na pasta do projeto.</p>
-<p>O ponto na frente do nome faz com que o diretório fique oculto.</p>
+<p>O ponto na frente do nome faz com que o diretório fique oculto em ambientes linux</p>
 <p>Depois de criado, temos de ativar este ambiente e isto é importante pois sempre que decidir trabalhar neste projeto você deverá repetir este passo.</p>
-<p>Digite o comando: <code>source .venv/bin/activate</code> em linux ou <code>.venv\Scripts\activate.bat</code> no windows.</p>
+<p>O comando para isto é: </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">🖥️ Windows</label><label for="__tabbed_3_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Volte ao <code>Windows PowerShell</code>. Agora digite <code>.venv\Scripts\activate</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Volte ao terminal e digite <code>source .venv/bin/activate</code>.</p>
+</div>
+</div>
+</div>
 <p>Pronto, agora estamos preparados para instalar as bibliotecas que precisaremos.</p>
 <h1 id="bibliotecas-e-utilitarios">📚 Bibliotecas e utilitários</h1>
 <p>Chegou a hora de instalar algumas bibliotecas e utilitários que nos auxiliarão na criação do nosso sistema web, na realização de testes unitários e testes manuais.</p>
@@ -603,24 +641,24 @@ $ git config --local user.name USUARIO
 <p class="admonition-title">Warning</p>
 <p>Preste atenção que os comandos serão executados dentro do diretório do projeto.</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">🖥️ Windows</label><label for="__tabbed_1_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">🖥️ Windows</label><label for="__tabbed_4_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto e agora digite <code>pip install fastapi</code>.</p>
+<p>Volte ao <code>Windows PowerShell</code> e digite o comando <code>pip install fastapi</code>.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal, navegue até a pasta do projeto e por fim digite <code>pip install fastapi</code>.</p>
+<p>Volte ao terminal e digite o comando <code>pip install fastapi</code>.</p>
 </div>
 </div>
 </div>
 <p><strong>Vamos verificar se deu tudo certo?</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">🖥️ Windows</label><label for="__tabbed_2_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">🖥️ Windows</label><label for="__tabbed_5_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Agora digite <code>python -c "import fastapi"</code>. nenhum erro deve ocorrer.</p>
+<p>Volte ao <code>Windows PowerShell</code> e agora digite <code>python -c "import fastapi"</code>. Nenhum erro deve ocorrer.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal e digite <code>python -c "import fastapi"</code>. nenhum erro deve ocorrer.</p>
+<p>Volte ao terminal e agora digite <code>python -c "import fastapi"</code>. Nenhum erro deve ocorrer.</p>
 </div>
 </div>
 </div>
@@ -628,27 +666,27 @@ $ git config --local user.name USUARIO
 <p><strong>O que é?</strong></p>
 <p><a href="https://github.com/jakubroztocil/httpie">HTTPie</a> é um cliente HTTP por linha de comando. Seu objetivo é transformar a interação com serviços web o mais humano possível.</p>
 <p><strong>Para que serve?</strong></p>
-<p>Diversos momentos do curso, teremos de testar manualmente se nosso sistema está funcionando, ainda que possua testes automatizados.</p>
+<p>Em diversos momentos do curso, teremos de testar manualmente se nosso sistema está funcionando, ainda que possua testes automatizados.</p>
 <p>Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.</p>
 <p><strong>Como instalar</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">🖥️ Windows</label><label for="__tabbed_3_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">🖥️ Windows</label><label for="__tabbed_6_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto e agora digite <code>pip install httpie</code>.</p>
+<p>Volte ao <code>Windows PowerShell</code> e digite o comando <code>pip install httpie</code>.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal, navegue até a pasta do projeto e por fim digite <code>pip install httpie</code>.</p>
+<p>Volte ao terminal e digite o comando <code>pip install httpie</code>.</p>
 </div>
 </div>
 </div>
 <p><strong>Vamos verificar se deu tudo certo?</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">🖥️ Windows</label><label for="__tabbed_4_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">🖥️ Windows</label><label for="__tabbed_7_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Agora digite <code>http --version</code>.</p>
+<p>Volte ao <code>Windows PowerShell</code> e agora digite o comando <code>http --version</code>.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal e digite <code>http --version</code>.</p>
+<p>Volte ao terminal e agora digite o comando <code>http --version</code>.</p>
 </div>
 </div>
 </div>
@@ -666,24 +704,24 @@ $ git config --local user.name USUARIO
 <p><strong>Para que serve?</strong></p>
 <p>O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto em um servidor na internet.</p>
 <p><strong>Como instalar</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">🖥️ Windows</label><label for="__tabbed_5_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">🖥️ Windows</label><label for="__tabbed_8_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite <code>pip install uvicorn</code>.</p>
+<p>Volte ao <code>Windows PowerShell</code> e digite o comando <code>pip install uvicorn</code>.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite <code>pip install uvicorn</code>.</p>
+<p>Volte ao terminal e digite o comando <code>pip install uvicorn</code>.</p>
 </div>
 </div>
 </div>
 <p><strong>Vamos verificar se deu tudo certo?</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">🖥️ Wnndows</label><label for="__tabbed_6_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">🖥️ Windows</label><label for="__tabbed_9_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Ative o ambiente virtual, Agora digite <code>uvicorn --help</code>.</p>
+<p>Volte ao <code>Windows PowerShell</code> e agora digite o comando <code>uvicorn --help</code>.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal e digite <code>uvicorn --help</code>.</p>
+<p>Volte ao terminal e agora digite o comando <code>uvicorn --help</code>.</p>
 </div>
 </div>
 </div>
@@ -755,24 +793,24 @@ Options:
 <p><strong>Para que serve?</strong></p>
 <p>Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não importa quão bem ele foi escrito".  Vamos então instalar o pytest, que é uma ferramenta que auxilia na execução de testes.</p>
 <p><strong>Como instalar</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">🖥️ Windows</label><label for="__tabbed_7_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">🖥️ Windows</label><label for="__tabbed_10_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Navegue ate o nosso projeto e agora digite <code>pip install pytest</code>.</p>
+<p>Volte ao <code>Windows PowerShell</code> e digite o comando <code>pip install pytest</code>.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal, navegue até a pasta do projeto e por fim digite <code>pip install pytest</code>.</p>
+<p>Volte ao terminal e digite o comando <code>pip install pytest</code>.</p>
 </div>
 </div>
 </div>
 <p><strong>Vamos verificar se deu tudo certo?</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">🖥️ Windows</label><label for="__tabbed_8_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">🖥️ Windows</label><label for="__tabbed_11_2">🐧🍎 Ubuntu/Mac</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Clique no botão iniciar, digite <code>cmd</code> e abra o programa <code>prompt de comandos</code>. Agora digite <code>pytest --version</code>.</p>
+<p>Volte ao <code>Windows PowerShell</code> e agora digite o comando <code>pytest --version</code>.</p>
 </div>
 <div class="tabbed-block">
-<p>Abra um terminal e digite <code>pytest --version</code>.</p>
+<p>Volte ao terminal e agora digite o comando <code>pytest --version</code>.</p>
 </div>
 </div>
 </div>
@@ -795,8 +833,17 @@ ModuleNotFoundError: No module named <span class="s1">&#39;fastapi&#39;</span>
 <p class="admonition-title">Tip</p>
 <p>Utilize <code>Ctrl + d</code> ou <code>exit()</code> para sair do python.</p>
 </div>
-<p>Acontece que instalamos o FastAPI somente no ambiente virtual. Para entrarmos no ambiente virtual digite <code>source &lt;venv&gt;/bin/activate</code> ou <code>&lt;venv&gt;\Scripts\activate.bat</code>.</p>
-<p>Não esqueça de trocar o <code>&lt;venv&gt;</code> pelo nome do ambiente virtual criado. Por exemplo, se você seguiu esse tutorial, provavelmente você usou o nome <code>.venv</code>, então o comando será <code>source .venv/bin/activate</code> ou <code>.venv\Scripts\activate.bat</code>.</p>
+<p>Acontece que instalamos o FastAPI somente no ambiente virtual. Para entrarmos no ambiente virtual:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">🖥️ Windows</label><label for="__tabbed_12_2">🐧🍎 Ubuntu/Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Volte ao <code>Windows PowerShell</code> e agora digite o comando <code>.venv\Scripts\activate</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Volte ao terminal e agora digite o comando <code>source &lt;venv&gt;/bin/activate</code>.</p>
+</div>
+</div>
+</div>
 <h2 id="salvando-o-momento-atual-do-nosso-projeto">Salvando o momento atual do nosso projeto</h2>
 <p>Neste momento seu diretório deve estar assim:</p>
 <div class="highlight"><pre><span></span><code>.
@@ -829,7 +876,7 @@ httpie==3.2.1
 <p>Aquele <code>-r requirements.txt</code> no arquivo de desenvolvimento garante que as dependências principais serão instaladas e em seguidas as outras que somente são úteis durante o desenvolvimento.</p>
 <p>Quando formos colocar o site no ar, estes arquivos serão bem úteis.</p>
 <p>Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?</p>
-<p>Primeiro passo é checar o que foi feito até agora:</p>
+<p>Volte ao seu terminal ou Windows PowerShell e o primeiro passo é checar o que foi feito até agora:</p>
 <div class="highlight"><pre><span></span><code>$ git status
 On branch main
 Your branch is up to date with <span class="s1">&#39;origin/main&#39;</span>.
