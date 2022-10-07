@@ -5,29 +5,29 @@
   <figcaption></figcaption>
 </figure>
 
-Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas para prosseguirmos, precisamos escolher os melhores ingredientes.
+Já temos as espátulas, facas, colheres e outros instrumentos na mesa, mas, para prosseguirmos, precisamos escolher os melhores ingredientes.
 
-Desenvolver um projeto não significa escrever tudo do zero e poderemos contar com ajuda de trechos escritos por outros programadores. estes trechos comuns de código são chamados bibliotecas e vamos acabar adicionando algumas ao nosso projeto.
+Desenvolver um projeto não significa escrever tudo do zero e poderemos contar com ajuda de trechos escritos por outros programadores. Estes trechos comuns de código são chamados bibliotecas e vamos acabar adicionando algumas ao nosso projeto.
 
 Mas antes de tudo, precisamos iniciar nosso projeto.
 
-## ▶️ Começando a tirar do papel o projeto
+## ▶️ Começando a tirar o projeto do papel
 
 Daremos nosso primeiro passo, criando um diretório onde serão armazenados todos os arquivos do projeto.
 
-Faremos isto utilizando o github, que é uma plataforma gratuita, muita conhecida e que irá nos ajudar com algumas integrações no futuro.
+Faremos isto utilizando o github, que é uma plataforma gratuita, muito conhecida e que irá nos ajudar com algumas integrações no futuro.
 
 Mas por que iniciaremos criando o projeto lá e não no próprio computador?
 
-O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da sua criação vamos salvando as alterações, evitando que os passos se percam e caso necessário podemos desfazer algum passo errado.
+O primeiro motivo é que já criaremos o projeto com controle de versão, ou seja a cada passo da sua criação vamos salvando as alterações, evitando que os passos se percam e, caso necessário poderemos desfazer algum passo errado.
 
 Outro motivo é que se algo acontecer com seu computador, teremos salvo uma versão do projeto.
 
-Abra seu navegador, e acesse o seguinte endereço http://github.com. Crie uma conta se ainda não tiver.
+Abra seu navegador e acesse o seguinte endereço: http://github.com. Crie uma conta se ainda não tiver.
 
 Aperte o botão novo_repositório.
 
-![novo repositório](imgs/novo_repositorio.png " Novo repositório")
+![novo repositório](imgs/novo_repositorio.png "Novo repositório")
 
 Preencha os campos como visto na imagem abaixo.
 
@@ -37,14 +37,30 @@ Preencha os campos como visto na imagem abaixo.
 
 ![novo repositório](imgs/novorepo.png "Novo repositório")
 
-Agora faça um "clone" do seu repositório.
+Volte para o terminal que você usou anteriormente e navegue até o diretório onde você deseja salvar o seu projeto. Observe os exemplos abaixo e adapte para o diretório que desejar:
+
+=== "🖥️ Windows"
+
+    Caso o terminal não esteja aberto, clique no botão iniciar, busque por `powershell` e abra o programa `Windows PowerShell`. Agora digite `cd C:\`.
+
+=== "🐧🍎 Ubuntu/Mac"
+
+    Caso o terminal não esteja aberto, abra um terminal e digite `cd ~/`.
+
+Até agora nós iniciamos o nosso projeto apenas na web, em nossa conta do github, mas, agora iremos trazer uma cópia do que está no github para a nossa máquina local. Para isso, utilizaremos um comando de nossa ferramenta de controle de versão git chamada "clone".
+
+`git clone` é um comando para criar uma cópia dos arquivos e suas versões. Pode ser feito para trazer uma cópia do repositório do servidor para o computador local.
+
+Para isso, iremos copiar a URL do repositório do github conforme a imagem abaixo:
+
+![URL github](imgs/urlgithub.jpeg "URL github")
 
 !!! warning
 
-    Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.
+    O comando abaixo deve ser modificado com a URL que você acabou de copiar.
 
 ```bash
-$ git clone https://github.com/USUARIO/gerenciador-tarefas.git
+$ git clone https://github.com/cassiobotaro/gerenciador-tarefas.git
 Cloning into 'gerenciador-tarefas'...
 remote: Counting objects: 5, done.
 remote: Compressing objects: 100% (4/4), done.
@@ -53,14 +69,16 @@ Unpacking objects: 100% (5/5), done.
 
 ```
 
-`git clone` é um comando para criar uma cópia dos arquivos e suas versões. Pode ser feito para trazer uma cópia do repositório do servidor para o computador local.
+Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado e digite os seguintes comandos.
 
-Aproveite e já configure seu usuário git para este projeto, dentro do diretório recém clonado digite os seguintes comandos.
+!!! warning
+
+    Os comandos abaixo devem ser modificados com seu email e nome de usuário do github.
 
 ```bash
-$ git config --local user.email EMAIL
+$ git config --local user.email cassiobotaro@github.com
 
-$ git config --local user.name USUARIO
+$ git config --local user.name cassiobotaro
 ```
 
 "Voilà", já temos o projeto iniciado.
@@ -81,15 +99,33 @@ Para evitar este tipo de problema, vamos criar o que chamaremos de ambiente virt
 
 Na prática o que vamos fazer é instalar as bibliotecas em um diretório que está relacionado ao projeto. Assim cada projeto pode ter suas próprias bibliotecas na versão que quiser.
 
-O comando para isto é `python3 -m venv .venv`, ou `python -m venv .venv` no windows, sendo que .venv é o nome deste ambiente isolado.
+O comando para isto é: 
+
+=== "🖥️ Windows"
+
+    Volte ao `Windows PowerShell`. Agora digite `python -m venv .venv`.
+
+=== "🐧🍎 Ubuntu/Mac"
+
+    Volte ao terminal e digite `python3 -m venv .venv`.
+
+Sendo que .venv é o nome deste ambiente isolado.
 
 Este ambiente isolado será visto como um diretório criado na pasta do projeto.
 
-O ponto na frente do nome faz com que o diretório fique oculto.
+O ponto na frente do nome faz com que o diretório fique oculto em ambientes linux
 
 Depois de criado, temos de ativar este ambiente e isto é importante pois sempre que decidir trabalhar neste projeto você deverá repetir este passo.
 
-Digite o comando: `source .venv/bin/activate` em linux ou `.venv\Scripts\activate.bat` no windows.
+O comando para isto é: 
+
+=== "🖥️ Windows"
+
+    Volte ao `Windows PowerShell`. Agora digite `.venv\Scripts\activate`.
+
+=== "🐧🍎 Ubuntu/Mac"
+
+    Volte ao terminal e digite `source .venv/bin/activate`.
 
 Pronto, agora estamos preparados para instalar as bibliotecas que precisaremos.
 
@@ -123,21 +159,21 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install fastapi`.
+    Volte ao `Windows PowerShell` e digite o comando `pip install fastapi`.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install fastapi`.
+    Volte ao terminal e digite o comando `pip install fastapi`.
 
 **Vamos verificar se deu tudo certo?**
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
+    Volte ao `Windows PowerShell` e agora digite `python -c "import fastapi"`. Nenhum erro deve ocorrer.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal e digite `python -c "import fastapi"`. nenhum erro deve ocorrer.
+    Volte ao terminal e agora digite `python -c "import fastapi"`. Nenhum erro deve ocorrer.
 
 ### 🔗 Httpie
 
@@ -147,7 +183,7 @@ Possui funções que auxiliam operações como roteamento, tratamento de requisi
 
 **Para que serve?**
 
-Diversos momentos do curso, teremos de testar manualmente se nosso sistema está funcionando, ainda que possua testes automatizados.
+Em diversos momentos do curso, teremos de testar manualmente se nosso sistema está funcionando, ainda que possua testes automatizados.
 
 Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
@@ -155,21 +191,21 @@ Esta ferramenta ajuda a fazer estes testes de uma maneira mais simples.
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install httpie`.
+    Volte ao `Windows PowerShell` e digite o comando `pip install httpie`.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install httpie`.
+    Volte ao terminal e digite o comando `pip install httpie`.
 
 **Vamos verificar se deu tudo certo?**
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `http --version`.
+    Volte ao `Windows PowerShell` e agora digite o comando `http --version`.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal e digite `http --version`.
+    Volte ao terminal e agora digite o comando `http --version`.
 
 !!! warning
 
@@ -196,21 +232,21 @@ O uvicorn serve para rodar a nossa aplicação, tanto na nossa máquina quanto e
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto, ative o ambiente virtual e agora digite `pip install uvicorn`.
+    Volte ao `Windows PowerShell` e digite o comando `pip install uvicorn`.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal, navegue até a pasta do projeto, ative o ambiente virtual e por fim digite `pip install uvicorn`.
+    Volte ao terminal e digite o comando `pip install uvicorn`.
 
 **Vamos verificar se deu tudo certo?**
 
-=== "🖥️ Wnndows"
+=== "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Ative o ambiente virtual, Agora digite `uvicorn --help`.
+    Volte ao `Windows PowerShell` e agora digite o comando `uvicorn --help`.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal e digite `uvicorn --help`.
+    Volte ao terminal e agora digite o comando `uvicorn --help`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
@@ -292,21 +328,21 @@ Já dizia Michael C. Feathers, "Um código sem testes, é um código ruim. Não 
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Navegue ate o nosso projeto e agora digite `pip install pytest`.
+    Volte ao `Windows PowerShell` e digite o comando `pip install pytest`.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal, navegue até a pasta do projeto e por fim digite `pip install pytest`.
+    Volte ao terminal e digite o comando `pip install pytest`.
 
 **Vamos verificar se deu tudo certo?**
 
 === "🖥️ Windows"
 
-    Clique no botão iniciar, digite `cmd` e abra o programa `prompt de comandos`. Agora digite `pytest --version`.
+    Volte ao `Windows PowerShell` e agora digite o comando `pytest --version`.
 
 === "🐧🍎 Ubuntu/Mac"
 
-    Abra um terminal e digite `pytest --version`.
+    Volte ao terminal e agora digite o comando `pytest --version`.
 
 A saída para ambos os sistemas operacionais deverá ser similar a apresentada abaixo:
 
@@ -333,9 +369,15 @@ ModuleNotFoundError: No module named 'fastapi'
 
     Utilize `Ctrl + d` ou `exit()` para sair do python.
 
-Acontece que instalamos o FastAPI somente no ambiente virtual. Para entrarmos no ambiente virtual digite `source <venv>/bin/activate` ou `<venv>\Scripts\activate.bat`.
+Acontece que instalamos o FastAPI somente no ambiente virtual. Para entrarmos no ambiente virtual:
 
-Não esqueça de trocar o `<venv>` pelo nome do ambiente virtual criado. Por exemplo, se você seguiu esse tutorial, provavelmente você usou o nome `.venv`, então o comando será `source .venv/bin/activate` ou `.venv\Scripts\activate.bat`.
+=== "🖥️ Windows"
+
+    Volte ao `Windows PowerShell` e agora digite o comando `.venv\Scripts\activate`.
+
+=== "🐧🍎 Ubuntu/Mac"
+
+    Volte ao terminal e agora digite o comando `source <venv>/bin/activate`.
 
 ## Salvando o momento atual do nosso projeto
 
@@ -388,7 +430,7 @@ Quando formos colocar o site no ar, estes arquivos serão bem úteis.
 
 Instalado as dependências, vamos salvar uma primeira versão do nosso projeto com o nosso andamento?
 
-Primeiro passo é checar o que foi feito até agora:
+Volte ao seu terminal ou Windows PowerShell e o primeiro passo é checar o que foi feito até agora:
 
 ```bash
 $ git status
